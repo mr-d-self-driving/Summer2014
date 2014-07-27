@@ -1,0 +1,83 @@
+% $ biblatex auxiliary file $
+% $ biblatex version 1.4 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated as
+% required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+\entry{beard2012small}{book}{}
+  \name{author}{2}{}{%
+    {{}%
+     {Beard}{B.}%
+     {Randal~W}{R.~W.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {McLain}{M.}%
+     {Timothy~W}{T.~W.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {Princeton University Press}%
+  }
+  \strng{namehash}{BRWMTW1}
+  \strng{fullhash}{BRWMTW1}
+  \field{sortinit}{B}
+  \field{title}{Small unmanned aircraft: Theory and practice}
+  \field{year}{2012}
+\endentry
+
+\entry{leishman2014quadrotors}{article}{}
+  \name{author}{4}{}{%
+    {{}%
+     {Leishman}{L.}%
+     {R}{R}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Macdonald}{M.}%
+     {J}{J}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Beard}{B.}%
+     {R}{R}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {McLain}{M.}%
+     {T}{T}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {IEEE}%
+  }
+  \strng{namehash}{LR+1}
+  \strng{fullhash}{LRMJBRMT1}
+  \field{sortinit}{L}
+  \field{number}{1}
+  \field{pages}{28\bibrangedash 41}
+  \field{title}{Quadrotors and Accelerometers: State Estimation with an
+  Improved Dynamic Model}
+  \field{volume}{34}
+  \field{journaltitle}{Control Systems, IEEE}
+  \field{year}{2014}
+\endentry
+
+\lossort
+\endlossort
+
+\endinput

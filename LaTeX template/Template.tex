@@ -1,0 +1,60 @@
+\documentclass{article}
+\usepackage[backend=bibtex]{biblatex}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\bibliography{references} % the name of your .bib bibliography file, without the file extension
+
+% some helpful math commands I like to define
+\newcommand{\vect}[1]{\ensuremath{\mathbf{#1}}}
+\newcommand{\mat}[1]{\ensuremath{\mathbf{#1}}}
+\newcommand{\transpose}{\ensuremath{\mathsf{T}}}
+\newcommand{\of}[1]{\ensuremath{\left(#1\right)}}
+
+% document information
+\title{Status Update}
+\author{Your Name}
+\date{\today} % or put in a fixed date (e.g. 12 June 2014) if you want it to stay put
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+If you want an abstract, put it here. Otherwise delete this section including the \verb|\begin{abstract}| and \verb|\end{abstract}| tags.
+\end{abstract}
+
+\section{Research}
+
+An update on your personal research. You can cite articles like this \cite{leishman2014quadrotors} if you need to. Just make sure to put them in your bibliography file. If you want to include a reference in the bibliography without citing it, use the \verb|\nocite| command. \nocite{beard2012small} Notice that there are more entries in the \verb|references.bib| file than I cite. That's okay; \LaTeX{} sorts it all out for you.
+
+Start a new paragraph by inserting a blank line. You can do equations like this:
+\begin{equation}
+\dot{\vect{x}}\of{t} = \vect{f}\of{\vect{x}\of{t},\vect{u}\of{t},t} + \mat{G}\of{t} \vect{\xi}\of{t}
+\label{eq:model_xdot}
+\end{equation}
+\begin{equation}
+\vect{\tilde{y}}_k = \vect{h}_k\of{\vect{x}_k} + \vect{\eta}_k
+\label{eq:model_y}
+\end{equation}
+or put math inline with the text like $y = ax + b$. You can refer to equations like this: see Equation \eqref{eq:model_xdot}.
+
+Bulleted lists are done like this
+\begin{itemize}
+\item Item one
+\item Item two...
+\end{itemize}
+and numbered lists are done like this
+\begin{enumerate}
+\item apples
+\item bananas
+\item oranges
+\end{enumerate}
+
+\section{Pathfinder Project}
+
+An update on your work relating to the group project.
+
+\printbibliography
+
+\end{document}

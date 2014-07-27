@@ -1,0 +1,5 @@
+PERFORMANCE COUNTERS PRE-FLIGHT
+
+eeprom_errs: 0 events
+eeprom_rst: 0 events
+eeprom_trans: 49 events, 43303us elapsed, 883 avg, min 311us max 914us

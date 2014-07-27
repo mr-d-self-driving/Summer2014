@@ -1,0 +1,26 @@
+PERFORMANCE COUNTERS PRE-FLIGHT
+
+mavlink: 126015 events, 4904908us elapsed, 38 avg, min 15us max 5917us
+navigator: 4234 events, 39350us elapsed, 9 avg, min 5us max 338us
+mc_att_control: 107562 events, 11296675us elapsed, 105 avg, min 23us max 476us
+attitude_estimator_ekf: 107567 events, 80972026us elapsed, 752 avg, min 588us max 1182us
+sensor task update: 107600 events, 9878556us elapsed, 91 avg, min 44us max 3673us
+l3gd20_errors: 0 events
+l3gd20_reschedules: 0 events
+l3gd20_read: 328092 events, 12138774us elapsed, 36 avg, min 36us max 48us
+mpu6000_bad_transfers: 0 events
+mpu6000_read: 431483 events, 29948793us elapsed, 69 avg, min 66us max 231us
+mpu6000_gyro_read: 0 events
+mpu6000_accel_read: 1 events
+hmc5883_buffer_overflows: 36967 events
+hmc5883_comms_errors: 0 events
+hmc5883_read: 36970 events, 14254619us elapsed, 385 avg, min 304us max 5660us
+adc_samples: 215760 events, 651723us elapsed, 3 avg, min 2us max 4us
+ms5611_buffer_overflows: 24448 events
+ms5611_comms_errors: 31 events
+ms5611_measure: 32697 events, 8371202us elapsed, 256 avg, min 126us max 12154us
+ms5611_read: 32682 events, 14610666us elapsed, 447 avg, min 229us max 6068us
+mavlink: 37208 events, 5360389us elapsed, 144 avg, min 22us max 4058us
+eeprom_errs: 0 events
+eeprom_rst: 494 events
+eeprom_trans: 4327 events, 3041658us elapsed, 702 avg, min 90us max 34786us

@@ -1,0 +1,74 @@
+% $ biblatex auxiliary file $
+% $ biblatex version 1.4 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated as
+% required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+\entry{juang1994}{book}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Juan}{J.}%
+     {Jer}{J.}%
+     {nan}{n.}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {PTR Prentice Hall}%
+  }
+  \strng{namehash}{JJn1}
+  \strng{fullhash}{JJn1}
+  \field{sortinit}{J}
+  \field{title}{Applied System Identification}
+  \field{year}{1994}
+\endentry
+
+\entry{macdonald2014}{article}{}
+  \name{author}{4}{}{%
+    {{}%
+     {Macdonald}{M.}%
+     {John}{J.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Leishman}{L.}%
+     {Robert}{R.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Beard}{B.}%
+     {Randal}{R.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {McClain}{M.}%
+     {Timothy}{T.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{MJ+1}
+  \strng{fullhash}{MJLRBRMT1}
+  \field{sortinit}{M}
+  \field{pages}{1049\bibrangedash 1061}
+  \field{title}{Analysis of an Improved IMU-Based Observer for Multirotor
+  Helicopters}
+  \field{volume}{74}
+  \field{journaltitle}{Journal of Intelligent Robot Systems}
+  \field{year}{2014}
+\endentry
+
+\lossort
+\endlossort
+
+\endinput

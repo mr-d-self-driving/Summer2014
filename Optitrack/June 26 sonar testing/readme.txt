@@ -1,0 +1,1 @@
+just verifying that sonar reads values dutring flight

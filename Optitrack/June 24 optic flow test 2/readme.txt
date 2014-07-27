@@ -1,0 +1,1 @@
+I re-focued the flow sensor for this flight and optic flow test 3, and it broke the system! yay

@@ -1,0 +1,6 @@
+PERFORMANCE COUNTERS PRE-FLIGHT
+
+mavlink: 335 events, 6837us elapsed, 20 avg, min 15us max 189us
+eeprom_errs: 0 events
+eeprom_rst: 0 events
+eeprom_trans: 49 events, 43300us elapsed, 883 avg, min 295us max 928us

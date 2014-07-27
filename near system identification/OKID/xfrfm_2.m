@@ -1,0 +1,10 @@
+A=[0.9856 0.1628; -0.1628 0.9856]
+B=[0.0011 0.0134]'
+C=[1.5119 0]
+D=0.05
+np=200;
+dt=1/(.025*np);
+f=logspace(-1,1,np);
+w=f*2*pi;
+Gz=freqresp(A,B,C,D,1,exp(sqrt(-1)*w*dt));
+[Gz_id]=frfm(A,B,C,D,Gz,f,dt,np,1);

@@ -1,0 +1,13 @@
+Slope of axis 1 optic flow residuals in tind: 21 deg
+Slope of axis 2 optic flow residuals in tind: 32.9 deg
+Mean residuals in tind: 0.047,-0.028 m/s
+Std of residuals in tind: 1.1,1.1 m/s
+Mean abs flow-plane velocity in tind: 0.41,0.46 m/s
+Mean altitude in tind: 1.9 m
+Minimum flow quality in tind: 215
+Slope of axis 1 optic flow residuals overall w/ good flow Q: 27.3 deg
+Slope of axis 2 optic flow residuals overall w/ good flow Q: 37.7 deg
+Mean residuals overall: 0.025,0.0051 m/s
+Std of residuals overall: 1.1,1.1 m/s
+Mean abs flow velocity overall: 0.5,0.56 m/s
+Mean altitude overall: 1.6 m
