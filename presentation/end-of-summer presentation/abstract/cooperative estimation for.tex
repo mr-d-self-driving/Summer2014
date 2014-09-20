@@ -1,0 +1,48 @@
+\documentclass{aiaa-tc}
+
+%\usepackage[margin=1.0in]{geometry}
+\usepackage{fullpage}
+\usepackage{graphicx}
+\usepackage{bm} %required for bold in math mode for greek symbols
+\usepackage{amsmath} %for bmatrix
+\usepackage{amsfonts} %for math script font
+\usepackage{url} %for website citations
+
+\usepackage[space]{grffile} %for filepaths with spaces
+
+%define degree symbol:
+\newcommand{\degree}{\ensuremath{^\circ}}
+
+\newcommand{\fr}[1]{$#1^+$} %command to write a reference frame
+\newcommand{\br}[2]{[#1]_{#2}} %bracket operator with subscript
+\newcommand{\tvect}[3]{\begin{bmatrix}#1\\#2\\#3\end{bmatrix}}% 3 x 1 vector
+\newcommand{\tvecth}[3]{\begin{bmatrix}#1&#2&#3\end{bmatrix}}% 1 x 3 vector
+\newcommand{\B}[1]{\textbf{#1}} %bold for regular vectors
+\newcommand{\U}[1]{\hat{\textbf{#1}}} %hats and bold for unit vectors
+\newcommand{\BG}[1]{{\bm #1}}           % for vectors using greek letters
+\newcommand{\ddt}[1]{\frac{d#1}{dt}} %for time derivatives
+\newcommand{\ddarg}[2]{\frac{d#1}{d#2}} % for general derivatives
+\newcommand{\pparg}[2]{\frac{\partial#1}{\partial#2}} % for general derivatives
+\newcommand{\kron}{\otimes} %redefines \kron to produce kronecker product symbol, for convenience
+
+\title{Cooperative estimation for feature-based SLAM}
+\author{Tim Woodbury}
+
+\let\endtitlepage\relax %surpress line break after title page
+
+% abstract
+%	SLAM problem
+%	cooperative problem
+%		motivation
+%		problem formulation & approach
+%		results
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+In simultaneous localization and mapping, a vehicular agent creates a map of perceived landmarks in its environment while estimating its own position relative to said landmarks. In the current research, two agents operate in a purely planar workspace. The agents share landmark measurements to improve estimation accuracy. Sharing is effected by equipping each vehicle with sensors that measure the relative range and bearing to other agents. The preliminary results presented consider only the localization problem, in which landmarks are sensed but have \textit{a priori} known locations. Each agent constructs an Extended Kalman Filter of its own position and translational velocity, and uses a nonlinear measurement model to incorporate landmark measurements made by itself and by the other agent. Estimation effectiveness is considered in Monte Carlo simulations. Two scenarios are considered; one in which landmark range and bearing is sensed, and one in which landmark bearings only are measured. Interagent measurements are available in both cases, and the performance of agents with and without measurement sharing is contrasted. Simulations are conducted at varying sensor variance levels and with varying numbers of features to gain insight into when this cooperative estimation scheme offers greatest benefits. All simulations consider two agents only; however, the architecture presented does not require the estimation of any additional states, and the only computational burden added by cooperation is a larger measurement vector. This architecture should be extensible to larger teams of agents, limited only by interagent communication bandwidth and relative agent sensing quality.
+\end{abstract}
+
+\end{document}

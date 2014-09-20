@@ -1,0 +1,2 @@
+m0	mi	mj	I0	Ii	Ij	li	lj	raix	raiy	rajx	rajy
+5	1	1	1	0.125	0.125	1	1	0.0	0.5	0.0	-0.5

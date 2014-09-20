@@ -1,0 +1,257 @@
+\documentclass{aiaa-tc}
+
+\usepackage{fullpage}
+\usepackage{graphicx}
+\usepackage{bm} %required for bold in math mode for greek symbols
+\usepackage{amsmath} %for bmatrix
+\usepackage{amsfonts} %for math script font
+\usepackage{url} %for website citations
+
+\usepackage[space]{grffile} %for filepaths with spaces
+
+\setcounter{MaxMatrixCols}{15} % for bigger bmatrices
+
+%define degree symbol:
+\newcommand{\degree}{\ensuremath{^\circ}}
+
+\newcommand{\fr}[1]{$#1^+$} %command to write a reference frame
+\newcommand{\br}[2]{[#1]_{#2}} %bracket operator with subscript
+\newcommand{\tvect}[3]{\begin{bmatrix}#1\\#2\\#3\end{bmatrix}}% 3 x 1 vector
+\newcommand{\tvecth}[3]{\begin{bmatrix}#1&#2&#3\end{bmatrix}}% 1 x 3 vector
+\newcommand{\B}[1]{\textbf{#1}} %bold for regular vectors
+\newcommand{\U}[1]{\hat{\textbf{#1}}} %hats and bold for unit vectors
+\newcommand{\BG}[1]{{\bm #1}}           % for vectors using greek letters
+\newcommand{\ddt}[1]{\frac{d#1}{dt}} %for time derivatives
+\newcommand{\ddarg}[2]{\frac{d#1}{d#2}} % for general derivatives
+\newcommand{\kron}{\otimes} %redefines \kron to produce kronecker product symbol, for convenience
+
+\title{Summary of 2D cooperative estimation \\ \large{Agent-centric coordinates with feature range and bearing}}
+\author{Tim Woodbury}
+
+\let\endtitlepage\relax %surpress line break after title page
+
+\begin{document}
+
+\maketitle
+
+\section{Problem formulation}
+
+To simplify the problem measurement model, the problem is posed a body-fixed coordinate frame. An inertial vector to agent $i$ is labelled $\B{r}_i$, and the vector from agent $i$ to feature $k$ is $\B{r}_{ki}$. When feature coordinates are known, they are assumed to be given in an inertial reference frame. In the unknown feature case, the agent's task is to estimate the relative position vector $\B{r}_{ki}$; since an inertial reference frame may not necessarily be defined, it is convenient to use the body reference frame for all coordinatizations.
+
+In the known feature case, the agent's task is to estimate its own position vector $\B{r}_i$, its own inertial velocity $\B{v}_i$, and its heading angle $\psi$. It is preferred to coordinatize the states in a rectangular coordinate system rather than a polar system to simplify the propagation model for the system states. It is simple to write propagation models for the time rate of change of these states in the body frame.
+
+\begin{align}
+\B{r}_i \equiv \begin{bmatrix}
+r_{ix} &
+r_{iy}
+\end{bmatrix}^T\\
+\B{v}_i \equiv \begin{bmatrix} 
+u & v
+\end{bmatrix}^T\\
+\B{a}_i \equiv \begin{bmatrix}
+a_1 & a_2
+\end{bmatrix}^T\\
+\ddt{\begin{bmatrix} r_{ix} \\ r_{iy}
+\end{bmatrix}} = \begin{bmatrix}
+u + \omega r_{iy} \\
+v - \omega r_{ix}
+\end{bmatrix} \\
+\ddt{\begin{bmatrix} u \\ v
+\end{bmatrix}} = \begin{bmatrix}
+a_1 + \omega v \\
+a_2 - \omega u
+\end{bmatrix} \\
+\dot{\psi} = \omega
+\end{align}
+
+The body-frame relative position vector $\B{r}_{ki}$ can be written in terms of the known inertial coordinates of the landmark $\br{\B{r}_k}{n}$:
+
+\begin{align}
+\br{\B{r}_{ki}}{b} = [C_{b/n}]\br{\B{r}_{k}}{n}-\br{\B{r}_i}{b} \\
+[C_{b/n}] = \begin{bmatrix}
+\cos{\psi} & \sin{\psi} \\
+-\sin{\psi} & \cos{\psi}
+\end{bmatrix} \\
+\br{\B{r}_i}{b} = \begin{bmatrix}
+r_{ix}\\
+r_{iy}
+\end{bmatrix}
+\end{align}
+
+We turn to the measurement model for the agent's own measurements. The expectation of landmark range measurements in terms of the estimated states is simply
+
+\begin{equation}
+\hat{\rho}_{ki} = \| [\hat{C}_{b/n}]\br{\B{r}_{k}}{n}-\br{\hat{\B{r}}_i}{b} \|
+\label{eq:rhoki}
+\end{equation}
+
+The expectation of the bearing measurements is
+
+\begin{equation}
+\hat{\theta}_{ki} = \arctan{\frac{ \begin{bmatrix}
+-\sin{\psi} & \cos{\psi}
+\end{bmatrix}\br{\B{r}_{k}}{n} - \hat{r}_{iy} }{ \begin{bmatrix}
+\cos{\psi} & \sin{\psi}
+\end{bmatrix}\br{\B{r}_{k}}{n} - \hat{r}_{ix} }}
+\label{eq:thetaki}
+\end{equation}
+
+\subsection{Interagent dynamics}
+
+Brief attention is drawn to the interagent dynamics to highlight one of the core challenges of this cooperative estimation problem. Defining the position vector of agents $i$ and $j$ as $\B{r}_i$ and $\B{r}_j$, the relative position vector is simply:
+
+\begin{equation}
+\B{r}_{ji} = \B{r}_j - \B{r}_i
+\end{equation}
+
+The time rate of change of the relative position vector in agent $i$'s frame, denoted as frame $b^{i+}$, is:
+
+\begin{equation}
+{}^{b^i} \ddarg{\B{r}_{ji}}{t} = \B{v}_j-\B{v}_i-\BG{\omega}_{b^i/n} \times \B{r}_{ji}
+\end{equation}
+
+Ideally, agent $i$ would estimate the position of agent $j$ using relative interagent measurements to update that estimate. Using its onboard sensors, $i$ can estimate its own translational and angular velocity, but cannot propagate the estimated interagent position vector $\B{r}_{ji}$ without knowledge of agent $j$'s velocity. In the case where the agents share IMU data, the velocity $\B{v}_j$ can be estimated and $\B{r}_{ji}$ can be propagated; otherwise, some sort of batch estimation of the time rate of $\B{r}_{ji}$ can be achieved and used to compute the effective velocity of agent $j$. In the strict case where only sequential estimates are performed without sharing IMU data, $\B{r}_{ji}$ cannot be well estimated. The next section addresses the treatment of shared measurements in the latter case.
+
+\subsection{Treatment of cooperative agent measurements without IMU sharing}
+
+Measurements made by agent $j$ of feature $k$ are provided to agent $i$ and utilized to improve $i$'s state estimate. It is desired to write the measurement expectation in terms of estimated states only, for simplicity; therefore, we treat the measured states as $\rho_{ki}$ and $\theta_{ki}$, and can write the expectation of these measurements in the same fashion as Eqs. \ref{eq:rhoki} and \ref{eq:thetaki}.
+
+For the case of planar motion, trigonometric relationships are used to derive equations relating the measured states, $\tilde{\rho}_{ji}$, $\tilde{\theta}_{ji}$, $\tilde{\rho}_{kj}$, and $\tilde{\theta}_{kj}$. Defining angle $\beta =\theta_{ij}-\theta_{kj}$. $\rho_{ki}$ can be found in terms of a trigonometric relationship:
+
+\begin{equation}
+\rho_{ki}^2 = \rho_{ji}^2+\rho_{kj}^2 - 2\rho_{kj}\rho_{ji}\cos{\beta}
+\label{eq:lawCos}
+\end{equation}
+
+Another relationship yields a solution for $\theta_{ki}$:
+
+\begin{align}
+\theta_{ki} = \pi + \theta_{ji} - \theta_{ij} +\theta_{kj} - \arctan{ \frac{\rho_{ji}\sin{\beta}/\rho_{ki}}{\rho_{ji}^2-\rho_{ki}^2-\rho_{kj}^2 /(-2\rho_{kj}\rho_{ki})} }
+\label{eq:gammaEq}
+\end{align}
+
+When agents measure both range and bearing to landmarks, Eqs. \ref{eq:lawCos} and \ref{eq:gammaEq} are nonlinear functions of the feature and inter-agent measurements and the estimated agent headings. The effective measurements for the cooperative case are nonlinear functions of $\rho_{ji}$, $\theta_{ji}$, $\theta_{ij}$, $\rho_{kj}$, and $\theta_{kj}$. It is assumed that agent $j$ provides its bearing measurement of agent $i$, $\theta_{ij}$, and that the agents have equal bearing variance.
+
+Both Eqs. \ref{eq:lawCos} and \ref{eq:gammaEq} depend on the measured range and bearing of feature $k$ from agent $j$. When feature ranges are not measured, an additional challenge is introduced. For now, both range and bearing are assumed available.
+
+\subsubsection{Feature range and bearing measured}
+
+When both range and bearing are measured, then the desired output equations are nonlinear functions of the four measured states (two ranges and two bearings) and the estimated headings. The computed measurement $\tilde{\B{y}}$ and its expectation are readily determined. To estimate the effective measurement covariance, the method of statistical linearization employed in unscented Kalman filtering is implemented. For the output vector $\B{y} = f(\B{x}), \ \B{x} \ \in \mathit{R}^n, \ \B{x} \sim N(0,P_x)$, $2n+1$ sigma vectors $\BG{\sigma}_i$ are computed as
+
+\begin{align}
+\BG{\sigma}_0 = \B{x} \\
+\BG{\sigma}_i = \B{x} + \gamma \sqrt{P_x}, \ i = 1,\dots,n \\
+\BG{\sigma}_i = \B{x} - \gamma \sqrt{P_x},\ i = n+1,\dots,2n
+\end{align}
+
+$\sqrt{P_x}$ is the $i$th column of the matrix square root. Outputs corresponding to each sigma vector $\B{y}_i = f(\BG{\sigma}_i)$ are computed, and the mean and covariance are given by:
+
+\begin{align}
+\bar{\B{y}} = \sum_{i=0}^{2n} W_i^{(m)} \B{y}_i \\
+P_y = \sum_{i=0}^{2n} W_i^{(c)} (\B{y}_i-\bar{\B{y}})(\B{y}_i-\bar{\B{y}})^T
+\end{align}
+
+The weights and scaling factors are defined as:
+
+\begin{align}
+\gamma = \sqrt{n+\lambda} \\
+\lambda = \alpha^2 (n+k_f)-n \\
+W_0^{(m)} = \lambda/(n+\lambda) \\
+W_0^{(c)} = \lambda/(n+\lambda) + (1-\alpha^2 + \beta)  \\
+W_i^{(m)} = W_i^{(c)} = 1/(2(n+\lambda)), i > 0
+\end{align}
+
+Here, $\alpha$ = .01 is used. $\beta = 2$ and $k_f=0$ are given as conventional values for estimation with Gaussian-distributed $\B{x}$.\cite{gyorgy2014}
+
+$P_x$ is populated using the known sensor errors for the interagent and feature range/bearing, and using the estimate covariance for $\psi_i$ and $\psi_j$. The matrix is diagonal in this formulation.
+
+\subsubsection{Additionally}
+
+The measurement gradients are computed in MATLAB using symbolic variables, and the resulting expressions are used in the EKF. For speed, the EKF is implemented as fully discrete, using a first-order difference approximation for the derivative of each state.
+
+\section{Simulation results}
+
+Two sets of batch simulations are conducted. In the first, the effect of using shared measurements is contrasted with taking additional feature measurements. Performance is compared as sensor uncertainty is decreased. In the second set, a larger set of agents with a sparse set of known features is considered.
+
+\subsection{Shared versus additional measurements}
+
+To validate results, the case of two agents sharing feature measurements is compared against one agent observing twice as many features. 100 Monte Carlo simulations of 100 seconds each are performed. Two scenarios with different sensor variance levels are considered. In the first, both feature and interagent range have variance $1$, and feature and interagent bearing measurements have variance $0.01$. Performance is presented in terms of the estimate standard errors $S$ and mean squared errors $MSE$. Results for the first case are presented in Table \ref{tab:case1}.
+
+In the second scenario, range variance is reduced to $0.1$ and bearing variance to $.0001$. Results for this case are in Table \ref{tab:case2}. As would be expected, the single agent with more features outperforms the sharing agents. However, in the case with the lower sensor variance, the accuracy between the two cases is more similar, and it appears that the multi-agent case is converging to the single agent case in the limit as sensor uncertainty is zero.
+
+\begin{table}[tb!]
+\scriptsize
+\centering
+\begin{tabular}{c|c|c|c|c|c|c|c|c|c|c|c|}
+Case & Agent & $S(\epsilon_{rix})$ & $S(\epsilon_{riy})$ & $S(\epsilon_{u})$ & $S(\epsilon_{v})$ & $S(\epsilon_{\psi})$ & $MSE(r_{ix})$ & $MSE(r_{iy})$ & $MSE(u)$ & $MSE(v)$ & $MSE(\psi)$ \\
+Individual & 1& 0.794& 0.681& 0.183& 0.181& 0.0266& 0.644& 0.498& 0.0365& 0.0327& 0.000796 \\
+Cooperative & 1& 0.967& 0.819& 0.201& 0.192& 0.035& 0.952& 0.739& 0.0445& 0.0371& 0.00123 \\
+\end{tabular}
+\caption{Sharing versus additional measurements with larger sensor variance.}
+\label{tab:case1}
+\end{table}
+
+\begin{table}[tb!]
+\scriptsize
+\centering
+\begin{tabular}{c|c|c|c|c|c|c|c|c|c|c|c|}
+Case & Agent & $S(\epsilon_{rix})$ & $S(\epsilon_{riy})$ & $S(\epsilon_{u})$ & $S(\epsilon_{v})$ & $S(\epsilon_{\psi})$ & $MSE(r_{ix})$ & $MSE(r_{iy})$ & $MSE(u)$ & $MSE(v)$ & $MSE(\psi)$ \\
+Individual & 1& 0.488& 0.456& 0.191& 0.154& 0.0144& 0.238& 0.209& 0.0363& 0.0239& 0.000207 \\
+Cooperative & 1& 0.528& 0.478& 0.167& 0.149& 0.0162& 0.279& 0.231& 0.028& 0.0226& 0.000261 \\
+\end{tabular}
+\caption{Sharing versus additional measurements with smaller sensor variance.}
+\label{tab:case2}
+\end{table}
+
+\subsection{Six agents, one features}
+
+In the second set of Monte Carlo simulations half a dozen agents with only one visible feature are considered. Performance is compared with range variances all of $1$ (Table \ref{tab:6x1}) and all of $10$ (Table \ref{tab:6x1_worse_var}). There is no obvious benefit of sharing at range variances of $10$, so this appears to be the upper limit at which feature measurements are usable, unless many more features are present.
+
+\begin{table}[tb!]
+\scriptsize
+\centering
+\begin{tabular}{c|c|c|c|c|c|c|c|c|c|c|c|}
+Case & Agent & $S(\epsilon_{rix})$ & $S(\epsilon_{riy})$ & $S(\epsilon_{u})$ & $S(\epsilon_{v})$ & $S(\epsilon_{\psi})$ & $MSE(r_{ix})$ & $MSE(r_{iy})$ & $MSE(u)$ & $MSE(v)$ & $MSE(\psi)$ \\
+Individual & 1& 2.9& 3& 0.305& 0.307& 0.602& 8.42& 9.02& 0.0933& 0.0942& 0.378 \\
+Cooperative & 1& 1.13& 1.07& 0.213& 0.217& 0.0841& 1.27& 1.16& 0.0453& 0.0472& 0.0185 \\
+Individual & 2& 2.24& 2.25& 0.292& 0.293& 0.205& 5.03& 5.09& 0.0852& 0.086& 0.109 \\
+Cooperative & 2& 0.88& 0.806& 0.211& 0.202& 0.11& 0.783& 0.665& 0.0448& 0.0412& 0.0122 \\
+Individual & 3& 1.98& 1.88& 0.281& 0.278& 0.11& 3.9& 3.63& 0.0792& 0.0788& 0.0242 \\
+Cooperative & 3& 0.83& 0.739& 0.222& 0.21& 0.119& 0.698& 0.546& 0.0499& 0.0443& 0.0156 \\
+Individual & 4& 1.73& 1.69& 0.277& 0.272& 0.0968& 2.98& 2.91& 0.0768& 0.0746& 0.0239 \\
+Cooperative & 4& 0.857& 0.829& 0.217& 0.212& 0.118& 0.737& 0.691& 0.0472& 0.0455& 0.0139 \\
+Individual & 5& 6.32& 6.13& 0.462& 0.46& 0.124& 40& 37.6& 0.215& 0.211& 0.0228 \\
+Cooperative & 5& 0.953& 1.15& 0.3& 0.325& 0.119& 0.915& 1.37& 0.0903& 0.107& 0.0336 \\
+Individual & 6& 2.15& 2.07& 0.293& 0.293& 0.112& 4.7& 4.3& 0.0864& 0.0862& 0.0274 \\
+Cooperative & 6& 0.763& 0.792& 0.196& 0.202& 0.0977& 0.593& 0.629& 0.0384& 0.0407& 0.0102 \\
+\end{tabular}
+\caption{Sharing versus additional measurements with range variance of $1$.}
+\label{tab:6x1}
+\end{table}
+
+\begin{table}[tb!]
+\scriptsize
+\centering
+\begin{tabular}{c|c|c|c|c|c|c|c|c|c|c|c|}
+Case & Agent & $S(\epsilon_{rix})$ & $S(\epsilon_{riy})$ & $S(\epsilon_{u})$ & $S(\epsilon_{v})$ & $S(\epsilon_{\psi})$ & $MSE(r_{ix})$ & $MSE(r_{iy})$ & $MSE(u)$ & $MSE(v)$ & $MSE(\psi)$ \\
+Individual & 1& 3.42& 3.61& 0.317& 0.324& 0.25& 11.7& 13.1& 0.101& 0.106& 0.0765 \\
+Cooperative & 1& 3.78& 3.81& 0.369& 0.371& 0.379& 14.3& 14.7& 0.138& 0.14& 0.61 \\
+Individual & 2& 2.91& 3.03& 0.317& 0.322& 0.148& 8.51& 9.23& 0.101& 0.105& 0.0427 \\
+Cooperative & 2& 3.1& 3.25& 0.379& 0.379& 0.233& 9.59& 11& 0.144& 0.148& 0.0788 \\
+Individual & 3& 2.39& 2.39& 0.309& 0.313& 0.168& 5.75& 5.71& 0.0954& 0.0982& 0.0711 \\
+Cooperative & 3& 2.32& 2.35& 0.325& 0.327& 0.243& 5.41& 5.53& 0.105& 0.107& 0.0602 \\
+Individual & 4& 2.48& 2.36& 0.298& 0.293& 0.159& 6.22& 5.65& 0.0887& 0.0869& 0.0324 \\
+Cooperative & 4& 2.72& 2.7& 0.336& 0.339& 0.169& 7.41& 7.44& 0.113& 0.117& 0.0516 \\
+Individual & 5& 4.42& 4.43& 0.405& 0.398& 0.144& 19.6& 19.9& 0.164& 0.16& 0.0214 \\
+Cooperative & 5& 2.02& 2.04& 0.351& 0.362& 0.186& 4.09& 4.15& 0.124& 0.131& 0.0577 \\
+Individual & 6& 3.02& 2.93& 0.323& 0.319& 0.111& 9.23& 8.75& 0.104& 0.103& 0.0269 \\
+Cooperative & 6& 3.17& 2.98& 0.38& 0.381& 0.237& 10.6& 8.91& 0.15& 0.146& 0.0591 \\
+\end{tabular}
+\caption{Sharing versus additional measurements with range variance of $10$.}
+\label{tab:6x1_worse_var}
+\end{table}
+
+\bibliography{../../references}
+\bibliographystyle{aiaa}
+
+\end{document}

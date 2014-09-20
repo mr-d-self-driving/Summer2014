@@ -18,7 +18,8 @@ R1_pi = [1,0,0;
    0,0,-1];
 
 %north-east-down inertial frame position components
-xyz = [xyzros(:,1) -xyzros(:,2) -xyzros(:,3)];
+%xyz = [xyzros(:,1) -xyzros(:,2) -xyzros(:,3)];
+xyz = xyzros*R1_pi';
 
 %inertial frame 
 quat = zeros(size(quatros));

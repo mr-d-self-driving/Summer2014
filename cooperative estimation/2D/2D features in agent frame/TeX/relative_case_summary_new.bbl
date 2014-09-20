@@ -1,0 +1,9 @@
+\begin{thebibliography}{1}
+\newcommand{\enquote}[1]{``#1''}
+
+\bibitem{gyorgy2014}
+Gyorgy, K., Kelemen, A., and David, L., \enquote{Unscented Kalman filters and
+  Particle Filter methods for nonlinear state estimation,} No.~7 in
+  International Conference Interdisciplinarity in Engineering, 2014.
+
+\end{thebibliography}

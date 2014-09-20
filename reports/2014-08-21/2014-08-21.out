@@ -1,0 +1,9 @@
+\BOOKMARK [1][-]{section.1}{Introduction}{}% 1
+\BOOKMARK [1][-]{section.2}{University research}{}% 2
+\BOOKMARK [1][-]{section.3}{REEF work}{}% 3
+\BOOKMARK [2][-]{subsection.3.1}{Optitrack data}{section.3}% 4
+\BOOKMARK [2][-]{subsection.3.2}{Drag coefficient}{section.3}% 5
+\BOOKMARK [2][-]{subsection.3.3}{Sensor characterization and estimator testing}{section.3}% 6
+\BOOKMARK [3][-]{subsubsection.3.3.1}{IMU variance}{subsection.3.3}% 7
+\BOOKMARK [3][-]{subsubsection.3.3.2}{Optic flow sensor and sonar rangefinder}{subsection.3.3}% 8
+\BOOKMARK [3][-]{subsubsection.3.3.3}{Estimator testing}{subsection.3.3}% 9

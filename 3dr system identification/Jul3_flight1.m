@@ -1,4 +1,4 @@
-%% Jul2_flight1
+%% Jul3_flight1
 % get optitrack data, flew back and forth some
 
 clear variables;
