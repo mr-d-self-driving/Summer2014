@@ -1,7 +1,7 @@
 clear variables;
 close all;
 
-addpath('..\2D');
+addpath('../2D');
 
 % constants for feature initialization:
 RHO0 = 0.5;
@@ -22,14 +22,14 @@ for KK = 1:MONTE
     xk(2) = struct('xk',zeros(length(t)*2+1,12),'Pk',zeros(length(t)*2+1,144));
     xk(1) = struct('xk',zeros(length(t)*2+1,12),'Pk',zeros(length(t)*2+1,144));
     %xk: r1 psi1 r2 psi2 rt psit
-    xk(1).xk(1,1:3) = Y(1,1:3);% my initial postion and heading
+    xk(1).xk(1,1:3) = (rand(1,3)+0.5).*Y(1,1:3);% my initial postion and heading
     xk(1).xk(1,4:5) = xk(1).xk(1,1:2);% anchor pt for other agent
     xk(1).xk(1,6:7) = [RHO0;b1(1,1)];% inverse range/ bearing to other agent
     xk(1).xk(1,8) = (rand+0.5)*Y(1,9);% heading for other agent
     xk(1).xk(1,9:10) = xk(1).xk(1,1:2);% anchor pt for target agent
     xk(1).xk(1,11:12) = [RHO0;b1(1,2)];% inverse range/ bearing to target
     
-    xk(2).xk(1,1:3) = Y(1,7:9);
+    xk(2).xk(1,1:3) = (rand(1,3)+0.5).*Y(1,7:9);
     xk(2).xk(1,4:5) = xk(2).xk(1,1:2);% anchor pt for other agent
     xk(2).xk(1,6:7) = [RHO0;b2(1,1)];% inverse range/ bearing to other agent
     xk(2).xk(1,8) = (rand+0.5)*Y(1,3);% heading for other agent
@@ -139,14 +139,14 @@ for KK = 1:MONTE
     xk(2) = struct('xk',zeros(length(t)*2+1,12),'Pk',zeros(length(t)*2+1,144));
     xk(1) = struct('xk',zeros(length(t)*2+1,12),'Pk',zeros(length(t)*2+1,144));
     %xk: r1 psi1 r2 psi2 rt psit
-    xk(1).xk(1,1:3) = Y(1,1:3);% my initial postion and heading
+    xk(1).xk(1,1:3) = (rand(1,3)+0.5).*Y(1,1:3);% my initial postion and heading
     xk(1).xk(1,4:5) = xk(1).xk(1,1:2);% anchor pt for other agent
     xk(1).xk(1,6:7) = [RHO0;b1(1,1)];% inverse range/ bearing to other agent
     xk(1).xk(1,8) = (rand+0.5)*Y(1,9);% heading for other agent
     xk(1).xk(1,9:10) = xk(1).xk(1,1:2);% anchor pt for target agent
     xk(1).xk(1,11:12) = [RHO0;b1(1,2)];% inverse range/ bearing to target
     
-    xk(2).xk(1,1:3) = Y(1,7:9);
+    xk(2).xk(1,1:3) = (rand(1,3)+0.5).*Y(1,7:9);
     xk(2).xk(1,4:5) = xk(2).xk(1,1:2);% anchor pt for other agent
     xk(2).xk(1,6:7) = [RHO0;b2(1,1)];% inverse range/ bearing to other agent
     xk(2).xk(1,8) = (rand+0.5)*Y(1,3);% heading for other agent

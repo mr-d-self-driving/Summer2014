@@ -1,6 +1,6 @@
 % gen_noise
 
-addpath('..\2D');
+addpath('../2D');
 
 load data.mat;
 
@@ -10,7 +10,9 @@ sigma_gps = (.1)^2;%metres
 
 Ts = 0.1;
 
-TRUTH = 0;
+if ~exist('TRUTH','var')
+    TRUTH = 0;
+end
 
 % odometry matrix
 w = zeros(length(T),2);

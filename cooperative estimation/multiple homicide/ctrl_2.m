@@ -4,7 +4,7 @@ function [u,v,w] = ctrl_2(t,y)
 %w: r2_ref
 % y: [rx ry psi_1 rx ry psi_t rx ry psi_2 v2]
 
-addpath('..\2D');
+addpath('../2D');
 
 persistent l1 l2;
 persistent ref_last;
