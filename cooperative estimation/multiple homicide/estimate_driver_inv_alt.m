@@ -44,13 +44,13 @@ for i = 1:2
     Puse(5,5) = sigma_bear;
     Puse(8,8) = sigma_bear;
     
-    Puse = Puse + 1e-4*ones(8);
+    Puse = Puse + 1e-6*ones(8);
     
     xk(i).Pk(1,:) = reshape(Puse,[],1)';
 end
 
 %% loop over time
-sigma_psidot = (Ts/3)^2;%0.1;
+sigma_psidot = 1.0;
 sigma_rt = (10*Ts/3)^2;% sigma in target position during propagation
 
 Qk = diag([sigma_w sigma_w sigma_psidot sigma_rt sigma_rt]);
@@ -70,14 +70,14 @@ for i = 1:length(t)
             end
             
             [yexp,Hk] = get_exp_inv_alt(xhat);
-            %check derivative numerically
-            Hnot = zeros(4,length(xhat));
-            for k = 1:length(xhat)
-                xnot = xhat;
-                xnot(k) = xhat(k) + 1e-10;
-                ynot = get_exp_inv_alt(xnot);
-                Hnot(:,k) = (ynot-yexp).*1e10;
-            end
+%             %check derivative numerically
+%             Hnot = zeros(4,length(xhat));
+%             for k = 1:length(xhat)
+%                 xnot = xhat;
+%                 xnot(k) = xhat(k) + 1e-10;
+%                 ynot = get_exp_inv_alt(xnot);
+%                 Hnot(:,k) = (ynot-yexp).*1e10;
+%             end
             
             yexp(1:4) = minangle(yexp(1:4),ytilde(1:4));
             % compute Kalman gain
@@ -132,7 +132,19 @@ for i = 1:length(t)
                 wk = w(i,[2 1])';
             end
             
+%             xnot0 = xhat;% for numerical derivative
+            
             [xhat,Pk] = propagate_inv_alt(xhat,Pk,uctrl,wk,Ts,Qk);
+            % numerically evaluate derivative of xhat_k+1
+            
+%             Fnot = zeros(length(xhat));
+%             for I = 1:length(xhat)
+%                 xnot = xnot0;
+%                 xnot(I) = xnot(I) + 1e-10;
+%                 xnot = propagate_inv_alt(xnot,Pk,uctrl,wk,Ts,Qk);
+%                 Fnot(:,I) = (xnot - xhat)*1e10;
+%             end
+            
             % store
             xk(j).xk(2*i+1,:) = xhat';
             xk(j).Pk(2*i+1,:) = reshape(Pk,[],1)';
@@ -183,30 +195,30 @@ for j = 1:2
     ylabel('agent j to t bearing');
     
     subplot(322);
-    plot(tvect,sqrt(sum((rj-ri).^2,2)),'--x');
+    plot(tvect,1./sqrt(sum((rj-ri).^2,2)),'--x');
     hold on;
-    plot(T,sqrt(sum((Y(:,7:8)-Y(:,1:2)).^2,2)),'r-');
-    ylabel('agent i to j range');
+    plot(T,1./sqrt(sum((Y(:,7:8)-Y(:,1:2)).^2,2)),'r-');
+    ylabel('agent i to j inv range');
     
     subplot(324);
-    plot(tvect,sqrt(sum((rt-ri).^2,2)),'--x');
+    plot(tvect,1./sqrt(sum((rt-ri).^2,2)),'--x');
     hold on;
     if j == 1
-        plot(T,sqrt(sum((Y(:,4:5)-Y(:,1:2)).^2,2)),'r-');
+        plot(T,1./sqrt(sum((Y(:,4:5)-Y(:,1:2)).^2,2)),'r-');
     else
-        plot(T,sqrt(sum((Y(:,7:8)-Y(:,4:5)).^2,2)),'r-');
+        plot(T,1./sqrt(sum((Y(:,7:8)-Y(:,4:5)).^2,2)),'r-');
     end
-    ylabel('agent i to t range');
+    ylabel('agent i to t inv range');
     
     subplot(326);
-    plot(tvect,sqrt(sum((rt-rj).^2,2)),'--x');
+    plot(tvect,1./sqrt(sum((rt-rj).^2,2)),'--x');
     hold on;
     if j == 2
-        plot(T,sqrt(sum((Y(:,4:5)-Y(:,1:2)).^2,2)),'r-');
+        plot(T,1./sqrt(sum((Y(:,4:5)-Y(:,1:2)).^2,2)),'r-');
     else
-        plot(T,sqrt(sum((Y(:,7:8)-Y(:,4:5)).^2,2)),'r-');
+        plot(T,1./sqrt(sum((Y(:,7:8)-Y(:,4:5)).^2,2)),'r-');
     end
-    ylabel('agent j to t range');
+    ylabel('agent j to t inv range');
     
     figure;
     plot(Y(:,2),Y(:,1),'-');
