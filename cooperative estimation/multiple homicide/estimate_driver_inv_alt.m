@@ -50,7 +50,7 @@ for i = 1:2
 end
 
 %% loop over time
-sigma_psidot = 1.0;
+sigma_psidot = 1/9;
 sigma_rt = (10*Ts/3)^2;% sigma in target position during propagation
 
 Qk = diag([sigma_w sigma_w sigma_psidot sigma_rt sigma_rt]);
