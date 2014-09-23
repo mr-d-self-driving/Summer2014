@@ -49,9 +49,10 @@ for i = 1:length(T)
     % compute body-frame velocity of agent 2 and store
     V(i,3:4) = Y(i,7:8)*C_2n';
     % body 2 inertial frame acceleration
-    a2_n = f(:,i)*[cos(Y(i,6)) sin(Y(i,6))];
-    A(i,3:4) = a2_n*C_2n';
+    %a2_n = f(:,i)*[cos(Y(i,6)) sin(Y(i,6))];
+    %A(i,3:4) = a2_n*C_2n';
 end
+A(:,3) = f';
 
 %subplot(211);
 %plot(T,er);
@@ -70,7 +71,7 @@ Y(:,7:8) = [];
     function dy = eqom(t,y)
         dy = zeros(6,1);
         psi = y(3);
-        vi = y(7:8);
+        vi = y(7:8);% inertial velocity
         
         % agent 1 velocities are prescribed
         [v,omega] = vel(t);

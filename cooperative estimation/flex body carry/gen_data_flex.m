@@ -28,8 +28,8 @@ biasrb_ag = [2.5 1e-5;
 biasv = [biasIMU;biasrb;biasrb_ag];
 Rall = diag( [diag(Rimu)' Rrange Rbear Rrange_ag Rbear_ag] );
 
-Tf = 50.0;
-Ts = .02;
+Tf = 10.0;
+Ts = .01;
 
 ags(N) = struct('truth',[],'IMU',[],'rb',[],'rb_agent',[]);
 
