@@ -7,14 +7,14 @@ addpath('..');
 
 global marks;
 
-load data.mat;
+load('data.mat');
 
 % sensor noise levels to use
-Rrange = 1e-4*ones(1,N);
-Rbear = 1e-4*ones(1,N);
-Rrange_ag = 1e-2;
-Rbear_ag = 1e-4;
-Rimu = 1e-2*diag([.5^2 .5^2 .1^2]);
+Rrange = 1e-2*ones(1,N);
+Rbear = 1e-1*ones(1,N);
+Rrange_ag = 1e-1;
+Rbear_ag = 1e-2;
+Rimu = 1e-1*diag([.5^2 .5^2 .1^2]);
 
 % get new readings from other agent every K_update timesteps
 K_update = 1;
@@ -38,10 +38,10 @@ imu_sharing = 0;
 % known_features
 % 0: unknown features
 % 1: known features
-known_features = 0;
+known_features = 1;
 
 FOV = [65 65];%half-angle of sensor FOV for each agent's feature detection, IN DEGREES
-RANGE = [20 20];% maximum sensitivity
+RANGE = [10 10];% maximum sensitivity
 RANGEMIN = [1 1];%minimum range
 
 % generate new sensor noise consistent with defined levels

@@ -40,7 +40,7 @@ else
         xk(i).xk(1,1:2) = ags(i).truth(1,1:2)*[cos(ags(i).truth(1,5)) -sin(ags(i).truth(1,5));
             sin(ags(i).truth(1,5)) cos(ags(i).truth(1,5))];
         %initialize covariance
-        xk(i).Pk(1,:) = reshape( .1*eye(5)+.001*ones(5), 25,1)';
+        xk(i).Pk(1,:) = reshape( 1.0*eye(5)+.001*ones(5), 25,1)';
     end
 end
 %% loop over all times

@@ -2,6 +2,9 @@
 clear variables;
 close all;
 
+addpath('../2D');
+addpath('../2D/2D IMU sharing/');
+
 % # of agents
 N = 2;
 % # of landmarks
@@ -25,8 +28,8 @@ biasrb_ag = [2.5 1e-5;
 biasv = [biasIMU;biasrb;biasrb_ag];
 Rall = diag( [diag(Rimu)' Rrange Rbear Rrange_ag Rbear_ag] );
 
-Tf = 100;
-Ts = .1;
+Tf = 50.0;
+Ts = .02;
 
 ags(N) = struct('truth',[],'IMU',[],'rb',[],'rb_agent',[]);
 
@@ -38,19 +41,21 @@ for i = 1:M
     marks(i).xy = range*[cos(bear) sin(bear)];
 end
 
-%tspan = linspace(0,Tf,1001);
 tspan = 0:Ts:Tf;
 
 % simulate system
-for i = 1:N
-    y0 = [5*randn(2,1);rand(1)*2*pi-pi];
-    [T,Y,V,W,A] = agent_sim_circular(tspan,y0);
-    
+y0 = zeros(6,1);
+y0(1:3) = [5*randn(2,1);rand(1)*2*pi-pi];
+y0(4:5) = y0(1:2) + rand(2,1)*0.64+0.36;
+y0(6) = rand(1)*2*pi-pi;
+[T,Y,V,W,A] = agent_sim_follower(tspan,y0);
+
+for i = 1:2
     %true state histories - X Y vx vy omega
-    Y = [Y(:,1:2) V Y(:,3) A W];
-    ags(i).truth = Y;
+    Z = [Y(:,(1:2)+(i-1)*3) V(:,(1:2)+(i-1)*2) Y(:,3+(i-1)*3) A(:,(1:2)+(i-1)*2) W(:,i)];
+    ags(i).truth = Z;
     % IMU
-    ags(i).IMU = [A W] + randn(length(T),3).*repmat(sqrt(diag(Rimu)'),length(T),1);
+    ags(i).IMU = [A(:,(1:2)+(i-1)*2) W(:,i)] + randn(length(T),3).*repmat(sqrt(diag(Rimu)'),length(T),1);
     % range and bearing measurements
     psi = ags(i).truth(:,5);
     ags(i).rb = zeros(length(T),2*M);
@@ -58,7 +63,7 @@ for i = 1:N
         delta = repmat(marks(j).xy,length(T),1) - ags(i).truth(:,1:2);
         ags(i).rb(:,M+j) = atan2(delta(:,2),delta(:,1)) - psi + randn(length(T),1)*sqrt(Rbear(i));%bearing
         ags(i).rb(:,M+j) = pi2pi(ags(i).rb(:,M+j));
-        ags(i).rb(:,j) = sqrt(sum((repmat(marks(j).xy,length(T),1) - Y(:,1:2)).^2,2)) + randn(length(T),1)*sqrt(Rrange(i));%range
+        ags(i).rb(:,j) = sqrt(sum((repmat(marks(j).xy,length(T),1) - Z(:,1:2)).^2,2)) + randn(length(T),1)*sqrt(Rrange(i));%range
     end
 end
 
@@ -82,15 +87,20 @@ save data.mat;
 
 disp('done generating');
 
+marksv = zeros(M,2);
+for j = 1:M
+    marksv(j,:) = marks(j).xy;
+end
+
 figure;
-for i = 1:length(tspan)
+i = length(tspan);
     tic;
     hold off;
-    for j = 1:M
-        plot(marks(j).xy(2),marks(j).xy(1),'kx');
-        text(marks(j).xy(2),marks(j).xy(1),num2str(j));
-        hold on;
-    end
+    plot(marksv(:,2),marksv(:,1),'kx');
+    hold on;
+    %for j = 1:M
+    %text(marks(j).xy(2),marks(j).xy(1),num2str(j));
+    %end
     for j = 1:N
         if j == 1
             plot(ags(j).truth(1:i,2),ags(j).truth(1:i,1),'-');
@@ -104,5 +114,4 @@ for i = 1:length(tspan)
     title(['t = ' num2str(tspan(i))]);
     set(gca,'NextPlot','replacechildren');
     
-    pause(Tf/length(tspan)-toc);
-end
+    %pause(Tf/length(tspan)-toc);
