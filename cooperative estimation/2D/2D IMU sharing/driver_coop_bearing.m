@@ -25,7 +25,7 @@ update_counter = 0;
 % 0: we measure range and bearing to features
 % 1: we measure bearing only
 % 2: we measure range only
-feature_case = 0;
+feature_case = 1;
 % agent_case
 % 0: we measure range and bearing to agents
 % 1: we measure bearing only

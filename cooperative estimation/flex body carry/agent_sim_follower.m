@@ -19,11 +19,11 @@ theta0 = atan2(y0(2),y0(1));
 
 % append INERTIAL velocity states of agent 2 for simulation
 % make the initial velocities match to reduce controller overhead
-v01 = vel(tspan(1));
+v01 = vel_sinusoid(tspan(1));
 C0 = [cos(y0(3)) -sin(y0(3));sin(y0(3)) cos(y0(3))];
 ysim = [y0;C0*v01];
 
-[T,Y] = ode45(@eqom,tspan,ysim,odeset('abstol',1e-5,'reltol',1e-5));
+[T,Y] = ode45(@eqom,tspan,ysim,odeset('abstol',1e-6,'reltol',1e-6));
 
 % need to modify this to output the velocity and acceleration histories
 % functionalize the control and references to expedite this
@@ -33,16 +33,13 @@ W = zeros(length(T),2);
 
 % call the vectorized functions first
 [rdot_V,er] = rdot_lyapunov(T,Y');
-rdot_ref = rdot_V;
 
-% rdot_ref is the inertial frame velocities from the reference controllers
-rdot_ref = rdot_V;
-[f,psi_r,ev] = accel_lyapunov(T,Y',rdot_ref);
+[f,psi_r,ev] = accel_lyapunov(T,Y',rdot_V);
 [psidot,epsi] = heading_rate(T,Y',psi_r);
 W(:,2) = psidot';
 
 for i = 1:length(T)
-    [V(i,1:2),W(i,1),A(i,1:2)] = vel(T(i));
+    [V(i,1:2),W(i,1),A(i,1:2)] = vel_sinusoid(T(i));
     % inertial to body 2 frame DCM
     C_2n = [cos(Y(i,6)) sin(Y(i,6));
         -sin(Y(i,6)) cos(Y(i,6))];
@@ -69,22 +66,19 @@ Y(:,7:8) = [];
 
 
     function dy = eqom(t,y)
-        dy = zeros(6,1);
+        dy = zeros(8,1);
         psi = y(3);
         vi = y(7:8);% inertial velocity
         
         % agent 1 velocities are prescribed
-        [v,omega] = vel(t);
+        [v,omega] = vel_sinusoid(t);
         
         C = [cos(psi) -sin(psi);sin(psi) cos(psi)];%body to inertial
         dy(1:2) = C*v;
         dy(3) = omega;
         
         % get std command from lyapunov control
-        rdot_V = rdot_lyapunov(t,y);
-        
-        % total reference
-        rdot_ref = rdot_V;
+        rdot_ref = rdot_lyapunov(t,y);
         
         % thrust command and heading reference
         [f_ref,psi_ref] = accel_lyapunov(t,y,rdot_ref);
@@ -127,7 +121,7 @@ Y(:,7:8) = [];
         rjdot = zeros(2,length(t));
         for j = 1:length(t)
             % agent 1 velocities are prescribed in body frame
-            [v,~] = vel(t(j));
+            [v,~] = vel_sinusoid(t(j));
             C = [cos(psi(j)) -sin(psi(j));sin(psi(j)) cos(psi(j))];%body to inertial
             % convert to the inertial frame
             rjdot(:,j) = C*v;
@@ -185,7 +179,43 @@ Y(:,7:8) = [];
         % inertial to body DCM
         C = [cos(psi) sin(psi);
             -sin(psi) cos(psi)];
+        % return body-frame values
         v = C*vn;
         a = C*an;
+    end
+    function [v,w,a] = vel_sinusoid(t)
+        % path is of the form y(x) = A*sin(N*pi/2/r0 * x)
+        % r0 is a variable locally accesible
+        
+        % spatial oscillation periodicity variable:
+        N = 8;
+        % spatial oscillation freq
+        w = 0.5*N*pi/r0;
+        % spatial oscillation amplitude
+        Am = 2.5;
+        % spatial speed, constant for simplicity
+        xdot = 2*r0/(tspan(end)-tspan(1));
+        
+        % position as a function of time in the frame aligned with the
+        % sinusoid
+        xt = xdot*(t-tspan(1));
+        rt = [r0;0] + [xt;Am*sin(w*xt)];
+        % sinusoid frame time rate of position
+        rdot_b = xdot*[1;Am*w*cos(w*xt)];
+        
+        % heading, relative to the sinusoid frame, is tangent to the sinusoid at every point
+        gamma = Am*w*cos(w*xt);
+        psi_t = gamma + pi/2;% rotation from sinusoid to vehicle frame
+        
+        % velocity in the vehicle frame
+        Cvb = [cos(psi_t) sin(psi_t);-sin(psi_t) cos(psi_t)];
+        v = Cvb*rdot_b;
+        
+        % time rate of heading
+        w = -Am*w^2*sin(w*xt)*xdot;
+        
+        % acceleration in the vehicle frame
+        rddot_b = xdot^2*[0;-Am*w^2*sin(w*xt)];
+        a = Cvb*rddot_b;
     end
 end

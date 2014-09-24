@@ -46,12 +46,16 @@ tspan = 0:Ts:Tf;
 % simulate system
 y0 = zeros(6,1);
 y0(1:3) = [5*randn(2,1);rand(1)*2*pi-pi];
+% agent 1's initial heading is a 3 rotation through pi/2 + theta in polar
+% coordinates
+y0(1:2) = [10;0];
+y0(3) = atan2(y0(2),y0(1)) + pi/2;
 y0(4:5) = y0(1:2) + rand(2,1)*0.64+0.36;
 y0(6) = rand(1)*2*pi-pi;
 [T,Y,V,W,A] = agent_sim_follower(tspan,y0);
 
 for i = 1:2
-    %true state histories - X Y vx vy omega
+    %true state histories - X Y vx vy psi A omega
     Z = [Y(:,(1:2)+(i-1)*3) V(:,(1:2)+(i-1)*2) Y(:,3+(i-1)*3) A(:,(1:2)+(i-1)*2) W(:,i)];
     ags(i).truth = Z;
     % IMU
