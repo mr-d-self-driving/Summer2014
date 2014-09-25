@@ -274,6 +274,20 @@ Individual & 0.783 & 3.69\\
 \label{tab:mean_std_errs}
 \end{table}
 
-\section{Deformable body cooperative carry}
+\section{Flexible body cooperative carry}
+
+In this problem, we consider two (or more) agents tasked with jointly transporting a deformable body such as a net or tarp. For simplicity, it is assumed that the deformable body's mass is negligible. The two agents can move freely relative to one another with no new constraint forces relative to normal single-agent motion. An effective kinematic constraint limiting the maximum interagent distance must be considered to avoid an undesireable failure mode. For the sake of safety, a minimum interagent distance should also be introduced to avoid collisions. The problem as posed bears resemblance to the problems of formation flying and collision avoidance in UAVs or satellites.
+
+This problem admits several research challenges, including cooperative navigation and control in the presence of sensor noise and trajectory optimization to improve estimation accuracy. When combined with the cooperative estimation framework, a reasonably complex hardware implementation may be envisioned.
+
+For now, a planar implementation of this problem using the established cooperative estimation framework is considered. This implementation highlights some of the navigation and control challenges that must be addressed.
+
+\subsection{2D subproblem}
+
+Two agents are constrained to move in a plane normal to gravity. These agents may be ground robots or UAVs. Each agent has a limited forward field of view (FOV) sensor that is used to detect features in the environment and perform SLAM or localization in the presence of known features. The agents also measure range and bearing to one another. Agents are tethered by a flexible rope of length $L$ and have a minimum safe distance $D$.
+
+A na\"{\i}ve solution is to have one agent move freely, while the second agent obeys a control law that regulates the interagent distance only. This is one of the simplest conceivable approaches; it ignores any relative heading constraints, and it does not allow direct commands placing the rope in a given orientation in inertial space. Both of these possibilities should be considered in a more realistic implementation. The nai\"{\i}ve controller is used to establish a baseline performance, as well as to explore the research challenges associated with the larger problem.
+
+
 
 \end{document}
