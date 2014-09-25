@@ -5,7 +5,7 @@ close all;
 % # of agents
 N = 2;
 % # of landmarks
-M = 25;
+M = 50;
 
 % covariances
 Rimu = diag([.1 .1 .1].^2);%a1 a2 omega
@@ -43,8 +43,8 @@ tspan = 0:Ts:Tf;
 
 % simulate system
 for i = 1:N
-    y0 = [5*randn(2,1);rand(1)*2*pi-pi];
-    [T,Y,V,W,A] = agent_sim_circular(tspan,y0);
+    y0 = [10+2.5*randn(2,1);rand(1)*2*pi-pi];
+    [T,Y,V,W,A] = agent_sim_sinusoid(tspan,y0);
     
     %true state histories - X Y vx vy omega
     Y = [Y(:,1:2) V Y(:,3) A W];
@@ -83,7 +83,8 @@ save data.mat;
 disp('done generating');
 
 figure;
-for i = 1:length(tspan)
+%for i = 1:length(tspan)
+    i = length(tspan);
     tic;
     hold off;
     for j = 1:M
@@ -104,5 +105,5 @@ for i = 1:length(tspan)
     title(['t = ' num2str(tspan(i))]);
     set(gca,'NextPlot','replacechildren');
     
-    pause(Tf/length(tspan)-toc);
-end
+    %pause(Tf/length(tspan)-toc);
+%end

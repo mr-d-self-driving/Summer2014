@@ -8,7 +8,7 @@ addpath('../2D/2D IMU sharing/');
 % # of agents
 N = 2;
 % # of landmarks
-M = 25;
+M = 50;
 
 % covariances
 Rimu = diag([.1 .1 .1].^2);%a1 a2 omega
@@ -28,7 +28,7 @@ biasrb_ag = [2.5 1e-5;
 biasv = [biasIMU;biasrb;biasrb_ag];
 Rall = diag( [diag(Rimu)' Rrange Rbear Rrange_ag Rbear_ag] );
 
-Tf = 10.0;
+Tf = 25.0;
 Ts = .01;
 
 ags(N) = struct('truth',[],'IMU',[],'rb',[],'rb_agent',[]);

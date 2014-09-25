@@ -185,37 +185,39 @@ Y(:,7:8) = [];
     end
     function [v,w,a] = vel_sinusoid(t)
         % path is of the form y(x) = A*sin(N*pi/2/r0 * x)
+        %
         % r0 is a variable locally accesible
         
         % spatial oscillation periodicity variable:
-        N = 8;
+        N = 6;
         % spatial oscillation freq
-        w = 0.5*N*pi/r0;
+        ww = 0.5*N*pi/r0;
         % spatial oscillation amplitude
         Am = 2.5;
         % spatial speed, constant for simplicity
-        xdot = 2*r0/(tspan(end)-tspan(1));
+        xdot = -2*r0/(tspan(end)-tspan(1));
         
         % position as a function of time in the frame aligned with the
         % sinusoid
         xt = xdot*(t-tspan(1));
-        rt = [r0;0] + [xt;Am*sin(w*xt)];
+        rt = [r0;0] + [xt;-Am*sin(ww*xt)];
         % sinusoid frame time rate of position
-        rdot_b = xdot*[1;Am*w*cos(w*xt)];
+        rdot_b = xdot*[1;-Am*ww*cos(ww*xt)];
+        % sinusoid second time rate of position
+        rddot_b = xdot^2*[0;Am*ww^2*sin(ww*xt)];
         
         % heading, relative to the sinusoid frame, is tangent to the sinusoid at every point
-        gamma = Am*w*cos(w*xt);
+        gamma = pi/2-atan(Am*ww*cos(ww*xt));
         psi_t = gamma + pi/2;% rotation from sinusoid to vehicle frame
         
         % velocity in the vehicle frame
-        Cvb = [cos(psi_t) sin(psi_t);-sin(psi_t) cos(psi_t)];
+        Cvb = [cos(psi_t) sin(psi_t);-sin(psi_t) cos(psi_t)]; % sinusoid to vehicle frame conversion
         v = Cvb*rdot_b;
         
         % time rate of heading
-        w = -Am*w^2*sin(w*xt)*xdot;
+        w = Am*ww^2*sin(ww*xt)*xdot/(1+(Am*ww*cos(xt*ww))^2);
         
         % acceleration in the vehicle frame
-        rddot_b = xdot^2*[0;-Am*w^2*sin(w*xt)];
         a = Cvb*rddot_b;
     end
 end

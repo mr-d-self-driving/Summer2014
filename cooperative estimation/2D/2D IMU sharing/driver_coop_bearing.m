@@ -41,7 +41,7 @@ imu_sharing = 0;
 known_features = 1;
 
 FOV = [65 65];%half-angle of sensor FOV for each agent's feature detection, IN DEGREES
-RANGE = [10 10];% maximum sensitivity
+RANGE = [15 15];% maximum sensitivity
 RANGEMIN = [1 1];%minimum range
 
 % generate new sensor noise consistent with defined levels
