@@ -242,6 +242,13 @@ The speed and heading are treated as direct functions of the control inputs, i.e
 
 The control strategy for the target is simple to drive at its maximum speed along a fixed path. Greater realism could be added by dictating the direction to be orthogonal to the velocity vector of agent 1, for example, but the problem as outlined provides sufficient complexity to examine estimation accuracy.
 
+\begin{figure}
+\centering
+\includegraphics[trim = 250mm 50mm 175mm 50mm,clip = true,width=0.75\textwidth]{target_chase.jpg}
+\caption{ Problem geometry showing target $t$, pursuit agent 1, and assisting agent 2.}
+\label{fig:target_chase}
+\end{figure}
+
 \subsection{Simulation}
 
 Simulation is conducted with a 10 Hz sample rate and the following sensor variances:
@@ -258,6 +265,13 @@ Sensor readings are unbiased. Each agent is initialized in an inertial space whe
 1000 simulations are conducted both using shared measurements and not using shared measurements. Simulation time is 30 seconds each. We concern ourselves mostly with the final range-to-target error for agent 1; the bearing accuracy is relatively low, so range errors will be the most significant source of uncertainty in trajectory generation for agent 1. In 33 simulations, the individual estimator for agent 1 diverges with respect to range-to-target, having a final value of greater than 10 m. Table \ref{tab:mean_std_errs} summarizes errors for the remaining individual cases and for all cooperative cases. Cooperative estimation reduces the standard error by approximately a factor of three. An error bias is not surprising, as the pursuit agent approaches the target along the same trajectory in every simulation.
 
 In examining these results, it should be kept in mind that the agent trajectories are in no way optimized, either for estimation or target tracking purposes. It is also true that SLAM algorithm might be employed to improve localization of the agents and might reduce drift in estimated states. Further, a different parameterization in the filters for the states of the target and/or other agent might produce better results. On the other hand, the trajectories are not closed-loop with respect to the sensing, no effort has been made to address sensor bias, and the agents vary their heading very little for most of the simulation. This exercise is intended to demonstrate the problem and fundamental approach.
+
+\begin{figure}
+\centering
+\includegraphics[width=0.75\textwidth]{sample_traj.png}
+\caption{ Sample true trajectories (lines) and estimated by agent 2 in one simulation. Target is green, agent 1 is blue, and agent 2 is red. }
+\label{fig:sample_traj}
+\end{figure}
 
 \begin{table}
 \centering
@@ -288,6 +302,81 @@ Two agents are constrained to move in a plane normal to gravity. These agents ma
 
 A na\"{\i}ve solution is to have one agent move freely, while the second agent obeys a control law that regulates the interagent distance only. This is one of the simplest conceivable approaches; it ignores any relative heading constraints, and it does not allow direct commands placing the rope in a given orientation in inertial space. Both of these possibilities should be considered in a more realistic implementation. The nai\"{\i}ve controller is used to establish a baseline performance, as well as to explore the research challenges associated with the larger problem.
 
+A Lyanpunov-based nonlinear feedback controller is developed for the follower agent. We consider as the controlled variable the interagent distance $r$ only. Letting the follower agent be designated $i$ and the lead agent be $j$, then we can define $r$ and the radial tracking error $e$ in terms of a reference value $r_{ref}$. The position vectors are componetized in the inertial frame for convenience.
 
+\begin{align}
+r = \| \B{r}_j - \B{r}_i \| = \sqrt{ (r_{jx}-r_{ix})^2 + (r_{jy}-r_{iy})^2} \label{eq:rdef} \\
+e = r - r_{ref}
+\end{align}
+
+Taking the Lyapunov function to be $V = \frac{1}{2} e^2$, we obtain the condition $\dot{e} = -Ke$ as a sufficient condition for stability, $K > 0$. A constant reference $r_{ref} = \frac{L+D}{2}$ is assumed, such that the requirement becomes
+
+\begin{equation}
+\dot{r} = -Ke
+\end{equation}
+
+Subsituting Eq. \ref{eq:rdef} and isolating for the controlled variables $r_{ix}$ and $r_{iy}$, we obtain the expression:
+
+\begin{equation}
+-rKe - ((r_{jx}-r_{ix})\dot{r}_{jx} + (r_{jy} - r_{iy})\dot{r}_{jy}) = \begin{bmatrix}
+(r_{ix}-r_{jx}) & (r_{iy}-r_{jy})
+\end{bmatrix}
+\begin{bmatrix}
+\dot{r}_{ix} \\
+\dot{r}_{iy}
+\end{bmatrix}
+\label{eq:outerloop}
+\end{equation}
+
+Recognizing the system admits infinitely many control solutions, a minimum-norm solution for $\begin{bmatrix}
+\dot{r}_{ix} &
+\dot{r}_{iy}
+\end{bmatrix}^T$ can be obtained. Compactly representing the system as $A\B{x} = \B{b}$, the minimum-norm solution for \B{x} is $\B{x} = A^T(AA^T)^{-1}\B{b}$. With this minimum-norm solution, Eq. \ref{eq:outerloop} is used to generate reference velocity-level commands.
+
+Similarly, we can define a velocity-level tracking error $\B{e}_v = \B{v} - \B{v}_{ref}$. Using a similar Lyapunov function $V = \frac{1}{2} \B{e}_v^T \B{e}_v$, $\dot{\B{e}}_v = -K_v \B{e}_v$ becomes the condition for stability. Making the assumption that the reference velocity time rates obtained from Eq. \ref{eq:outerloop} are much slower than the dynamics of the velocity states themselves, the control can be reduced to the following form:
+
+\begin{equation}
+\begin{bmatrix}
+\ddot{r}_{ix} \\
+\ddot{r}_{iy}
+\end{bmatrix} = -K_v \B{e}_v
+\end{equation}
+
+To make the problem interesting, the following agent is modelled as having a thrust-like force in the plane of motion in the direction of its heading. The thrust magnitude and the heading time rate of change are taken as controls. Recalling that the position vectors are componetized in the inertial frame, then a reference heading $\psi$ and thrust command $f_i$ can be obtained:
+
+\begin{align}
+f_i\begin{bmatrix}
+c\psi \\
+s\psi
+\end{bmatrix} = -K_v \B{e}_v \\
+f_i = \| -K_v \B{e}_v \| \\
+\psi = \arctan{ \frac{-\begin{bmatrix}
+0 & 1
+\end{bmatrix} K_v\B{e}_v}{-\begin{bmatrix}
+1 & 0
+\end{bmatrix} K_v\B{e}_v }}
+\end{align}
+
+The heading rate command is simply taken as the heading error times a high fixed gain. Using the reference thrust and heading, agent 2 is simulated in open-loop using the true state values of agents 1 and 2.
+
+\subsection{Simulation}
+
+The problem is simulated using two agents with bearing-only feature measurements and range and bearing measurements of one another. The feature detection field of view is taken as 130\degree and the agent detection field of view is 360\degree. Agent 1 follows a sinusoidal reference trajectory while Agent 2 uses the control law developed in the previous section with $K = 3.16$ and $K_v = 2.5$. In general, the estimates by Agent 1 behave as expected. For Agent 2, the estimates remain bounded, but generally exceed the 3$\sigma$ covariance estimate. 
+
+Results for one simulation are shown in Figs. \ref{fig:agent1_est}-\ref{fig:agent2_est}. These are typical of results seen in other simulations, although no rigorous Monte Carlo analysis has been performed. The poor estimate accuracy for agent 2 is thought to be caused partly due to frequent and large control excitation, which is not accounted for in the estimator. 
+
+\begin{figure}[p]
+\centering
+\includegraphics[width=\textwidth]{agent1_est.png}
+\caption{ Agent 1 estimate time histories for one simulation. }
+\label{fig:agent1_est}
+\end{figure}
+
+\begin{figure}[p]
+\centering
+\includegraphics[width=\textwidth]{agent2_est.png}
+\caption{Agent 2 estimate time histories for one simulation.}
+\label{fig:agent2_est}
+\end{figure}
 
 \end{document}

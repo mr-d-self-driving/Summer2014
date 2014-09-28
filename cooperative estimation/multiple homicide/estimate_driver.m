@@ -3,6 +3,8 @@ close all;
 
 addpath('..\2D');
 
+TRUTH = 1;
+
 gen_noise;
 
 % flags
