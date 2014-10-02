@@ -145,6 +145,7 @@ As presented here, neither a LaGrangian or Kanian approach to obtaining the gove
 %gm_0 + gm_i + gm_j + m_0\dot{v}_x + m_i\dot{v}_x + m_j\dot{v}_x - f_i\cos{\lambda_i} - f_j\cos{\lambda_j} - m_i r_{aiy}\dot{\omega}_0 \cos{\lambda_0} - m_j r_{ajy}\dot{\omega}_0\cos{\lambda_0} - li*mi*tidd*sin(thetai) - lj*mj*tjdd*sin(thetaj) - mi*raix*w0d*sin(lambda0) - mj*rajx*w0d*sin(lambda0) - li*mi*tid^2*cos(thetai) - lj*mj*tjd^2*cos(thetaj) - mi*raix*w0^2*cos(lambda0) - mj*rajx*w0^2*cos(lambda0) + mi*raiy*w0^2*sin(lambda0) + mj*rajy*w0^2*sin(lambda0)
 %\end{align}
 
+\pagebreak
 \section{Cooperative localization of moving target}
 
 In this problem, three agents move independently of each other; two cooperating agents and a third, ``target'' agent. The goal of the cooperating agents is for a preselected agent of the pair to reach a specified radius of the target agent. (Aside: this represents nearly identically one of the low-level problems associated with Dr. Rogers's and Clark's coalition research.) 
@@ -159,24 +160,24 @@ The dynamics for any individual agent are essentially trivial, and depend only o
 
 It is assumed that, although the cooperating vehicles share some or all measurements, a full centralized filter cannot practically be implemented, and each agent must run its own estimator. The key states for estimation for any agent are assumed to be the relative position and velocity vectors of the other two agents. (Depending on the types of vehicles, possible nonholonomic motion constraints may dictate that relative attitude is also highly relevant.) 
 
-At maximum, each vehicle may need to estimate its own position, velocity, and attitude, as well as that of each other vehicle, an 18 DOF problem; however, the states of each vehicle may be decoupled from one another if parameterized as absolute references, or coupled to the estimating vehicle's if parameterized as relative states. The ``optimal'' parameterization will no doubt depend on the sensor measurements available to each vehicle; i.e. a depth sensor such as a laser scanner or RGBD camera provides different information about the target than an RGB camera, and it may be useful in some cases to couple the estimates of other states with the states of the estimating vehicle.
+At maximum, each vehicle may need to estimate its own position, velocity, and attitude, as well as that of each other vehicle, an 18 DOF problem. The ``optimal'' parameterization will no doubt depend on the sensor measurements available to each vehicle; i.e. a depth sensor such as a laser scanner or RGBD camera provides different information about the target than an RGB camera, and it may be useful in some cases to couple the estimates of other states with the states of the estimating vehicle.
 
-Note that the ``lead'' vehicle may be expected to experience the greatest difficulty localizing the target if range-to-target data are not available (e.g. monoSLAM-like scenario), where the helper vehicle can place itself to increase its parallax to the target and/or the lead agent.
+The ``lead'' vehicle may reasonably be expected to experience the greatest difficulty localizing the target if range-to-target data are not available (e.g. monoSLAM-like scenario), where the helper vehicle can place itself to increase its parallax to the target and/or the lead agent.
 
 \subsection{2D subproblem}
 
-A restricted subproblem is considered in which all agents move in a plane. This problem is considered for the sake of setting up an example estimator and governing equations.
+A restricted subproblem is considered in which all agents move in a plane. This problem is considered for the sake of setting up a representative estimator and governing equations.
 
 Each vehicle is assumed to be constrained such that its velocity vector is aligned with the vehicle 1 axis at all times. Each agent estimates is own position and heading relative to an arbitrary inertial frame. (Agents need not use the same inertial frame.) Each agent is assumed to have velocity-level controls for speed and heading angle, allowing the velocity-level states to be treated as controls. To remain as general as practical, standard Cartesian coordinates are used for parameterization. Each agent estimates the position vectors of the other two agents, also parameterized in the inertial frame. For the other cooperating agent, it is assumed that odometry data are shared, enabling filter propagation of the position for that agent. For the target agent, the only available measurements can be relative range and/or bearing. Each agent estimates eight states: position and heading for each cooperating agent, and position of the target agent.
 
-Each agent measures bearing to every other agent, and takes odometry measurements. Odometry, $w_k$, is taken as the distance travelled along the position history of the agent between sample times; it is approximated by summing the norm of the change in position for all numerical integration steps between sample times. It is assumed that the cooperating agents share both of their bearing measurements and odometry, but not control inputs. The bearing measurement of agent $j$ by agent $i$ is denoted $\theta_{ji}$. We can write the measurement model for agent $i$ as:
+Each agent measures bearing to every other agent, and takes odometry measurements. Odometry, $w_k$, is taken as the distance travelled along the position history of the agent between sample times, and is assumed to be measured by vehicle encoders. It is approximated in simulation by summing the norm of the change in position for all numerical integration steps between sample times. It is assumed that the cooperating agents share both their bearing measurements and odometry, but not control inputs. The bearing measurement of agent $j$ by agent $i$ is denoted $\theta_{ji}$. We can write the measurement model for agent $i$ as:
 \begin{align}
 w_k = \sum\limits_{j=0}^{M} \| \B{r}_i(t_{j+1}) - \B{r}_i(t_j) \| + v^w_k \ \forall \ \{j : t_{k-1} \leq t_j \leq t_{k}\}, v^w_k \ \sim N(0,\sigma_w^2) \\
 \theta_{ji} = \arctan{\frac{r_{jy}-r_{iy}}{r_{jx}-r_{ix}}} - \psi_i \\
 \theta_{ti} = \arctan{\frac{r_{ty}-r_{iy}}{r_{tx}-r_{ix}}} - \psi_i
 \end{align}
 
-The shared measurements from agent $j$ can be incorporated by flipping the indices in the previous expression. The bearing measurements are directly incorporated into the EKF, giving each agent a total of four measurements per time step. Odometry measurements are treated as inputs to the propagation equations, which allows for reasonable accuracy because of the motion constraint between velocity and heading. The complete propagation equations for agent $i$ are written as:
+The shared measurements from agent $j$ can be incorporated by switching the indices in the previous expression. The bearing measurements are directly incorporated into the EKF, giving each agent a total of four measurements per time step. Odometry measurements are treated as inputs to the propagation equations, which allows for reasonable accuracy because of the motion constraint between velocity and heading. The complete propagation equations for agent $i$ are written as:
 
 \begin{align}
 \B{r}^i_{k+1} = \B{r}^i_k + \tilde{w}_k \begin{bmatrix}
@@ -202,21 +203,21 @@ Note that the heading control inputs to agent $j$ and the velocity-level inputs 
 
 \subsection{Control strategy}
 
-Controls are implemented open-loop with respect to agent estimation, using the true state values. Simple heuristic control strategies are implemented to produce reasonable but suboptimal agent motion. This motion is felt to be relevant even in preliminary simulation. Localizing the target is most difficult in the case when flying directly towards it, which is we assume the pursuit agent will nominally do. Agent 1 denotes the agent tasked with reaching the target. Agent 2 denotes the helper agent. Agent 1 strategy is to move at its maximum speed towards the closest intercept point with the target, assuming the target moves at a known speed along a straight line. At each time step, agent 1 solves for the roots of the following equation with respect to the intercept time $T_{int}$ and the reference heading $\psi_{ref}^1$:
+Controls are implemented open-loop with respect to agent estimation, using the true state values. Simple heuristic control strategies are implemented to produce reasonable but suboptimal agent motion. This motion is relevant in preliminary simulation because the estimation accuracy is highly dependent on the relative agent position and pose. Localizing the target is most difficult when flying directly towards it, which is a fair approximation of the pursuit agent's overall goal. Agent 1 denotes the agent tasked with reaching the target. Agent 2 denotes the helper agent. Agent 1's strategy is to move at its maximum speed $v^1_{max}$ towards the closest intercept point with the target, assuming the target moves at a known, constant velocity. At each time step, agent 1 solves for the roots of the following equation with respect to the intercept time $T_{int}$ and the reference heading $\psi_{ref}^1$:
 
 \begin{equation}
-0=\B{r}^t_k - \B{r}^1_k + v^t_{max} \begin{bmatrix}
-\cos{\psi^t_k}\\
-\sin{\psi^t_k}
-\end{bmatrix} - T_{int} v^1_{max} \begin{bmatrix}
+0=\B{r}^t_k - \B{r}^1_k + T_{int}(v^t_{max} \begin{bmatrix}
+v_x^t \\
+v_y^t
+\end{bmatrix} - v^1_{max} \begin{bmatrix}
 \cos{\psi^1_{ref}}\\
 \sin{\psi^1_{ref}}
-\end{bmatrix}
+\end{bmatrix})
 \end{equation}
 
 Depending on the current heading $\psi^1_k$, agent 1 will then turn at the maximum turn rate along the direction that minimizes the heading error. This control strategy is implemented in lieu of solving a free-final time optimal control problem.
 
-Agent 2's objective is to fly relative to agent 1 and the target in a fashion that provides good parallax between both agent 1 observing 2 and agent 2 observing the target. Sequential feedback controllers for agent 2's rate of change of speed $\dot{v}_2$ and turn rate $\omega_2$ are designed to track a reference inertial position. For preliminary investigation, the reference position is taken to be 10 metres from the target along the target's $\pm \U{b}_2$ body-frame axis. The sign of the reference is dictated to place agent 2 on the opposite side of the target from agent 1. Reference heading and velocities are obtained by solving the following equation for $v_{ref}$ and $\psi^2_{ref}$:
+Agent 2's objective is to fly relative to agent 1 and the target in a fashion that provides good parallax between both agent 1 observing 2 and agent 2 observing the target. Sequential feedback controllers for agent 2's rate of change of speed $\dot{v}_2$ and turn rate $\omega_2$ are designed to track a reference inertial position. For preliminary investigation, the reference position is taken to be 10 metres from the target along the target's $\pm \U{b}_2$ body-frame axis. The sign of the reference is chosen to place agent 2 on the opposite side of the target from agent 1. Reference heading and velocities are obtained by solving the following equation for $v_{ref}$ and $\psi^2_{ref}$:
 
 \begin{equation}
 v_{ref}\begin{bmatrix}
@@ -225,7 +226,7 @@ v_{ref}\begin{bmatrix}
 \end{bmatrix} = -[K](\B{r}^2_k - \B{r}^2_{ref})
 \end{equation}
 
-The reference time rates of speed and heading, which are treated as controls,  are given from:
+The reference time rates of speed and heading, which are treated as controls in this scenario, are given from:
 
 \begin{equation}
 \begin{bmatrix}
@@ -238,14 +239,12 @@ v^2_k - v_{ref}
 \end{bmatrix}\right)
 \end{equation}
 
-The speed and heading are treated as direct functions of the control inputs, i.e. $\dot{v}^2 = \dot{v}_{ref}$.
-
-The control strategy for the target is simple to drive at its maximum speed along a fixed path. Greater realism could be added by dictating the direction to be orthogonal to the velocity vector of agent 1, for example, but the problem as outlined provides sufficient complexity to examine estimation accuracy.
+The control strategy for the target is to drive at its maximum speed along a fixed path. Greater realism could be easily added in this assumption, but the problem as outlined provides sufficient complexity to examine estimation accuracy.
 
 \begin{figure}
 \centering
 \includegraphics[trim = 250mm 50mm 175mm 50mm,clip = true,width=0.75\textwidth]{target_chase.jpg}
-\caption{ Problem geometry showing target $t$, pursuit agent 1, and assisting agent 2.}
+\caption{ Problem geometry showing target $t$, pursuit agent 1, and assisting agent 2. $\psi_2 < 0$ as shown. }
 \label{fig:target_chase}
 \end{figure}
 
@@ -254,17 +253,19 @@ The control strategy for the target is simple to drive at its maximum speed alon
 Simulation is conducted with a 10 Hz sample rate and the following sensor variances:
 
 \begin{align}
-\sigma_\theta^2 = 3.385 \times 10^-5 \\
+\sigma_\theta^2 = 3.385 \times 10^{-5} \\
 \sigma_w^2 = .00111 \\
 \sigma_{r_t}^2 = 1 \\
 \sigma_{\dot{\psi}} = .01
 \end{align}
 
-Sensor readings are unbiased. Each agent is initialized in an inertial space where Agent 1 is initially at the origin with zero heading. Agent 2 is initialized at $(5,-5)$ with heading $0.1$ rad. The target is initialized at $(10,0)$ with heading $\pi/4$ rad. The maximum speed of the target is 0.9 m/s. The maximum speed and turn rate of agent 1 is 1 m/s and 1 rad/s. Agent 2's rates are left unconstrained, to ensure it can reach its reference fast enough to provide good measurements, and reach maxima of about 4.5 m/s and 1.3 rad/s. The trajectories are constant for all simulations. Monte Carlo analysis of estimator performance is conducted with new sensor noise and new initial conditions every simulation. The initial estimator states for each vehicle are set between 50\% and 150\% of the true initial states, using a uniformly distributed multiplicative error.
+Sensor readings are unbiased. Each agent is initialized in an inertial space where Agent 1 is initially at the origin with zero heading. Agent 2 is initialized at $(5,-5)$ with heading $0.1$ rad. The target is initialized at $(10,0)$ with heading $\pi/4$ rad. The maximum speed of the target is 0.9 m/s. The maximum speed and turn rate of agent 1 is 1 m/s and 1 rad/s. Agent 2's rates are left unconstrained, to ensure it can reach its reference fast enough to provide good measurements. The maximum rates experienced by agent 2 are about 4.5 m/s and 1.3 rad/s. The trajectories are constant for all simulations. Monte Carlo analysis of estimator performance is conducted with new sensor noise and new initial conditions every simulation. The initial estimator states for each vehicle are set between 50\% and 150\% of the true initial states, using a uniformly distributed multiplicative error with respect to the true states.
 
-1000 simulations are conducted both using shared measurements and not using shared measurements. Simulation time is 30 seconds each. We concern ourselves mostly with the final range-to-target error for agent 1; the bearing accuracy is relatively low, so range errors will be the most significant source of uncertainty in trajectory generation for agent 1. In 33 simulations, the individual estimator for agent 1 diverges with respect to range-to-target, having a final value of greater than 10 m. Table \ref{tab:mean_std_errs} summarizes errors for the remaining individual cases and for all cooperative cases. Cooperative estimation reduces the standard error by approximately a factor of three. An error bias is not surprising, as the pursuit agent approaches the target along the same trajectory in every simulation.
+1000 simulations are conducted both using shared measurements and not using shared measurements. Simulation time is 30 seconds each. We concern ourselves mostly with the final range-to-target error for agent 1; the bearing error is relatively low, so range errors will be the most significant source of uncertainty in trajectory generation for agent 1. In 33 simulations, the individual estimator for agent 1 has a final value of greater than 10 m, which is assumed to indicate a failed estimator. Table \ref{tab:mean_std_errs} summarizes errors for the remaining individual cases and for all cooperative cases. Cooperative estimation reduces the standard error by approximately a factor of three. The error bias seen in both cases is not surprising, as the two agents approache the target along the same trajectories in every simulation.
 
-In examining these results, it should be kept in mind that the agent trajectories are in no way optimized, either for estimation or target tracking purposes. It is also true that SLAM algorithm might be employed to improve localization of the agents and might reduce drift in estimated states. Further, a different parameterization in the filters for the states of the target and/or other agent might produce better results. On the other hand, the trajectories are not closed-loop with respect to the sensing, no effort has been made to address sensor bias, and the agents vary their heading very little for most of the simulation. This exercise is intended to demonstrate the problem and fundamental approach.
+In examining these results, it should be kept in mind that the agent trajectories are in no way optimized, either for estimation or target tracking purposes. It is also true that a SLAM algorithm might be employed to improve localization of the agents and might reduce drift in estimated states. Further, a different choice of filter coordinates might produce better results. For instance, a parameterization of the unknown moving target inspired by the inverse-depth parameterization popular in monocular SLAM might be possible. (Aside: I have tried such a parameterization but achieved worse accuracy. I do not know if my implementation is correct.)
+
+On the other hand, the trajectories are not closed-loop with respect to the sensing, no effort has been made to address sensor bias, and the agents vary their heading very little for most of the simulation. This exercise is intended to demonstrate the problem and fundamental approach.
 
 \begin{figure}
 \centering
@@ -284,7 +285,7 @@ Cooperative & 0.686 & 1.13\\
 Individual & 0.783 & 3.69\\
 \hline
 \end{tabular}
-\caption{Mean and standard error associated with agent 1 range-to-target errors at the final simulation time.}
+\caption{Mean and standard error associated with agent 1 range-to-target errors at the final simulation time in the cooperative and noncooperative estimation problems.}
 \label{tab:mean_std_errs}
 \end{table}
 
@@ -292,17 +293,43 @@ Individual & 0.783 & 3.69\\
 
 In this problem, we consider two (or more) agents tasked with jointly transporting a deformable body such as a net or tarp. For simplicity, it is assumed that the deformable body's mass is negligible. The two agents can move freely relative to one another with no new constraint forces relative to normal single-agent motion. An effective kinematic constraint limiting the maximum interagent distance must be considered to avoid an undesireable failure mode. For the sake of safety, a minimum interagent distance should also be introduced to avoid collisions. The problem as posed bears resemblance to the problems of formation flying and collision avoidance in UAVs or satellites.
 
-This problem admits several research challenges, including cooperative navigation and control in the presence of sensor noise and trajectory optimization to improve estimation accuracy. When combined with the cooperative estimation framework, a reasonably complex hardware implementation may be envisioned.
+This problem admits several research challenges, including cooperative navigation and control in the presence of sensor noise and trajectory optimization to improve estimation accuracy, subject to state constraints. When combined with the cooperative estimation framework, a hardware implementation may be envisioned with varying levels of complexity.
 
 For now, a planar implementation of this problem using the established cooperative estimation framework is considered. This implementation highlights some of the navigation and control challenges that must be addressed.
 
+\subsection{Agent estimator summary}
+
+The agent dynamics and estimator equations have been covered previously. For the sake of clarity, the broad structure of the estimation problem is summarized:
+
+\begin{itemize}
+\item Each agent possesses an IMU, used to propagate the velocity and heading states in the Kalman update.
+\item Each agent measures bearing to known features in the workspace, with a limited field of view and minimum and maximum range sensitivity.
+\item Each agent measures relative range and bearing to the other agent, irrespective of range or relative orientation.
+\item Control inputs that influence the velocity history are not considered explictly in the estimation. Velocity states are propagated using only accelerometer measurements.
+\item Each agent estimates its own state, consisting of five values: two position and velocity components, and heading. Position and velocity are coordinatized in a body-fixed reference frame.
+\item State histories for the agents are generated in simulation. The simulation is open-loop with respect to the estimation, using the true states for control when needed. Estimation is evaluated on the resulting state and measurement histories.
+\end{itemize}
+
 \subsection{2D subproblem}
 
-Two agents are constrained to move in a plane normal to gravity. These agents may be ground robots or UAVs. Each agent has a limited forward field of view (FOV) sensor that is used to detect features in the environment and perform SLAM or localization in the presence of known features. The agents also measure range and bearing to one another. Agents are tethered by a flexible rope of length $L$ and have a minimum safe distance $D$.
+Two agents are constrained to move in a plane normal to gravity. These agents may be ground robots or UAVs. Each agent has a limited forward field of view (FOV) sensor that is used to detect features in the environment and perform SLAM or localization in the presence of known features. The agents also measure range and bearing to one another. Agents are tethered by a flexible rope of length $L$ and have a minimum safe distance $D$. Aside from the state constraints, the problem is the same as the generic cooperative localization problem previously considered.
 
-A na\"{\i}ve solution is to have one agent move freely, while the second agent obeys a control law that regulates the interagent distance only. This is one of the simplest conceivable approaches; it ignores any relative heading constraints, and it does not allow direct commands placing the rope in a given orientation in inertial space. Both of these possibilities should be considered in a more realistic implementation. The nai\"{\i}ve controller is used to establish a baseline performance, as well as to explore the research challenges associated with the larger problem.
+A na\"{\i}ve solution is to have one agent move freely, while the second agent obeys a control law that regulates the interagent distance only. This is one of the simplest conceivable approaches; it ignores any relative heading constraints, and it does not allow admit commands that place the rope in a given orientation in inertial space. Both of these possibilities should be considered in a more realistic implementation. The nai\"{\i}ve controller is used to establish a baseline performance, as well as to explore the research challenges associated with the larger problem.
 
-A Lyanpunov-based nonlinear feedback controller is developed for the follower agent. We consider as the controlled variable the interagent distance $r$ only. Letting the follower agent be designated $i$ and the lead agent be $j$, then we can define $r$ and the radial tracking error $e$ in terms of a reference value $r_{ref}$. The position vectors are componetized in the inertial frame for convenience.
+A Lyanpunov-based nonlinear feedback controller is developed for the follower agent. Let the agents be $i$ and $j$, each with a position vector parameterized in the inertial frame:
+
+\begin{align}
+\br{\B{r}_i}{n} = \begin{bmatrix}
+r_{ix}\\
+r_{iy}
+\end{bmatrix}\\
+\br{\B{r}_j}{n} = \begin{bmatrix}
+r_{jx}\\
+r_{jy}
+\end{bmatrix}
+\end{align}
+
+We consider as the controlled variable the interagent distance $r$ only. Letting the follower agent be designated $i$ and the lead agent be $j$, then we can define $r$ and the radial tracking error $e$ in terms of a reference value $r_{ref}$.
 
 \begin{align}
 r = \| \B{r}_j - \B{r}_i \| = \sqrt{ (r_{jx}-r_{ix})^2 + (r_{jy}-r_{iy})^2} \label{eq:rdef} \\
@@ -328,12 +355,12 @@ Subsituting Eq. \ref{eq:rdef} and isolating for the controlled variables $r_{ix}
 \label{eq:outerloop}
 \end{equation}
 
-Recognizing the system admits infinitely many control solutions, a minimum-norm solution for $\begin{bmatrix}
+Recognizing the system is underconstrained, an unweighted minimum-norm solution for $\begin{bmatrix}
 \dot{r}_{ix} &
 \dot{r}_{iy}
-\end{bmatrix}^T$ can be obtained. Compactly representing the system as $A\B{x} = \B{b}$, the minimum-norm solution for \B{x} is $\B{x} = A^T(AA^T)^{-1}\B{b}$. With this minimum-norm solution, Eq. \ref{eq:outerloop} is used to generate reference velocity-level commands.
+\end{bmatrix}^T$ can be obtained. Compactly representing the system as $A\B{x} = \B{b}$, the minimum-norm solution for \B{x} is $\B{x} = A^T(AA^T)^{-1}\B{b}$. With this minimum-norm solution, Eq. \ref{eq:outerloop} provides reference inertial-frame velocity-level commands. Note that the controller is coupled with the inertial velocity of agent $j$.
 
-Similarly, we can define a velocity-level tracking error $\B{e}_v = \B{v} - \B{v}_{ref}$. Using a similar Lyapunov function $V = \frac{1}{2} \B{e}_v^T \B{e}_v$, $\dot{\B{e}}_v = -K_v \B{e}_v$ becomes the condition for stability. Making the assumption that the reference velocity time rates obtained from Eq. \ref{eq:outerloop} are much slower than the dynamics of the velocity states themselves, the control can be reduced to the following form:
+Similarly, we can define a velocity-level tracking error $\B{e}_v = \B{v} - \B{v}_{ref}$. Using a similar Lyapunov function $V = \frac{1}{2} \B{e}_v^T \B{e}_v$, $\dot{\B{e}}_v = -K_v \B{e}_v$ becomes the condition for stability. Making the assumption that the reference velocity time rates obtained from Eq. \ref{eq:outerloop} are much slower than the dynamics of the velocity states themselves, an acceleration-level control can be obtained in the following form:
 
 \begin{equation}
 \begin{bmatrix}
@@ -357,24 +384,24 @@ f_i = \| -K_v \B{e}_v \| \\
 \end{bmatrix} K_v\B{e}_v }}
 \end{align}
 
-The heading rate command is simply taken as the heading error times a high fixed gain. Using the reference thrust and heading, agent 2 is simulated in open-loop using the true state values of agents 1 and 2.
+The heading rate command is simply taken as the heading error times a high fixed gain ($10$). Using the reference thrust and heading, agent 2 is simulated in open-loop using the true state values of agents 1 and 2.
 
 \subsection{Simulation}
 
-The problem is simulated using two agents with bearing-only feature measurements and range and bearing measurements of one another. The feature detection field of view is taken as 130\degree and the agent detection field of view is 360\degree. Agent 1 follows a sinusoidal reference trajectory while Agent 2 uses the control law developed in the previous section with $K = 3.16$ and $K_v = 2.5$. In general, the estimates by Agent 1 behave as expected. For Agent 2, the estimates remain bounded, but generally exceed the 3$\sigma$ covariance estimate. 
+The problem is simulated using two agents with bearing-only feature measurements and range and bearing measurements of one another. The feature detection field of view is taken as 130\degree with sensitivity between 1 and 10 m. Agent 1 follows a sinusoidal reference trajectory while Agent 2 uses the control law developed in the previous section with $K = 3.16$ and $K_v = 2.5$. In general, the estimates by Agent 1 behave as expected and are well-bounded by the 3$\sigma$ covariance. For agent 2, the estimates are bounded, but generally exceed the 3$\sigma$ covariance estimate.
 
-Results for one simulation are shown in Figs. \ref{fig:agent1_est}-\ref{fig:agent2_est}. These are typical of results seen in other simulations, although no rigorous Monte Carlo analysis has been performed. The poor estimate accuracy for agent 2 is thought to be caused partly due to frequent and large control excitation, which is not accounted for in the estimator. 
+Results for one simulation are shown in Figs. \ref{fig:agent1_est}-\ref{fig:agent2_est}. These are typical of results seen in other simulations. No rigorous Monte Carlo analysis has been performed. The poor estimate accuracy for agent 2 is thought to be caused partly due to relatively high-frequency, large control excitations that result from the control law developed. It should be recalled that the control inputs are not explicitly accounted for in the estimation process, and might be used in a more realistic scenario to reduce some of the uncertainty associated with the vehicle acceleration.
 
-\begin{figure}[p]
+\begin{figure}[tb!]
 \centering
-\includegraphics[width=\textwidth]{agent1_est.png}
+\includegraphics[width=0.9\textwidth]{agent1_est.png}
 \caption{ Agent 1 estimate time histories for one simulation. }
 \label{fig:agent1_est}
 \end{figure}
 
-\begin{figure}[p]
+\begin{figure}[tb!]
 \centering
-\includegraphics[width=\textwidth]{agent2_est.png}
+\includegraphics[width=0.9\textwidth]{agent2_est.png}
 \caption{Agent 2 estimate time histories for one simulation.}
 \label{fig:agent2_est}
 \end{figure}
