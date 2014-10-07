@@ -1,10 +1,10 @@
 function [yexp,Hk] = get_exp_sarse_test(xhat)
 % get expectation with the inverse range parameterization
-% xhat: [rx_n ry_n v1 psi1 ux uy uxdot uydot rho -rhodot/rho
-%         1     2   3  4    5  6  7      8    9     10
+% xhat: [rx_n ry_n v1 psi1 ux uy rho
+%         1     2   3  4    5  6  7
 
 yexp = zeros(2,1);
-Hk = zeros(2,10);
+Hk = zeros(2,7);
 
 % my expectation of velocity:
 yexp(1) = xhat(3);
