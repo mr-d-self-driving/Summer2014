@@ -100,12 +100,12 @@ M = [-1/x9 0 x5/x9^2;
     0 -1/x9 x6/x9^2;
     x5 x6 0];
 
-f([5:7]) = M\LHS;
+f(5:7) = M\LHS;
 
 F = sym('F',[7 7]);
 xdiff = [x1;x2;x3;x4;x5;x6;x9];
 for k = 1:length(xdiff)
-    F(:,k) = simplify(diff(f,xdiff(k)));
+    F(:,k) = subs(simplify(diff(f,xdiff(k))),[vj1,vj2],[0,0]);
 end
 
 ctrldiff = [a1;a2;uctrl;vj];
