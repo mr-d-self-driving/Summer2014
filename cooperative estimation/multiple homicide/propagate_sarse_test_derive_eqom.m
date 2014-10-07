@@ -101,22 +101,23 @@ M = [-1/x9 0 x5/x9^2;
     x5 x6 0];
 
 f(5:7) = M\LHS;
+f(8:9) = -W*[vj1;vj2];
 
-F = sym('F',[7 7]);
-xdiff = [x1;x2;x3;x4;x5;x6;x9];
+xdiff = [x1;x2;x3;x4;x5;x6;x9;vj1;vj2];
+F = sym('F',[9 9]);
 for k = 1:length(xdiff)
-    F(:,k) = subs(simplify(diff(f,xdiff(k))),[vj1,vj2],[0,0]);
+    F(:,k) = simplify(diff(f,xdiff(k)));
 end
 
 ctrldiff = [a1;a2;uctrl;vj];
-G = sym('G',[7 5]);
+G = sym('G',[9 5]);
 for k = 1:length(ctrldiff)
     G(:,k) = simplify(diff(-f,ctrldiff(k)));
 end
 
 % measurement eqs
 yex = [x3;atan(x6/x5)];
-Hk = sym('H',[2,7]);
+Hk = sym('H',[2,9]);
 for k = 1:length(xdiff)
     Hk(:,k) = simplify(diff(yex,xdiff(k)));
 end
@@ -125,3 +126,13 @@ Jk = sym('H',[2,5]);
 for k = 1:length(ctrldiff)
     Jk(:,k) = simplify(diff(yex,ctrldiff(k)));
 end
+
+% observability matrix
+O = sym('O',[size(Hk,1)*size(F,1) size(F,2)]);
+O(1:2,:) = Hk;
+for k = 2:9
+    O((k-1)*2+(1:2),:) = O((k-1)*2+(-1:0),:)*F;
+end
+% based on the obs. matrix, we should have observability of all states
+% except heading and inertial position, which we can handle with
+% magnetometer/gps or SLAM if we want to.
