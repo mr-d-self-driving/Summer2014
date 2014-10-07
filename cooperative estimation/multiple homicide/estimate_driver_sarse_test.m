@@ -5,6 +5,8 @@ close all;
 
 addpath('../2D');
 
+TRUTH = 1;
+
 gen_noise;
 
 % constants for feature initialization:
@@ -14,37 +16,39 @@ SIGMARHO = 0.25;
 % flags
 USE_SHARED = 1;
 
-tvect = sort( [t(1); t; t]);
+tvect = sort( [t; t; t(end)+Ts]);
 
 % xhat: [rx_n ry_n v1 psi1 ux uy uxdot uydot rho -rhodot/rho
 %         1     2   3  4    5  6  7      8    9     10
 
 % initialize
-xk(2) = struct('xk',zeros(length(t)*2+1,11),'Pk',zeros(length(t)*2+1,121));
-xk(1) = struct('xk',zeros(length(t)*2+1,11),'Pk',zeros(length(t)*2+1,121));
+xk(2) = struct('xk',zeros(length(t)*2+1,10),'Pk',zeros(length(t)*2+1,100));
+xk(1) = struct('xk',zeros(length(t)*2+1,10),'Pk',zeros(length(t)*2+1,100));
 %xk: r1 psi1 r2 psi2 rt psit
 xk(1).xk(1,[1 2 4]) = Y(1,1:3);% my initial postion and heading
-xk(1).xk(1,3) = [0;0];% my initial velocity
-xk(1).xk(1,5:6) = [1;0];% unit vector to target
+xk(1).xk(1,3) = 0;% my initial velocity
+xk(1).xk(1,5:6) = [cos(b1(1,2));sin(b1(1,2))];% unit vector to target
 xk(1).xk(1,7:8) = [0;0];% body frame time rate of unit vector to target
 xk(1).xk(1,9) = RHO0;% inverse range to target
 xk(1).xk(1,10) = 0;% -rhodot/rho to target
 
 xk(2).xk(1,[1 2 4]) = Y(1,7:9);% my initial postion and heading
-xk(2).xk(1,3) = [0;0];% my initial velocity
-xk(2).xk(1,5:6) = [1;0];% unit vector to target
+xk(2).xk(1,3) = 0;% my initial velocity
+xk(2).xk(1,5:6) = [cos(b2(1,2));sin(b2(1,2))];% unit vector to target
 xk(2).xk(1,7:8) = [0;0];% body frame time rate of unit vector to target
 xk(2).xk(1,9) = RHO0;% inverse range to target
 xk(2).xk(1,10) = 0;% -rhodot/rho to target
 for i = 1:2
-    xk(i).Pk(1,:) = reshape(10*eye(10) + 1e-4*ones(10),[],1)';
+    Puse = 1*eye(10) + 1e-6*ones(10);
+    Puse(4,4) = .1;
+    xk(i).Pk(1,:) = reshape(Puse,[],1)';
 end
 
 %% loop over time
 sigma_psidot = (Ts)^2;%0.1;
 sigma_rt = (10*Ts)^2;% sigma in target position during propagation
 
-Qk = diag([sigma_w sigma_w sigma_psidot sigma_rt]);
+Qk = diag([sigma_acc sigma_acc sigma_psidot]);
 
 for i = 1:length(t)
     % measurements
@@ -53,30 +57,31 @@ for i = 1:length(t)
             xhat = xk(j).xk(2*i-1,:)';
             Pk = reshape( xk(j).Pk(2*i-1,:)',10,10);
             
-            Rk = diag([sigma_w sigma_bear sigma_bear]);
+            Rk = diag([sigma_w sigma_bear]);
             if j == 1
                 % measurements: [v1; body-frame unit vector to target]
-                ytilde = [w(i,1)/Ts;cos(b1(i,2));sin(b1(i,2))];
+                ytilde = [w(i,1)/Ts;b1(i,2)];
             else
-                ytilde = [w(i,2)/Ts;cos(b2(i,2));sin(b2(i,2))];
+                ytilde = [w(i,2)/Ts;b2(i,2)];
             end
             
             [yexp,Hk] = get_exp_sarse_test(xhat);
 %             %check derivative numerically
-%             Hnot = zeros(4,length(xhat));
+%             Hnot = zeros(2,length(xhat));
 %             for k = 1:length(xhat)
 %                 xnot = xhat;
 %                 xnot(k) = xhat(k) + 1e-10;
-%                 ynot = get_exp_inv(xnot);
+%                 ynot = get_exp_sarse_test(xnot);
 %                 Hnot(:,k) = (ynot-yexp).*1e10;
 %             end
             
             % compute Kalman gain
-            if rank(Hk*Pk*Hk'+Rk) < 3 || norm(Pk,'fro') > 1e6
+            if rank(Hk*Pk*Hk'+Rk) < 2 || norm(Pk,'fro') > 1e6
                 disp('Singular matrix or large covariance');
                 return;
             end
-                        
+            
+            yexp(2) = minangle(yexp(2),ytilde(2));
             Kk = Pk*Hk'*((Hk*Pk*Hk'+Rk)\eye(size(Rk)));
             xhat = xhat + Kk*(ytilde - yexp);
             Pk = (eye(10) - Kk*Hk)*Pk;
@@ -103,13 +108,15 @@ for i = 1:length(t)
                 uctrl = u1(i,:)';
                 %odometry
                 wk = w(i,1)';
+                imupass = imu(i,1:3);
             else
                 uctrl = u2(i,:)';
                 %odometry
                 wk = w(i,2)';
+                imupass = imu(i,4:6);
             end
             
-            [xhat,Pk] = propagate_inv(xhat,Pk,uctrl,wk,Ts,Qk);
+            [xhat,Pk] = propagate_sarse_test(xhat,Pk,uctrl,imupass,Ts,Qk);
             % store
             xk(j).xk(2*i+1,:) = xhat';
             xk(j).Pk(2*i+1,:) = reshape(Pk,[],1)';
@@ -119,71 +126,67 @@ end
 
 %% figures
 
-Pdiag = [1:13:144];
+Pdiag = [1:11:100];
 
 for j = 1:2
+    
     figure;
-    subplot(321);
-    ri = xk(j).xk(:,1:2);
-    rj = xk(j).xk(:,4:5) + 1./repmat(xk(j).xk(:,6),1,2).*[cos(xk(j).xk(:,7)) sin(xk(j).xk(:,7))];
-    rt = xk(j).xk(:,9:10) + 1./repmat(xk(j).xk(:,11),1,2).*[cos(xk(j).xk(:,12)) sin(xk(j).xk(:,12))];
-    psii = xk(j).xk(:,3);
-    psij = xk(j).xk(:,8);
-    
-    plot(tvect,pi2pi(atan2(rj(:,2)-ri(:,2),rj(:,1)-ri(:,1)) - psii),'--x');
-	hold on;
+    %velocity
+    subplot(211);
+    plot(tvect,xk(j).xk(:,3),'-x');
+    hold on;
+    plot(tvect,xk(j).xk(:,3) + sqrt(xk(j).Pk(:,Pdiag(3)))*3,'g--');
+    plot(tvect,xk(j).xk(:,3) - sqrt(xk(j).Pk(:,Pdiag(3)))*3,'g--');
     if j == 1
-        plot(T,pi2pi(atan2(Y(:,8)-Y(:,2),Y(:,7)-Y(:,1)) - Y(:,3)),'r-');
+        plot(T,ones(size(T)),'r--');
+        plot(T(2:end-1),w(:,1)/Ts,'k:');
     else
-        plot(T,pi2pi(atan2(Y(:,2)-Y(:,8),Y(:,1)-Y(:,7)) - Y(:,9)),'r-');
+        plot(T,Y(:,10),'r--');
+        plot(T(2:end-1),w(:,2)/Ts,'k:');
     end
-    ylabel('agent i to j bearing');
+    ylabel('v_1 (m/s)');
+    % heading
+    subplot(212);
+    plot(tvect,xk(j).xk(:,4),'-x');
+    hold on;
+    plot(tvect,xk(j).xk(:,4) + sqrt(xk(j).Pk(:,Pdiag(4)))*3,'g--');
+    plot(tvect,xk(j).xk(:,4) - sqrt(xk(j).Pk(:,Pdiag(4)))*3,'g--');
+    if j == 1
+        plot(T,Y(:,3),'r--');
+    else
+        plot(T,Y(:,9),'r--');
+    end
+    ylabel('\psi_1 (rad)');
     
-    subplot(323);
-    plot(tvect,pi2pi(atan2(rt(:,2)-ri(:,2),rt(:,1)-ri(:,1)) - psii),'--x');
+    figure;
+    ri = xk(j).xk(:,1:2);
+    % bearing to target
+    bearing_tj = atan2(xk(j).xk(:,6),xk(j).xk(:,5));
+    % range to target
+    range_tj = xk(j).xk(:,9);
+    psii = xk(j).xk(:,3);
+    
+    subplot(121);
+    plot(tvect,bearing_tj,'--x');
     hold on;
     if j == 1
         plot(T,pi2pi(atan2(Y(:,5)-Y(:,2),Y(:,4)-Y(:,1)) - Y(:,3)),'r-');
+        plot(T(2:end-1),b1(:,2),'g--');
     else
         plot(T,pi2pi(atan2(Y(:,5)-Y(:,8),Y(:,4)-Y(:,7)) - Y(:,9)),'r-');
+        plot(T(2:end-1),b2(:,2),'g--');
     end
     ylabel('agent i to t bearing');
-    
-    subplot(325);
-    plot(tvect,pi2pi(atan2(rt(:,2)-rj(:,2),rt(:,1)-rj(:,1)) - psij),'--x');
+        
+    subplot(122);
+    plot(tvect,range_tj,'--x');
     hold on;
     if j == 1
-        plot(T,pi2pi(atan2(Y(:,5)-Y(:,8),Y(:,4)-Y(:,7)) - Y(:,9)),'r-');
+        plot(T,1./sqrt(sum((Y(:,4:5)-Y(:,1:2)).^2,2)),'r-');
     else
-        plot(T,pi2pi(atan2(Y(:,5)-Y(:,2),Y(:,4)-Y(:,1)) - Y(:,3)),'r-');
+        plot(T,1./sqrt(sum((Y(:,7:8)-Y(:,4:5)).^2,2)),'r-');
     end
-    ylabel('agent j to t bearing');
-    
-    subplot(322);
-    plot(tvect,sqrt(sum((rj-ri).^2,2)),'--x');
-    hold on;
-    plot(T,sqrt(sum((Y(:,7:8)-Y(:,1:2)).^2,2)),'r-');
-    ylabel('agent i to j range');
-    
-    subplot(324);
-    plot(tvect,sqrt(sum((rt-ri).^2,2)),'--x');
-    hold on;
-    if j == 1
-        plot(T,sqrt(sum((Y(:,4:5)-Y(:,1:2)).^2,2)),'r-');
-    else
-        plot(T,sqrt(sum((Y(:,7:8)-Y(:,4:5)).^2,2)),'r-');
-    end
-    ylabel('agent i to t range');
-    
-    subplot(326);
-    plot(tvect,sqrt(sum((rt-rj).^2,2)),'--x');
-    hold on;
-    if j == 2
-        plot(T,sqrt(sum((Y(:,4:5)-Y(:,1:2)).^2,2)),'r-');
-    else
-        plot(T,sqrt(sum((Y(:,7:8)-Y(:,4:5)).^2,2)),'r-');
-    end
-    ylabel('agent j to t range');
+    ylabel('agent i to t inverse range');
     
     figure;
     plot(Y(:,2),Y(:,1),'-');
@@ -191,8 +194,8 @@ for j = 1:2
     plot(Y(:,8),Y(:,7),'r-');
     plot(Y(:,5),Y(:,4),'g-');
     plot(ri(:,2),ri(:,1),'--o');
-    plot(rj(:,2),rj(:,1),'r--d');
-    plot(rt(:,2),rt(:,1),'g--x');
+    %plot(rj(:,2),rj(:,1),'r--d');
+    %plot(rt(:,2),rt(:,1),'g--x');
     set(gca,'xlim',[-50 50])
     set(gca,'ylim',[-50 50])
 end

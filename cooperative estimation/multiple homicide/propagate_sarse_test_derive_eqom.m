@@ -1,0 +1,73 @@
+clear variables;
+close all;
+
+syms x5 x6 x7 x8 x9 x10 real;
+syms uctrl a1 a2 real;
+W = [0 -uctrl; uctrl 0];
+LHS = [[a1;a2] + x10^2/x9*[x5;x6] + 2*x10/x9*[x7;x8] + 2*x10/x9*W*[x5;x6] + 2/x9*W*[x7;x8] + 1/x9*W*W*[x5;x6];-x7^2-x8^2];
+% mass matrix, coeffs are x7dot, x8dot, x10dot
+M = [-1/x9 0 -x5/x9;
+    0 -1/x9 -x6/x9;
+    x5 x6 0];
+
+eq = M\LHS;
+
+F = sym('F',[3 6]);
+xdiff = [x5;x6;x7;x8;x9;x10];
+for k = 1:length(xdiff)
+    F(:,k) = simplify(diff(eq,xdiff(k)));
+end
+
+ctrldiff = [a1;a2;uctrl];
+G = sym('G',[3 3]);
+for k = 1:length(ctrldiff)
+    G(:,k) = simplify(diff(-eq,ctrldiff(k)));
+end
+
+%% full derivation
+
+clear variables;
+close all;
+
+syms x1 x2 x3 x4 x5 x6 x7 x8 x9 x10 real;
+syms uctrl a1 a2 real;
+
+f = sym('f',[10,1]);
+f(1:2) = x3*[cos(x4);sin(x4)];
+f(3) = a1;
+f(4) = uctrl;
+f(5:6) = [x7;x8];
+f(9) = -x10*x9;
+
+W = [0 -uctrl; uctrl 0];
+LHS = [[a1;a2] + x10^2/x9*[x5;x6] + 2*x10/x9*[x7;x8] + 2*x10/x9*W*[x5;x6] + 2/x9*W*[x7;x8] + 1/x9*W*W*[x5;x6];-x7^2-x8^2];
+% mass matrix, coeffs are x7dot, x8dot, x10dot
+M = [-1/x9 0 -x5/x9;
+    0 -1/x9 -x6/x9;
+    x5 x6 0];
+
+f([7 8 10]) = M\LHS;
+
+F = sym('F',[10 10]);
+xdiff = [x1;x2;x3;x4;x5;x6;x7;x8;x9;x10];
+for k = 1:length(xdiff)
+    F(:,k) = simplify(diff(f,xdiff(k)));
+end
+
+ctrldiff = [a1;a2;uctrl];
+G = sym('G',[10 3]);
+for k = 1:length(ctrldiff)
+    G(:,k) = simplify(diff(-f,ctrldiff(k)));
+end
+
+% measurement eqs
+yex = [x3;atan(x6/x5)];
+Hk = sym('H',[2,10]);
+for k = 1:length(xdiff)
+    Hk(:,k) = simplify(diff(yex,xdiff(k)));
+end
+
+Jk = sym('H',[2,3]);
+for k = 1:length(ctrldiff)
+    Jk(:,k) = simplify(diff(yex,ctrldiff(k)));
+end

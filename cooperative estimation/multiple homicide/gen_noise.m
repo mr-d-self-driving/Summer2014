@@ -7,6 +7,10 @@ load data.mat;
 sigma_w = (.1/3)^2;% odometry error, metres
 sigma_bear = (1*d2r/3)^2;%radians
 sigma_gps = (.1)^2;%metres
+sigma_acc = (.1/3)^2;%accelerometer
+sigma_gyro = (.1/3)^2;%gyroscope
+
+% y: [rx ry psi_1 rx ry psi_t rx ry psi_2 v2]
 
 Ts = 0.1;
 
@@ -22,6 +26,7 @@ b2 = zeros(length(T),2);%b1(1) = bearing to agent 1, b1(2) = bearing to target
 u1 = zeros(length(T),1);
 u2 = zeros(length(T),1);
 gps = zeros(length(T),4);
+imu = zeros(length(T),6);%[acc1 gyro1 acc2 gyro2]
 
 i = 2;
 t = zeros(length(T),1);
@@ -50,6 +55,25 @@ while i < length(T)
     u2(count) = u2ref(ilast,1);
     % gps-like position update
     gps(count,:) = Y(ilast,[1 2 7 8]) + ~TRUTH*randn(1,4)*sqrt(sigma_gps);
+    
+    % accelerometer & gyros
+    if ilast > 1
+        vdot1 = (Y(i,1:2)-2*Y(ilast,1:2)+Y(ilast-1,1:2))/(0.5*(T(i)-T(ilast-1)))^2;
+        vdot2 = (Y(i,7:8)-2*Y(ilast,7:8)+Y(ilast-1,7:8))/(0.5*(T(i)-T(ilast-1)))^2;
+    else
+        vdot1 = (Y(i+1,1:2)-2*Y(ilast+1,1:2)+Y(ilast,1:2))/(0.5*(T(i+1)-T(ilast)))^2;
+        vdot2 = (Y(i+1,7:8)-2*Y(ilast+1,7:8)+Y(ilast,7:8))/(0.5*(T(i+1)-T(ilast)))^2;
+    end
+    % approximate the inertial derivative of v for agent 1
+    
+    % inertial to body DCM
+    C = [cos(Y(ilast,3)) sin(Y(ilast,3));-sin(Y(ilast,3)) cos(Y(ilast,3))];
+    imu(count,1:2) = vdot1*C' + ~TRUTH*randn(1,2)*sqrt(sigma_acc);
+    imu(count,3) = u1(count) + ~TRUTH*randn(1,1)*sqrt(sigma_gyro);
+    % repeat for agent 2
+    C = [cos(Y(ilast,9)) sin(Y(ilast,9));-sin(Y(ilast,9)) cos(Y(ilast,9))];
+    imu(count,4:5) = vdot2*C' + ~TRUTH*randn(1,2)*sqrt(sigma_acc);
+    imu(count,6) = u2(count) + ~TRUTH*randn(1,1)*sqrt(sigma_gyro);
     
     % odometry
     while round(1e4*(T(i) - T(ilast) - Ts))*1e-4 <= 0
