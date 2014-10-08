@@ -35,6 +35,7 @@ f(5:7) = [(uctrl*x6^3 + uctrl*x5^2*x6 - x3*x6^2*x9)/(x5^2 + x6^2);
                                  -(x9*(-x3*x5*x9))/(x5^2 + x6^2)];
 % target velocity state
 f(8:9) = -W*[vj1;vj2];
+
 % linearized matrices
 Fk = zeros(9);
 Fk(1:2,3) = [cos(psi);sin(psi)];
@@ -43,16 +44,20 @@ Fk(1:2,4) = xhat(3)*[-sin(psi);cos(psi)];
 Fk(5:7,3:end) = [[ -(x6^2*x9)/(x5^2 + x6^2), 0,                      -(- vj2*x9*x5^2*x6 + x9*(2*vj1 - 2*x3)*x5*x6^2 + vj2*x9*x6^3)/(x5^2 + x6^2)^2, uctrl + (x5^2*(2*vj1*x6*x9 - 2*x3*x6*x9) - vj2*x5^3*x9 + vj2*x5*x6^2*x9)/(x5^2 + x6^2)^2,     -(x6*(vj2*x5 - vj1*x6 + x3*x6))/(x5^2 + x6^2),   (x6^2*x9)/(x5^2 + x6^2), -(x5*x6*x9)/(x5^2 + x6^2)]
 [ (x5*x6*x9)/(x5^2 + x6^2), 0, ((x3*x9 - vj1*x9)*x6^3 + 2*vj2*x5*x9*x6^2 + (vj1*x5^2*x9 - x3*x5^2*x9)*x6)/(x5^2 + x6^2)^2 - uctrl,         -(x9*(vj1 - x3)*x5^3 + 2*vj2*x9*x5^2*x6 - x9*(vj1 - x3)*x5*x6^2)/(x5^2 + x6^2)^2,       (vj2*x5^2 - x5*x6*(vj1 - x3))/(x5^2 + x6^2), -(x5*x6*x9)/(x5^2 + x6^2),   (x5^2*x9)/(x5^2 + x6^2)]
 [  (x5*x9^2)/(x5^2 + x6^2), 0,                   ((vj1 - x3)*x5^2*x9^2 + 2*vj2*x5*x6*x9^2 + (x3 - vj1)*x6^2*x9^2)/(x5^2 + x6^2)^2,            (- vj2*x5^2*x9^2 + (2*vj1 - 2*x3)*x5*x6*x9^2 + vj2*x6^2*x9^2)/(x5^2 + x6^2)^2, -(2*vj2*x6*x9 + 2*x5*x9*(vj1 - x3))/(x5^2 + x6^2),  -(x5*x9^2)/(x5^2 + x6^2),  -(x6*x9^2)/(x5^2 + x6^2)]];
+
+Fk(8:9,8:9) = [0 uctrl;-uctrl 0];
 % add identity for discretization
 Fk = Ts*Fk + eye(9);
 
-% noise sources: [acc1 acc2 gyro/uctrl]
+% noise sources: [acc1 acc2 gyro/uctrl vt1noise vt2noise]
 Gk = zeros(9,5);
 Gk(3,1) = -1;
 Gk(4,3) = -1;
 Gk(5:7,3:5) = [[ -x6, -(x6^2*x9)/(x5^2 + x6^2), (x5*x6*x9)/(x5^2 + x6^2)]
 [  x5, (x5*x6*x9)/(x5^2 + x6^2), -(x5^2*x9)/(x5^2 + x6^2)]
 [   0,  (x5*x9^2)/(x5^2 + x6^2),  (x6*x9^2)/(x5^2 + x6^2)]];
+Gk(8:9,3:5) = [[ -vj2,     0, -uctrl]
+[  vj1, uctrl,      0]];
 
 Gk = Gk*Ts;
 
