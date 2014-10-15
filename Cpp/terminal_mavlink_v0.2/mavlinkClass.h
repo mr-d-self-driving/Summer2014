@@ -30,13 +30,15 @@ class mavlinkClass{
 	public:
 		mavlinkClass();
 		void handle_mavlink_msg(mavlink_message_t msg);
+		void handle_sys_status(mavlink_message_t msg);
 		void handle_heartbeat(mavlink_message_t msg);
 		void send_vicon(int &fd);
 		void send_heartbeat(int &fd);
 		int get_heartbeat_status();
-		void check_serial(int &fd);
+		int check_serial(int &fd);
 		void send_periodic(int &fd);
 		void update_vicon_buffer(float*values);
+		void send_cmd_arm(int &fd,bool state);
 	private:
 		timerClass hb_rcv_timer;//tracks the time between receiving heartbeat messages
 		timerClass one_hz_timer;//tracks time between last sending 1 Hz messages
@@ -50,6 +52,14 @@ class mavlinkClass{
 		mavlink_status_t status;
 		//debugging variables
 		long counter;
+		//mavlink system parameters
+		bool has_contacted_mav;
+		uint8_t system_id;
+		uint8_t component_id;
+		uint8_t target_system_id;
+		uint8_t target_component_id;
+		// governs debugging output or not
+		bool _verbose;
 };
 
 #endif
