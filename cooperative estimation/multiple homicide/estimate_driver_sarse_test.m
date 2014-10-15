@@ -18,26 +18,31 @@ USE_SHARED = 1;
 
 tvect = sort( [t; t; t(end)+Ts]);
 
-% xhat: [rx_n ry_n v1 psi1 ux uy rho
-%         1     2   3  4    5  6  7
+% xhat: [rx_n ry_n v1 psi1 ux uy rho vt1 vt2
+%         1     2   3  4    5  6  7   8   9
 
 % initialize
-xk(2) = struct('xk',zeros(length(t)*2+1,7),'Pk',zeros(length(t)*2+1,49));
-xk(1) = struct('xk',zeros(length(t)*2+1,7),'Pk',zeros(length(t)*2+1,49));
+xk(2) = struct('xk',zeros(length(t)*2+1,9),'Pk',zeros(length(t)*2+1,81));
+xk(1) = struct('xk',zeros(length(t)*2+1,9),'Pk',zeros(length(t)*2+1,81));
 %xk: r1 psi1 r2 psi2 rt psit
+C = [cos(Y(1,3)) sin(Y(1,3));-sin(Y(1,3)) cos(Y(1,3))];
+
 xk(1).xk(1,[1 2 4]) = Y(1,1:3);% my initial postion and heading
 xk(1).xk(1,3) = 0;% my initial velocity
 xk(1).xk(1,5:6) = [cos(b1(1,2));sin(b1(1,2))];% unit vector to target
-xk(1).xk(1,7) = RHO0;% inverse range to target
-%xk(1).xk(1,7) = 1./sqrt(sum((Y(1,1:2)-Y(1,4:5)).^2));
+%xk(1).xk(1,7) = RHO0;% inverse range to target
+xk(1).xk(1,7) = 1./sqrt(sum((Y(1,1:2)-Y(1,4:5)).^2));
+xk(1).xk(1,8:9) = 0.9*sqrt(2)/2*[1 1]*C';
 
+C = [cos(Y(1,9)) sin(Y(1,9));-sin(Y(1,9)) cos(Y(1,9))];
 xk(2).xk(1,[1 2 4]) = Y(1,7:9);% my initial postion and heading
 xk(2).xk(1,3) = 0;% my initial velocity
 xk(2).xk(1,5:6) = [cos(b2(1,2));sin(b2(1,2))];% unit vector to target
-xk(2).xk(1,7) = RHO0;% inverse range to target
-%xk(2).xk(1,7) = 1./sqrt(sum((Y(1,7:8)-Y(1,4:5)).^2));
+%xk(2).xk(1,7) = RHO0;% inverse range to target
+xk(2).xk(1,7) = 1./sqrt(sum((Y(1,7:8)-Y(1,4:5)).^2));
+xk(2).xk(1,8:9) = 0.9*sqrt(2)/2*[1 1]*C';
 for i = 1:2
-    Puse = 1*eye(7) + 1e-6*ones(7);
+    Puse = 1*eye(9) + 1e-6*ones(9);
     Puse(4,4) = .1;
     Puse(5,5) = 0.0333;
     Puse(6,6) = 0.0333;
@@ -56,7 +61,7 @@ for i = 1:length(t)
     for j = 1:2
         if mod(i,0)
             xhat = xk(j).xk(2*i-1,:)';
-            Pk = reshape( xk(j).Pk(2*i-1,:)',7,7);
+            Pk = reshape( xk(j).Pk(2*i-1,:)',9,9);
             
             Rk = diag([sigma_w sigma_bear]);
             if j == 1
@@ -85,7 +90,7 @@ for i = 1:length(t)
             yexp(2) = minangle(yexp(2),ytilde(2));
             Kk = Pk*Hk'*((Hk*Pk*Hk'+Rk)\eye(size(Rk)));
             xhat = xhat + Kk*(ytilde - yexp);
-            Pk = (eye(7) - Kk*Hk)*Pk;
+            Pk = (eye(9) - Kk*Hk)*Pk;
             % re-normalize unit vector
             xhat(5:6) = xhat(5:6)/norm(xhat(5:6));
             % store values
@@ -104,7 +109,7 @@ for i = 1:length(t)
             xk(j).Pk(2*i+1,:) = xk(j).Pk(2*i,:);
         else
             xhat = xk(j).xk(2*i,:)';
-            Pk = reshape( xk(j).Pk(2*i,:)',7,7);
+            Pk = reshape( xk(j).Pk(2*i,:)',9,9);
             if j == 1
                 uctrl = u1(i,:)';
                 %odometry
@@ -127,7 +132,7 @@ end
 
 %% figures
 
-Pdiag = [1:8:49];
+Pdiag = [1:10:81];
 
 for j = 1:2
     
