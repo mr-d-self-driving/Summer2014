@@ -39,6 +39,7 @@ class mavlinkClass{
 		void send_periodic(int &fd);
 		void update_vicon_buffer(float*values);
 		void send_cmd_arm(int &fd,bool state);
+		void send_cmd_arm(int &fd,bool state,uint8_t target_system, uint8_t target_component);
 	private:
 		timerClass hb_rcv_timer;//tracks the time between receiving heartbeat messages
 		timerClass one_hz_timer;//tracks time between last sending 1 Hz messages

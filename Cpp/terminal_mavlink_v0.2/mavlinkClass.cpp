@@ -1,6 +1,5 @@
 
 #include "mavlinkClass.h"
-
 #include "timerClass.h"
 
 mavlinkClass::mavlinkClass(){
@@ -45,6 +44,28 @@ void mavlinkClass::handle_mavlink_msg(mavlink_message_t msg){
 				mavlink_msg_statustext_get_text(&msg,buff);
 				printf("\nSTATUSTEXT: %s\n\n",buff);
 				break;
+			case MAVLINK_MSG_ID_COMMAND_ACK:
+				printf("\n COMMAND_ACK MSG REC'D: msg id %i, result %i, ",
+				mavlink_msg_command_ack_get_command(&msg),
+				mavlink_msg_command_ack_get_result(&msg));
+				switch(mavlink_msg_command_ack_get_result(&msg)){
+					case MAV_RESULT_ACCEPTED:
+						printf("Command accepted\n");
+						break;
+					case MAV_RESULT_TEMPORARILY_REJECTED:
+						printf("Command temporarily rejected\n");
+					case MAV_RESULT_DENIED:
+						printf("Command denied\n");
+						break;
+					case MAV_RESULT_UNSUPPORTED:
+						printf("Command unsupported\n");
+						break;
+					case MAV_RESULT_FAILED:
+						printf("Command failed\n");
+						break;
+				}
+				usleep(5e6);
+				break;
 			default:
 				printf("Unrecognized MAVlink message type: %i\n",msg.msgid);
 				break;
@@ -78,6 +99,10 @@ void mavlinkClass::handle_heartbeat(mavlink_message_t msg){
 		printf("%15s","GUIDED");
 	if (localvar & MAV_MODE_FLAG_MANUAL_INPUT_ENABLED)
 		printf("%15s","MANUAL");
+	if (localvar & MAV_MODE_FLAG_TEST_ENABLED)
+		printf("%15s","TEST");
+	if (localvar & MAV_MODE_FLAG_AUTO_ENABLED)
+		printf("%15s","AUTO");
 	// read the system state
 	localvar = mavlink_msg_heartbeat_get_system_status(&msg);
 	printf(", state: %i",localvar);
@@ -143,12 +168,13 @@ void mavlinkClass::send_heartbeat(int &fd){
 	//send garbage
 	uint8_t tt = 254;
 	write(fd,&tt,1);
-	mavlink_msg_heartbeat_pack(system_id,component_id,&msg,0,0,0,0,0);
+	mavlink_msg_heartbeat_pack(system_id,component_id,&msg,MAV_TYPE_ONBOARD_CONTROLLER,MAV_AUTOPILOT_INVALID,
+	255,0,MAV_STATE_ACTIVE);
 	// Copy the message to the send buffer
 	uint16_t len = mavlink_msg_to_send_buffer(buffy, &msg);
 	// send the message
 	if (write(fd,buffy,len)<0){
-		printf("Heartbeat failed\n");
+		printf("Heartbeat failed to send\n");
 	}
 /*	else{
 		printf("Wrote heartbeat\n");
@@ -175,16 +201,74 @@ void mavlinkClass::send_cmd_arm(int &fd,bool state){
 	uint8_t tt = 254;
 	write(fd,&tt,1);
 	// state is 1 for arming, 0 for disarming
-	mavlink_msg_command_long_pack(system_id,component_id,&msg,
-	target_system_id,target_component_id,
-	400,//identifier for arm message
+	mavlink_msg_command_long_pack(system_id,
+	component_id,
+	&msg,
+	target_system_id,
+	0,//MAV_COMP_ID_SYSTEM_CONTROL,//target_component_id,
+	MAV_CMD_COMPONENT_ARM_DISARM,//400,//identifier for arm message
 	0,//this is the first time we send the message
 	float(state),
 	0,0,0,0,0,0);
-	if (state)
-		printf("Sent arm message\n");
-	else
-		printf("Send disarm message\n");
+	// Copy the message to the send buffer
+	uint16_t len = mavlink_msg_to_send_buffer(buffy, &msg);
+	// send the message
+	if (write(fd,buffy,len)<0){
+		printf("Arm/disarm message failed.\n");
+	}
+	else{
+		printf("Sent arm/disarm message: %f\n",float(state));
+	}
+
+	/*
+	usleep(100);
+	write(fd,&tt,1);
+	mavlink_msg_command_long_pack(system_id,
+	component_id,
+	&msg,
+	target_system_id,
+	0,//MAV_COMP_ID_SYSTEM_CONTROL,//target_component_id,
+	MAV_CMD_DO_SET_MODE,
+	0,//this is the first time we send the message
+	209,
+	0,0,0,0,0,0);
+	// Copy the message to the send buffer
+	len = mavlink_msg_to_send_buffer(buffy, &msg);
+	// send the message
+	if (write(fd,buffy,len)<0){
+		printf("Change mode message failed.\n");
+	}
+	else{
+		printf("Sent change mode message: %f\n",float(state));
+	}
+	*/
+}
+
+void mavlinkClass::send_cmd_arm(int &fd,bool state,uint8_t target_system, uint8_t target_component){
+	//send garbage
+	uint8_t tt = 254;
+	write(fd,&tt,1);
+	// state is 1 for arming, 0 for disarming
+	mavlink_msg_command_long_pack(system_id,
+	component_id,
+	&msg,
+	target_system,
+	target_component,//target_component_id,
+	MAV_CMD_COMPONENT_ARM_DISARM,//identifier for arm message
+	0,//this is the first time we send the message
+	float(state),
+	0,0,0,0,0,0);
+	// Copy the message to the send buffer
+	uint16_t len = mavlink_msg_to_send_buffer(buffy, &msg);
+	if (write(fd,buffy,len)<0){
+		printf("Failed to send arm message\n");
+	}
+	else{
+		if (state)
+			printf("Sent arm message to sys %i component %i: %f\n",target_system,target_component,float(state));
+		else
+			printf("Sent disarm message to sys %i component %i: %f\n",target_system,target_component,float(state));
+	}
 }
 
 int mavlinkClass::check_serial(int &fd){
