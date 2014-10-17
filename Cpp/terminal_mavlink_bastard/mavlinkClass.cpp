@@ -8,8 +8,8 @@ mavlinkClass::mavlinkClass(){
 	for(int i = 0;i<6;i++)
 		vicon_buffer[i] = 0;
 	// identifying variables for this system via MAVlink
-	system_id = 42;
-	component_id = 0;
+	system_id = 255;
+	component_id = 1;
 	// set flag to indicate we have not yet contacted a MAV
 	has_contacted_mav = 0;
 	// set target system variables to 0 initially
@@ -20,37 +20,37 @@ mavlinkClass::mavlinkClass(){
 	return;
 }
 
-void mavlinkClass::handle_mavlink_msg(){//mavlink_message_t msg){
+void mavlinkClass::handle_mavlink_msg(mavlink_message_t *msg){
 	// if this is the first time we talk to the MAV, get its sysid and compid
 	if (!has_contacted_mav){
-		target_system_id = msg.sysid;
-		target_component_id = msg.compid;
+		target_system_id = msg->sysid;
+		target_component_id = msg->compid;
 		has_contacted_mav = 1;
 		printf("Received heartbeat from MAV with sysid %i and compid %i\n",target_system_id,target_component_id);
 	}
 	// if we recognize the MAV, then parse the message
-	if (msg.sysid == target_system_id)
+	if (msg->sysid == target_system_id)
 	{
-		switch(msg.msgid){
+		switch(msg->msgid){
 			case MAVLINK_MSG_ID_HEARTBEAT:
-				handle_heartbeat();//msg);
+				handle_heartbeat(msg);
 				break;
 			case MAVLINK_MSG_ID_OPTICAL_FLOW:
 				printf("Optic flow\n");
 				break;
 			case MAVLINK_MSG_ID_SYS_STATUS:
-				handle_sys_status();//msg);
+				handle_sys_status(msg);
 				break;
 			case MAVLINK_MSG_ID_STATUSTEXT:
 				char buff[50];
-				mavlink_msg_statustext_get_text(&msg,buff);
+				mavlink_msg_statustext_get_text(msg,buff);
 				printf("\nSTATUSTEXT: %s\n\n",buff);
 				break;
 			case MAVLINK_MSG_ID_COMMAND_ACK:
 				printf("\n COMMAND_ACK MSG REC'D: msg id %i, result %i, ",
-				mavlink_msg_command_ack_get_command(&msg),
-				mavlink_msg_command_ack_get_result(&msg));
-				switch(mavlink_msg_command_ack_get_result(&msg)){
+				mavlink_msg_command_ack_get_command(msg),
+				mavlink_msg_command_ack_get_result(msg));
+				switch(mavlink_msg_command_ack_get_result(msg)){
 					case MAV_RESULT_ACCEPTED:
 						printf("Command accepted\n");
 						break;
@@ -69,13 +69,13 @@ void mavlinkClass::handle_mavlink_msg(){//mavlink_message_t msg){
 				usleep(5e6);
 				break;
 			default:
-				printf("Unrecognized MAVlink message type: %i\n",msg.msgid);
+				printf("Unrecognized MAVlink message type: %i\n",msg->msgid);
 				break;
 		}
 	}
 }
 
-void mavlinkClass::handle_heartbeat(){//mavlink_message_t msg){
+void mavlinkClass::handle_heartbeat(mavlink_message_t *msg){
 	hb_counter++;
 	//check the timing good/bad
 	if (hb_rcv_timer.getDelta() <= (1.2*HB_TIME_IDEAL) ){
@@ -90,50 +90,43 @@ void mavlinkClass::handle_heartbeat(){//mavlink_message_t msg){
 	uint8_t localvar;
 	
 	printf("Heartbeat %i: Mode ",hb_counter);
-	localvar = mavlink_msg_heartbeat_get_base_mode(&msg);
-
-	// if we are armed, do not print status
+	localvar = mavlink_msg_heartbeat_get_base_mode(msg);
+	printf("%i",localvar);
 	if (localvar & MAV_MODE_FLAG_SAFETY_ARMED)
-	{
-	}
-	else{
-		printf("%i",localvar);
-		if (localvar & MAV_MODE_FLAG_SAFETY_ARMED)
-			printf("%10s", "ARM");
-		else
-			printf("%10s","DISARMED");
-		if (localvar & MAV_MODE_FLAG_STABILIZE_ENABLED)
-			printf("%15s","STABILIZE");
-		if (localvar & MAV_MODE_FLAG_GUIDED_ENABLED)
-			printf("%15s","GUIDED");
-		if (localvar & MAV_MODE_FLAG_MANUAL_INPUT_ENABLED)
-			printf("%15s","MANUAL");
-		if (localvar & MAV_MODE_FLAG_TEST_ENABLED)
-			printf("%15s","TEST");
-		if (localvar & MAV_MODE_FLAG_AUTO_ENABLED)
-			printf("%15s","AUTO");
-		// read the system state
-		localvar = mavlink_msg_heartbeat_get_system_status(&msg);
-		printf(", state: %i",localvar);
-		if (localvar & MAV_STATE_UNINIT);
-			printf("%10s","UNINIT");
-		if(localvar & MAV_STATE_CALIBRATING);
-			printf("%10s","CALIBRATING");
-		if(localvar & MAV_STATE_STANDBY);
-			printf("%10s","STANDBY");
-		if(localvar & MAV_STATE_ACTIVE);
-			printf("%10s","ACTIVE");
+		printf("%10s", "ARM");
+	else
+		printf("%10s","DISARMED");
+	if (localvar & MAV_MODE_FLAG_STABILIZE_ENABLED)
+		printf("%15s","STABILIZE");
+	if (localvar & MAV_MODE_FLAG_GUIDED_ENABLED)
+		printf("%15s","GUIDED");
+	if (localvar & MAV_MODE_FLAG_MANUAL_INPUT_ENABLED)
+		printf("%15s","MANUAL");
+	if (localvar & MAV_MODE_FLAG_TEST_ENABLED)
+		printf("%15s","TEST");
+	if (localvar & MAV_MODE_FLAG_AUTO_ENABLED)
+		printf("%15s","AUTO");
+	// read the system state
+	localvar = mavlink_msg_heartbeat_get_system_status(msg);
+	printf(", state: %i",localvar);
+	if (localvar & MAV_STATE_UNINIT);
+		printf("%10s","UNINIT");
+	if(localvar & MAV_STATE_CALIBRATING);
+		printf("%10s","CALIBRATING");
+	if(localvar & MAV_STATE_STANDBY);
+		printf("%10s","STANDBY");
+	if(localvar & MAV_STATE_ACTIVE);
+		printf("%10s","ACTIVE");
 	
-		printf("\n");
-	}
+	printf("\n");
 }
 
-void mavlinkClass::handle_sys_status(){//mavlink_message_t msg){
+void mavlinkClass::handle_sys_status(mavlink_message_t *msg){
 	printf("Status message: sensors_present %i sensors_enabled %i sensors_health %i packet_drop_pct %f",
-		mavlink_msg_sys_status_get_onboard_control_sensors_present(&msg),
-		mavlink_msg_sys_status_get_onboard_control_sensors_enabled(&msg),
-		mavlink_msg_sys_status_get_onboard_control_sensors_health(&msg),
-		0.01*mavlink_msg_sys_status_get_drop_rate_comm(&msg));
+		mavlink_msg_sys_status_get_onboard_control_sensors_present(msg),
+		mavlink_msg_sys_status_get_onboard_control_sensors_enabled(msg),
+		mavlink_msg_sys_status_get_onboard_control_sensors_health(msg),
+		0.01*mavlink_msg_sys_status_get_drop_rate_comm(msg));
 	//tb continued
 	
 	printf("\n");
@@ -151,10 +144,7 @@ void mavlinkClass::update_vicon_buffer(float*values){
 	}
 }
 
-void mavlinkClass::send_vicon(int &fd){
-	//send garbage
-	//uint8_t tt = 254;
-	//write(fd,&tt,1);usleep(100);
+void mavlinkClass::send_vicon(int *fd){
 	//send vicon
 	vicon_buffer[0] = counter;
 	mavlink_msg_vicon_position_estimate_pack(system_id,
@@ -165,7 +155,7 @@ void mavlinkClass::send_vicon(int &fd){
 	// Copy the message to the send buffer
 	uint16_t len = mavlink_msg_to_send_buffer(buffy, &msg);
 	// send the message
-	if (write(fd,buffy,len)<0){
+	if (write(*fd,buffy,len)<0){
 		printf("Vicon failed\n");
 	}
 	else{
@@ -175,10 +165,7 @@ void mavlinkClass::send_vicon(int &fd){
 	usleep(100);
 }
 
-void mavlinkClass::send_heartbeat(int &fd){
-	//send garbage
-	//uint8_t tt = 254;
-	//write(fd,&tt,1);usleep(100);
+void mavlinkClass::send_heartbeat(int *fd){
 	mavlink_msg_heartbeat_pack(system_id,component_id,&msg,
 	MAV_TYPE_HEXAROTOR,//MAV_TYPE_ONBOARD_CONTROLLER,
 	MAV_AUTOPILOT_ARDUPILOTMEGA,//MAV_AUTOPILOT_INVALID,
@@ -188,7 +175,7 @@ void mavlinkClass::send_heartbeat(int &fd){
 	// Copy the message to the send buffer
 	uint16_t len = mavlink_msg_to_send_buffer(buffy, &msg);
 	// send the message
-	if (write(fd,buffy,len)<0){
+	if (write(*fd,buffy,len)<0){
 		printf("Heartbeat failed to send\n");
 	}
 /*	else{
@@ -201,7 +188,7 @@ uint32_t mavlinkClass::get_hb_counts(){
 	return hb_counter;
 }
 
-void mavlinkClass::send_periodic(int &fd){
+void mavlinkClass::send_periodic(int *fd){
 	//check 50Hz loop
 	if(fifty_hz_timer.getDelta() >= VICON_RATE_IDEAL){
 		fifty_hz_timer.restart();
@@ -216,7 +203,8 @@ void mavlinkClass::send_periodic(int &fd){
 	}
 }
 
-void mavlinkClass::send_cmd_arm(int &fd,bool state){
+void mavlinkClass::send_cmd_arm(int *fd,bool state){
+
 	// state is 1 for arming, 0 for disarming
 	mavlink_msg_command_long_pack(system_id,
 		component_id,
@@ -230,18 +218,20 @@ void mavlinkClass::send_cmd_arm(int &fd,bool state){
 	// Copy the message to the send buffer
 	uint16_t len = mavlink_msg_to_send_buffer(buffy, &msg);
 	// send the message
-	if (write(fd,buffy,len)<0){
+	if (write(*fd,&buffy,len)<0){
 		printf("Arm/disarm message failed.\n");
 	}
 	else{
 		printf("Sent arm/disarm message: %f\n",float(state));
 	}
 	usleep(100);
+
 }
 
-void mavlinkClass::send_set_mode(int &fd,uint8_t base_mode, uint32_t custom_mode){
-	//uint8_t tt = 254;
-	//write(fd,&tt,1);usleep(100);
+void mavlinkClass::send_set_mode(int *fd,uint8_t base_mode, uint32_t custom_mode){
+	uint8_t tt = 254;
+	write(*fd,&tt,1);usleep(100);
+
 	mavlink_msg_set_mode_pack(system_id,
 		component_id,
 		&msg,
@@ -250,7 +240,7 @@ void mavlinkClass::send_set_mode(int &fd,uint8_t base_mode, uint32_t custom_mode
 		custom_mode);//MAV_MODE_STABILIZE_ARMED);
 
 	uint16_t len = mavlink_msg_to_send_buffer(buffy,&msg);
-	if (write(fd,buffy,len)<0){
+	if (write(*fd,buffy,len)<0){
 		printf("Mode set message failed.\n");
 	}
 	else{
@@ -259,31 +249,14 @@ void mavlinkClass::send_set_mode(int &fd,uint8_t base_mode, uint32_t custom_mode
 	usleep(100);
 }
 
-void mavlinkClass::send_rc_channels_override(int *fd,uint16_t chan1, uint16_t chan2, uint16_t chan3, uint16_t chan4){
-	mavlink_msg_rc_channels_override_pack(system_id,
-		component_id,
-		&msg,
-		target_system_id,
-		MAV_COMP_ID_SYSTEM_CONTROL,
-		chan1,chan2,chan3,chan4,0,0,0,0);
-	uint16_t len = mavlink_msg_to_send_buffer(buffy,&msg);
-	if (write(*fd,buffy,len)<0){
-		printf("RC override failed.\n");
-	}
-	else{
-		printf("RC override sent\n");
-	}
-	usleep(100);
-}
-
-int mavlinkClass::check_serial(int &fd){
+int mavlinkClass::check_serial(int *fd){
 	int packet_drop_count = 0;
 	//if(read(fd,&charval,1) > 0){
 	//while(read(fd,&inputBuffy[counter],1) > 0 && counter < MAVLINK_MAX_PACKET_LEN){
-	while(read(fd,&charval,1) > 0){
+	while(read(*fd,&charval,1) > 0){
 		//printf("%x\n",charval);
 		if (mavlink_parse_char(MAVLINK_COMM_0, charval, &msg, &status)){
-			handle_mavlink_msg();//msg);
+			handle_mavlink_msg(&msg);
 		}
 		packet_drop_count += status.packet_rx_drop_count;
 	}

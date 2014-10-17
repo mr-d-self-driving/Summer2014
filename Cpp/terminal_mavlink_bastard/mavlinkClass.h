@@ -30,18 +30,17 @@ twoodbury@tamu.edu
 class mavlinkClass{
 	public:
 		mavlinkClass();
-		void handle_mavlink_msg();//mavlink_message_t msg);
-		void handle_sys_status();//mavlink_message_t msg);
-		void handle_heartbeat();//mavlink_message_t msg);
-		void send_vicon(int &fd);
-		void send_heartbeat(int &fd);
+		void handle_mavlink_msg(mavlink_message_t *msg);
+		void handle_sys_status(mavlink_message_t *msg);
+		void handle_heartbeat(mavlink_message_t *msg);
+		void send_vicon(int *fd);
+		void send_heartbeat(int *fd);
 		int get_heartbeat_status();
-		int check_serial(int &fd);
-		void send_periodic(int &fd);
+		int check_serial(int *fd);
+		void send_periodic(int *fd);
 		void update_vicon_buffer(float*values);
-		void send_cmd_arm(int &fd,bool state);
-		void send_set_mode(int &fd,uint8_t base_mode, uint32_t custom_mode);//send mode change commands
-		void send_rc_channels_override(int *fd,uint16_t chan1, uint16_t chan2, uint16_t chan3, uint16_t chan4);
+		void send_cmd_arm(int *fd,bool state);
+		void send_set_mode(int *fd,uint8_t base_mode, uint32_t custom_mode);//send mode change commands
 		uint32_t get_hb_counts(void);//get the current number of heartbeat counts
 	private:
 		timerClass hb_rcv_timer;//tracks the time between receiving heartbeat messages
