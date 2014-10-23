@@ -1,14 +1,17 @@
 clear variables;
 close all;
 
+addpath('../../2D');
+addpath('../');
+
 %% generate data
 
 if ~exist('data.mat','file');
     
     % sample time
-    Ts = 0.1;
+    Ts = 0.02;
     % sim time
-    Tmax = 60;
+    Tmax = 120;
     
     % allowed position space
     R = 10;
@@ -33,6 +36,9 @@ if ~exist('data.mat','file');
             r*sin(phi)];
         v0 = [0;0;0];
         q0 = rand(4,1);q0 = q0./norm(q0);
+        garb = attpar(q0,[6 4],struct('seq',[1; 2; 1]));
+        eul0 = garb(:,1);
+        eul0dot = [0;0;0];
         
         tnow = 0;
         
@@ -76,10 +82,9 @@ if ~exist('data.mat','file');
             garb = attpar(Cbn,[1 4],struct('seq',[1 2 1]'));
             eulref = garb(:,1);
             
-            garb = attpar(q0,[6 4],struct('seq',[1 2 1]'));
-            eul0 = garb(:,1);
-            
             A = 2;
+            
+            eulref = minangle(eulref,eul0);
             
             eq = eul0 - eulref;
             
@@ -90,13 +95,20 @@ if ~exist('data.mat','file');
             end
             
             qu = zeros(length(t),4);
-            eul = zeros(length(t),3);
-            euldot = zeros(length(t),3);
+            %eul = zeros(length(t),3);
+            %euldot = zeros(length(t),3);
             omega = zeros(length(t),3);
+            
+            rc = zeros(4,3);
             for i = 1:3
-                eul(:,i) = eq(i)*exp(-A*t) + eulref(i);
-                euldot(:,i) = -A*eq(i)*exp(-A*t);
+                %just do a polynomial for this also
+                rc(:,i) = BC\[eul0(i);eul0dot(i);eulref(i);0];
+                
+                %eul(:,i) = eq(i)*exp(-A*t) + eulref(i);
+                %euldot(:,i) = -A*eq(i)*exp(-A*t);
             end
+            eul = [ones(length(t),1) t' t.^2' t.^3']*rc;
+            euldot = [zeros(length(t),1) ones(length(t),1) 2*t' 3*t.^2']*rc;
             for i = 1:length(t)
                 omega(i,:) = ([euldot(i,3);0;0] + DCMConverter(1,eul(i,3))*[0;euldot(i,2);0] + DCMConverter(1,eul(i,3))*DCMConverter(2,eul(i,2))*[euldot(i,1);0;0])';
                 qu(i,:) = attpar([eul(i,:)' [1;2;1]],[4 6])';
@@ -106,15 +118,20 @@ if ~exist('data.mat','file');
             Y(count+lt,4:6) = [zeros(length(t),1) ones(length(t),1) 2*t' 3*t.^2']*vc;
             Y(count+lt,7:10) = qu;
             Y(count+lt,11:13) = omega;
-            
-            % reset for next iteration
-            r0 = Y(count+length(lt),1:3)';
-            v0 = Y(count+length(lt),4:6)';
-            q0 = Y(count+length(lt),7:10)';
+            Y(count+lt,14:16) = eul;            
             
             count = count+length(lt);
             tnow = tnow + t(end);
+            
+            % reset for next iteration
+            r0 = Y(count,1:3)';
+            v0 = Y(count,4:6)';
+            q0 = Y(count,7:10)';
+            eul0 = eul(end,:)';
+            eul0dot = euldot(end,:)';
         end
+        
+        Y(:,7:10) = quatmin(Y(:,7:10));
         
         Yc{II} = Y;
     end
@@ -141,7 +158,7 @@ if ~exist('meas','var')
             rsee = zeros(size(rdiff));
             rmeas = zeros(size(rdiff));
             for i = 1:length(T)
-                quat = Yc{II}(:,7:10)';
+                quat = Yc{II}(i,7:10)';
                 Cbn = attpar(quat,[6 1]);
                 rsee(i,:) = rdiff(i,:)*Cbn';
                 
@@ -166,35 +183,52 @@ if ~exist('meas','var')
 end
 %% process
 
+% compute truth
+qji = zeros(length(T),4);
+for k = 1:length(T)
+    Cin = attpar(Yc{1}(k,7:10)',[6 1]);
+    Cjn = attpar(Yc{2}(k,7:10)',[6 1]);
+    Cji = Cjn*Cin';
+    qji_tr = attpar(Cji,[1 6]);
+    qji(k,:) = qji_tr';
+end
+qji = quatmin(qji);
+
 xh = cell(2,1);
 Ph = cell(2,1);
 
-tv = sort([T T T(1)]);
+tv = sort([T T T(end)+Ts]);
 
 for i = 1:2
     xh{i} = zeros(length(tv),4);
     Ph{i} = zeros(length(tv),16);
-    xh{i}(1,:) = [1 0 0 0];
+    %xh{i}(1,:) = [1 0 0 0];
+    xh{i}(1,:) = randn(4,1);xh{i}(1,:) = xh{i}(1,:)./norm(xh{i}(1,:));
     Ph{i}(1,:) = reshape( eye(4), 16,1)';
 end
+
+% use exact initial conditions
+%xh{1}(1,:) = qji(1,:);
+%xh{2}(1,:) = qji(1,:);xh{2}(1,1) = -xh{2}(1,1);
 
 %
 Rx = zeros(6);
 % measurement error
 errnom = [0 err_dev err_dev].^2;
 
-% measurement error in omega
-Qk = diag([1e-4 1e-4 1e-4]);
+% measurement error in other agent's omega
+Qk = diag(1e-2*[1 1 1]);
 
 for j = 1:2
     for k = 1:length(T)
-        %% update
+        %% update        
         xhat = xh{j}(2*k-1,:)';
         Pk = reshape(Ph{j}(2*k-1,:)',4,4);
         
         ymeas = zeros(3,1);
         
-        Cji = eye(3) - 2*xhat(1)*squiggle(xhat(2:4)) + 2*squiggle(xhat(2:4))^2;
+        %Cji = eye(3) - 2*xhat(1)*squiggle(xhat(2:4)) + 2*squiggle(xhat(2:4))^2;
+        Cji = attpar(xhat,[6 1]);
         
         % my meas of him
         rji_i = meas{j}(k,(1:3))';
@@ -211,6 +245,7 @@ for j = 1:2
         Hk = zeros(3,4);
         Hk(:,1) = -2*squiggle(xhat(2:4))*rji_i;
         Hk(:,2:4) = 2*xhat(1)*squiggle(rji_i) - 2*squiggle(xhat(2:4))*squiggle(rji_i) - 2*squiggle( squiggle(xhat(2:4))*rji_i );
+        Hk = -Hk;
         
         Crt_b = zeros(3);
         Crt_b(1,:) = rji_i';
@@ -227,7 +262,7 @@ for j = 1:2
         % error covariance associated with rji_i
         Rx(1:3,1:3) = Crt_b'*diag(errnom)*Crt_b;
         
-        % repeat for rij_j
+        % repeat for rij_j2
         Crt_b = zeros(3);
         Crt_b(1,:) = rij_j';
         r2 = cross(rij_j,[1;0;0]);r2 = r2./norm(r2);
@@ -240,8 +275,8 @@ for j = 1:2
         
         % jacobian associated with the measurement
         J = zeros(3,6);
-        J(1:3,1:3) = Cji;
-        J(1:3,4:6) = eye(3);
+        J(1:3,1:3) = -Cji;
+        J(1:3,4:6) = -eye(3);
         
         % actual 'measurement' covariance
         Ry = J*Rx*J';
@@ -253,14 +288,37 @@ for j = 1:2
         xhat = xhat + Kk*ydiff;
         Pk = (eye(4) - Kk*Hk)*Pk;
         
+        % re-normalize
+        xhat = xhat./norm(xhat);
+        
         % store
         xh{j}(2*k,:) = xhat';
         Ph{j}(2*k,:) = reshape(Pk,16,1)';
         %% propagate
-        xhat = xh{j}(2*k,:)';
-        Phat = reshape(Ph{j}(2*k,:)',4,4);
+        %play it forward
+        %xh{j}(2*k+1,:) = xh{j}(2*k,:);
+        %Ph{j}(2*k+1,:) = Ph{j}(2*k,:);
         
-        w = Yc{j}(k,11:13)';
+        xhat = xh{j}(2*k,:)';
+        Pk = reshape(Ph{j}(2*k,:)',4,4);
+        
+        %w = -Yc{j}(k,11:13)';
+        if j == 1
+            %w = Yc{2}(k,11:13)' - Yc{1}(k,11:13)';
+            qj = Yc{2}(k,7:10)';
+            qi = Yc{1}(k,7:10)';
+            Cjn = attpar(qj,[6 1]);
+            Cin = attpar(qi,[6 1]);
+            w = Yc{2}(k,11:13)' - Cjn*Cin'*Yc{1}(k,11:13)';
+            w = w + randn(3,1).*diag(sqrtm(Qk));
+        else
+            qj = Yc{1}(k,7:10)';
+            qi = Yc{2}(k,7:10)';
+            Cjn = attpar(qj,[6 1]);
+            Cin = attpar(qi,[6 1]);
+            w = Yc{1}(k,11:13)' - Cjn*Cin'*Yc{2}(k,11:13)';
+            w = w + randn(3,1).*diag(sqrtm(Qk));
+        end
         
         A = 0.5*[ -xhat(2:4)';xhat(1)*eye(3) + squiggle(xhat(2:4))];
         xdot = A*w;
@@ -278,8 +336,77 @@ for j = 1:2
         % update
         xhat = xhat + Ts*xdot;
         Pk = Fk*Pk*Fk' + Gk*Qk*Gk';
+        
+        % re-normalize
+        xhat = xhat./norm(xhat);
+        
         % store
         xh{j}(2*k+1,:) = xhat';
         Ph{j}(2*k+1,:) = reshape(Pk,16,1)';
     end
 end
+
+%% evaluate results
+
+close all;
+figure;
+
+Pdiag = 1:5:16;
+
+qji_in = interp1(T,qji,tv);
+
+xh{1} = quatmin(xh{1},qji_in);
+xh{2} = quatmin(xh{2},[-qji_in(:,1) qji_in(:,2:4)]);
+
+for k = 1:4
+    subplot(2,2,k);
+    plot(tv,xh{1}(:,k),'--x');
+    hold on;
+    plot(tv,xh{1}(:,k) + 2*sqrt(Ph{1}(:,Pdiag(k))),'r--');
+    plot(tv,xh{1}(:,k) - 2*sqrt(Ph{1}(:,Pdiag(k))),'r--');
+    plot(T,qji(:,k),'k-','linewidth',2);
+    set(gca,'ylim',[-1 1]);
+end
+
+figure;
+for k = 1:4
+    subplot(2,2,k);
+    plot(tv,xh{2}(:,k),'--x');
+    hold on;
+    plot(tv,xh{2}(:,k) + 2*sqrt(Ph{2}(:,Pdiag(k))),'r--');
+    plot(tv,xh{2}(:,k) - 2*sqrt(Ph{2}(:,Pdiag(k))),'r--');
+    if k == 1
+        plot(T,-qji(:,k),'k-','linewidth',2);
+    else
+        plot(T,qji(:,k),'k-','linewidth',2);
+    end
+    set(gca,'ylim',[-1 1]);
+end
+
+% compute error quaternions
+q_err1 = zeros(length(tv),1);
+q_err2 = zeros(length(tv),1);
+for i = 1:length(tv)
+    %truth
+    Cji = attpar(qji_in(i,:)',[6 1]);
+    Cji_1 = attpar(xh{1}(i,:)',[6 1]);
+    Cij_2 = attpar(xh{2}(i,:)',[6 1]);
+    % error DCMs
+    Ct_1 = Cji_1'*Cji;
+    Ct_2 = Cij_2'*Cji';
+    %error quaternions
+    gar1 = attpar(Ct_1,[1 2]);
+    q_err1(i) = gar1(1,2);
+    gar2 = attpar(Ct_2,[1 2]);
+    q_err2(i) = gar2(1,2);
+end
+
+figure;
+
+subplot(211);
+plot(tv, q_err1);
+ylabel('agent 1 pointing error (rad)');
+
+subplot(212);
+plot(tv, q_err2);
+ylabel('agent 2 pointing error (rad)');
