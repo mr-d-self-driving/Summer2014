@@ -1,3 +1,7 @@
+%% tries to use the current agent's angular velocity measurement and
+% an estimate of the other's angular velocity to propagate
+% do not know if it will or can work.
+
 clear variables;
 close all;
 
@@ -9,7 +13,7 @@ addpath('../');
 if ~exist('data.mat','file');
     
     % sample time
-    Ts = 0.02;
+    Ts = 0.01;
     % sim time
     Tmax = 120;
     
@@ -144,7 +148,7 @@ end
 if ~exist('meas','var')
     
     % error stdev
-    err_dev = 0.1;%rads
+    err_dev = 0.001;%rads
     
     meas = cell(N,1);
     for II = 1:N
@@ -200,16 +204,19 @@ Ph = cell(2,1);
 tv = sort([T T T(end)+Ts]);
 
 for i = 1:2
-    xh{i} = zeros(length(tv),4);
-    Ph{i} = zeros(length(tv),16);
+    xh{i} = zeros(length(tv),7);
+    Ph{i} = zeros(length(tv),49);
     %xh{i}(1,:) = [1 0 0 0];
-    xh{i}(1,:) = randn(4,1);xh{i}(1,:) = xh{i}(1,:)./norm(xh{i}(1,:));
-    Ph{i}(1,:) = reshape( eye(4), 16,1)';
+    xh{i}(1,1:4) = randn(4,1);xh{i}(1,:) = xh{i}(1,:)./norm(xh{i}(1,:));
+    xh{i}(1,5:7) = 0;% initialize ang vel to zero. is estimate of j's ang vel in j's frame
+    Ph{i}(1,:) = reshape( eye(7), 49,1)';
 end
 
 % use exact initial conditions
-%xh{1}(1,:) = qji(1,:);
-%xh{2}(1,:) = qji(1,:);xh{2}(1,1) = -xh{2}(1,1);
+xh{1}(1,1:4) = qji(1,:);
+xh{1}(1,5:7) = Yc{2}(1,11:13);
+xh{2}(1,1:4) = qji(1,:);xh{2}(1,1) = -xh{2}(1,1);
+xh{2}(1,5:7) = Yc{1}(1,11:13);
 
 %
 Rx = zeros(6);
@@ -217,18 +224,19 @@ Rx = zeros(6);
 errnom = [0 err_dev err_dev].^2;
 
 % measurement error in other agent's omega
-Qk = diag(1e-2*Ts^2*[1 1 1]);
+Qk = diag([1e-2*Ts^2*[1 1 1] ...% component for measured ang. vel uncertainty
+    1e-1*[1 1 1]]);% component for estimated ang. vel uncertainty
 
 for j = 1:2
     for k = 1:length(T)
         %% update        
         xhat = xh{j}(2*k-1,:)';
-        Pk = reshape(Ph{j}(2*k-1,:)',4,4);
+        Pk = reshape(Ph{j}(2*k-1,:)',7,7);
         
         ymeas = zeros(3,1);
         
-        %Cji = eye(3) - 2*xhat(1)*squiggle(xhat(2:4)) + 2*squiggle(xhat(2:4))^2;
-        Cji = attpar(xhat,[6 1]);
+        % estactualimated i to j frame transform
+        Cji = attpar(xhat(1:4),[6 1]);
         
         % my meas of him
         rji_i = meas{j}(k,(1:3))';
@@ -242,7 +250,7 @@ for j = 1:2
         ydiff = rij_j + Cji*rji_i;
         
         % measurement gradient
-        Hk = zeros(3,4);
+        Hk = zeros(3,7);
         Hk(:,1) = -2*squiggle(xhat(2:4))*rji_i;
         Hk(:,2:4) = 2*xhat(1)*squiggle(rji_i) - 2*squiggle(xhat(2:4))*squiggle(rji_i) - 2*squiggle( squiggle(xhat(2:4))*rji_i );
         Hk = -Hk;
@@ -286,57 +294,68 @@ for j = 1:2
         
         %update
         xhat = xhat + Kk*ydiff;
-        Pk = (eye(4) - Kk*Hk)*Pk;
+        Pk = (eye(7) - Kk*Hk)*Pk;
         
         % re-normalize
-        xhat = xhat./norm(xhat);
+        xhat(1:4) = xhat(1:4)./norm(xhat(1:4));
         
         % store
         xh{j}(2*k,:) = xhat';
-        Ph{j}(2*k,:) = reshape(Pk,16,1)';
+        Ph{j}(2*k,:) = reshape(Pk,49,1)';
         %% propagate
         %play it forward
         %xh{j}(2*k+1,:) = xh{j}(2*k,:);
         %Ph{j}(2*k+1,:) = Ph{j}(2*k,:);
         
         xhat = xh{j}(2*k,:)';
-        Pk = reshape(Ph{j}(2*k,:)',4,4);
+        Pk = reshape(Ph{j}(2*k,:)',7,7);
         
+        %w = -Yc{j}(k,11:13)';
         if j == 1
-            Cji = attpar(xhat,[6 1]);
+            Cji = attpar(xhat(1:4),[6 1]);
+            % my angular velocity in my frame
+            wi = Yc{1}(k,11:13)' + randn(3,1).*diag(sqrtm(Qk(1:3,1:3))/Ts);
             % relative angular velocity in j frame
-            w = Yc{2}(k,11:13)'+randn(3,1).*diag(sqrtm(Qk)/Ts) - Cji*Yc{1}(k,11:13)'+randn(3,1).*diag(sqrtm(Qk)/Ts);
+            w = xhat(5:7) - Cji*wi;
         else
-            Cji = attpar(xhat,[6 1]);
+            Cji = attpar(xhat(1:4),[6 1]);
+            % angular velocity measured in my frame
+            wi = Yc{2}(k,11:13)' + randn(3,1).*diag(sqrtm(Qk(1:3,1:3))/Ts);
             % relative angular velocity in j frame
-            w = Yc{1}(k,11:13)'+randn(3,1).*diag(sqrtm(Qk)/Ts) - Cji*Yc{2}(k,11:13)'+randn(3,1).*diag(sqrtm(Qk)/Ts);
+            w = xhat(5:7) - Cji*wi;
         end
         
         A = 0.5*[ -xhat(2:4)';xhat(1)*eye(3) + squiggle(xhat(2:4))];
-        xdot = A*w;
+        xdot = [A*w;0;0;0];
         
         % need the gradient F
-        Fk = zeros(4,4);
+        Fk = zeros(7,7);
         Fk(2:4,1) = 0.5*eye(3)*w;
-        Fk(:,2) = 0.5*[-1 0 0;squiggle([1;0;0])]*w;
-        Fk(:,3) = 0.5*[0 -1 0;squiggle([0;1;0])]*w;
-        Fk(:,4) = 0.5*[0 0 -1;squiggle([0;0;1])]*w;
+        Fk(1:4,2) = 0.5*[-1 0 0;squiggle([1;0;0])]*w;
+        Fk(1:4,3) = 0.5*[0 -1 0;squiggle([0;1;0])]*w;
+        Fk(1:4,4) = 0.5*[0 0 -1;squiggle([0;0;1])]*w;
+        Fk(1:4,5:7) = A;
         % account for discretization
-        Fk = eye(4) + Ts*Fk;
+        Fk = eye(7) + Ts*Fk;
         
         % need the G matrix
-        Gk = A;
+        Gk = zeros(7,6);
+        % component for the measured ang. vel error
+        Gk(1:4,1:3) = A*Cji;
+        Gk(1:4,4:6) = -A;
+        % component for the estimated ang. vel uncertainty
+        Gk(5:7,4:6) = -eye(3);
         
         % update
         xhat = xhat + Ts*xdot;
         Pk = Fk*Pk*Fk' + Gk*Qk*Gk';
         
         % re-normalize
-        xhat = xhat./norm(xhat);
+        xhat(1:4) = xhat(1:4)./norm(xhat(1:4));
         
         % store
         xh{j}(2*k+1,:) = xhat';
-        Ph{j}(2*k+1,:) = reshape(Pk,16,1)';
+        Ph{j}(2*k+1,:) = reshape(Pk,49,1)';
     end
 end
 
@@ -345,12 +364,12 @@ end
 close all;
 figure;
 
-Pdiag = 1:5:16;
+Pdiag = 1:8:49;
 
 qji_in = interp1(T,qji,tv);
 
-xh{1} = quatmin(xh{1},qji_in);
-xh{2} = quatmin(xh{2},[-qji_in(:,1) qji_in(:,2:4)]);
+xh{1}(:,1:4) = quatmin(xh{1}(:,1:4),qji_in);
+xh{2}(:,1:4) = quatmin(xh{2}(:,1:4),[-qji_in(:,1) qji_in(:,2:4)]);
 
 for k = 1:4
     subplot(2,2,k);
@@ -394,7 +413,7 @@ for i = 1:length(tv)
     gar2 = attpar(Ct_2,[1 2]);
     q_err2(i) = gar2(1,2);
 end
-
+%%
 figure;
 
 subplot(211);
@@ -404,3 +423,19 @@ ylabel('agent 1 pointing error (rad)');
 subplot(212);
 plot(tv, q_err2);
 ylabel('agent 2 pointing error (rad)');
+
+% angular velocity
+w1_interp = interp1(T,Yc{1}(:,11:13),tv);
+w2_interp = interp1(T,Yc{2}(:,11:13),tv);
+figure;
+subplot(211);
+plot(tv,w2_interp - xh{1}(:,5:7));
+hold on;
+%plot(tv,sqrt(Ph{1}(:,Pdiag(5:7)))*3,'r--');
+%plot(tv,-sqrt(Ph{1}(:,Pdiag(5:7)))*3,'r--');
+
+subplot(212);
+plot(tv,w1_interp - xh{2}(:,5:7));
+hold on;
+%plot(tv,sqrt(Ph{2}(:,Pdiag(5:7)))*3,'r--');
+%plot(tv,-sqrt(Ph{2}(:,Pdiag(5:7)))*3,'r--');
