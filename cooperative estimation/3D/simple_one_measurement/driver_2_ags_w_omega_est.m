@@ -13,7 +13,7 @@ addpath('../');
 if ~exist('data.mat','file');
     
     % sample time
-    Ts = 0.01;
+    Ts = 0.02;
     % sim time
     Tmax = 120;
     
@@ -40,7 +40,7 @@ if ~exist('data.mat','file');
             r*sin(phi)];
         v0 = [0;0;0];
         q0 = rand(4,1);q0 = q0./norm(q0);
-        garb = attpar(q0,[6 4],struct('seq',[1; 2; 1]));
+        garb = attparsilent(q0,[6 4],struct('seq',[1; 2; 1]));
         eul0 = garb(:,1);
         eul0dot = [0;0;0];
         
@@ -82,8 +82,8 @@ if ~exist('data.mat','file');
             Cbn = [ref1' ref2' ref3']';
             
             % reference quaternion, scalar first
-            qref = attpar(Cbn,[1 6]);
-            garb = attpar(Cbn,[1 4],struct('seq',[1 2 1]'));
+            qref = attparsilent(Cbn,[1 6]);
+            garb = attparsilent(Cbn,[1 4],struct('seq',[1 2 1]'));
             eulref = garb(:,1);
             
             A = 2;
@@ -115,7 +115,7 @@ if ~exist('data.mat','file');
             euldot = [zeros(length(t),1) ones(length(t),1) 2*t' 3*t.^2']*rc;
             for i = 1:length(t)
                 omega(i,:) = ([euldot(i,3);0;0] + DCMConverter(1,eul(i,3))*[0;euldot(i,2);0] + DCMConverter(1,eul(i,3))*DCMConverter(2,eul(i,2))*[euldot(i,1);0;0])';
-                qu(i,:) = attpar([eul(i,:)' [1;2;1]],[4 6])';
+                qu(i,:) = attparsilent([eul(i,:)' [1;2;1]],[4 6])';
             end
             
             Y(count+lt,1:3) = [ones(length(t),1) t' t.^2' t.^3']*vc;
@@ -163,7 +163,7 @@ if ~exist('meas','var')
             rmeas = zeros(size(rdiff));
             for i = 1:length(T)
                 quat = Yc{II}(i,7:10)';
-                Cbn = attpar(quat,[6 1]);
+                Cbn = attparsilent(quat,[6 1]);
                 rsee(i,:) = rdiff(i,:)*Cbn';
                 
                 % generate error angle
@@ -173,7 +173,7 @@ if ~exist('meas','var')
                 vec = rand(3,1);vec = vec./norm(vec);
                 
                 % get DCM from true to error "frame"
-                Crp_r = attpar([vec [delta;0;0]],[2 1]);
+                Crp_r = attparsilent([vec [delta;0;0]],[2 1]);
                 
                 rmeas(i,:) = rsee(i,:)*Crp_r;
                 % use the unit vector as the measurement
@@ -190,10 +190,10 @@ end
 % compute truth
 qji = zeros(length(T),4);
 for k = 1:length(T)
-    Cin = attpar(Yc{1}(k,7:10)',[6 1]);
-    Cjn = attpar(Yc{2}(k,7:10)',[6 1]);
+    Cin = attparsilent(Yc{1}(k,7:10)',[6 1]);
+    Cjn = attparsilent(Yc{2}(k,7:10)',[6 1]);
     Cji = Cjn*Cin';
-    qji_tr = attpar(Cji,[1 6]);
+    qji_tr = attparsilent(Cji,[1 6]);
     qji(k,:) = qji_tr';
 end
 qji = quatmin(qji);
@@ -236,7 +236,7 @@ for j = 1:2
         ymeas = zeros(3,1);
         
         % estactualimated i to j frame transform
-        Cji = attpar(xhat(1:4),[6 1]);
+        Cji = attparsilent(xhat(1:4),[6 1]);
         
         % my meas of him
         rji_i = meas{j}(k,(1:3))';
@@ -312,13 +312,13 @@ for j = 1:2
         
         %w = -Yc{j}(k,11:13)';
         if j == 1
-            Cji = attpar(xhat(1:4),[6 1]);
+            Cji = attparsilent(xhat(1:4),[6 1]);
             % my angular velocity in my frame
             wi = Yc{1}(k,11:13)' + randn(3,1).*diag(sqrtm(Qk(1:3,1:3))/Ts);
             % relative angular velocity in j frame
             w = xhat(5:7) - Cji*wi;
         else
-            Cji = attpar(xhat(1:4),[6 1]);
+            Cji = attparsilent(xhat(1:4),[6 1]);
             % angular velocity measured in my frame
             wi = Yc{2}(k,11:13)' + randn(3,1).*diag(sqrtm(Qk(1:3,1:3))/Ts);
             % relative angular velocity in j frame
@@ -401,16 +401,16 @@ q_err1 = zeros(length(tv),1);
 q_err2 = zeros(length(tv),1);
 for i = 1:length(tv)
     %truth
-    Cji = attpar(qji_in(i,:)',[6 1]);
-    Cji_1 = attpar(xh{1}(i,:)',[6 1]);
-    Cij_2 = attpar(xh{2}(i,:)',[6 1]);
+    Cji = attparsilent(qji_in(i,:)',[6 1]);
+    Cji_1 = attparsilent(xh{1}(i,:)',[6 1]);
+    Cij_2 = attparsilent(xh{2}(i,:)',[6 1]);
     % error DCMs
     Ct_1 = Cji_1'*Cji;
     Ct_2 = Cij_2'*Cji';
     %error quaternions
-    gar1 = attpar(Ct_1,[1 2]);
+    gar1 = attparsilent(Ct_1,[1 2]);
     q_err1(i) = gar1(1,2);
-    gar2 = attpar(Ct_2,[1 2]);
+    gar2 = attparsilent(Ct_2,[1 2]);
     q_err2(i) = gar2(1,2);
 end
 %%

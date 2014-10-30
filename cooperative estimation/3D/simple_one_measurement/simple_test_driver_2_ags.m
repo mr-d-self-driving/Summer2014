@@ -11,7 +11,7 @@ if ~exist('data.mat','file');
     % sample time
     Ts = 0.02;
     % sim time
-    Tmax = 120;
+    Tmax = 90;
     
     % allowed position space
     R = 10;
