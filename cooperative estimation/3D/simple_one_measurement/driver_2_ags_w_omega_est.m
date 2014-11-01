@@ -10,7 +10,7 @@ addpath('../');
 
 %% generate data
 
-if ~exist('data.mat','file');
+if ~exist('data_3d.mat','file');
     
     % sample time
     Ts = 0.02;
@@ -140,9 +140,9 @@ if ~exist('data.mat','file');
         Yc{II} = Y;
     end
     
-    save data.mat;
+    save data_3d.mat;
 else
-    load data.mat;
+    load data_3d.mat;
 end
 %% generate measurements for each 
 if ~exist('meas','var')
@@ -183,7 +183,7 @@ if ~exist('meas','var')
             meas{II}(:,(Jcount-1)*3+(1:3)) = rmeas;
         end
     end
-    save data.mat;
+    save data_3d.mat;
 end
 %% process
 
@@ -218,14 +218,15 @@ xh{1}(1,5:7) = Yc{2}(1,11:13);
 xh{2}(1,1:4) = qji(1,:);xh{2}(1,1) = -xh{2}(1,1);
 xh{2}(1,5:7) = Yc{1}(1,11:13);
 
-%
+% error covariance associated with my measurement of him, and his
+% measurement of me
 Rx = zeros(6);
 % measurement error
 errnom = [0 err_dev err_dev].^2;
 
 % measurement error in other agent's omega
 Qk = diag([1e-2*Ts^2*[1 1 1] ...% component for measured ang. vel uncertainty
-    1e-1*[1 1 1]]);% component for estimated ang. vel uncertainty
+    (0.22*Ts)^2*[1 1 1]]);% component for estimated ang. vel uncertainty
 
 for j = 1:2
     for k = 1:length(T)
@@ -319,10 +320,10 @@ for j = 1:2
             w = xhat(5:7) - Cji*wi;
         else
             Cji = attparsilent(xhat(1:4),[6 1]);
-            % angular velocity measured in my frame
+            % my angular velocity, measured in my frame
             wi = Yc{2}(k,11:13)' + randn(3,1).*diag(sqrtm(Qk(1:3,1:3))/Ts);
-            % relative angular velocity in j frame
-            w = xhat(5:7) - Cji*wi;
+            % relative angular velocity, in j frame
+            w = xhat(5:7) - Cji*wi; % my estimate of his angular velocity is in his reference frame
         end
         
         A = 0.5*[ -xhat(2:4)';xhat(1)*eye(3) + squiggle(xhat(2:4))];
@@ -433,9 +434,11 @@ plot(tv,w2_interp - xh{1}(:,5:7));
 hold on;
 %plot(tv,sqrt(Ph{1}(:,Pdiag(5:7)))*3,'r--');
 %plot(tv,-sqrt(Ph{1}(:,Pdiag(5:7)))*3,'r--');
+ylabel('agent 1 angular velocity estimate error');
 
 subplot(212);
 plot(tv,w1_interp - xh{2}(:,5:7));
 hold on;
 %plot(tv,sqrt(Ph{2}(:,Pdiag(5:7)))*3,'r--');
 %plot(tv,-sqrt(Ph{2}(:,Pdiag(5:7)))*3,'r--');
+ylabel('agent 2 angular velocity estimate error');

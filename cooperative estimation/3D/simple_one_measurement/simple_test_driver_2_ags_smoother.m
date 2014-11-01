@@ -6,12 +6,12 @@ close all;
 addpath('../../2D');
 addpath('../');
 
-if ~exist('data.mat','file');
+if ~exist('data_3d.mat','file');
     disp('Error: generate data first');
     return;
 end
 
-load('data.mat');
+load('data_3d.mat');
 
 % compute truth
 qji = zeros(length(T),4);
@@ -323,6 +323,7 @@ subplot(211);
 plot(T, q_err1);
 hold on;
 plot(tv,q_errf1,'r--');
+legend('smoothed estimate','additive EKF estimate');
 ylabel('agent 1 pointing error (rad)');
 
 subplot(212);
