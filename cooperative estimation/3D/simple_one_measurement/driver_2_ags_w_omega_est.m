@@ -8,184 +8,25 @@ close all;
 addpath('../../2D');
 addpath('../');
 
-%% generate data
-
 if ~exist('data_3d.mat','file');
-    
-    % sample time
-    Ts = 0.02;
-    % sim time
-    Tmax = 120;
-    
-    % allowed position space
-    R = 10;
-    % target average speed
-    Vb = 1;
-    % number of agents
-    N = 2;
-    
-    % data storage
-    T = 0:Ts:Tmax;
-    Yc = cell(N,1);
-    
-    for II = 1:N
-        
-        % initialize
-        r = rand*2*R-R;
-        theta = rand*2*pi - pi;
-        phi = (rand-0.5)*pi;
-        
-        r0 = [r*cos(phi)*cos(theta);
-            r*cos(phi)*sin(theta);
-            r*sin(phi)];
-        v0 = [0;0;0];
-        q0 = rand(4,1);q0 = q0./norm(q0);
-        garb = attparsilent(q0,[6 4],struct('seq',[1; 2; 1]));
-        eul0 = garb(:,1);
-        eul0dot = [0;0;0];
-        
-        tnow = 0;
-        
-        Y = zeros(length(T),13);% r1 r2 r3 v1 v2 v3 quat omega
-        count = 0;
-        while(count < length(T))
-            
-            % pick a point in the space
-            r = rand*2*R-R;
-            theta = rand*2*pi - pi;
-            phi = (rand-0.5)*pi;
-            
-            rf = [r*cos(phi)*cos(theta);
-                r*cos(phi)*sin(theta);
-                r*sin(phi)];
-            vf = [0;0;0];
-            % final time
-            Tf = norm(rf-r0)/Vb;
-            Tf = round(Tf/Ts)*Ts;% round to nearest sample time for simplicity
-            % r0 proscribed
-            
-            % time vector, relative to last move
-            t = 0:Ts:Tf;
-            
-            % generate coefficients for reference traj
-            BC = [1 0 0 0;0 1 0 0;1 Tf Tf^2 Tf^3;0 1 2*Tf 3*Tf^2];
-            for i = 1:3
-                % coefficients
-                vc(:,i) = BC\[r0(i);v0(i);rf(i);vf(i)];
-            end
-            
-            % reference attitude
-            vran = rand(3,1);vran = vran./norm(vran);
-            ref1 = [0 1 2 3]*vc;ref1 = ref1./norm(ref1);% body 1-axis reference, in inertial frame
-            ref2 = cross(ref1,vran);ref2 = ref2./norm(ref2);
-            ref3 = cross(ref1,ref2);
-            Cbn = [ref1' ref2' ref3']';
-            
-            % reference quaternion, scalar first
-            qref = attparsilent(Cbn,[1 6]);
-            garb = attparsilent(Cbn,[1 4],struct('seq',[1 2 1]'));
-            eulref = garb(:,1);
-            
-            A = 2;
-            
-            eulref = minangle(eulref,eul0);
-            
-            eq = eul0 - eulref;
-            
-            lt = (1:length(t));
-            if count+length(t) > length(T)
-                lt = 1:(length(T)-count);
-                t = t(lt);
-            end
-            
-            qu = zeros(length(t),4);
-            %eul = zeros(length(t),3);
-            %euldot = zeros(length(t),3);
-            omega = zeros(length(t),3);
-            
-            rc = zeros(4,3);
-            for i = 1:3
-                %just do a polynomial for this also
-                rc(:,i) = BC\[eul0(i);eul0dot(i);eulref(i);0];
-                
-                %eul(:,i) = eq(i)*exp(-A*t) + eulref(i);
-                %euldot(:,i) = -A*eq(i)*exp(-A*t);
-            end
-            eul = [ones(length(t),1) t' t.^2' t.^3']*rc;
-            euldot = [zeros(length(t),1) ones(length(t),1) 2*t' 3*t.^2']*rc;
-            for i = 1:length(t)
-                omega(i,:) = ([euldot(i,3);0;0] + DCMConverter(1,eul(i,3))*[0;euldot(i,2);0] + DCMConverter(1,eul(i,3))*DCMConverter(2,eul(i,2))*[euldot(i,1);0;0])';
-                qu(i,:) = attparsilent([eul(i,:)' [1;2;1]],[4 6])';
-            end
-            
-            Y(count+lt,1:3) = [ones(length(t),1) t' t.^2' t.^3']*vc;
-            Y(count+lt,4:6) = [zeros(length(t),1) ones(length(t),1) 2*t' 3*t.^2']*vc;
-            Y(count+lt,7:10) = qu;
-            Y(count+lt,11:13) = omega;
-            Y(count+lt,14:16) = eul;            
-            
-            count = count+length(lt);
-            tnow = tnow + t(end);
-            
-            % reset for next iteration
-            r0 = Y(count,1:3)';
-            v0 = Y(count,4:6)';
-            q0 = Y(count,7:10)';
-            eul0 = eul(end,:)';
-            eul0dot = euldot(end,:)';
-        end
-        
-        Y(:,7:10) = quatmin(Y(:,7:10));
-        
-        Yc{II} = Y;
-    end
-    
-    save data_3d.mat;
-else
-    load data_3d.mat;
+    disp('Error: generate data first');
+    return;
 end
-%% generate measurements for each 
-if ~exist('meas','var')
-    
-    % error stdev
-    err_dev = 0.001;%rads
-    
-    meas = cell(N,1);
-    for II = 1:N
-        meas{II} = zeros(length(T),(N-1)*3);
-        Jcount = 0;
-        for JJ = [1:II-1 II+1:N]
-            Jcount = Jcount+1;
-            % inertial vector from II to JJ
-            rdiff = Yc{JJ}(:,1:3) - Yc{II}(:,1:3);
-            % convert to body frame
-            rsee = zeros(size(rdiff));
-            rmeas = zeros(size(rdiff));
-            for i = 1:length(T)
-                quat = Yc{II}(i,7:10)';
-                Cbn = attparsilent(quat,[6 1]);
-                rsee(i,:) = rdiff(i,:)*Cbn';
-                
-                % generate error angle
-                delta = randn*err_dev;
-                
-                % get arbitrary axis of rotation
-                vec = rand(3,1);vec = vec./norm(vec);
-                
-                % get DCM from true to error "frame"
-                Crp_r = attparsilent([vec [delta;0;0]],[2 1]);
-                
-                rmeas(i,:) = rsee(i,:)*Crp_r;
-                % use the unit vector as the measurement
-                rmeas(i,:) = rmeas(i,:)./norm(rmeas(i,:));
-            end
-            
-            meas{II}(:,(Jcount-1)*3+(1:3)) = rmeas;
-        end
-    end
-    save data_3d.mat;
-end
+
+load('data_3d.mat');
+
 %% process
+
+% measurement error in other agent's omega
+Qk = diag([1e-6*[1 1 1] ...% component for measured ang. vel uncertainty
+    (sqrt(10))^2*[1 1 1]]);% component for estimated ang. vel uncertainty
+
+% generate IMU histories
+W = zeros(length(T),6);
+for k = 1:length(T)
+    W(k,1:3) = Yc{1}(k,11:13) + randn(1,3).*diag(sqrtm(Qk(1:3,1:3)))';
+    W(k,4:6) = Yc{2}(k,11:13) + randn(1,3).*diag(sqrtm(Qk(1:3,1:3)))';
+end
 
 % compute truth
 qji = zeros(length(T),4);
@@ -224,10 +65,6 @@ Rx = zeros(6);
 % measurement error
 errnom = [0 err_dev err_dev].^2;
 
-% measurement error in other agent's omega
-Qk = diag([1e-2*Ts^2*[1 1 1] ...% component for measured ang. vel uncertainty
-    (0.22*Ts)^2*[1 1 1]]);% component for estimated ang. vel uncertainty
-
 for j = 1:2
     for k = 1:length(T)
         %% update        
@@ -252,9 +89,8 @@ for j = 1:2
         
         % measurement gradient
         Hk = zeros(3,7);
-        Hk(:,1) = -2*squiggle(xhat(2:4))*rji_i;
-        Hk(:,2:4) = 2*xhat(1)*squiggle(rji_i) - 2*squiggle(xhat(2:4))*squiggle(rji_i) - 2*squiggle( squiggle(xhat(2:4))*rji_i );
-        Hk = -Hk;
+        Hk(:,1) = 2*squiggle(xhat(2:4))*rji_i;
+        Hk(:,2:4) = -2*xhat(1)*squiggle(rji_i)+2*(squiggle(xhat(2:4))*squiggle(rji_i)+squiggle( squiggle(xhat(2:4))*rji_i ));
         
         Crt_b = zeros(3);
         Crt_b(1,:) = rji_i';
@@ -311,17 +147,15 @@ for j = 1:2
         xhat = xh{j}(2*k,:)';
         Pk = reshape(Ph{j}(2*k,:)',7,7);
         
-        %w = -Yc{j}(k,11:13)';
+        Cji = attparsilent(xhat(1:4),[6 1]);
         if j == 1
-            Cji = attparsilent(xhat(1:4),[6 1]);
             % my angular velocity in my frame
-            wi = Yc{1}(k,11:13)' + randn(3,1).*diag(sqrtm(Qk(1:3,1:3))/Ts);
+            wi = W(k,1:3)';%Yc{1}(k,11:13)' + randn(3,1).*diag(sqrtm(Qk(1:3,1:3))/Ts);
             % relative angular velocity in j frame
             w = xhat(5:7) - Cji*wi;
         else
-            Cji = attparsilent(xhat(1:4),[6 1]);
             % my angular velocity, measured in my frame
-            wi = Yc{2}(k,11:13)' + randn(3,1).*diag(sqrtm(Qk(1:3,1:3))/Ts);
+            wi = W(k,4:6)';%Yc{2}(k,11:13)' + randn(3,1).*diag(sqrtm(Qk(1:3,1:3))/Ts);
             % relative angular velocity, in j frame
             w = xhat(5:7) - Cji*wi; % my estimate of his angular velocity is in his reference frame
         end
@@ -330,11 +164,12 @@ for j = 1:2
         xdot = [A*w;0;0;0];
         
         % need the gradient F
+        bs = squiggle(xhat(2:4));
+        wp = xhat(5:7)-wi;
         Fk = zeros(7,7);
-        Fk(2:4,1) = 0.5*eye(3)*w;
-        Fk(1:4,2) = 0.5*[-1 0 0;squiggle([1;0;0])]*w;
-        Fk(1:4,3) = 0.5*[0 -1 0;squiggle([0;1;0])]*w;
-        Fk(1:4,4) = 0.5*[0 0 -1;squiggle([0;0;1])]*w;
+        % derivative w.r.t quat_est
+        Fk(1:4,1:4) = 0.5*[0 -wp';wp -squiggle(wp)] + [zeros(1,4);2*xhat(1)*bs*wi -xhat(1)^2*squiggle(wi)+squiggle(bs*bs*wi)+bs*squiggle(bs*wi)+bs*bs*squiggle(wi)];
+        % derivative w.r.t. omega_est
         Fk(1:4,5:7) = A;
         % account for discretization
         Fk = eye(7) + Ts*Fk;
@@ -343,9 +178,10 @@ for j = 1:2
         Gk = zeros(7,6);
         % component for the measured ang. vel error
         Gk(1:4,1:3) = A*Cji;
-        Gk(1:4,4:6) = -A;
         % component for the estimated ang. vel uncertainty
-        Gk(5:7,4:6) = -eye(3);
+        Gk(5:7,4:6) = eye(3);
+        % account for discretization
+        Gk = Ts*Gk;
         
         % update
         xhat = xhat + Ts*xdot;
@@ -429,16 +265,21 @@ ylabel('agent 2 pointing error (rad)');
 w1_interp = interp1(T,Yc{1}(:,11:13),tv);
 w2_interp = interp1(T,Yc{2}(:,11:13),tv);
 figure;
-subplot(211);
-plot(tv,w2_interp - xh{1}(:,5:7));
-hold on;
-%plot(tv,sqrt(Ph{1}(:,Pdiag(5:7)))*3,'r--');
-%plot(tv,-sqrt(Ph{1}(:,Pdiag(5:7)))*3,'r--');
-ylabel('agent 1 angular velocity estimate error');
+for k = 1:3
+    subplot(3,1,k);
+    plot(tv,[w2_interp(:,k) xh{1}(:,k+4)]);
+    hold on;
+    plot(tv,xh{1}(:,k+4)+3*sqrt(Ph{1}(:,Pdiag(k+4))),'r--');
+    plot(tv,xh{1}(:,k+4)-3*sqrt(Ph{1}(:,Pdiag(k+4))),'r--');
+    ylabel('agent 1 angular velocity estimate error');
+end
 
-subplot(212);
-plot(tv,w1_interp - xh{2}(:,5:7));
-hold on;
-%plot(tv,sqrt(Ph{2}(:,Pdiag(5:7)))*3,'r--');
-%plot(tv,-sqrt(Ph{2}(:,Pdiag(5:7)))*3,'r--');
-ylabel('agent 2 angular velocity estimate error');
+figure;
+for k = 1:3
+    subplot(3,1,k);
+    plot(tv,[w1_interp(:,k) xh{2}(:,k+4)]);
+    hold on;
+    plot(tv,xh{2}(:,k+4)+3*sqrt(Ph{2}(:,Pdiag(k+4))),'r--');
+    plot(tv,xh{2}(:,k+4)-3*sqrt(Ph{2}(:,Pdiag(k+4))),'r--');
+    ylabel('agent 1 angular velocity estimate error');
+end

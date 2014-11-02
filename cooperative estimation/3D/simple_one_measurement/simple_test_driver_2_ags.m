@@ -11,7 +11,7 @@ if ~exist('data_3d.mat','file');
     % sample time
     Ts = 0.02;
     % sim time
-    Tmax = 90;
+    Tmax = 120;
     
     % allowed position space
     R = 10;
@@ -144,7 +144,7 @@ end
 if ~exist('meas','var')
     
     % error stdev
-    err_dev = 0.1;%rads
+    err_dev = 0.01;%rads
     
     meas = cell(N,1);
     for II = 1:N
@@ -183,6 +183,17 @@ if ~exist('meas','var')
 end
 %% process
 
+% measurement error in IMU
+% aassume both agents have same IMU noise:
+Qk = diag(1e-6*ones(1,6));
+
+% generate IMU histories
+W = zeros(length(T),6);
+for k = 1:length(T)
+    W(k,1:3) = Yc{1}(k,11:13) + randn(1,3).*diag(sqrtm(Qk(1:3,1:3)))';
+    W(k,4:6) = Yc{2}(k,11:13) + randn(1,3).*diag(sqrtm(Qk(1:3,1:3)))';
+end
+
 % compute truth
 qji = zeros(length(T),4);
 for k = 1:length(T)
@@ -215,9 +226,6 @@ end
 Rx = zeros(6);
 % measurement error
 errnom = [0 err_dev err_dev].^2;
-
-% measurement error in other agent's omega
-Qk = diag(1e-2*Ts^2*[1 1 1]);
 
 for j = 1:2
     for k = 1:length(T)
@@ -302,30 +310,37 @@ for j = 1:2
         xhat = xh{j}(2*k,:)';
         Pk = reshape(Ph{j}(2*k,:)',4,4);
         
+        % cosine matrix
+        Cji = attpar(xhat,[6 1]);
         if j == 1
-            Cji = attpar(xhat,[6 1]);
-            % relative angular velocity in j frame
-            w = Yc{2}(k,11:13)'+randn(3,1).*diag(sqrtm(Qk)/Ts) - Cji*Yc{1}(k,11:13)'+randn(3,1).*diag(sqrtm(Qk)/Ts);
+            % my measured angular velocity
+            wi = W(k,1:3)';
+            % his measured angular velocity
+            wj = W(k,4:6)';
         else
-            Cji = attpar(xhat,[6 1]);
-            % relative angular velocity in j frame
-            w = Yc{1}(k,11:13)'+randn(3,1).*diag(sqrtm(Qk)/Ts) - Cji*Yc{2}(k,11:13)'+randn(3,1).*diag(sqrtm(Qk)/Ts);
+            % my measured angular velocity
+            wi = W(k,4:6)';
+            % his measured angular velocity
+            wj = W(k,1:3)';
         end
+        % relative angular velocity in j frame
+        w = wj-Cji*wi;
         
         A = 0.5*[ -xhat(2:4)';xhat(1)*eye(3) + squiggle(xhat(2:4))];
         xdot = A*w;
         
         % need the gradient F
+        bs = squiggle(xhat(2:4));
+        wp = wj-wi;
         Fk = zeros(4,4);
-        Fk(2:4,1) = 0.5*eye(3)*w;
-        Fk(:,2) = 0.5*[-1 0 0;squiggle([1;0;0])]*w;
-        Fk(:,3) = 0.5*[0 -1 0;squiggle([0;1;0])]*w;
-        Fk(:,4) = 0.5*[0 0 -1;squiggle([0;0;1])]*w;
+        % derivative w.r.t quat_est
+        Fk(1:4,1:4) = 0.5*[0 -wp';wp -squiggle(wp)] + [zeros(1,4);2*xhat(1)*bs*wi -xhat(1)^2*squiggle(wi)+squiggle(bs*bs*wi)+bs*squiggle(bs*wi)+bs*bs*squiggle(wi)];
+        
         % account for discretization
         Fk = eye(4) + Ts*Fk;
         
         % need the G matrix
-        Gk = A;
+        Gk = Ts*[A -A*Cji];
         
         % update
         xhat = xhat + Ts*xdot;

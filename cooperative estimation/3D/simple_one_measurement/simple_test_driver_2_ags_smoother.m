@@ -29,14 +29,15 @@ Ph = cell(2,1);
 
 tv = sort([T T T(end)+Ts]);
 
-% measurement error in other agent's omega
-Qk = diag(1e-2*Ts^2*[1 1 1]);
+% measurement error in IMU
+% assume both agents have same IMU noise:
+Qk = diag(1e-6*ones(1,6));
 
 % generate IMU histories
 W = zeros(length(T),6);
 for k = 1:length(T)
-    W(k,1:3) = Yc{1}(k,11:13) + randn(1,3).*diag(sqrtm(Qk)/Ts)';
-    W(k,4:6) = Yc{2}(k,11:13) + randn(1,3).*diag(sqrtm(Qk)/Ts)';
+    W(k,1:3) = Yc{1}(k,11:13) + randn(1,3).*diag(sqrtm(Qk(1:3,1:3)))';
+    W(k,4:6) = Yc{2}(k,11:13) + randn(1,3).*diag(sqrtm(Qk(1:3,1:3)))';
 end
 
 %% initialize
@@ -82,9 +83,8 @@ for j = 1:2
         
         % measurement gradient
         Hk = zeros(3,4);
-        Hk(:,1) = -2*squiggle(xhat(2:4))*rji_i;
-        Hk(:,2:4) = 2*xhat(1)*squiggle(rji_i) - 2*squiggle(xhat(2:4))*squiggle(rji_i) - 2*squiggle( squiggle(xhat(2:4))*rji_i );
-        Hk = -Hk;
+        Hk(:,1) = 2*squiggle(xhat(2:4))*rji_i;
+        Hk(:,2:4) = -2*xhat(1)*squiggle(rji_i)+2*(squiggle(xhat(2:4))*squiggle(rji_i)+squiggle( squiggle(xhat(2:4))*rji_i ));
         
         Crt_b = zeros(3);
         Crt_b(1,:) = rji_i';
@@ -141,30 +141,36 @@ for j = 1:2
         xhat = xh{j}(2*k,:)';
         Pk = reshape(Ph{j}(2*k,:)',4,4);
         
+        % cosine matrix
+        Cji = attparsilent(xhat,[6 1]);
         if j == 1
-            Cji = attparsilent(xhat,[6 1]);
-            % relative angular velocity in j frame
-            w = W(k,4:6)'- Cji*W(k,1:3)';
+            % my measured angular velocity
+            wi = W(k,1:3)';
+            % his measured angular velocity
+            wj = W(k,4:6)';
         else
-            Cji = attparsilent(xhat,[6 1]);
-            % relative angular velocity in j frame
-            w = W(k,1:3)'- Cji*W(k,4:6)';
+            % my measured angular velocity
+            wi = W(k,4:6)';
+            % his measured angular velocity
+            wj = W(k,1:3)';
         end
+        % relative angular velocity in j frame
+        w = wj-Cji*wi;
         
         A = 0.5*[ -xhat(2:4)';xhat(1)*eye(3) + squiggle(xhat(2:4))];
         xdot = A*w;
         
         % need the gradient F
+        bs = squiggle(xhat(2:4));
+        wp = wj-wi;
         Fk = zeros(4,4);
-        Fk(2:4,1) = 0.5*eye(3)*w;
-        Fk(:,2) = 0.5*[-1 0 0;squiggle([1;0;0])]*w;
-        Fk(:,3) = 0.5*[0 -1 0;squiggle([0;1;0])]*w;
-        Fk(:,4) = 0.5*[0 0 -1;squiggle([0;0;1])]*w;
+        % derivative w.r.t quat_est
+        Fk(1:4,1:4) = 0.5*[0 -wp';wp -squiggle(wp)] + [zeros(1,4);2*xhat(1)*bs*wi -xhat(1)^2*squiggle(wi)+squiggle(bs*bs*wi)+bs*squiggle(bs*wi)+bs*bs*squiggle(wi)];
         % account for discretization
         Fk = eye(4) + Ts*Fk;
         
         % need the G matrix
-        Gk = A;
+        Gk = Ts*[A -A*Cji];
         
         % update
         xhat = xhat + Ts*xdot;
@@ -206,24 +212,28 @@ for j = 1:2
         xhat = xxh{j}(k,:)';
         Pk = reshape(PPh{j}(k,:)',4,4);
         
+        % cosine matrix
+        Cji = attparsilent(xhat,[6 1]);
         if j == 1
-            Cji = attparsilent(xhat,[6 1]);
-            % relative angular velocity in j frame
-            w = W(k,4:6)'- Cji*W(k,1:3)';
+            % my measured angular velocity
+            wi = W(k,1:3)';
+            % his measured angular velocity
+            wj = W(k,4:6)';
         else
-            Cji = attparsilent(xhat,[6 1]);
-            % relative angular velocity in j frame
-            w = W(k,1:3)'- Cji*W(k,4:6)';
+            % my measured angular velocity
+            wi = W(k,4:6)';
+            % his measured angular velocity
+            wj = W(k,1:3)';
         end
-        
-        %A = 0.5*[ -xhat(2:4)';xhat(1)*eye(3) + squiggle(xhat(2:4))];
+        % relative angular velocity in j frame
+        w = wj-Cji*wi;
         
         % need the gradient F
+        bs = squiggle(xhat(2:4));%squiggle(beta) variable
+        wp = wj-wi;
         Fk = zeros(4,4);
-        Fk(2:4,1) = 0.5*eye(3)*w;
-        Fk(:,2) = 0.5*[-1 0 0;squiggle([1;0;0])]*w;
-        Fk(:,3) = 0.5*[0 -1 0;squiggle([0;1;0])]*w;
-        Fk(:,4) = 0.5*[0 0 -1;squiggle([0;0;1])]*w;
+        % derivative w.r.t quat_est
+        Fk(1:4,1:4) = 0.5*[0 -wp';wp -squiggle(wp)] + [zeros(1,4);2*xhat(1)*bs*wi -xhat(1)^2*squiggle(wi)+squiggle(bs*bs*wi)+bs*squiggle(bs*wi)+bs*bs*squiggle(wi)];
         % account for discretization
         Fk = eye(4) + Ts*Fk;
         
@@ -320,14 +330,17 @@ end
 figure;
 
 subplot(211);
-plot(T, q_err1);
+plot(T, q_err1,'-x');
 hold on;
 plot(tv,q_errf1,'r--');
 legend('smoothed estimate','additive EKF estimate');
 ylabel('agent 1 pointing error (rad)');
 
 subplot(212);
-plot(T, q_err2);
+plot(T, q_err2,'-x');
 hold on;
 plot(tv,q_errf2,'r--');
 ylabel('agent 2 pointing error (rad)');
+
+fprintf('%18s%18s%18s%18s%18s\n','Error stdevs:','smoothed 1','ekf 1','smoothed 2','ekf 2');
+fprintf('%18s%18.6f%18.6f%18.6f%18.6f\n',' ',[nanstd(q_err1) nanstd(q_errf1) nanstd(q_err2) nanstd(q_errf2)]);
