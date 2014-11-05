@@ -50,7 +50,7 @@ for i = 1:2
     %xh{i}(1,:) = [1 0 0 0];
     xh{i}(1,1:4) = randn(4,1);xh{i}(1,:) = xh{i}(1,:)./norm(xh{i}(1,:));
     xh{i}(1,5:7) = 0;% initialize ang vel to zero. is estimate of j's ang vel in j's frame
-    Ph{i}(1,:) = reshape( eye(7), 49,1)';
+    Ph{i}(1,:) = reshape( .01*eye(7), 49,1)';
 end
 
 % use exact initial conditions
@@ -84,8 +84,8 @@ for j = 1:2
         else 
             rij_j = meas{1}(k,(1:3))';
         end
-        % error
-        ydiff = rij_j + Cji*rji_i;
+        % (expectation) error
+        ydiff = -rij_j - Cji*rji_i;
         
         % measurement gradient
         Hk = zeros(3,7);
@@ -130,7 +130,7 @@ for j = 1:2
         Kk = Pk*Hk'*((Hk*Pk*Hk'+Ry)\eye(3));
         
         %update
-        xhat = xhat + Kk*ydiff;
+        xhat = xhat + Kk*(-ydiff);
         Pk = (eye(7) - Kk*Hk)*Pk;
         
         % re-normalize
