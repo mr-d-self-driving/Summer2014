@@ -9,14 +9,14 @@ addpath('../');
 if ~exist('data_3d.mat','file');
     
     % sample time
-    Ts = 0.02;
+    Ts = 0.001;
     % sim time
-    Tmax = 120;
+    Tmax = 10;
     
     % allowed position space
     R = 10;
     % target average speed
-    Vb = 1;
+    Vb = 1.25;
     % number of agents
     N = 2;
     
@@ -215,7 +215,7 @@ for i = 1:2
     Ph{i} = zeros(length(tv),16);
     %xh{i}(1,:) = [1 0 0 0];
     xh{i}(1,:) = randn(4,1);xh{i}(1,:) = xh{i}(1,:)./norm(xh{i}(1,:));
-    Ph{i}(1,:) = reshape( eye(4), 16,1)';
+    Ph{i}(1,:) = reshape( .1*eye(4) + 1e-8*ones(4), 16,1)';
 end
 
 % use exact initial conditions
@@ -247,7 +247,7 @@ for j = 1:2
             rij_j = meas{1}(k,(1:3))';
         end
         % error
-        ydiff = rij_j + Cji*rji_i;
+        ydiff = - rij_j - Cji*rji_i;
         
         % measurement gradient
         Hk = zeros(3,4);
@@ -289,11 +289,14 @@ for j = 1:2
         % actual 'measurement' covariance
         Ry = J*Rx*J';
         
+        %Rz = [Rx zeros(6,4);zeros(4,6) Pk(1:4,1:4)];
+        %[ydiff,Ry] = statisticalLinearization([rji_i;rij_j;xhat(1:4)],Rz,@output_equation);
+        
         % Kalman gain
         Kk = Pk*Hk'*((Hk*Pk*Hk'+Ry)\eye(3));
         
         %update
-        xhat = xhat + Kk*ydiff;
+        xhat = xhat + Kk*(-ydiff);
         Pk = (eye(4) - Kk*Hk)*Pk;
         
         % re-normalize

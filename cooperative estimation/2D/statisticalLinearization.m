@@ -24,8 +24,10 @@ gamma = sqrt(n+lambda);
 % get the 2*n+1 sigma points
 nSigma = zeros(n,2*n+1);
 nSigma(:,1) = x;
-nSigma(:,2:(n+1)) = repmat(x,1,n) + gamma*sqrtm(Rx);
-nSigma(:,(n+2):(2*n+1)) = repmat(x,1,n) - gamma*sqrtm(Rx);
+sqrtRx = sqrtm(Rx);
+sqrtRx = real(sqrt(Rx));
+nSigma(:,2:(n+1)) = repmat(x,1,n) + gamma*sqrtRx;
+nSigma(:,(n+2):(2*n+1)) = repmat(x,1,n) - gamma*sqrtRx;
 
 % propagate the sigma points through the nonlinear function y = f(x)
 ySigma = fhandle(nSigma);% ySigma is size m x (2*n+1)

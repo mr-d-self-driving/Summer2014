@@ -1,4 +1,8 @@
-function [epskPlus] = resample_multinomial(epsk,wk,n)
+function [epskPlus] = resample_multinomial(epsk,wk,n,m)
+
+if nargin<4
+    m = n;
+end
 
 U = rand(1,n);
 
@@ -10,6 +14,9 @@ for ii = 1:n
     else
         while ~( U(ii) > sum(wk(1:j-1)) && U(ii)<=sum(wk(1:j)) )
             j = j+1;
+            if(j >= m)
+                break;
+            end
         end
         epskPlus(:,ii) = epsk(:,j);
     end

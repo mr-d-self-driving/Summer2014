@@ -19,7 +19,7 @@ load('data_3d.mat');
 
 % measurement error in other agent's omega
 Qk = diag([1e-6*[1 1 1] ...% component for measured ang. vel uncertainty
-    (sqrt(10))^2*[1 1 1]]);% component for estimated ang. vel uncertainty
+    10*[1 1 1]]);% component for estimated ang. vel uncertainty
 
 % generate IMU histories
 W = zeros(length(T),6);
@@ -50,7 +50,7 @@ for i = 1:2
     %xh{i}(1,:) = [1 0 0 0];
     xh{i}(1,1:4) = randn(4,1);xh{i}(1,:) = xh{i}(1,:)./norm(xh{i}(1,:));
     xh{i}(1,5:7) = 0;% initialize ang vel to zero. is estimate of j's ang vel in j's frame
-    Ph{i}(1,:) = reshape( .01*eye(7), 49,1)';
+    Ph{i}(1,:) = reshape( .1*eye(7)+1e-4*ones(7), 49,1)';
 end
 
 % use exact initial conditions
@@ -65,9 +65,11 @@ Rx = zeros(6);
 % measurement error
 errnom = [0 err_dev err_dev].^2;
 
-for j = 1:2
-    for k = 1:length(T)
-        %% update        
+tic;
+for k = 1:length(T)
+    for j = 1:2
+        %% update
+        
         xhat = xh{j}(2*k-1,:)';
         Pk = reshape(Ph{j}(2*k-1,:)',7,7);
         
@@ -125,6 +127,9 @@ for j = 1:2
         
         % actual 'measurement' covariance
         Ry = J*Rx*J';
+        
+        %Rz = [Rx zeros(6,4);zeros(4,6) Pk(1:4,1:4)];
+        %[ydiff,Ry] = statisticalLinearization([rji_i;rij_j;xhat(1:4)],Rz,@output_equation);
         
         % Kalman gain
         Kk = Pk*Hk'*((Hk*Pk*Hk'+Ry)\eye(3));
@@ -194,6 +199,7 @@ for j = 1:2
         xh{j}(2*k+1,:) = xhat';
         Ph{j}(2*k+1,:) = reshape(Pk,49,1)';
     end
+    etaCalc(k,length(T),toc);
 end
 
 %% evaluate results
@@ -283,3 +289,17 @@ for k = 1:3
     plot(tv,xh{2}(:,k+4)-3*sqrt(Ph{2}(:,Pdiag(k+4))),'r--');
     ylabel('agent 1 angular velocity estimate error');
 end
+
+% plot error as function of interagent distance
+q_int1 = 0.5*(q_err1(2:2:end)+q_err1(3:2:end));%interp1(tv,q_err1,T);
+q_int2 = 0.5*(q_err2(2:2:end)+q_err2(3:2:end));%interp1(tv,q_err2,T);
+figure;
+subplot(211);
+plot(T,sqrt(sum((Yc{1}(:,1:3)-Yc{2}(:,1:3)).^2,2)));
+hold on;
+plot(T,q_int1,'r--');
+
+subplot(212);
+plot(T,sqrt(sum((Yc{1}(:,1:3)-Yc{2}(:,1:3)).^2,2)));
+hold on;
+plot(T,q_int2,'r--');
