@@ -47,17 +47,17 @@ for i = 1:2
     Ph{i} = zeros(length(tv),16);
     %xh{i}(1,:) = [1 0 0 0];
     xh{i}(1,:) = randn(4,1);xh{i}(1,:) = xh{i}(1,:)./norm(xh{i}(1,:));
-    Ph{i}(1,:) = reshape( .1*eye(4) + 1e-8*ones(4), 16,1)';
+    Ph{i}(1,:) = reshape( 1*eye(4) + 1e-6*ones(4), 16,1)';
 end
 
 %% use exact initial conditions
-xh{1}(1,:) = qji(1,:);
-xh{2}(1,:) = qji(1,:);xh{2}(1,1) = -xh{2}(1,1);
+%xh{1}(1,:) = qji(1,:);
+%xh{2}(1,:) = qji(1,:);xh{2}(1,1) = -xh{2}(1,1);
 
 %
 Rx = zeros(6);
 % measurement error
-errnom = [1e-4 err_dev err_dev].^2;
+errnom = [1e-8 err_dev err_dev].^2;
 
 tic;
 for j = 1:2
@@ -108,7 +108,7 @@ for j = 1:2
         
         uk = [wi;wj;rji_i];
         
-        yk = rij_j;
+        yk = -rij_j;
         Pvk = Qk;
         
         Pnk = Rx;
@@ -237,7 +237,9 @@ for j = 1:2
 %         
 %         % re-normalize
 %         xhat = xhat./norm(xhat);
-        etaCalc(k,length(T),toc);
+        if ~mod(k-1,100)
+            etaCalc(k,length(T),toc);
+        end
     end
 end
 

@@ -11,7 +11,7 @@ vl = size(Pvk,1);
 N = n+nl+vl;
 
 % constant gamma that influences sigma points
-alpha = 0.1;
+alpha = 1e-3;
 Kappa = 0;
 lambda = alpha^2*(N+Kappa)-N;
 gamm = sqrt(N+lambda);
@@ -60,7 +60,7 @@ YKAUG = measurementfun(XAUGPLUS(1:n,:),XAUG(n+vl+(1:nl),:),uk);
 g = size(YKAUG,1);
 
 yhat = sum(YKAUG.*repmat(wm',g,1),2);
-% re-normalize
+% re-normalize (unit vector)
 yhat = yhat/norm(yhat);
 
 % measurement covariance
@@ -75,7 +75,7 @@ end
 % Kalman gain
 Kk = Pxkyk*(Pyk\eye(g));
 
-xnew = xp + Kk*(yhat-ytilde);
+xnew = xp + Kk*(ytilde-yhat);
 xnew(1:4) = xnew(1:4)/norm(xnew(1:4));
 Pnew = Pp - Kk*Pyk*Kk';
 
