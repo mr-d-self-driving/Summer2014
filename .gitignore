@@ -220,3 +220,5 @@ pip-log.txt
 # movie files are big
 *.avi
 *.mat
+# matlab ASV files are unneeded
+*.asv
