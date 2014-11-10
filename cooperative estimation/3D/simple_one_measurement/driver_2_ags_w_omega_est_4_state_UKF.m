@@ -1,3 +1,7 @@
+% estimator for 3D cooperative case
+% treats the other agent's angular velocity as pure noise, not estimated
+% hence, we are only estimating 4 states
+
 clear variables;
 close all;
 
@@ -17,8 +21,8 @@ load('data_3d.mat');
 
 % measurement error in IMU
 % aassume both agents have same IMU noise:
-Qk = diag([1e-6*[1 1 1] ...% component for measured ang. vel uncertainty
-    (.002/3)^2*[1 1 1]]);% component for estimated ang. vel uncertainty
+Qk = diag([1e-6*[1 1 1] ...% component for (my) measured ang. vel uncertainty
+    (10*Ts)^2*[1 1 1]]);% component for unmeasured ang. vel. uncertainty
 
 % generate IMU histories
 W = zeros(length(T),6);
@@ -44,19 +48,17 @@ Ph = cell(2,1);
 tv = T;
 
 for i = 1:2
-    xh{i} = zeros(length(tv),7);
-    Ph{i} = zeros(length(tv),49);
+    xh{i} = zeros(length(tv),4);
+    Ph{i} = zeros(length(tv),16);
     %xh{i}(1,:) = [1 0 0 0];
     xh{i}(1,1:4) = randn(4,1);xh{i}(1,1:4) = xh{i}(1,1:4)./norm(xh{i}(1,1:4));
-    xh{i}(1,5:7) = 0;% initialize ang vel to zero. is estimate of j's ang vel in j's frame
-    Ph{i}(1,:) = reshape( .1*eye(7) + 1e-8*ones(7), 49,1)';
+    %xh{i}(1,5:7) = 0;% initialize ang vel to zero. is estimate of j's ang vel in j's frame
+    Ph{i}(1,:) = reshape( .1*eye(4) + 1e-8*ones(4), 16,1)';
 end
 
 %% use exact initial conditions
-xh{1}(1,1:4) = qji(1,:);
-xh{1}(1,5:7) = Yc{2}(1,11:13);
-xh{2}(1,1:4) = qji(1,:);xh{2}(1,1) = -xh{2}(1,1);
-xh{2}(1,5:7) = Yc{1}(1,11:13);
+%xh{1}(1,1:4) = qji(1,:);
+%xh{2}(1,1:4) = qji(1,:);xh{2}(1,1) = -xh{2}(1,1);
 
 %
 Rx = zeros(6);
@@ -68,7 +70,7 @@ for j = 1:2
     for k = 1:length(T)-1
         %% update
         xhat = xh{j}(k,:)';
-        Pk = reshape(Ph{j}(k,:)',7,7);
+        Pk = reshape(Ph{j}(k,:)',4,4);
         
         if j == 1
             % my measured angular velocity
@@ -77,8 +79,6 @@ for j = 1:2
             % my measured angular velocity
             wi = W(k,4:6)';
         end
-        % his measured angular velocity
-        wj = xhat(5:7);
         if j == 1
             % his meas of me
             rij_j = meas{2}(k,(1:3))';
@@ -114,7 +114,7 @@ for j = 1:2
         
         Pnk = Rx;
         
-        [xp,Pp] = ukf_update(xhat,Pk,Pvk,Pnk,uk,yk,@update_eq_2_ags_omega,@measurement_eq_2_ags_omega);
+        [xp,Pp] = ukf_update(xhat,Pk,Pvk,Pnk,uk,yk,@update_eq_2_ags_omega_4_state,@measurement_eq_2_ags_omega_4_state);
         
         if any(any(isnan(Pp)))
             disp('Error: NaN in covariance output');
@@ -123,7 +123,7 @@ for j = 1:2
         
         % store
         xh{j}(k+1,:) = xp';
-        Ph{j}(k+1,:) = reshape(Pp,49,1)';
+        Ph{j}(k+1,:) = reshape(Pp,16,1)';
         if ~mod(k-1,100)
             etaCalc(k,length(T),toc);
         end
@@ -135,7 +135,7 @@ end
 close all;
 figure;
 
-Pdiag = 1:8:49;
+Pdiag = 1:5:16;
 
 qji_in = interp1(T,qji,tv);
 
@@ -172,25 +172,31 @@ q_err1 = zeros(length(tv),1);
 q_err2 = zeros(length(tv),1);
 for i = 1:length(tv)
     %truth
-    Cji = attpar(qji_in(i,:)',[6 1]);
-    Cji_1 = attpar(xh{1}(i,:)',[6 1]);
-    Cij_2 = attpar(xh{2}(i,:)',[6 1]);
+    Cji = attparsilent(qji_in(i,:)',[6 1]);
+    Cji_1 = attparsilent(xh{1}(i,:)',[6 1]);
+    Cij_2 = attparsilent(xh{2}(i,:)',[6 1]);
     % error DCMs
     Ct_1 = Cji_1'*Cji;
     Ct_2 = Cij_2'*Cji';
     %error quaternions
-    gar1 = attpar(Ct_1,[1 2]);
+    gar1 = attparsilent(Ct_1,[1 2]);
     q_err1(i) = gar1(1,2);
-    gar2 = attpar(Ct_2,[1 2]);
+    gar2 = attparsilent(Ct_2,[1 2]);
     q_err2(i) = gar2(1,2);
 end
 
 figure;
 
 subplot(211);
-plot(tv, q_err1);
+%plot(tv, q_err1);
+plotyy(tv, q_err1,tv,sqrt(sum(Yc{2}(:,11:13).^2,2)));
 ylabel('agent 1 pointing error (rad)');
 
+
+fprintf('Mean 1 error: %g rad, std: %g rad\n',mean(q_err1),std(q_err1));
+fprintf('Mean 2 error: %g rad, std: %g rad\n',mean(q_err2),std(q_err2));
+
 subplot(212);
-plot(tv, q_err2);
+%plot(tv, q_err2);
+plotyy(tv, q_err2,tv,sqrt(sum(Yc{1}(:,11:13).^2,2)));
 ylabel('agent 2 pointing error (rad)');
