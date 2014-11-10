@@ -31,10 +31,10 @@ for k = 1:size(xk,2);
     xdot = zeros(7,1);
     % quaternion time rate
     xdot(1:4) = A*w;
-    % angular velocity estimate time rate
-    xdot(5:7) = vn(4:6);
-
-    xkPlus(1:n,k) = xhat + Ts*xdot;
+    
+    xkPlus(1:4,k) = xhat(1:4) + Ts*xdot(1:4);
+    % angular velocity estimate change
+    xkPlus(5:7,k) = xhat(5:7) + vn(4:6);
     %re-normalize
     xkPlus(1:4,k) = xkPlus(1:4,k)/norm(xkPlus(1:4,k));
 end

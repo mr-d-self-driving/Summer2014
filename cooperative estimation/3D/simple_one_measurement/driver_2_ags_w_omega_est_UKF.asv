@@ -18,13 +18,13 @@ load('data_3d.mat');
 % measurement error in IMU
 % aassume both agents have same IMU noise:
 Qk = diag([1e-6*[1 1 1] ...% component for measured ang. vel uncertainty
-    (.002/3)^2*[1 1 1]]);% component for estimated ang. vel uncertainty
+    0.22^2*[1 1 1]]);% component for estimated ang. vel uncertainty
 
 % generate IMU histories
 W = zeros(length(T),6);
 for k = 1:length(T)
-    W(k,1:3) = Yc{1}(k,11:13) + randn(1,3).*diag(sqrt(Qk(1:3,1:3)))';
-    W(k,4:6) = Yc{2}(k,11:13) + randn(1,3).*diag(sqrt(Qk(1:3,1:3)))';
+    W(k,1:3) = Yc{1}(k,11:13) + randn(1,3).*diag(sqrtm(Qk(1:3,1:3)))';
+    W(k,4:6) = Yc{2}(k,11:13) + randn(1,3).*diag(sqrtm(Qk(1:3,1:3)))';
 end
 
 % compute truth
@@ -61,7 +61,7 @@ xh{2}(1,5:7) = Yc{1}(1,11:13);
 %
 Rx = zeros(6);
 % measurement error
-errnom = [1e-6 err_dev err_dev].^2;
+errnom = [1e-8 err_dev err_dev].^2;
 
 tic;
 for j = 1:2
@@ -114,7 +114,7 @@ for j = 1:2
         
         Pnk = Rx;
         
-        [xp,Pp] = ukf_update(xhat,Pk,Pvk,Pnk,uk,yk,@update_eq_2_ags_omega,@measurement_eq_2_ags_omega);
+        [xp,Pp] = ukf_update(xhat,Pk,Pvk,Pnk,uk,yk,@update_eq_2_ags_omega,@measurement_eq_2_ags_omega,1e-1);
         
         if any(any(isnan(Pp)))
             disp('Error: NaN in covariance output');

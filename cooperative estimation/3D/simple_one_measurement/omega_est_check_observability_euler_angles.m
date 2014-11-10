@@ -4,6 +4,7 @@
 syms w1 w2 w3 real;
 syms wi1 wi2 wi3 real;
 syms phi theta psi real;
+syms Ts real;
 
 Cji = DCMConverter(1,phi)*DCMConverter(2,theta)*DCMConverter(3,psi);
 
@@ -37,6 +38,7 @@ F = 0*sym('F',[n n]);
 for k = 1:n
     F(:,k) = factor(simplify(diff(xdot,xhat(k))));
 end
+F = eye(n)+Ts*F;
 
 % observability matrix, 7th order
 O = 0*sym('O',[21 length(xhat)]);

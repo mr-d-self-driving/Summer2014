@@ -1,4 +1,4 @@
-function [xnew,Pnew] = ukf_update(xk,Pxk,Pvk,Pnk,uk,ytilde,updatefun,measurementfun)
+function [xnew,Pnew] = ukf_update(xk,Pxk,Pvk,Pnk,uk,ytilde,updatefun,measurementfun,alpha)
 % Pxk: covariance associated with state
 % Pvk: covariance associated with process noise
 % Pnk: covariance assocaited with measurement noise
@@ -11,7 +11,9 @@ vl = size(Pvk,1);
 N = n+nl+vl;
 
 % constant gamma that influences sigma points
-alpha = 1e-3;
+if nargin < 9
+    alpha = 1e-3;
+end
 Kappa = 0;
 lambda = alpha^2*(N+Kappa)-N;
 gamm = sqrt(N+lambda);
@@ -24,7 +26,11 @@ Paug(n+vl+(1:nl),n+vl+(1:nl)) = Pnk;
 
 xaug = [xk;zeros(nl+vl,1)];
 
-Psq = sqrtm(Paug);
+[Psq,resnorm] = sqrtm(Paug);
+if (abs(resnorm) > 1e-14)
+    fprintf('Error: matrix square root residual norm is %g.\n',resnorm);
+    return;
+end
 Psq = real(Psq);
 
 % compute the sigma points
@@ -73,10 +79,14 @@ for k = 1:2*N+1
 end
 
 % Kalman gain
+if any(any(isnan(Pyk)))
+    disp('Singular measurement covariance');
+    return;
+end
+
 Kk = Pxkyk*(Pyk\eye(g));
 
 xnew = xp + Kk*(ytilde-yhat);
 xnew(1:4) = xnew(1:4)/norm(xnew(1:4));
 Pnew = Pp - Kk*Pyk*Kk';
-
 end
