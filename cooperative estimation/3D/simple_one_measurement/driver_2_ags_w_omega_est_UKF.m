@@ -17,7 +17,8 @@ load('data_3d.mat');
 
 % measurement error in IMU
 % aassume both agents have same IMU noise:
-Qk = diag(1e-6*ones(1,6));
+Qk = diag([1e-6*[1 1 1] ...% component for measured ang. vel uncertainty
+    1*[1 1 1]]);% component for estimated ang. vel uncertainty
 
 % generate IMU histories
 W = zeros(length(T),6);
@@ -43,47 +44,47 @@ Ph = cell(2,1);
 tv = T;
 
 for i = 1:2
-    xh{i} = zeros(length(tv),4);
-    Ph{i} = zeros(length(tv),16);
+    xh{i} = zeros(length(tv),7);
+    Ph{i} = zeros(length(tv),49);
     %xh{i}(1,:) = [1 0 0 0];
-    xh{i}(1,:) = randn(4,1);xh{i}(1,:) = xh{i}(1,:)./norm(xh{i}(1,:));
-    Ph{i}(1,:) = reshape( 1*eye(4) + 1e-6*ones(4), 16,1)';
+    xh{i}(1,1:4) = randn(4,1);xh{i}(1,1:4) = xh{i}(1,1:4)./norm(xh{i}(1,1:4));
+    xh{i}(1,5:7) = 0;% initialize ang vel to zero. is estimate of j's ang vel in j's frame
+    Ph{i}(1,:) = reshape( 1*eye(7) + 1e-6*ones(7), 49,1)';
 end
 
 %% use exact initial conditions
-%xh{1}(1,:) = qji(1,:);
-%xh{2}(1,:) = qji(1,:);xh{2}(1,1) = -xh{2}(1,1);
+xh{1}(1,1:4) = qji(1,:);
+xh{1}(1,5:7) = Yc{2}(1,11:13);
+xh{2}(1,1:4) = qji(1,:);xh{2}(1,1) = -xh{2}(1,1);
+xh{2}(1,5:7) = Yc{1}(1,11:13);
 
 %
 Rx = zeros(6);
 % measurement error
-errnom = [1e-8 err_dev err_dev].^2;
+errnom = [1e-6 err_dev err_dev].^2;
 
 tic;
 for j = 1:2
     for k = 1:length(T)-1
         %% update
         xhat = xh{j}(k,:)';
-        Pk = reshape(Ph{j}(k,:)',4,4);
+        Pk = reshape(Ph{j}(k,:)',7,7);
         
         if j == 1
             % my measured angular velocity
             wi = W(k,1:3)';
-            % his measured angular velocity
-            wj = W(k,4:6)';
         else
             % my measured angular velocity
             wi = W(k,4:6)';
-            % his measured angular velocity
-            wj = W(k,1:3)';
         end
+        % his measured angular velocity
+        wj = xhat(5:7);
         if j == 1
             % his meas of me
             rij_j = meas{2}(k,(1:3))';
         else
             rij_j = meas{1}(k,(1:3))';
         end
-        
         % my meas of him
         rji_i = meas{j}(k,(1:3))';
         
@@ -106,23 +107,23 @@ for j = 1:2
         % error covariance associated with rij_j, in its frame
         Rx(4:6,4:6) = Crt_b'*diag(errnom)*Crt_b;
         
-        uk = [wi;wj;rji_i];
+        uk = [wi;rji_i];
         
         yk = -rij_j;
         Pvk = Qk;
         
         Pnk = Rx;
         
-        [xp,Pp] = ukf_update(xhat,Pk,Pvk,Pnk,uk,yk,@update_eq_2_ags,@measurement_eq_2_ags);
+        [xp,Pp] = ukf_update(xhat,Pk,Pvk,Pnk,uk,yk,@update_eq_2_ags_omega,@measurement_eq_2_ags_omega);
         
         if any(any(isnan(Pp)))
             disp('Error: NaN in covariance output');
-            break;
+            return;
         end
         
         % store
         xh{j}(k+1,:) = xp';
-        Ph{j}(k+1,:) = reshape(Pp,16,1)';
+        Ph{j}(k+1,:) = reshape(Pp,49,1)';
         
 %         ymeas = zeros(3,1);
 %         
