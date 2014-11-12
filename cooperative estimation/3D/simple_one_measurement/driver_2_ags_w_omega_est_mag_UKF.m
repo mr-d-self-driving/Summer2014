@@ -59,10 +59,9 @@ xh{2}(1,1:4) = qji(1,:);xh{2}(1,1) = -xh{2}(1,1);
 xh{2}(1,5:7) = Yc{1}(1,11:13);
 
 %
-Rx = zeros(9);
+Rx = zeros(6);
 % measurement error
 errnom = [1e-6 err_dev err_dev].^2;
-magnom = [1e-6 mag_dev mag_dev].^2;
 
 tic;
 for j = 1:2
@@ -83,23 +82,17 @@ for j = 1:2
         if j == 1
             % his meas of me
             rij_j = meas{2}(k,(1:3))';
-	    % his magnetometer
-	    mag_j = meas{2}(k,4:6)';
         else
             rij_j = meas{1}(k,(1:3))';
-	    % his magnetometer
-	    mag_j = meas{1}(k,4:6)';
         end
         % my meas of him
         rji_i = meas{j}(k,(1:3))';
-	% my magnetometer
-	mag_i = meas{j}(k,4:6)';
         
-	% error associated with rji_i
-	r2 = cross(rji_i,[1;0;0]);r2 = r2./norm(r2);
+        r2 = cross(rji_i,[1;0;0]);r2 = r2./norm(r2);
         r3 = cross(rji_i,r2);
         Crt_b(2,:) = r2';
         Crt_b(3,:) = r3';
+        
         % error covariance associated with rji_i
         Rx(1:3,1:3) = Crt_b'*diag(errnom)*Crt_b;
         
@@ -113,35 +106,15 @@ for j = 1:2
         
         % error covariance associated with rij_j, in its frame
         Rx(4:6,4:6) = Crt_b'*diag(errnom)*Crt_b;
-
-	% repeat for my magnetometer
-        Crt_b = zeros(3);
-        Crt_b(1,:) = mag_i';
-        r2 = cross(mag_i,[1;0;0]);r2 = r2./norm(r2);
-        r3 = cross(mag_i,r2);
-        Crt_b(2,:) = r2';
-        Crt_b(3,:) = r3';
-        % error covariance associated with mag_i, in its frame
-        Rx(7:9,7:9) = Crt_b'*diag(magnom)*Crt_b;
-
-	% repeat for his magnetometer
-        Crt_b = zeros(3);
-        Crt_b(1,:) = mag_j';
-        r2 = cross(mag_j,[1;0;0]);r2 = r2./norm(r2);
-        r3 = cross(mag_j,r2);
-        Crt_b(2,:) = r2';
-        Crt_b(3,:) = r3';
-        % error covariance associated with mag_j, in its frame
-        Rx(10:12,10:12) = Crt_b'*diag(magnom)*Crt_b;
         
-        uk = [wi;rji_i;mag_i];
+        uk = [wi;rji_i];
         
-        yk = [-rij_j;mag_j];
+        yk = -rij_j;
         Pvk = Qk;
         
         Pnk = Rx;
         
-        [xp,Pp] = ukf_update(xhat,Pk,Pvk,Pnk,uk,yk,@update_eq_2_ags_omega,@measurement_eq_2_ags_omega_mag);
+        [xp,Pp] = ukf_update(xhat,Pk,Pvk,Pnk,uk,yk,@update_eq_2_ags_omega,@measurement_eq_2_ags_omega);
         
         if any(any(isnan(Pp)))
             disp('Error: NaN in covariance output');

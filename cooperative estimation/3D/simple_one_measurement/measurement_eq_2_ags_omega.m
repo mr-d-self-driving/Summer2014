@@ -18,6 +18,8 @@ for k = 1:size(xk,2)
     Cji = attparsilent(xhat,[6 1]);
     
     yk(:,k) = Cji*(rji_i-nk(1:3,k))+nk(4:6,k);
+    % normalize
+    yk(1:3,k) = yk(1:3,k)/norm(yk(1:3,k));
 end
 
 end

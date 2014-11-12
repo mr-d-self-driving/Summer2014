@@ -145,8 +145,10 @@ end
 %% generate measurements for each 
 if ~exist('meas','var')
     
-    % error stdev
+    % error stdev in agent-agent measurement
     err_dev = 0.01;%rads
+    % error stdev in magnetometer
+    mag_dev = 0.01;%rads
     
     meas = cell(N,1);
     for II = 1:N
@@ -166,16 +168,28 @@ if ~exist('meas','var')
                 
                 % generate error angle
                 delta = randn*err_dev;
-                
                 % get arbitrary axis of rotation
                 vec = rand(3,1);vec = vec./norm(vec);
-                
                 % get DCM from true to error "frame"
                 Crp_r = attpar([vec [delta;0;0]],[2 1]);
                 
-                rmeas(i,:) = rsee(i,:)*Crp_r;
+		% store the unit vector measurement
+                rmeas(i,1:3) = rsee(i,:)*Crp_r;
                 % use the unit vector as the measurement
-                rmeas(i,:) = rmeas(i,:)./norm(rmeas(i,:));
+                rmeas(i,1:3) = rmeas(i,1:3)./norm(rmeas(i,1:3));
+
+		% compute the euler angle 3-2-1 sequence
+		gar = attparsilent(quat,[6 4],struct('seq',[3;2;1]));
+		psiNow = gar(1,1);
+		psiVec = [cos(psiNow);sin(psiNow);0];%truth value
+		% generate error angle
+                delta = randn*mag_dev;
+                % get arbitrary axis of rotation
+                vec = rand(3,1);vec = vec./norm(vec);
+                % get DCM from true to error "frame"
+                Crp_r = attpar([vec [delta;0;0]],[2 1]);
+		%store the heading angle measurement (magnetometer)
+		rmeas(i,4:6) = psiVec'*Crp_r;
             end
             
             meas{II}(:,(Jcount-1)*3+(1:3)) = rmeas;
