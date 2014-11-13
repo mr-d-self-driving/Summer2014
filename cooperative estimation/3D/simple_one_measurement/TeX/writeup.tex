@@ -38,7 +38,9 @@
 
 \maketitle
 
-The problem of relative attitude estimation between cooperating agents, with no a priori knowledge of the initial state or known common features, is considered. As a feasability check, the simplest possible scenario is considered: each agent has measurements from a gyroscope and a vector to the other agent. Under these circumstances, can the relative attitude be estimated in a decentralized sequential estimation framework? Estimation of relative attitude is considered essential to cooperative estimation, since otherwise agents cannot use measurements made by another agent without coupling the state estimates of the two agents.
+The problem of relative attitude estimation between cooperating agents, with no a priori knowledge of the initial state or known common features, is considered. Previous analyses has considered cooperative sequential state estimation between multiple robotic agents for a purely planar scenario. A key assumption in this work has been that each agent can exploit raw workspace feature measurements made by other agents, given that every agent makes and shares an additional measurement of the range and/or bearing to every other agent. From a trivial geometric analysis of planar motion, it is apparent that bearing measurements between any two agents, when fused, allow determination of the relative bearing between the agents. This knowledge of the relative heading allows any cooperating agent to use feature measurements from another agent, without the need to share estimated states and this couple the estimators in an undesireable fashion.
+
+In taking this estimation scheme from 2D to 3D, a major question to address is: under what circumstances, if any, are range-agnostic interagent measurements sufficient to compute or estimate the relative attitude between the two agents? The problem of single-point attitude detemination has received much attention, particularly in the areas of star navigation, and it is well-known that a minimum of \textbf{two} vectors must be measured, each in different reference frames, to determine the relative attitude between the reference frames, for the single-point determination problem. It is assumed, then, that relative attitude cannot simply be determined from two interagent vector measurements alone. However, we consider here the problem of sequential attitude estimation, exploiting fully or partially measured interagent dynamics (in this case, relative angular velocity). It is not clear that the restrictions that apply to the single-point problem will apply to the sequential estimation problem here. The simplest conceivable scenario is analyzed: each agent has measurements from a three-axis gyroscope, and measures the vector to the other agent.
 
 The governing equations between an agent, designated $i$, and a remote agent $j$ that $i$ senses, are now developed. We consider the problem of estimating the attitude of $j$ relative to $i$, parameterized by generic coordinates $\B{q}_{j/i}$. The angular velocities of each agent relative to the inertial frame are $\BG{\omega}_{i/n}$ and $\BG{\omega}_{j/n}$, and each are assumed to be coordinatized in the corresponding agent body-fixed frame when applicable. The time rate of change of the attitude coordinates is simply linear function of the relative angular velocity $\BG{\omega}_{j/i}$, where $[A(\B{q}_{j/i})]$ is a matrix of appropriate dimensions that depends on $\B{q}_{j/i}$ only:
 
@@ -93,6 +95,7 @@ The gradient of the measurement vector $\B{h}$ with respect to the attitude coor
 \end{equation}
 
 \subsection{Error model and associated covariance matrix}
+\label{sec:pointingErrorModel}
 
 The pointing error and associated covariance matrix for each measurement are now considered. Each measured unit vector should be related to the true unit vector by a (hopefully) small rotation about an (unknown) rotation axis. If a reference frame is established whose 1 axis is parallel to the measured unit vector, the error vector to the true unit vector will lie in the 2-3 axis plane of that frame. In that reference frame, then, the measurement covariance is taken to be: $[R_e] = \mathrm{diag} \begin{bmatrix} 0 & \sigma_p^2 & \sigma_p^2
 \end{bmatrix}$
@@ -149,7 +152,7 @@ In this scenario, agents are assumed to have access to current gyroscope measure
 [A(\hat{\BG{\beta}}_{j/i})] & -[A(\hat{\BG{\beta}}_{j/i})][C_{j/i}(\hat{\BG{\beta}}_{j/i})]
 \end{bmatrix} 
 \begin{bmatrix}
-\B{v}_i \\
+\B{v}_i \label{eq:quatDerivative}\\
 \B{v}_j
 \end{bmatrix} \\
 \B{v}_i \sim N(0,R_{\omega,i}) \\
@@ -190,6 +193,56 @@ Results are discussed briefly, as the primary purpose of this section is to esta
 \caption{Relative quaternion estimate and truth for one agent in simulation.}
 \label{fig:estimate_history_w_omega_measured}
 \end{figure}
+
+\section{Relative attitude estimation without shared IMU - interagent measurements only}
+
+In prior 2D analyses of cooperative estimation, shared IMU data between agents has been treated as a special case, availability of which may be restricted based on agent relative pose and communications limitations. It is highly desireable to have an estimation framework that can enable cooperative SLAM without sharing high-rate IMU data. This section considers the case where both agents measure vectors to the other agent and gyroscopic measurements, but do not share the IMU data.
+
+For this case, the state vector is augmented with an estimated state associated with the other agent's angular velocity. That is, agent $i$'s estimation state vector is augmented with $\br{ \hat{ \BG{\omega} }_{j/n} }{j}$, which is agent $j$'s measured angular velocity in its body-fixed reference frame. The measurement model is not modified, as only the relative attitude affects the expected measurement. In the process model, the estimate $\hat{\BG{\omega}}_{j/n}$ replaces the measured value used in Eq. \ref{eq:quatDerivative}, and the propagation model associated with $\hat{\BG{\omega}}_{j/n}$ is:
+
+\begin{align}
+\hat{\dot{\BG{\omega}}}_{j/n} = \B{v}_{\omega} \\
+\B{v}_{\omega} \ \in \ N(0,\sigma_{est})
+\end{align}
+
+Using the linearized process and measurement models from the previous section, observability analysis can be carried out symbolically to determine if this state parameterization is viable. It can be shown that, after considering the first three terms of the observability matrix, i.e.:
+
+\begin{equation}
+[O] = \begin{bmatrix}
+H\\
+HF\\
+H^2F\\
+\vdots
+\end{bmatrix}
+\end{equation}
+
+This matrix is determined numerically to be full rank in general, an exactly sufficient condition for observability for a truly linear system.
+
+\subsection{Simulation}
+
+Numerical simulation of this scenario has proved nonviable. It is possible that performance of the estimator is highly sensitive to the assumed process noise term $\sigma_{est}$ and/or to the interagent vector measurement accuracy. The success of numerical simulation has varied. The pointing error in the relative attitude estimate appears to decrease and increase at different times in the simulation, as though the estimator converges and then diverges. It may be that, as in monocular SLAM, the estimator performance is highly dependent on the interagent motion and cannot achieve good performance for arbitrary relative motion.
+
+\section{Relative attitude estimation without shared IMU - interagent and magnetometer measurement shared}
+
+In the previous section, it was shown that, despite theoretical observability of the relative attitude without IMU sharing, consistently good estimation could not be achieved in simulation for arbitrary interagent relative motion. In this section, the effect of an additional shared vector measurement is considered - in this case, a three-axis magnetometer. In lieu of a magnetometer, cooperating agents might use workspace features simultaneously observed, or (for a larger cohort of vehicles) measurements to other agents as additional measurements.
+
+In the case of magnetometer measurements, each agent is assumed to measure the inertial 1-axis vector in its body-fixed frame. A pointing error is added to this measurement, as in Sec. \ref{sec:pointingErrorModel}. The associated measurement covariance is computed as for the interagent measurement, using an independent noise value based on a magnetometer error $\sigma_m$. The measurement model is altered by appending a measurement of an additional vector. Let $\U{m}$ indicate the vector pointing to magnetic north, i.e. parallel to the inertial 1-axis. The measurement associated with this vector for agent $i$ can be written in a nearly identical fashion to that of Eq. \ref{eq:ytilde}:
+
+\begin{equation}
+\tilde{\B{y}} = [C_{j/i}(\hat{\B{q}}_{j/i})]\br{\tilde{\U{m}}}{i} - \br{\tilde{\U{m}}}{j}
+\end{equation}
+
+\subsection{Simulation}
+
+Simulation results for this case are promising and consistently show rapid convergence to the true relative attitude. Accurate estimation of the other agent's angular velocity is more difficult, particularly near discontinuities in the agent motion, but in general the true value is well-modelled by the estimate.
+
+\section{Conclusions}
+
+\begin{enumerate}
+\item For the case where shared unbiased gyroscope measurements are available to both agents, estimation of the relative attitude is readily achieved.
+\item For the case where the remote agent's angular rates are estimated, not shared, estimation of the relative attitude is not achieved for arbitrary interagent motion when agents only have common measurements of the vector pointing to each other.
+\item When the remote agent's angular rates are estimated, appending an additional common measurement of any vector in the body reference frames of both agents appears sufficient to achieve accurate estimation of the relative attitude and angular rates.
+\end{enumerate}
 
 %\bibliographystyle{plain}
 
