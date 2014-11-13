@@ -18,7 +18,7 @@ load('data_3d.mat');
 % measurement error in IMU
 % aassume both agents have same IMU noise:
 Qk = diag([1e-6*[1 1 1] ...% component for measured ang. vel uncertainty
-    (.002/3)^2*[1 1 1]]);% component for estimated ang. vel uncertainty
+    (.05/3)^2*[1 1 1]]);% component for estimated ang. vel uncertainty, tuned empirically
 
 % generate IMU histories
 W = zeros(length(T),6);
@@ -59,10 +59,9 @@ xh{2}(1,1:4) = qji(1,:);xh{2}(1,1) = -xh{2}(1,1);
 xh{2}(1,5:7) = Yc{1}(1,11:13);
 
 %
-Rx = zeros(9);
+Rx = zeros(6);
 % measurement error
-errnom = [1e-6 err_dev err_dev].^2;
-magnom = [1e-6 mag_dev mag_dev].^2;
+errnom = [1e-8 err_dev err_dev].^2;
 
 tic;
 for j = 1:2
@@ -83,23 +82,17 @@ for j = 1:2
         if j == 1
             % his meas of me
             rij_j = meas{2}(k,(1:3))';
-	    % his magnetometer
-	    mag_j = meas{2}(k,4:6)';
         else
             rij_j = meas{1}(k,(1:3))';
-	    % his magnetometer
-	    mag_j = meas{1}(k,4:6)';
         end
         % my meas of him
         rji_i = meas{j}(k,(1:3))';
-	% my magnetometer
-	mag_i = meas{j}(k,4:6)';
         
-	% error associated with rji_i
-	r2 = cross(rji_i,[1;0;0]);r2 = r2./norm(r2);
+        r2 = cross(rji_i,[1;0;0]);r2 = r2./norm(r2);
         r3 = cross(rji_i,r2);
         Crt_b(2,:) = r2';
         Crt_b(3,:) = r3';
+        
         % error covariance associated with rji_i
         Rx(1:3,1:3) = Crt_b'*diag(errnom)*Crt_b;
         
@@ -113,35 +106,15 @@ for j = 1:2
         
         % error covariance associated with rij_j, in its frame
         Rx(4:6,4:6) = Crt_b'*diag(errnom)*Crt_b;
-
-	% repeat for my magnetometer
-        Crt_b = zeros(3);
-        Crt_b(1,:) = mag_i';
-        r2 = cross(mag_i,[1;0;0]);r2 = r2./norm(r2);
-        r3 = cross(mag_i,r2);
-        Crt_b(2,:) = r2';
-        Crt_b(3,:) = r3';
-        % error covariance associated with mag_i, in its frame
-        Rx(7:9,7:9) = Crt_b'*diag(magnom)*Crt_b;
-
-	% repeat for his magnetometer
-        Crt_b = zeros(3);
-        Crt_b(1,:) = mag_j';
-        r2 = cross(mag_j,[1;0;0]);r2 = r2./norm(r2);
-        r3 = cross(mag_j,r2);
-        Crt_b(2,:) = r2';
-        Crt_b(3,:) = r3';
-        % error covariance associated with mag_j, in its frame
-        Rx(10:12,10:12) = Crt_b'*diag(magnom)*Crt_b;
         
-        uk = [wi;rji_i;mag_i];
+        uk = [wi;rji_i];
         
-        yk = [-rij_j;mag_j];
+        yk = -rij_j;
         Pvk = Qk;
         
         Pnk = Rx;
         
-        [xp,Pp] = ukf_update(xhat,Pk,Pvk,Pnk,uk,yk,@update_eq_2_ags_omega,@measurement_eq_2_ags_omega_mag);
+        [xp,Pp] = ukf_update(xhat,Pk,Pvk,Pnk,uk,yk,@update_eq_2_ags_omega,@measurement_eq_2_ags_omega);
         
         if any(any(isnan(Pp)))
             disp('Error: NaN in covariance output');
@@ -166,8 +139,8 @@ Pdiag = 1:8:49;
 
 qji_in = interp1(T,qji,tv);
 
-xh{1} = quatmin(xh{1},qji_in);
-xh{2} = quatmin(xh{2},[-qji_in(:,1) qji_in(:,2:4)]);
+xh{1}(:,1:4) = quatmin(xh{1}(:,1:4),qji_in);
+xh{2}(:,1:4) = quatmin(xh{2}(:,1:4),[-qji_in(:,1) qji_in(:,2:4)]);
 
 for k = 1:4
     subplot(2,2,k);
@@ -221,3 +194,58 @@ ylabel('agent 1 pointing error (rad)');
 subplot(212);
 plot(tv, q_err2);
 ylabel('agent 2 pointing error (rad)');
+
+% agent 1 estimate of 2's angular velocity
+figure;
+for j = 1:3
+    subplot(3,1,j);
+    plot(tv,xh{1}(:,j+4));
+    hold on;
+    plot(tv,xh{1}(:,j+4) + 3*sqrt(Ph{1}(:,Pdiag(j+4))),'r--');
+    plot(tv,xh{1}(:,j+4) - 3*sqrt(Ph{1}(:,Pdiag(j+4))),'r--');
+    plot(tv,Yc{2}(:,j+10),'--')
+end
+
+% agent 2 estimate of 1's angular velocity
+figure;
+for j = 1:3
+    subplot(3,1,j);
+    plot(tv,xh{2}(:,j+4));
+    hold on;
+    plot(tv,xh{2}(:,j+4) + 3*sqrt(Ph{2}(:,Pdiag(j+4))),'r--');
+    plot(tv,xh{2}(:,j+4) - 3*sqrt(Ph{2}(:,Pdiag(j+4))),'r--');
+    plot(tv,Yc{1}(:,j+10),'--')
+end
+
+%% compute state-predicted output
+ypred = zeros(length(tv),6);
+for k = 1:length(tv)
+    for j = 1:2
+        if j == 1
+            % my measured angular velocity
+            wi = W(k,1:3)';
+        else
+            % my measured angular velocity
+            wi = W(k,4:6)';
+        end
+        % my meas of him
+        rji_i = meas{j}(k,(1:3))';
+        
+        uk = [wi;rji_i];
+        
+        ypred(k,(j-1)*3+(1:3)) = measurement_eq_2_ags_omega(xh{j}(k,:)',zeros(6,1),uk)';
+    end
+end
+
+figure;
+subplot(211);
+plot(tv,ypred(:,1:3))
+hold on
+plot(tv,-meas{2}(:,1:3),'--')
+title('Agent 1 state-predicted output of agent 2''s measurements');
+
+subplot(212);
+plot(tv,ypred(:,4:6))
+hold on
+plot(tv,-meas{1}(:,1:3),'--')
+title('Agent 2 state-predicted output of agent 1''s measurements');

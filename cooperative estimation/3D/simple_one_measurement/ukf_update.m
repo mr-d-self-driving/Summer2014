@@ -48,8 +48,8 @@ XAUGPLUS = updatefun(XAUG(1:n,:),XAUG(n+(1:vl),:),uk);
 beta = 2;% optimal for Gaussian
 wc = 0.5/(N+lambda)*ones(2*N+1,1);
 wm = 0.5/(N+lambda)*ones(2*N+1,1);
-wc(1) = lambda/(N+lambda);
-wm(1) = lambda/(N+lambda) + 1-alpha^2+beta;
+wm(1) = lambda/(N+lambda);
+wc(1) = lambda/(N+lambda) + 1-alpha^2+beta;
 
 % calculate the update
 xp = sum(XAUGPLUS(1:n,:).*repmat(wm',n,1),2);
@@ -67,7 +67,11 @@ g = size(YKAUG,1);
 
 yhat = sum(YKAUG.*repmat(wm',g,1),2);
 % re-normalize (unit vector)
-yhat = yhat/norm(yhat);
+yhat(1:3) = yhat(1:3)/norm(yhat(1:3));
+% handle magnetometer vector if applicable
+if length(yhat) > 3
+    yhat(4:6) = yhat(4:6)/norm(yhat(4:6));
+end
 
 % measurement covariance
 Pyk = zeros(g);

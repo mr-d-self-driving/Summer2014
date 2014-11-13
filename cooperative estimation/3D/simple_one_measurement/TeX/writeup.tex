@@ -173,7 +173,23 @@ The complicated expression for $[F]$ arises due to the product $[A(\hat{\BG{\bet
 
 \subsection{Simulation}
 
+In simulation, agents are initialized randomly in a 10 meter sphere. Each agent flies to a point in the sphere, chosen on the uniform distribution, following polynomial trajectories for position and Euler angles. Agents continue until the simulation time ends. Agents measure unit vectors to one another, and make IMU gyroscopic measurements in their own body frame. Using these two measurements only, both the Extended Kalman Filter (EKF) and Unscented Kalman Filter (UKF) are implemented using the equations developed in the previous section. Filter values are initialized with uniformly distributed initial quaternion components that are subsequently normalized.
 
+Results are discussed briefly, as the primary purpose of this section is to establish the validity of the sequential filter for relative attitude determination in this framework. Results presented are for the UKF, whose performance is consistent with the EKF. Fig. \ref{fig:error_history_w_omega_measured} shows the error history for a 150 second simulation with two agents. The figure demonstrates that the filter is readily able to regulate the relative attitude estimate error. Fig. \ref{fig:estimate_history_w_omega_measured} shows the true and estimated relative attitude quaternion components for the first two seconds of simulation. Despite being initialized randomly, the filter is rapidly able to converge to the truth values.
+
+\begin{figure}[tb!]
+\centering
+\includegraphics[width=1.0\textwidth]{error_history_w_omega_measured.png}
+\caption{Relative heading estimate angular error history.}
+\label{fig:error_history_w_omega_measured}
+\end{figure}
+
+\begin{figure}[tb!]
+\centering
+\includegraphics[width=1.0\textwidth]{estimate_history_w_omega_measured.png}
+\caption{Relative quaternion estimate and truth for one agent in simulation.}
+\label{fig:estimate_history_w_omega_measured}
+\end{figure}
 
 %\bibliographystyle{plain}
 

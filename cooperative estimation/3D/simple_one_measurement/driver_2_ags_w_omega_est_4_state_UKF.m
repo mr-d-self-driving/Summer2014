@@ -57,13 +57,13 @@ for i = 1:2
 end
 
 %% use exact initial conditions
-%xh{1}(1,1:4) = qji(1,:);
-%xh{2}(1,1:4) = qji(1,:);xh{2}(1,1) = -xh{2}(1,1);
+xh{1}(1,1:4) = qji(1,:);
+xh{2}(1,1:4) = qji(1,:);xh{2}(1,1) = -xh{2}(1,1);
 
 %
 Rx = zeros(6);
 % measurement error
-errnom = [1e-6 err_dev err_dev].^2;
+errnom = [1e-8 err_dev err_dev].^2;
 
 tic;
 for j = 1:2

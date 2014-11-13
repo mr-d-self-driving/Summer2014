@@ -13,7 +13,7 @@ if ~exist('data_3d.mat','file');
     % sample time
     Ts = 0.01;
     % sim time
-    Tmax = 150;
+    Tmax = 30;
     
     % allowed position space
     R = 10;
@@ -152,7 +152,7 @@ if ~exist('meas','var')
     
     meas = cell(N,1);
     for II = 1:N
-        meas{II} = zeros(length(T),(N-1)*3);
+        meas{II} = zeros(length(T),(N-1)*3+3);
         Jcount = 0;
         for JJ = [1:II-1 II+1:N]
             Jcount = Jcount+1;
@@ -173,27 +173,35 @@ if ~exist('meas','var')
                 % get DCM from true to error "frame"
                 Crp_r = attpar([vec [delta;0;0]],[2 1]);
                 
-		% store the unit vector measurement
+                % store the unit vector measurement
                 rmeas(i,1:3) = rsee(i,:)*Crp_r;
                 % use the unit vector as the measurement
                 rmeas(i,1:3) = rmeas(i,1:3)./norm(rmeas(i,1:3));
-
-		% compute the euler angle 3-2-1 sequence
-		gar = attparsilent(quat,[6 4],struct('seq',[3;2;1]));
-		psiNow = gar(1,1);
-		psiVec = [cos(psiNow);sin(psiNow);0];%truth value
-		% generate error angle
-                delta = randn*mag_dev;
-                % get arbitrary axis of rotation
-                vec = rand(3,1);vec = vec./norm(vec);
-                % get DCM from true to error "frame"
-                Crp_r = attpar([vec [delta;0;0]],[2 1]);
-		%store the heading angle measurement (magnetometer)
-		rmeas(i,4:6) = psiVec'*Crp_r;
             end
             
             meas{II}(:,(Jcount-1)*3+(1:3)) = rmeas;
         end
+        % get magnetometer out
+        rmeas = zeros(length(T),3);
+        for i = 1:length(T)
+            quat = Yc{II}(i,7:10)';
+            % compute the euler angle 3-2-1 sequence
+            %gar = attparsilent(quat,[6 4],struct('seq',[3;2;1]));
+            %psiNow = gar(1,1);
+            %psiVec = [cos(psiNow);sin(psiNow);0];%truth value in inertial frame
+            % convert to body frame
+            Cbn = attparsilent(quat,[6 1]);
+            psiVec = Cbn(:,1);
+            % generate error angle
+            delta = randn*mag_dev;
+            % get arbitrary axis of rotation
+            vec = rand(3,1);vec = vec./norm(vec);
+            % get DCM from true to error "frame"
+            Crp_r = attpar([vec [delta;0;0]],[2 1]);
+            %store the heading angle measurement (magnetometer)
+            rmeas(i,1:3) = psiVec'*Crp_r;
+        end
+        meas{II}(:,Jcount*3+(1:3)) = rmeas;
     end
     save data_3d.mat;
 end

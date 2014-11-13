@@ -269,6 +269,7 @@ for k = 1:4
     plot(T,qji(:,k),'k-','linewidth',2);
     set(gca,'ylim',[-1 1]);
 end
+set(gcf,'position',[200 275 1300 625])
 
 figure;
 for k = 1:4
@@ -284,6 +285,7 @@ for k = 1:4
     end
     set(gca,'ylim',[-1 1]);
 end
+set(gcf,'position',[200 275 1300 625])
 
 % compute error quaternions
 q_err1 = zeros(length(tv),1);
@@ -312,3 +314,4 @@ ylabel('agent 1 pointing error (rad)');
 subplot(212);
 plot(tv, q_err2);
 ylabel('agent 2 pointing error (rad)');
+set(gcf,'position',[200 275 1300 625])

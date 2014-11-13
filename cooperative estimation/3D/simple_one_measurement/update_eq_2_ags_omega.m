@@ -36,7 +36,7 @@ for k = 1:size(xk,2);
     % angular velocity estimate change
     xkPlus(5:7,k) = xhat(5:7) + vn(4:6);
     %re-normalize
-    xkPlus(1:4,k) = xkPlus(1:4,k)/norm(xkPlus(1:4,k));
+    %xkPlus(1:4,k) = xkPlus(1:4,k)/norm(xkPlus(1:4,k));
 end
 
 end
