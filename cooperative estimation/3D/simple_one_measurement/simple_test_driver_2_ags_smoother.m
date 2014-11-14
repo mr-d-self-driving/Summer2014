@@ -57,7 +57,7 @@ end
 %% forwards iteration
 Rx = zeros(6);
 % measurement error
-errnom = [0 err_dev err_dev].^2;
+errnom = [1e-8 err_dev err_dev].^2;
 
 for j = 1:2
     for k = 1:length(T)
@@ -79,12 +79,13 @@ for j = 1:2
             rij_j = meas{1}(k,(1:3))';
         end
         % error
-        ydiff = rij_j + Cji*rji_i;
+        ydiff = - rij_j - Cji*rji_i;
         
         % measurement gradient
         Hk = zeros(3,4);
-        Hk(:,1) = 2*squiggle(xhat(2:4))*rji_i;
-        Hk(:,2:4) = -2*xhat(1)*squiggle(rji_i)+2*(squiggle(xhat(2:4))*squiggle(rji_i)+squiggle( squiggle(xhat(2:4))*rji_i ));
+        Hk(:,1) = -2*squiggle(xhat(2:4))*rji_i;
+        Hk(:,2:4) = 2*xhat(1)*squiggle(rji_i)-2*(squiggle(xhat(2:4))*squiggle(rji_i)+squiggle( squiggle(xhat(2:4))*rji_i ));
+        Hk = -Hk;
         
         Crt_b = zeros(3);
         Crt_b(1,:) = rji_i';
@@ -124,7 +125,7 @@ for j = 1:2
         Kk = Pk*Hk'*((Hk*Pk*Hk'+Ry)\eye(3));
         
         %update
-        xhat = xhat + Kk*ydiff;
+        xhat = xhat + Kk*(-ydiff);
         Pk = (eye(4) - Kk*Hk)*Pk;
         
         % re-normalize

@@ -1,8 +1,14 @@
+% iterative Extended Kalman Filter employed... I think
+% runs VERY slowly, tho
+
 clear variables;
 close all;
 
 addpath('../../2D');
 addpath('../');
+
+MAX_ITER = 100;
+ITER_TOL = 1e-3;
 
 %% load data
 
@@ -27,10 +33,10 @@ end
 % compute truth
 qji = zeros(length(T),4);
 for k = 1:length(T)
-    Cin = attpar(Yc{1}(k,7:10)',[6 1]);
-    Cjn = attpar(Yc{2}(k,7:10)',[6 1]);
+    Cin = attparsilent(Yc{1}(k,7:10)',[6 1]);
+    Cjn = attparsilent(Yc{2}(k,7:10)',[6 1]);
     Cji = Cjn*Cin';
-    qji_tr = attpar(Cji,[1 6]);
+    qji_tr = attparsilent(Cji,[1 6]);
     qji(k,:) = qji_tr';
 end
 qji = quatmin(qji);
@@ -57,16 +63,12 @@ Rx = zeros(6);
 % measurement error
 errnom = [1e-8 err_dev err_dev].^2;
 
+tic
 for j = 1:2
     for k = 1:length(T)
-        %% update        
+        %% iterative measurement step
         xhat = xh{j}(2*k-1,:)';
         Pk = reshape(Ph{j}(2*k-1,:)',4,4);
-        
-        ymeas = zeros(3,1);
-        
-        %Cji = eye(3) - 2*xhat(1)*squiggle(xhat(2:4)) + 2*squiggle(xhat(2:4))^2;
-        Cji = attpar(xhat,[6 1]);
         
         % my meas of him
         rji_i = meas{j}(k,(1:3))';
@@ -76,18 +78,10 @@ for j = 1:2
         else 
             rij_j = meas{1}(k,(1:3))';
         end
-        % error
-        ydiff = - rij_j - Cji*rji_i;
-        
-        % measurement gradient
-        Hk = zeros(3,4);
-        Hk(:,1) = -2*squiggle(xhat(2:4))*rji_i;
-        Hk(:,2:4) = 2*xhat(1)*squiggle(rji_i) - 2*squiggle(xhat(2:4))*squiggle(rji_i) - 2*squiggle( squiggle(xhat(2:4))*rji_i );
-        Hk = -Hk;
         
         Crt_b = zeros(3);
         Crt_b(1,:) = rji_i';
-        
+
         % compute an arbitrary frame transfer from the frame aligned with
         % the measurement vector to the body frame
         % the resulting covariance is independent of the other two axes we
@@ -96,10 +90,10 @@ for j = 1:2
         r3 = cross(rji_i,r2);
         Crt_b(2,:) = r2';
         Crt_b(3,:) = r3';
-        
+
         % error covariance associated with rji_i
         Rx(1:3,1:3) = Crt_b'*diag(errnom)*Crt_b;
-        
+
         % repeat for rij_j2
         Crt_b = zeros(3);
         Crt_b(1,:) = rij_j';
@@ -107,34 +101,54 @@ for j = 1:2
         r3 = cross(rij_j,r2);
         Crt_b(2,:) = r2';
         Crt_b(3,:) = r3';
-        
+
         % error covariance associated with rij_j, in its frame
         Rx(4:6,4:6) = Crt_b'*diag(errnom)*Crt_b;
         
-        % jacobian associated with the measurement
-        J = zeros(3,6);
-        J(1:3,1:3) = -Cji;
-        J(1:3,4:6) = -eye(3);
-        
-        % actual 'measurement' covariance
-        Ry = J*Rx*J';
-        
-        %Rz = [Rx zeros(6,4);zeros(4,6) Pk(1:4,1:4)];
-        %[ydiff,Ry] = statisticalLinearization([rji_i;rij_j;xhat(1:4)],Rz,@output_equation);
-        
-        % Kalman gain
-        Kk = Pk*Hk'*((Hk*Pk*Hk'+Ry)\eye(3));
-        
-        %update
-        xhat = xhat + Kk*(-ydiff);
-        Pk = (eye(4) - Kk*Hk)*Pk;
-        
-        % re-normalize
-        xhat = xhat./norm(xhat);
+        ydiff = 1e2;
+        xk_j = xhat;
+        iter_count = 0;
+        while(norm(ydiff) > ITER_TOL && iter_count < MAX_ITER)
+            iter_count = iter_count+1;
+            
+            %Cji = eye(3) - 2*xhat(1)*squiggle(xhat(2:4)) + 2*squiggle(xhat(2:4))^2;
+            Cji = attparsilent(xk_j,[6 1]);
+
+            % error
+            ydiff = - rij_j - Cji*rji_i;
+
+            % measurement gradient of current estimate
+            Hk = ekf_measurement_gradient(xk_j,rji_i);
+
+            % jacobian associated with the measurement
+            J = zeros(3,6);
+            J(1:3,1:3) = -Cji;
+            J(1:3,4:6) = -eye(3);
+
+            % actual 'measurement' covariance
+            Ry = J*Rx*J';
+
+            %Rz = [Rx zeros(6,4);zeros(4,6) Pk(1:4,1:4)];
+            %[ydiff,Ry] = statisticalLinearization([rji_i;rij_j;xhat(1:4)],Rz,@output_equation);
+
+            % Kalman gain
+            Kk = Pk*Hk'*((Hk*Pk*Hk'+Ry)\eye(3));
+
+            %update
+            xk_j = xhat + Kk*(-ydiff-Hk*(xhat-xk_j));
+            %Pk = (eye(4) - Kk*Hk)*Pk;
+            Pk_j = (eye(4) - Kk*Hk)*Pk;
+
+            % re-normalize
+            xk_j = xk_j./norm(xk_j);
+            
+            % print status, for debugging only
+            %fprintf('%i\t%f\n',iter_count,norm(ydiff));
+        end
         
         % store
-        xh{j}(2*k,:) = xhat';
-        Ph{j}(2*k,:) = reshape(Pk,16,1)';
+        xh{j}(2*k,:) = xk_j';
+        Ph{j}(2*k,:) = reshape(Pk_j,16,1)';
         %% propagate
         %play it forward
         %xh{j}(2*k+1,:) = xh{j}(2*k,:);
@@ -144,7 +158,7 @@ for j = 1:2
         Pk = reshape(Ph{j}(2*k,:)',4,4);
         
         % cosine matrix
-        Cji = attpar(xhat,[6 1]);
+        Cji = attparsilent(xhat,[6 1]);
         if j == 1
             % my measured angular velocity
             wi = W(k,1:3)';
@@ -185,8 +199,13 @@ for j = 1:2
         % store
         xh{j}(2*k+1,:) = xhat';
         Ph{j}(2*k+1,:) = reshape(Pk,16,1)';
+        
+        if ~mod(k-1,10)
+            etaCalc(k+(j-1)*length(T),2*length(T),toc);
+        end
     end
 end
+toc;
 
 %% evaluate results
 
@@ -230,16 +249,16 @@ q_err1 = zeros(length(tv),1);
 q_err2 = zeros(length(tv),1);
 for i = 1:length(tv)
     %truth
-    Cji = attpar(qji_in(i,:)',[6 1]);
-    Cji_1 = attpar(xh{1}(i,:)',[6 1]);
-    Cij_2 = attpar(xh{2}(i,:)',[6 1]);
+    Cji = attparsilent(qji_in(i,:)',[6 1]);
+    Cji_1 = attparsilent(xh{1}(i,:)',[6 1]);
+    Cij_2 = attparsilent(xh{2}(i,:)',[6 1]);
     % error DCMs
     Ct_1 = Cji_1'*Cji;
     Ct_2 = Cij_2'*Cji';
     %error quaternions
-    gar1 = attpar(Ct_1,[1 2]);
+    gar1 = attparsilent(Ct_1,[1 2]);
     q_err1(i) = gar1(1,2);
-    gar2 = attpar(Ct_2,[1 2]);
+    gar2 = attparsilent(Ct_2,[1 2]);
     q_err2(i) = gar2(1,2);
 end
 
