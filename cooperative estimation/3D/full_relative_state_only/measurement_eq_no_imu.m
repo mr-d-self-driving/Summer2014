@@ -1,4 +1,4 @@
-function yk = measurement_eq_all(xk,nk,uk)
+function yk = measurement_eq_no_imu(xk,nk,uk)
 
 %xk: 16 x 2N+1, relative quaternion, position, and velocity
 %nk: 12 x 2N+1, error on range/bearing/azimuth for agent 1, then agent 2,

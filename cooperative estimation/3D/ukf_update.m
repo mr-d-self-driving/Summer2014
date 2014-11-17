@@ -87,10 +87,13 @@ Kk = Pxkyk*(Pyk\eye(g));
 
 % handle special cases by examining the input function names
 % minimize angle difference
-if isequal(measurementfun, @measurement_eq_all)
+if isequal(measurementfun, @measurement_eq_no_imu)
     yhat([2 3 5 6]) = minangle(yhat([2 3 5 6]),ytilde([2 3 5 6]));
     % normalize magnetometer
     yhat(7:9) = yhat(7:9)./norm(yhat(7:9));
+end
+if isequal(measurementfun, @measurement_eq_all)
+    yhat([2 3 5 6]) = minangle(yhat([2 3 5 6]),ytilde([2 3 5 6]));
 end
 if isequal(measurementfun, @measurement_eq_no_range)
     yhat = minangle(yhat,ytilde);

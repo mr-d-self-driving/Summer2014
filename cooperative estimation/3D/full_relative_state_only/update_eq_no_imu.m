@@ -1,4 +1,4 @@
-function xkPlus = update_eq_all(xk,vk,uk)
+function xkPlus = update_eq_no_imu(xk,vk,uk)
 
 global Ts;
 
