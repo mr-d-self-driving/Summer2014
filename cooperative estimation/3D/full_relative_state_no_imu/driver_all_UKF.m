@@ -1,3 +1,6 @@
+% no IMU sharing
+% has magnetometer
+
 clear variables;
 close all;
 
@@ -17,7 +20,7 @@ load('data_3d.mat');
 
 % measurement error in IMU
 % assume both agents have same IMU noise: [gyro_i gyro_j acc_i acc_j]
-Qk = diag([1e-4*ones(1,6) 1e-2*ones(1,6)]);
+Qk = diag([1e-4*ones(1,3) (0.05/3)^2*[1 1 1] 1e-2*ones(1,3) (0.05/3)^2*[1 1 1]]);
 
 % generate IMU histories
 W = zeros(length(T),6);% ang. vel histories
@@ -27,9 +30,9 @@ for k = 1:length(T)
     Cjn = attparsilent(Yc{2}(k,7:10)',[6 1]);
     
     W(k,1:3) = Yc{1}(k,11:13) + randn(1,3).*diag(sqrt(Qk(1:3,1:3)))';
-    W(k,4:6) = Yc{2}(k,11:13) + randn(1,3).*diag(sqrt(Qk(4:6,4:6)))';
+    W(k,4:6) = Yc{2}(k,11:13) + randn(1,3).*diag(sqrt(Qk(1:3,1:3)))';
     A(k,1:3) = Yc{1}(k,17:19)*Cin' + randn(1,3).*diag(sqrt(Qk(7:9,7:9)))';
-    A(k,4:6) = Yc{2}(k,17:19)*Cjn' + randn(1,3).*diag(sqrt(Qk(10:12,10:12)))';
+    A(k,4:6) = Yc{2}(k,17:19)*Cjn' + randn(1,3).*diag(sqrt(Qk(7:9,7:9)))';
 end
 
 % compute truth
@@ -61,62 +64,86 @@ Ph = cell(2,1);
 tv = T;
 
 for i = 1:2
-    xh{i} = zeros(length(tv),10);
-    Ph{i} = zeros(length(tv),100);
+    xh{i} = zeros(length(tv),16);
+    Ph{i} = zeros(length(tv),256);
     % random quaternion
     xh{i}(1,1:4) = randn(4,1);xh{i}(1,1:4) = xh{i}(1,1:4)./norm(xh{i}(1,1:4));
     xh{i}(1,5:7) = randn(3,1).*[10;10;10];
     xh{i}(1,8:10) = randn(3,1);
-    Ph{i}(1,:) = reshape( 1*diag([.1 .1 .1 .1 1 1 1 .1 .1 .1]) + 1e-6*ones(10), 100,1)';
+    Ph{i}(1,:) = reshape( 1*diag([.1 .1 .1 .1 1 1 1 .1 .1 .1 .1 .1 .1 .1 .1 .1]) + 1e-6*ones(16), 256,1)';
 end
 
 %% use exact initial conditions
-%xh{1}(1,1:4) = qji(1,:);
-%xh{1}(1,5:7) = rji_i_tr(1,:);
-%xh{1}(1,8:10) = vji_i(1,:);
-%xh{2}(1,1:4) = qji(1,:);xh{2}(1,1) = -xh{2}(1,1);
-%xh{2}(1,5:7) = rij_j_tr(1,:);
-%xh{2}(1,8:10) = vij_j(1,:);
+% xh{1}(1,1:4) = qji(1,:);
+% xh{1}(1,5:7) = rji_i_tr(1,:);
+% xh{1}(1,8:10) = vji_i(1,:);
+% xh{2}(1,1:4) = qji(1,:);xh{2}(1,1) = -xh{2}(1,1);
+% xh{2}(1,5:7) = rij_j_tr(1,:);
+% xh{2}(1,8:10) = vij_j(1,:);
 
 % measurement error
-Rx = diag([range_dev err_dev err_dev range_dev err_dev err_dev]).^2;
+Rhalf = diag([range_dev err_dev err_dev range_dev err_dev err_dev]).^2;
+magnom = [1e-8 mag_dev mag_dev];
+Rx = zeros(12);
+Rx(1:6,1:6) = Rhalf;
 
 tic;
 for j = 1:2
     for k = 1:length(T)-1
         %% update
         xhat = xh{j}(k,:)';
-        Pk = reshape(Ph{j}(k,:)',10,10);
+        Pk = reshape(Ph{j}(k,:)',16,16);
         
         if j == 1
             % my measured angular velocity
             wi = W(k,1:3)';
             ai = A(k,1:3)';
-            % his measured angular velocity
-            wj = W(k,4:6)';
-            aj = A(k,4:6)';
         else
             % my measured angular velocity
             wi = W(k,4:6)';
             ai = A(k,4:6)';
-            % his measured angular velocity
-            wj = W(k,1:3)';
-            aj = A(k,1:3)';
         end
         if j == 1
             % his meas of me
             rij_j = meas{2}(k,(1:3))';
+            % his magnetometer
+            mag_j = meas{2}(k,4:6)';
         else
             rij_j = meas{1}(k,(1:3))';
+            % his magnetometer
+            mag_j = meas{1}(k,4:6)';
         end
         
         % my meas of him
         rji_i = meas{j}(k,(1:3))';
+        % my magnetometer
+        mag_i = meas{j}(k,4:6)';
         
-        uk = [wi;wj;ai;aj];
+        % error for my magnetometer
+        Crt_b = zeros(3);
+        Crt_b(1,:) = mag_i';
+        r2 = cross(mag_i,[1;0;0]);r2 = r2./norm(r2);
+        r3 = cross(mag_i,r2);
+        Crt_b(2,:) = r2';
+        Crt_b(3,:) = r3';
+        % error covariance associated with mag_i, in its frame
+        Rx(7:9,7:9) = Crt_b'*diag(magnom)*Crt_b;
+
+        % repeat for his magnetometer
+        Crt_b = zeros(3);
+        Crt_b(1,:) = mag_j';
+        r2 = cross(mag_j,[1;0;0]);r2 = r2./norm(r2);
+        r3 = cross(mag_j,r2);
+        Crt_b(2,:) = r2';
+        Crt_b(3,:) = r3';
+        % error covariance associated with mag_j, in its frame
+        Rx(10:12,10:12) = Crt_b'*diag(magnom)*Crt_b;
+        
+        uk = [wi;ai;mag_i];
         
         yk = [sqrt(sum(rji_i.^2));atan2(rji_i(2),rji_i(1));atan2(rji_i(3),sqrt(sum(rji_i(1:2).^2))); ...
-		sqrt(sum(rij_j.^2));atan2(rij_j(2),rij_j(1));atan2(rij_j(3),sqrt(sum(rij_j(1:2).^2)))];
+		sqrt(sum(rij_j.^2));atan2(rij_j(2),rij_j(1));atan2(rij_j(3),sqrt(sum(rij_j(1:2).^2))); ...
+        mag_j];
         Pvk = Qk;
         
         Pnk = Rx;
@@ -130,20 +157,21 @@ for j = 1:2
         
         % store
         xh{j}(k+1,:) = xp';
-        Ph{j}(k+1,:) = reshape(Pp,100,1)';
+        Ph{j}(k+1,:) = reshape(Pp,256,1)';
 
         if ~mod(k-1,100)
-            etaCalc(k,length(T),toc);
+            etaCalc((j-1)*length(T) + k,2*length(T),toc);
         end
     end
 end
+toc;
 
 %% evaluate results
 
 close all;
 figure;
 
-Pdiag = 1:11:100;
+Pdiag = 1:17:256;
 
 qji_in = interp1(T,qji,tv);
 
@@ -233,25 +261,42 @@ for k = 1:3
 end
 set(gcf,'position',[200 275 1300 625])
 
+% plot acceleration estimates
 figure;
 for k = 1:3
-    subplot(3,1,k);
-    plot(tv,xh{2}(:,k+4));
+    subplot(3,2,2*k-1);
+    plot(tv,xh{1}(:,10+k));
     hold on;
-    plot(tv,xh{2}(:,k+4) + 3*sqrt(Ph{2}(:,Pdiag(k+4))),'r--');
-    plot(tv,xh{2}(:,k+4) - 3*sqrt(Ph{2}(:,Pdiag(k+4))),'r--');
-    plot(tv,rij_j_tr(:,k),'k-');
-    title( 'Agent 2 position estimate');
+    plot(tv,xh{1}(:,10+k) + 3*sqrt(Ph{1}(:,Pdiag(10+k))),'r--');
+    plot(tv,xh{1}(:,10+k) - 3*sqrt(Ph{1}(:,Pdiag(10+k))),'r--');
+    plot(tv,A(:,k+3),'k-');
+    title('Agent 1 estimate of 2''s acceleration');
+    
+    subplot(3,2,2*k);
+    plot(tv,xh{2}(:,10+k));
+    hold on;
+    plot(tv,xh{2}(:,10+k) + 3*sqrt(Ph{2}(:,Pdiag(10+k))),'r--');
+    plot(tv,xh{2}(:,10+k) - 3*sqrt(Ph{2}(:,Pdiag(10+k))),'r--');
+    plot(tv,A(:,k),'k-');
+    title('Agent 2 estimate of 1''s acceleration');
 end
-set(gcf,'position',[200 275 1300 625])
 
+% plot angular velocity estimates
 figure;
-
-subplot(211);
-plot(tv, q_err1);
-ylabel('agent 1 pointing error (rad)');
-
-subplot(212);
-plot(tv, q_err2);
-ylabel('agent 2 pointing error (rad)');
-set(gcf,'position',[200 275 1300 625])
+for k = 1:3
+    subplot(3,2,2*k-1);
+    plot(tv,xh{1}(:,13+k));
+    hold on;
+    plot(tv,xh{1}(:,13+k) + 3*sqrt(Ph{1}(:,Pdiag(10+k))),'r--');
+    plot(tv,xh{1}(:,13+k) - 3*sqrt(Ph{1}(:,Pdiag(10+k))),'r--');
+    plot(tv,W(:,k+3),'k-');
+    title('Agent 1 estimate of 2''s angular velocity');
+    
+    subplot(3,2,2*k);
+    plot(tv,xh{2}(:,13+k));
+    hold on;
+    plot(tv,xh{2}(:,13+k) + 3*sqrt(Ph{2}(:,Pdiag(13+k))),'r--');
+    plot(tv,xh{2}(:,13+k) - 3*sqrt(Ph{2}(:,Pdiag(13+k))),'r--');
+    plot(tv,W(:,k),'k-');
+    title('Agent 2 estimate of 1''s angular velocity');
+end

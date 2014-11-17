@@ -72,7 +72,7 @@ for i = 1:2
     xh{i}(1,1:4) = randn(4,1);xh{i}(1,1:4) = xh{i}(1,1:4)./norm(xh{i}(1,1:4));
     xh{i}(1,5:7) = randn(3,1).*[10;10;10];
     xh{i}(1,8:10) = randn(3,1);
-    Ph{i}(1,:) = reshape( 1*diag([1 1 1 1 10 10 10 1 1 1]) + 1e-6*ones(10), 100,1)';
+    Ph{i}(1,:) = reshape( 1*diag([.1 .1 .1 .1 1 1 1 .1 .1 .1]) + 1e-6*ones(10), 100,1)';
 end
 
 %% use exact initial conditions

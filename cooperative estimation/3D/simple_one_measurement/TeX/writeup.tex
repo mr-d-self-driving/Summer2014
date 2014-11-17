@@ -236,6 +236,37 @@ In the case of magnetometer measurements, each agent is assumed to measure the i
 
 Simulation results for this case are promising and consistently show rapid convergence to the true relative attitude. Accurate estimation of the other agent's angular velocity is more difficult, particularly near discontinuities in the agent motion, but in general the true value is well-modelled by the estimate.
 
+\subsection{9-DOF relative state measurement with interagent range and bearing angles}
+\label{sec:9dof_first}
+
+Having considered rudimentary cases, analysis is expanded to a more complex scenario. Consider two agents, each having full six-axis IMU measurements, and each measure the relative vector to the other agent. For the simplest case, it is assumed that both IMU measurements and interagent position measurements are shared at the sample rate. In this case, the state vector for estimation consists of the relative attitude coordinates $\hat{\B{q}}_{j/i}$, the relative position vector $\hat{\B{r}}_{j/i}$, and the relative velocity vector $\hat{\B{v}}_{j/i}$. For an agent $i$ making estimates relative to agent $j$, $i$ esimates the relative position and velocity in its own body-fixed reference frame. The continuous-time propagation equations for this case are given below. For convenience, the bracket operators specifying the reference frame used to parameterize each term are largely omitted. Each measurement made by a given agent should be interpreted as being coordinatized in that own agent's reference frame.
+
+\begin{align}
+\dot{\hat{\B{r}}}_{j/i} = {}^i \ddt{\br{\hat{\B{r}}_{j/i}}{i}} = \hat{\B{v}}_{j/i} - \tilde{\BG{\omega}}_{i/n} \times \hat{\B{r}}_{j/i}\\
+\dot{\hat{\B{v}}}_{j/i} = {}^i \ddt{\br{\hat{\B{v}}_{j/i}}{i}} = ([\hat{\B{C}}_{j/i}]^T \tilde{\B{a}}_{j/n} - \tilde{\B{a}}_{i/n}) - \tilde{\BG{\omega}}_{i/n} \times \hat{\B{v}}_{j/i}\\
+\dot{\hat{\B{q}}}_{j/i} = {}^j \ddt{\br{\hat{\B{q}}_{j/i}}{j}} = [\B{A}(\hat{\B{q}}_{j/i})](\tilde{\BG{\omega}}_{j/n}-[\hat{\B{C}}_{j/i}]\tilde{\BG{\omega}}_{i/n})
+\end{align}
+
+The measurements in this case are taken to be the interagent position measurements made by each agent, and their expected values are readily determined. The measurements are parameterized in terms of the range $d$, bearing angle $\theta$, and azimuth angle $\phi$ observed in each agent's frame. For an arbitrary vector $\B{r}$, these values are defined as:
+
+\begin{align}
+[\B{r}] \equiv \tvect{r_1}{r_2}{r_3}\\
+d(\B{r}) \equiv \sqrt{r_1^2 + r_2^2 + r_3^2}\label{eq:rangeDef}\\
+\theta(\B{r}) \equiv \arctan{ \frac{r_2}{r_1} }\label{eq:bearingDef}\\ 
+\phi(\B{r}) \equiv \arctan{ \frac{r_3}{\sqrt{r_1^2+r_2^2}} }\label{eq:azimuthDef}
+\end{align}
+
+The interagent vectors measured by agents $i$ and $j$ are $\br{\tilde{\B{r}}_{j/i}}{i}$ and $\br{\tilde{\B{r}}_{i/j}}{j}$, respectively. From these vectors, it is straightforward to calculate the range, bearing, and azimuth angles. The expected values of these vectors in terms of the estimated state are given below, and used in the Unscented Kalman Filter measurement equation.
+
+\begin{align}
+\br{\hat{\B{r}}_{j/i}}{i} = \hat{\B{r}}_{j/i} \\
+\br{\hat{\B{r}}_{i/j}}{j} = -[\hat{\B{C}}_{j/i}]\hat{\B{r}}_{j/i} 
+\end{align}
+
+\subsection{9-DOF relative state measurement with interagent angles only}
+
+In this case, IMU is still shared between cooperating agents, but interagent range measurements are no longer available. The estimate state vector is the same as in Sec. \ref{sec:9dof_first}. The measurement equations consist of Eqs. \ref{eq:bearingDef} and \ref{eq:azimuthDef} only, whose definitions are not altered in their computation from $\br{\tilde{\B{r}}_{j/i}}{i}$ and $\br{\tilde{\B{r}}_{i/j}}{j}$.
+
 \section{Conclusions}
 
 \begin{enumerate}
