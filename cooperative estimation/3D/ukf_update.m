@@ -66,12 +66,7 @@ YKAUG = measurementfun(XAUGPLUS(1:n,:),XAUG(n+vl+(1:nl),:),uk);
 g = size(YKAUG,1);
 
 yhat = sum(YKAUG.*repmat(wm',g,1),2);
-% re-normalize (unit vector)
-yhat(1:3) = yhat(1:3)/norm(yhat(1:3));
-% handle magnetometer vector if applicable
-if length(yhat) > 3
-    yhat(4:6) = yhat(4:6)/norm(yhat(4:6));
-end
+% add something to handle magnetometer normalization if necessary here
 
 % measurement covariance
 Pyk = zeros(g);
@@ -89,6 +84,14 @@ if any(any(isnan(Pyk)))
 end
 
 Kk = Pxkyk*(Pyk\eye(g));
+
+% minimize angle difference
+if isequal(measurementfun, @measurement_eq_all)
+    yhat([2 3 5 6]) = minangle(yhat([2 3 5 6]),ytilde([2 3 5 6]));
+end
+if isequal(measurementfun, @measurement_eq_no_range)
+    yhat = minangle(yhat,ytilde);
+end
 
 xnew = xp + Kk*(ytilde-yhat);
 xnew(1:4) = xnew(1:4)/norm(xnew(1:4));

@@ -1,0 +1,4 @@
+Files that deal with cooperative estimation in 3D
+
+simple_one_measurement: considers cooperative relative attitude estimation for several scenarios
+full_relative_state_all: considers cooperative relative attitude/position/velocity estimation w/ shared IMU & shared interagent measurements
