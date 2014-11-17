@@ -7,7 +7,7 @@ close all;
 addpath('../../2D');
 addpath('../');
 
-MAX_ITER = 100;
+MAX_ITER = 1000;
 ITER_TOL = 1e-3;
 
 %% load data
@@ -21,7 +21,7 @@ load('data_3d.mat');
 
 % measurement error in IMU
 % aassume both agents have same IMU noise:
-Qk = diag(1e-6*ones(1,6));
+Qk = diag(1e-2*ones(1,6));
 
 % generate IMU histories
 W = zeros(length(T),6);
@@ -105,7 +105,8 @@ for j = 1:2
         % error covariance associated with rij_j, in its frame
         Rx(4:6,4:6) = Crt_b'*diag(errnom)*Crt_b;
         
-        ydiff = 1e2;
+        ylast = 1e2;
+        ydiff = -ylast;
         xk_j = xhat;
         iter_count = 0;
         while(norm(ydiff) > ITER_TOL && iter_count < MAX_ITER)
@@ -115,8 +116,8 @@ for j = 1:2
             Cji = attparsilent(xk_j,[6 1]);
 
             % error
-            ydiff = - rij_j - Cji*rji_i;
-
+            yhat = - rij_j - Cji*rji_i;
+            
             % measurement gradient of current estimate
             Hk = ekf_measurement_gradient(xk_j,rji_i);
 
@@ -135,12 +136,15 @@ for j = 1:2
             Kk = Pk*Hk'*((Hk*Pk*Hk'+Ry)\eye(3));
 
             %update
-            xk_j = xhat + Kk*(-ydiff-Hk*(xhat-xk_j));
+            xk_j = xhat + Kk*(-yhat-Hk*(xhat-xk_j));
             %Pk = (eye(4) - Kk*Hk)*Pk;
-            Pk_j = (eye(4) - Kk*Hk)*Pk;
+            Pk_j = (eye(4)  - Kk*Hk)*Pk;
 
             % re-normalize
             xk_j = xk_j./norm(xk_j);
+            
+            ydiff = yhat - ylast;
+            ylast = yhat;
             
             % print status, for debugging only
             %fprintf('%i\t%f\n',iter_count,norm(ydiff));
@@ -223,8 +227,8 @@ for k = 1:4
     subplot(2,2,k);
     plot(tv,xh{1}(:,k),'--x');
     hold on;
-    plot(tv,xh{1}(:,k) + 2*sqrt(Ph{1}(:,Pdiag(k))),'r--');
-    plot(tv,xh{1}(:,k) - 2*sqrt(Ph{1}(:,Pdiag(k))),'r--');
+    plot(tv,xh{1}(:,k) + 3*sqrt(Ph{1}(:,Pdiag(k))),'r--');
+    plot(tv,xh{1}(:,k) - 3*sqrt(Ph{1}(:,Pdiag(k))),'r--');
     plot(T,qji(:,k),'k-','linewidth',2);
     set(gca,'ylim',[-1 1]);
 end
@@ -234,8 +238,8 @@ for k = 1:4
     subplot(2,2,k);
     plot(tv,xh{2}(:,k),'--x');
     hold on;
-    plot(tv,xh{2}(:,k) + 2*sqrt(Ph{2}(:,Pdiag(k))),'r--');
-    plot(tv,xh{2}(:,k) - 2*sqrt(Ph{2}(:,Pdiag(k))),'r--');
+    plot(tv,xh{2}(:,k) + 3*sqrt(Ph{2}(:,Pdiag(k))),'r--');
+    plot(tv,xh{2}(:,k) - 3*sqrt(Ph{2}(:,Pdiag(k))),'r--');
     if k == 1
         plot(T,-qji(:,k),'k-','linewidth',2);
     else

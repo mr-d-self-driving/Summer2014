@@ -13,7 +13,7 @@ if ~exist('data_3d.mat','file');
     % sample time
     Ts = 0.01;
     % sim time
-    Tmax = 30;
+    Tmax = 60;
     
     % allowed position space
     R = 10;

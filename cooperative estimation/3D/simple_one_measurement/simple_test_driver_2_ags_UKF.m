@@ -17,7 +17,7 @@ load('data_3d.mat');
 
 % measurement error in IMU
 % aassume both agents have same IMU noise:
-Qk = diag(1e-6*ones(1,6));
+Qk = diag(1e-2*ones(1,6));
 
 % generate IMU histories
 W = zeros(length(T),6);
@@ -264,8 +264,8 @@ for k = 1:4
     subplot(2,2,k);
     plot(tv,xh{1}(:,k),'--x');
     hold on;
-    plot(tv,xh{1}(:,k) + 2*sqrt(Ph{1}(:,Pdiag(k))),'r--');
-    plot(tv,xh{1}(:,k) - 2*sqrt(Ph{1}(:,Pdiag(k))),'r--');
+    plot(tv,xh{1}(:,k) + 3*sqrt(Ph{1}(:,Pdiag(k))),'r--');
+    plot(tv,xh{1}(:,k) - 3*sqrt(Ph{1}(:,Pdiag(k))),'r--');
     plot(T,qji(:,k),'k-','linewidth',2);
     set(gca,'ylim',[-1 1]);
 end
@@ -276,8 +276,8 @@ for k = 1:4
     subplot(2,2,k);
     plot(tv,xh{2}(:,k),'--x');
     hold on;
-    plot(tv,xh{2}(:,k) + 2*sqrt(Ph{2}(:,Pdiag(k))),'r--');
-    plot(tv,xh{2}(:,k) - 2*sqrt(Ph{2}(:,Pdiag(k))),'r--');
+    plot(tv,xh{2}(:,k) + 3*sqrt(Ph{2}(:,Pdiag(k))),'r--');
+    plot(tv,xh{2}(:,k) - 3*sqrt(Ph{2}(:,Pdiag(k))),'r--');
     if k == 1
         plot(T,-qji(:,k),'k-','linewidth',2);
     else
