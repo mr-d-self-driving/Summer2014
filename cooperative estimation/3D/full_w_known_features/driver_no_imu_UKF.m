@@ -15,25 +15,15 @@ if ~exist('data_3d.mat','file');
 end
 
 load('data_3d.mat');
+% add noise - will not work unless this is run first
+% noise stdevs are set in this script
+add_noise;
 
 %% process
 
 % measurement error in IMU
 % assume both agents have same IMU noise: [gyro_i gyro_j acc_i acc_j]
-Qk = diag([1e-4*ones(1,3) (0.05/3)^2*[1 1 1] 1e-2*ones(1,3) (0.625/3)^2*[1 1 1]]);
-
-% generate IMU histories
-W = zeros(length(T),6);% ang. vel histories
-A = zeros(length(T),6);% linear acc. histories
-for k = 1:length(T)
-    Cin = attparsilent(Yc{1}(k,7:10)',[6 1]);
-    Cjn = attparsilent(Yc{2}(k,7:10)',[6 1]);
-    
-    W(k,1:3) = Yc{1}(k,11:13) + randn(1,3).*diag(sqrt(Qk(1:3,1:3)))';
-    W(k,4:6) = Yc{2}(k,11:13) + randn(1,3).*diag(sqrt(Qk(1:3,1:3)))';
-    A(k,1:3) = Yc{1}(k,17:19)*Cin' + randn(1,3).*diag(sqrt(Qk(7:9,7:9)))';
-    A(k,4:6) = Yc{2}(k,17:19)*Cjn' + randn(1,3).*diag(sqrt(Qk(7:9,7:9)))';
-end
+Qk = diag([gyro_noise^2*ones(1,3) (0.05/3)^2*[1 1 1] accel_noise^2*ones(1,3) (0.75/3)^2*[1 1 1]]);
 
 % compute truth
 qji = zeros(length(T),4);
@@ -304,8 +294,8 @@ for k = 1:3
     subplot(3,2,2*k-1);
     plot(tv,xh{1}(:,13+k));
     hold on;
-    plot(tv,xh{1}(:,13+k) + 3*sqrt(Ph{1}(:,Pdiag(10+k))),'r--');
-    plot(tv,xh{1}(:,13+k) - 3*sqrt(Ph{1}(:,Pdiag(10+k))),'r--');
+    plot(tv,xh{1}(:,13+k) + 3*sqrt(Ph{1}(:,Pdiag(13+k))),'r--');
+    plot(tv,xh{1}(:,13+k) - 3*sqrt(Ph{1}(:,Pdiag(13+k))),'r--');
     plot(tv,W(:,k+3),'k-');
     title('Agent 1 estimate of 2''s angular velocity');
     
