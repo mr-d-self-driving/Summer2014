@@ -1,0 +1,10 @@
+MEX {
+	global:
+		mexFunction;
+		emlrtMexFcnProperties;
+		measurement_eq_17_state;
+		measurement_eq_17_state_initialize;
+		measurement_eq_17_state_terminate;
+	local:
+		*;
+};

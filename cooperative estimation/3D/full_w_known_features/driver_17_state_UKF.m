@@ -16,20 +16,32 @@ end
 
 load('data_3d.mat');
 % add noise - will not work unless this is run first
+
+% measurement standard errors
+% error stdev in agent-agent measurement
+err_dev = 0.0001;%rads
+% error stdev in magnetometer
+mag_dev = 0.0001;%rads
+% range sensing error
+range_dev = 0.01;%metres
+% gyro stdev
+gyro_noise = 1e-4;%rads
+% accelerometer stdev
+accel_noise = 1e-2;%metres/sec^2
+% feature sensing error
+feature_angle_err = .0001;%rads, stdev
+feature_range_err = .01;%metres
+
 % noise stdevs are set in this script
 add_noise;
 
 %% process
 
 % feature visibility in degrees
-FEATURE_FOV_BEARING = [45 45];
-FEATURE_FOV_DECLIN = [45 45];
-FEATURE_RANGE_MIN = [0.5 0.5];% metres
-FEATURE_RANGE_MAX = [10 10];%metres
-
-% feature sensing error
-feature_angle_err = .01;%rads, stdev
-feature_range_err = .1;%metres
+FEATURE_FOV_BEARING = [180 180];% half-angle specified here
+FEATURE_FOV_DECLIN = [180 180];
+FEATURE_RANGE_MIN = [0.1 0.1];% metres
+FEATURE_RANGE_MAX = [20 20];%metres
 
 % process noise
 % assume both agents have same IMU noise: [gyro_i gyro_j acc_i acc_j]
@@ -71,16 +83,21 @@ for i = 1:2
     Ph{i} = zeros(length(tv),289);
     % random quaternion
     xh{i}(1,7:10) = randn(4,1);xh{i}(1,7:10) = xh{i}(1,7:10)./norm(xh{i}(1,7:10));% inertial attitude
+    xh{i}(1,14:17) = randn(4,1);xh{i}(1,14:17) = xh{i}(1,14:17)./norm(xh{i}(1,14:17));% inertial attitude
     xh{i}(1,1:3) = randn(3,1).*[10;10;10];% inertial position, inertial frame
-    xh{i}(1,4:6) = randn(3,1);% inertial velocity, body frame
+    xh{i}(1,4:6) = [0 0 0];%randn(3,1);% inertial velocity, body frame
     Ph{i}(1,:) = reshape( diag([ones(1,6) 0.1*ones(1,4) ones(1,3) 0.1*ones(1,4)]) + 1e-6*ones(17), 289,1)';
 end
 
 %% use exact initial conditions
 % xh{1}(1,14:17) = qji(1,:);
 % xh{1}(1,11:13) = rji_i_tr(1,:);
-% xh{2}(1,14:17) = qji(1,:);xh{2}(1,14) = -xh{2}(1,1);
+% xh{1}(1,7:10) = Yc{1}(1,7:10);
+% xh{1}(1,1:3) = Yc{1}(1,1:3);
+% xh{2}(1,14:17) = qji(1,:);xh{2}(1,14) = -xh{2}(1,14);
 % xh{2}(1,11:13) = rij_j_tr(1,:);
+% xh{2}(1,7:10) = Yc{2}(1,7:10);
+% xh{2}(1,1:3) = Yc{2}(1,1:3);
 
 % measurement error
 Rhalf = diag([range_dev err_dev err_dev range_dev err_dev err_dev]).^2;
@@ -139,7 +156,7 @@ for j = 1:2
                 % measurement with angle error and range error
                 rmeas = (Cerr_i*rki)*(1+range_err/norm(rki));
                 xyz_known_i(m1,:) = vector2polar(rmeas);
-                known_features_used_i(m2) = mm;
+                known_features_used_i(m1) = mm;
             end
         end
         xyz_known_i(m1+1:end,:) = [];
@@ -149,29 +166,29 @@ for j = 1:2
         m2 = 0;
         xyz_known_j = zeros(M,3);
         known_features_used_j = zeros(M,1);
-        for mm = 1:M
-            % compute the j frame TRUE position vector to feature
-            rkj = Cjn_true*(XYZ_KNOWN(mm,:)' - rjn_true);
-            % compute range/bearing/declination
-            rbd = vector2polar(rkj);
-            
-            % if this is satisfied, we can see the feature
-            if rbd(1) < FEATURE_RANGE_MAX(notj) && rbd(1) > FEATURE_RANGE_MIN(notj) && abs(rbd(2)) < d2r*(FEATURE_FOV_BEARING(notj)) && abs(rbd(3)) < d2r*(FEATURE_FOV_DECLIN(notj))
-                m2 = m2 + 1;
-                % generate the measurement of this feature
-                % error angle
-                err_angle = randn*feature_angle_err;
-                % error axis of rotation
-                a_error = randn(3,1);a_error = a_error./norm(a_error);
-                % range error
-                range_err = randn*feature_range_err;
-                Cerr_j = attparsilent([a_error [err_angle;0;0]],[2 1]);
-                % measurement with angle error and range error
-                rmeas = (Cerr_j*rkj)*(1+range_err/norm(rkj));
-                xyz_known_j(m2,:) = vector2polar(rmeas);
-                known_features_used_j(m2) = mm;
-            end
-        end
+%         for mm = 1:M
+%             % compute the j frame TRUE position vector to feature
+%             rkj = Cjn_true*(XYZ_KNOWN(mm,:)' - rjn_true);
+%             % compute range/bearing/declination
+%             rbd = vector2polar(rkj);
+%             
+%             % if this is satisfied, we can see the feature
+%             if rbd(1) < FEATURE_RANGE_MAX(notj) && rbd(1) > FEATURE_RANGE_MIN(notj) && abs(rbd(2)) < d2r*(FEATURE_FOV_BEARING(notj)) && abs(rbd(3)) < d2r*(FEATURE_FOV_DECLIN(notj))
+%                 m2 = m2 + 1;
+%                 % generate the measurement of this feature
+%                 % error angle
+%                 err_angle = randn*feature_angle_err;
+%                 % error axis of rotation
+%                 a_error = randn(3,1);a_error = a_error./norm(a_error);
+%                 % range error
+%                 range_err = randn*feature_range_err;
+%                 Cerr_j = attparsilent([a_error [err_angle;0;0]],[2 1]);
+%                 % measurement with angle error and range error
+%                 rmeas = (Cerr_j*rkj)*(1+range_err/norm(rkj));
+%                 xyz_known_j(m2,:) = vector2polar(rmeas);
+%                 known_features_used_j(m2) = mm;
+%             end
+%         end
         xyz_known_j(m2+1:end,:) = [];
         known_features_used_j(m2+1:end) = [];
         
@@ -241,7 +258,7 @@ for j = 1:2
         
         Pnk = Rx;
         
-        [xp,Pp] = ukf_update(xhat,Pk,Pvk,Pnk,uk,yk,@update_eq_17_state,@measurement_eq_17_state);
+        [xp,Pp] = ukf_update_17_state_mex(xhat,Pk,Pvk,Pnk,uk,yk,1e-3);
         
         if any(any(isnan(Pp)))
             disp('Error: NaN in covariance output');
@@ -250,7 +267,7 @@ for j = 1:2
         
         % store
         xh{j}(k+1,:) = xp';
-        Ph{j}(k+1,:) = reshape(Pp,256,1)';
+        Ph{j}(k+1,:) = reshape(Pp,289,1)';
 
         if ~mod(k-1,100)
             etaCalc((j-1)*length(T) + k,2*length(T),toc);
@@ -264,19 +281,22 @@ toc;
 close all;
 figure;
 
-Pdiag = 1:17:256;
+Pdiag = 1:18:289;
 
 qji_in = interp1(T,qji,tv);
 
-xh{1}(:,1:4) = quatmin(xh{1}(:,1:4),qji_in);
-xh{2}(:,1:4) = quatmin(xh{2}(:,1:4),[-qji_in(:,1) qji_in(:,2:4)]);
+xh{1}(:,14:17) = quatmin(xh{1}(:,14:17),qji_in);
+xh{2}(:,14:17) = quatmin(xh{2}(:,14:17),[-qji_in(:,1) qji_in(:,2:4)]);
+
+xh{1}(:,7:10) = quatmin(xh{1}(:,7:10),Yc{1}(:,7:10));
+xh{2}(:,7:10) = quatmin(xh{2}(:,7:10),Yc{2}(:,7:10));
 
 for k = 1:4
     subplot(2,2,k);
-    plot(tv,xh{1}(:,k),'--x');
+    plot(tv,xh{1}(:,13+k),'--x');
     hold on;
-    plot(tv,xh{1}(:,k) + 3*sqrt(Ph{1}(:,Pdiag(k))),'r--');
-    plot(tv,xh{1}(:,k) - 3*sqrt(Ph{1}(:,Pdiag(k))),'r--');
+    plot(tv,xh{1}(:,13+k) + 3*sqrt(Ph{1}(:,Pdiag(13+k))),'r--');
+    plot(tv,xh{1}(:,13+k) - 3*sqrt(Ph{1}(:,Pdiag(13+k))),'r--');
     plot(T,qji(:,k),'k-','linewidth',2);
     set(gca,'ylim',[-1 1]);
 end
@@ -285,10 +305,10 @@ set(gcf,'position',[200 275 1300 625])
 figure;
 for k = 1:4
     subplot(2,2,k);
-    plot(tv,xh{2}(:,k),'--x');
+    plot(tv,xh{2}(:,13+k),'--x');
     hold on;
-    plot(tv,xh{2}(:,k) + 3*sqrt(Ph{2}(:,Pdiag(k))),'r--');
-    plot(tv,xh{2}(:,k) - 3*sqrt(Ph{2}(:,Pdiag(k))),'r--');
+    plot(tv,xh{2}(:,13+k) + 3*sqrt(Ph{2}(:,Pdiag(13+k))),'r--');
+    plot(tv,xh{2}(:,13+k) - 3*sqrt(Ph{2}(:,Pdiag(13+k))),'r--');
     if k == 1
         plot(T,-qji(:,k),'k-','linewidth',2);
     else
@@ -301,54 +321,37 @@ set(gcf,'position',[200 275 1300 625])
 % compute error quaternions
 q_err1 = zeros(length(tv),1);
 q_err2 = zeros(length(tv),1);
+% and body-axis velocities
+v1n = zeros(length(tv),3);
+v2n = zeros(length(tv),3);
 for i = 1:length(tv)
     %truth
-    Cji = attpar(qji_in(i,:)',[6 1]);
-    Cji_1 = attpar(xh{1}(i,:)',[6 1]);
-    Cij_2 = attpar(xh{2}(i,:)',[6 1]);
+    Cji = attparsilent(qji_in(i,:)',[6 1]);
+    Cji_1 = attparsilent(xh{1}(i,14:17)',[6 1]);
+    Cij_2 = attparsilent(xh{2}(i,14:17)',[6 1]);
     % error DCMs
     Ct_1 = Cji_1'*Cji;
     Ct_2 = Cij_2'*Cji';
     %error quaternions
-    gar1 = attpar(Ct_1,[1 2]);
+    gar1 = attparsilent(Ct_1,[1 2]);
     q_err1(i) = gar1(1,2);
-    gar2 = attpar(Ct_2,[1 2]);
+    gar2 = attparsilent(Ct_2,[1 2]);
     q_err2(i) = gar2(1,2);
+    
+    C1n = attparsilent(Yc{1}(i,7:10)',[6 1]);
+    v1n(i,:) = Yc{1}(i,4:6)*C1n';
+    C2n = attparsilent(Yc{2}(i,7:10)',[6 1]);
+    v2n(i,:) = Yc{2}(i,4:6)*C2n';
 end
-
-% plot velocities
-figure;
-for k = 1:3
-    subplot(3,1,k);
-    plot(tv,xh{1}(:,k+7));
-    hold on;
-    plot(tv,xh{1}(:,k+7) + 3*sqrt(Ph{1}(:,Pdiag(k+7))),'r--');
-    plot(tv,xh{1}(:,k+7) - 3*sqrt(Ph{1}(:,Pdiag(k+7))),'r--');
-    plot(tv,vji_i(:,k),'k-');
-    title( 'Agent 1 relative velocity estimate');
-end
-set(gcf,'position',[200 275 1300 625])
-
-figure;
-for k = 1:3
-    subplot(3,1,k);
-    plot(tv,xh{2}(:,k+7));
-    hold on;
-    plot(tv,xh{2}(:,k+7) + 3*sqrt(Ph{2}(:,Pdiag(k+7))),'r--');
-    plot(tv,xh{2}(:,k+7) - 3*sqrt(Ph{2}(:,Pdiag(k+7))),'r--');
-    plot(tv,vij_j(:,k),'k-');
-    title( 'Agent 2 relative velocity estimate');
-end
-set(gcf,'position',[200 275 1300 625])
 
 % plot positions
 figure;
 for k = 1:3
     subplot(3,1,k);
-    plot(tv,xh{1}(:,k+4));
+    plot(tv,xh{1}(:,k+10));
     hold on;
-    plot(tv,xh{1}(:,k+4) + 3*sqrt(Ph{1}(:,Pdiag(k+4))),'r--');
-    plot(tv,xh{1}(:,k+4) - 3*sqrt(Ph{1}(:,Pdiag(k+4))),'r--');
+    plot(tv,xh{1}(:,k+10) + 3*sqrt(Ph{1}(:,Pdiag(k+10))),'r--');
+    plot(tv,xh{1}(:,k+10) - 3*sqrt(Ph{1}(:,Pdiag(k+10))),'r--');
     plot(tv,rji_i_tr(:,k),'k-');
     title( 'Agent 1 relative position estimate');
 end
@@ -357,53 +360,86 @@ set(gcf,'position',[200 275 1300 625])
 figure;
 for k = 1:3
     subplot(3,1,k);
-    plot(tv,xh{2}(:,k+4));
+    plot(tv,xh{2}(:,k+10));
     hold on;
-    plot(tv,xh{2}(:,k+4) + 3*sqrt(Ph{2}(:,Pdiag(k+4))),'r--');
-    plot(tv,xh{2}(:,k+4) - 3*sqrt(Ph{2}(:,Pdiag(k+4))),'r--');
+    plot(tv,xh{2}(:,k+10) + 3*sqrt(Ph{2}(:,Pdiag(k+10))),'r--');
+    plot(tv,xh{2}(:,k+10) - 3*sqrt(Ph{2}(:,Pdiag(k+10))),'r--');
     plot(tv,rij_j_tr(:,k),'k-');
     title( 'Agent 2 relative position estimate');
 end
 set(gcf,'position',[200 275 1300 625])
 
-% plot acceleration estimates
+% plot inertial position
 figure;
 for k = 1:3
-    subplot(3,2,2*k-1);
-    plot(tv,xh{1}(:,10+k));
+    subplot(3,1,k);
+    plot(tv,xh{1}(:,k));
     hold on;
-    plot(tv,xh{1}(:,10+k) + 3*sqrt(Ph{1}(:,Pdiag(10+k))),'r--');
-    plot(tv,xh{1}(:,10+k) - 3*sqrt(Ph{1}(:,Pdiag(10+k))),'r--');
-    plot(tv,A(:,k+3),'k-');
-    title('Agent 1 estimate of 2''s acceleration');
-    
-    subplot(3,2,2*k);
-    plot(tv,xh{2}(:,10+k));
-    hold on;
-    plot(tv,xh{2}(:,10+k) + 3*sqrt(Ph{2}(:,Pdiag(10+k))),'r--');
-    plot(tv,xh{2}(:,10+k) - 3*sqrt(Ph{2}(:,Pdiag(10+k))),'r--');
-    plot(tv,A(:,k),'k-');
-    title('Agent 2 estimate of 1''s acceleration');
+    plot(tv,xh{1}(:,k) + 3*sqrt(Ph{1}(:,Pdiag(k))),'r--');
+    plot(tv,xh{1}(:,k) - 3*sqrt(Ph{1}(:,Pdiag(k))),'r--');
+    plot(tv,Yc{1}(:,k),'k-');
+    title( 'Agent 1 inertial position estimate');
 end
 set(gcf,'position',[200 275 1300 625])
 
-% plot angular velocity estimates
 figure;
 for k = 1:3
-    subplot(3,2,2*k-1);
-    plot(tv,xh{1}(:,13+k));
+    subplot(3,1,k);
+    plot(tv,xh{2}(:,k));
     hold on;
-    plot(tv,xh{1}(:,13+k) + 3*sqrt(Ph{1}(:,Pdiag(13+k))),'r--');
-    plot(tv,xh{1}(:,13+k) - 3*sqrt(Ph{1}(:,Pdiag(13+k))),'r--');
-    plot(tv,W(:,k+3),'k-');
-    title('Agent 1 estimate of 2''s angular velocity');
-    
-    subplot(3,2,2*k);
-    plot(tv,xh{2}(:,13+k));
+    plot(tv,xh{2}(:,k) + 3*sqrt(Ph{2}(:,Pdiag(k))),'r--');
+    plot(tv,xh{2}(:,k) - 3*sqrt(Ph{2}(:,Pdiag(k))),'r--');
+    plot(tv,Yc{2}(:,k),'k-');
+    title( 'Agent 2 inertial position estimate');
+end
+set(gcf,'position',[200 275 1300 625])
+
+% plot inertial velocity
+figure;
+for k = 4:6
+    subplot(3,1,k-3);
+    plot(tv,xh{1}(:,k));
     hold on;
-    plot(tv,xh{2}(:,13+k) + 3*sqrt(Ph{2}(:,Pdiag(13+k))),'r--');
-    plot(tv,xh{2}(:,13+k) - 3*sqrt(Ph{2}(:,Pdiag(13+k))),'r--');
-    plot(tv,W(:,k),'k-');
-    title('Agent 2 estimate of 1''s angular velocity');
+    plot(tv,xh{1}(:,k) + 3*sqrt(Ph{1}(:,Pdiag(k))),'r--');
+    plot(tv,xh{1}(:,k) - 3*sqrt(Ph{1}(:,Pdiag(k))),'r--');
+    plot(tv,v1n(:,k-3),'k-');
+    title( 'Agent 1 body velocity estimate');
+end
+set(gcf,'position',[200 275 1300 625])
+
+figure;
+for k = 4:6
+    subplot(3,1,k-3);
+    plot(tv,xh{2}(:,k));
+    hold on;
+    plot(tv,xh{2}(:,k) + 3*sqrt(Ph{2}(:,Pdiag(k))),'r--');
+    plot(tv,xh{2}(:,k) - 3*sqrt(Ph{2}(:,Pdiag(k))),'r--');
+    plot(tv,v2n(:,k-3),'k-');
+    title( 'Agent 2 body velocity estimate');
+end
+set(gcf,'position',[200 275 1300 625])
+
+% plot inertial attitude
+figure;
+for k = 1:4
+    subplot(2,2,k);
+    plot(tv,xh{1}(:,k+6));
+    hold on;
+    plot(tv,xh{1}(:,k+6) + 3*sqrt(Ph{1}(:,Pdiag(k+6))),'r--');
+    plot(tv,xh{1}(:,k+6) - 3*sqrt(Ph{1}(:,Pdiag(k+6))),'r--');
+    plot(tv,Yc{1}(:,k+6),'k-');
+    title( 'Agent 1 attitude estimate');
+end
+set(gcf,'position',[200 275 1300 625])
+
+figure;
+for k = 1:4
+    subplot(2,2,k);
+    plot(tv,xh{2}(:,k+6));
+    hold on;
+    plot(tv,xh{2}(:,k+6) + 3*sqrt(Ph{2}(:,Pdiag(k+6))),'r--');
+    plot(tv,xh{2}(:,k+6) - 3*sqrt(Ph{2}(:,Pdiag(k+6))),'r--');
+    plot(tv,Yc{2}(:,k+6),'k-');
+    title( 'Agent 2 attitude estimate');
 end
 set(gcf,'position',[200 275 1300 625])

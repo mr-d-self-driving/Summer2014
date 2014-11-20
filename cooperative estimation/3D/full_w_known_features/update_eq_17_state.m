@@ -36,7 +36,7 @@ for k = 1:size(xk,2);
     ai = ai_m + vn(7:9);
     
     % cosine matrix
-    Cin = attparsilent(qin,[6 1]);
+    Cin = attparsilentmex(qin,[6 1]);
     % time rate of my position
     xdot(1:3) = Cin'*vin;
     % time rate of my velocity
@@ -47,7 +47,7 @@ for k = 1:size(xk,2);
     xdot(7:10) = Ain*wi;
 
     % relative attitude cosine matrix
-    Cji = attparsilent(qji,[6 1]);
+    Cji = attparsilentmex(qji,[6 1]);
 
     % relative angular velocity in j frame
     wji = wj-Cji*wi;

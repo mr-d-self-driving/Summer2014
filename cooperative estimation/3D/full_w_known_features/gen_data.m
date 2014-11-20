@@ -13,17 +13,17 @@ if ~exist('data_3d.mat','file');
     % sample time
     Ts = 0.01;
     % sim time
-    Tmax = 10;
+    Tmax = 30;
     
     % number of known features
-    M = 15;
-    XYZ_KNOWN = zeros(M,3);
+    M = 30;
     % allowable sphere for feature initialization
     R_feature = 20;
     % generate known feature locations
     r = rand(M,1)*R_feature;
     thet = rand(M,1)*2*pi-pi;
     phi = rand(M,1)*pi-0.5*pi;
+    % array of known feature locations
     XYZ_KNOWN = repmat(r,1,3).*[cos(phi).*cos(thet) cos(phi).*sin(thet) sin(phi)];
         
     % allowed initialization space

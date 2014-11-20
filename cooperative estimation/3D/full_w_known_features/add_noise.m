@@ -1,18 +1,6 @@
 %% add_noise.m
 % to be run before simulation on data w/ no noise
 
-% measurement standard errors
-% error stdev in agent-agent measurement
-err_dev = 0.01;%rads
-% error stdev in magnetometer
-mag_dev = 0.01;%rads
-% range sensing error
-range_dev = 0.1;%metres
-% gyro stdev
-gyro_noise = 1e-2;%rads
-% accelerometer stdev
-accel_noise = 1e-1;%metres/sec^2
-
 % generate IMU histories
 W = zeros(length(T),3*N);% ang. vel histories
 A = zeros(length(T),3*N);% linear acc. histories
