@@ -1,0 +1,90 @@
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>RTW Report - attparsilentmex.c</title>
+<script language="JavaScript" type="text/javascript" src="rtwreport_utils.js"></script>
+</head>
+<body bgcolor="#eeeeee" text="#1122aa" onload="try {if (top) { if (top.rtwFileOnLoad) top.rtwFileOnLoad(window.document); else local_onload();}} catch(err) {};">
+<p>
+<table border="0" cellspacing="0" cellpadding="6" width="100%%" height="100%%"><tr><td width="100%%" valign="top" bgcolor="#ffffff">
+<h4>File: <a href="../attparsilentmex.c" target="rtwreport_document_frame" id="linkToText_plain">attparsilentmex.c</a></h4>
+<pre id="RTWcode">
+<a name="1"><font color="#888888 "><i>    1   </i></font></a><font color="#117755"><i>/*</i></font>
+<a name="2"><font color="#888888 "><i>    2   </i></font></a><font color="#117755"><I> * attparsilentmex.c</i></font>
+<a name="3"><font color="#888888 "><i>    3   </i></font></a><font color="#117755"><I> *</i></font>
+<a name="4"><font color="#888888 "><i>    4   </i></font></a><font color="#117755"><I> * Code generation for function 'attparsilentmex'</i></font>
+<a name="5"><font color="#888888 "><i>    5   </i></font></a><font color="#117755"><I> *</i></font>
+<a name="6"><font color="#888888 "><i>    6   </i></font></a><font color="#117755"><I> * C source code generated on: Wed Dec  3 17:28:48 2014</i></font>
+<a name="7"><font color="#888888 "><i>    7   </i></font></a><font color="#117755"><I> *</i></font>
+<a name="8"><font color="#888888 "><i>    8   </i></font></a><font color="#117755"><I> */</i></font>
+<a name="9"><font color="#888888 "><i>    9   </i></font></a>
+<a name="10"><font color="#888888 "><i>   10   </i></font></a><font color="#117755"><i>/* Include files */</i></font>
+<a name="11"><font color="#888888 "><i>   11   </i></font></a><font color="#992211">#</font><font color="#992211"><b>include</b></font> <font color="#992211">&quot;rt_nonfinite.h&quot;</font>
+<a name="12"><font color="#888888 "><i>   12   </i></font></a><font color="#992211">#</font><font color="#992211"><b>include</b></font> <font color="#992211">&quot;ukf_update_10_state.h&quot;</font>
+<a name="13"><font color="#888888 "><i>   13   </i></font></a><font color="#992211">#</font><font color="#992211"><b>include</b></font> <font color="#992211">&quot;attparsilentmex.h&quot;</font>
+<a name="14"><font color="#888888 "><i>   14   </i></font></a><font color="#992211">#</font><font color="#992211"><b>include</b></font> <font color="#992211">&lt;stdio.h&gt;</font>
+<a name="15"><font color="#888888 "><i>   15   </i></font></a>
+<a name="16"><font color="#888888 "><i>   16   </i></font></a><font color="#117755"><i>/* Function Definitions */</i></font>
+<a name="17"><font color="#888888 "><i>   17   </i></font></a><font color="#112266"><b>void</b></font> <a name="fcn_attparsilentmex">attparsilentmex</a>(<font color="#112266"><b>const</b></font> real_T X[4], real_T Y[9])
+<a name="18"><font color="#888888 "><i>   18   </i></font></a><b>{</b>
+<a name="19"><font color="#888888 "><i>   19   </i></font></a>  <font color="#117755"><i>/* Tim Woodbury */</i></font>
+<a name="20"><font color="#888888 "><i>   20   </i></font></a>  <font color="#117755"><i>/* modified for AERO 622 */</i></font>
+<a name="21"><font color="#888888 "><i>   21   </i></font></a>  <font color="#117755"><i>/*  */</i></font>
+<a name="22"><font color="#888888 "><i>   22   </i></font></a>  <font color="#117755"><i>/* [Y] = attpar(X,I,options) */</i></font>
+<a name="23"><font color="#888888 "><i>   23   </i></font></a>  <font color="#117755"><i>/* Function to convert between attitude parametrizations */</i></font>
+<a name="24"><font color="#888888 "><i>   24   </i></font></a>  <font color="#117755"><i>/*  */</i></font>
+<a name="25"><font color="#888888 "><i>   25   </i></font></a>  <font color="#117755"><i>/* INPUTS: */</i></font>
+<a name="26"><font color="#888888 "><i>   26   </i></font></a>  <font color="#117755"><i>/* X - matrix input of appropriate dimension (detailed later) */</i></font>
+<a name="27"><font color="#888888 "><i>   27   </i></font></a>  <font color="#117755"><i>/* I - 2 x 1 indexing vector indicating the input (I(1)) and output (I(2)) */</i></font>
+<a name="28"><font color="#888888 "><i>   28   </i></font></a>  <font color="#117755"><i>/*     attitude parametrizations, corresponding to the numbers in the section, */</i></font>
+<a name="29"><font color="#888888 "><i>   29   </i></font></a>  <font color="#117755"><i>/*     "I/O SPECIFICATION PARAMETERS". */</i></font>
+<a name="30"><font color="#888888 "><i>   30   </i></font></a>  <font color="#117755"><i>/* options - a data structure. Currently only allows output Euler angle */</i></font>
+<a name="31"><font color="#888888 "><i>   31   </i></font></a>  <font color="#117755"><i>/*     sequence to be defined. Supported members are "seq" which should be a */</i></font>
+<a name="32"><font color="#888888 "><i>   32   </i></font></a>  <font color="#117755"><i>/*     [3 x 1] vector describing the first, second, and third rotations in */</i></font>
+<a name="33"><font color="#888888 "><i>   33   </i></font></a>  <font color="#117755"><i>/*     the desired output sequence. */</i></font>
+<a name="34"><font color="#888888 "><i>   34   </i></font></a>  <font color="#117755"><i>/*  */</i></font>
+<a name="35"><font color="#888888 "><i>   35   </i></font></a>  <font color="#117755"><i>/* OUTPUTS: */</i></font>
+<a name="36"><font color="#888888 "><i>   36   </i></font></a>  <font color="#117755"><i>/* Y - output matrix of appropriate dimensions. */</i></font>
+<a name="37"><font color="#888888 "><i>   37   </i></font></a>  <font color="#117755"><i>/*     All angles are in radians. */</i></font>
+<a name="38"><font color="#888888 "><i>   38   </i></font></a>  <font color="#117755"><i>/*  */</i></font>
+<a name="39"><font color="#888888 "><i>   39   </i></font></a>  <font color="#117755"><i>/* I/O SPECIFICATION PARAMETERS: */</i></font>
+<a name="40"><font color="#888888 "><i>   40   </i></font></a>  <font color="#117755"><i>/* 1 - Direction cosine matrix, dimensions [3 x 3] */</i></font>
+<a name="41"><font color="#888888 "><i>   41   </i></font></a>  <font color="#117755"><i>/* 2 - Euler principal axis/angle, [3 x 2]. [:,1] is the principal axis; */</i></font>
+<a name="42"><font color="#888888 "><i>   42   </i></font></a>  <font color="#117755"><i>/*     [1,2] is the principal angle (rad). */</i></font>
+<a name="43"><font color="#888888 "><i>   43   </i></font></a>  <font color="#117755"><i>/* 3 - 2-angle parametrization, [3 x 4] */</i></font>
+<a name="44"><font color="#888888 "><i>   44   </i></font></a>  <font color="#117755"><i>/* 4 - Euler angle sequence, [3 x 2]. [:,1] are the rotation angles in radians,  */</i></font>
+<a name="45"><font color="#888888 "><i>   45   </i></font></a>  <font color="#117755"><i>/*      and [2,1]-[2,2]-[2,3] is the rotation sequence.  */</i></font>
+<a name="46"><font color="#888888 "><i>   46   </i></font></a>  <font color="#117755"><i>/*      [3-1-3] sequence is default for output. Other sequences may be specified */</i></font>
+<a name="47"><font color="#888888 "><i>   47   </i></font></a>  <font color="#117755"><i>/*      by passing an optional data structure with a [3 x 1] member "seq" whose */</i></font>
+<a name="48"><font color="#888888 "><i>   48   </i></font></a>  <font color="#117755"><i>/*      entries [a;b;c] correspond to the sequence a-b-c. Any input sequence */</i></font>
+<a name="49"><font color="#888888 "><i>   49   </i></font></a>  <font color="#117755"><i>/*      may be used by specifying the second column of input appropriately. */</i></font>
+<a name="50"><font color="#888888 "><i>   50   </i></font></a>  <font color="#117755"><i>/* 5 - Classical Rodrigues parameters [3 x 1] */</i></font>
+<a name="51"><font color="#888888 "><i>   51   </i></font></a>  <font color="#117755"><i>/* 6 - quaternion [4 x 1]. The scalar part of the quaternion comes FIRST. */</i></font>
+<a name="52"><font color="#888888 "><i>   52   </i></font></a>  <font color="#117755"><i>/* 7 - modified Rodrigues parameters [3 x 1] */</i></font>
+<a name="53"><font color="#888888 "><i>   53   </i></font></a>  <font color="#117755"><i>/* 8 - exponential matrix, [3 x 3] */</i></font>
+<a name="54"><font color="#888888 "><i>   54   </i></font></a>  <font color="#117755"><i>/* 9 - Cayley-Klein parameters, [2 x 2] */</i></font>
+<a name="55"><font color="#888888 "><i>   55   </i></font></a>  <font color="#117755"><i>/* check if any options are passed */</i></font>
+<a name="56"><font color="#888888 "><i>   56   </i></font></a>  <font color="#117755"><i>/* %check if output and inp are the same - if so do nothing */</i></font>
+<a name="57"><font color="#888888 "><i>   57   </i></font></a>  <font color="#117755"><i>/* for each inp, convert to DCM */</i></font>
+<a name="58"><font color="#888888 "><i>   58   </i></font></a>  <font color="#117755"><i>/* quaternion */</i></font>
+<a name="59"><font color="#888888 "><i>   59   </i></font></a>  <font color="#117755"><i>/* disp('Input value specified as quaternion.'); */</i></font>
+<a name="60"><font color="#888888 "><i>   60   </i></font></a>  <font color="#117755"><i>/* convert DCM to output form */</i></font>
+<a name="61"><font color="#888888 "><i>   61   </i></font></a>  <font color="#117755"><i>/* DCM */</i></font>
+<a name="62"><font color="#888888 "><i>   62   </i></font></a>  <font color="#117755"><i>/* disp('Output value specified as direction cosine matrix.'); */</i></font>
+<a name="63"><font color="#888888 "><i>   63   </i></font></a>  Y[0] = ((X[1] * X[1] - X[2] * X[2]) - X[3] * X[3]) + X[0] * X[0];
+<a name="64"><font color="#888888 "><i>   64   </i></font></a>  Y[3] = 2.0 * (X[1] * X[2] + X[3] * X[0]);
+<a name="65"><font color="#888888 "><i>   65   </i></font></a>  Y[6] = 2.0 * (X[1] * X[3] - X[2] * X[0]);
+<a name="66"><font color="#888888 "><i>   66   </i></font></a>  Y[1] = 2.0 * (X[1] * X[2] - X[3] * X[0]);
+<a name="67"><font color="#888888 "><i>   67   </i></font></a>  Y[4] = ((X[2] * X[2] - X[1] * X[1]) - X[3] * X[3]) + X[0] * X[0];
+<a name="68"><font color="#888888 "><i>   68   </i></font></a>  Y[7] = 2.0 * (X[2] * X[3] + X[1] * X[0]);
+<a name="69"><font color="#888888 "><i>   69   </i></font></a>  Y[2] = 2.0 * (X[1] * X[3] + X[2] * X[0]);
+<a name="70"><font color="#888888 "><i>   70   </i></font></a>  Y[5] = 2.0 * (X[2] * X[3] - X[1] * X[0]);
+<a name="71"><font color="#888888 "><i>   71   </i></font></a>  Y[8] = ((X[3] * X[3] - X[1] * X[1]) - X[2] * X[2]) + X[0] * X[0];
+<a name="72"><font color="#888888 "><i>   72   </i></font></a><b>}</b>
+<a name="73"><font color="#888888 "><i>   73   </i></font></a>
+<a name="74"><font color="#888888 "><i>   74   </i></font></a><font color="#117755"><i>/* End of code generation (attparsilentmex.c) */</i></font>
+<a name="75"><font color="#888888 "><i>   75   </i></font></a></pre>
+</td></tr></table>
+</p>
+</body>
+</html>

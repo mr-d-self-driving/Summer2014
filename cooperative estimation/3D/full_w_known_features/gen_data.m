@@ -13,10 +13,10 @@ if ~exist('data_3d.mat','file');
     % sample time
     Ts = 0.01;
     % sim time
-    Tmax = 30;
+    Tmax = 10;
     
     % number of known features
-    M = 30;
+    M = 5;
     % allowable sphere for feature initialization
     R_feature = 20;
     % generate known feature locations
