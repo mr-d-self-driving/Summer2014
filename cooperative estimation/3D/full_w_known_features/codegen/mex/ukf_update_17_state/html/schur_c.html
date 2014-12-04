@@ -14,7 +14,7 @@
 <a name="3"><font color="#888888 "><i>    3   </i></font></a><font color="#117755"><I> *</i></font>
 <a name="4"><font color="#888888 "><i>    4   </i></font></a><font color="#117755"><I> * Code generation for function 'schur'</i></font>
 <a name="5"><font color="#888888 "><i>    5   </i></font></a><font color="#117755"><I> *</i></font>
-<a name="6"><font color="#888888 "><i>    6   </i></font></a><font color="#117755"><I> * C source code generated on: Thu Nov 20 12:39:29 2014</i></font>
+<a name="6"><font color="#888888 "><i>    6   </i></font></a><font color="#117755"><I> * C source code generated on: Thu Dec  4 12:26:46 2014</i></font>
 <a name="7"><font color="#888888 "><i>    7   </i></font></a><font color="#117755"><I> *</i></font>
 <a name="8"><font color="#888888 "><i>    8   </i></font></a><font color="#117755"><I> */</i></font>
 <a name="9"><font color="#888888 "><i>    9   </i></font></a>
@@ -366,10 +366,10 @@
 <a name="355"><font color="#888888 "><i>  355   </i></font></a>  <a href="ukf_update_17_state_types_h.html#type_emxArray_real_T" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'type_emxArray_real_T');" target="rtwreport_document_frame"><font color="#1122aa">emxArray_real_T</font></a> *y;
 <a name="356"><font color="#888888 "><i>  356   </i></font></a>  <a href="ukf_update_17_state_types_h.html#type_emxArray_real_T" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'type_emxArray_real_T');" target="rtwreport_document_frame"><font color="#1122aa">emxArray_real_T</font></a> *A;
 <a name="357"><font color="#888888 "><i>  357   </i></font></a>  real_T alpha1;
-<a name="358"><font color="#888888 "><i>  358   </i></font></a>  int32_T i11;
+<a name="358"><font color="#888888 "><i>  358   </i></font></a>  int32_T i10;
 <a name="359"><font color="#888888 "><i>  359   </i></font></a>  int32_T loop_ub;
 <a name="360"><font color="#888888 "><i>  360   </i></font></a>  int32_T b_loop_ub;
-<a name="361"><font color="#888888 "><i>  361   </i></font></a>  int32_T i12;
+<a name="361"><font color="#888888 "><i>  361   </i></font></a>  int32_T i11;
 <a name="362"><font color="#888888 "><i>  362   </i></font></a>  <a href="ukf_update_17_state_types_h.html#type_emxArray_real_T" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'type_emxArray_real_T');" target="rtwreport_document_frame"><font color="#1122aa">emxArray_real_T</font></a> *x;
 <a name="363"><font color="#888888 "><i>  363   </i></font></a>  real_T beta1;
 <a name="364"><font color="#888888 "><i>  364   </i></font></a>  char_T TRANSA;
@@ -409,42 +409,42 @@
 <a name="398"><font color="#888888 "><i>  398   </i></font></a>    <b>}</b> <font color="#112266"><b>else</b></font> <b>{</b>
 <a name="399"><font color="#888888 "><i>  399   </i></font></a>      emlrtPushRtStackR2012b(&amp;<a href="ukf_update_17_state_data_c.html#var_dd_emlrtRSI" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_dd_emlrtRSI');" target="rtwreport_document_frame"><font color="#1122aa">dd_emlrtRSI</font></a>, <a href="ukf_update_17_state_mex_c.html#var_emlrtRootTLSGlobal" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_emlrtRootTLSGlobal');" target="rtwreport_document_frame"><font color="#1122aa">emlrtRootTLSGlobal</font></a>);
 <a name="400"><font color="#888888 "><i>  400   </i></font></a>      alpha1 = 1.0;
-<a name="401"><font color="#888888 "><i>  401   </i></font></a>      i11 = A-&gt;size[0] * A-&gt;size[1];
+<a name="401"><font color="#888888 "><i>  401   </i></font></a>      i10 = A-&gt;size[0] * A-&gt;size[1];
 <a name="402"><font color="#888888 "><i>  402   </i></font></a>      A-&gt;size[0] = C-&gt;size[0];
 <a name="403"><font color="#888888 "><i>  403   </i></font></a>      A-&gt;size[1] = C-&gt;size[1];
-<a name="404"><font color="#888888 "><i>  404   </i></font></a>      <a href="ukf_update_17_state_emxutil_c.html#fcn_emxEnsureCapacity" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'fcn_emxEnsureCapacity');" target="rtwreport_document_frame"><font color="#1122aa">emxEnsureCapacity</font></a>((<a href="ukf_update_17_state_types_h.html#type_emxArray__common" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'type_emxArray__common');" target="rtwreport_document_frame"><font color="#1122aa">emxArray__common</font></a> *)A, i11, (int32_T)<font color="#112266"><b>sizeof</b></font>(real_T),
+<a name="404"><font color="#888888 "><i>  404   </i></font></a>      <a href="ukf_update_17_state_emxutil_c.html#fcn_emxEnsureCapacity" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'fcn_emxEnsureCapacity');" target="rtwreport_document_frame"><font color="#1122aa">emxEnsureCapacity</font></a>((<a href="ukf_update_17_state_types_h.html#type_emxArray__common" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'type_emxArray__common');" target="rtwreport_document_frame"><font color="#1122aa">emxArray__common</font></a> *)A, i10, (int32_T)<font color="#112266"><b>sizeof</b></font>(real_T),
 <a name="405"><font color="#888888 "><i>  405   </i></font></a>                        &amp;<a href="#var_r_emlrtRTEI" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_r_emlrtRTEI');" target="rtwreport_document_frame"><font color="#1122aa">r_emlrtRTEI</font></a>);
 <a name="406"><font color="#888888 "><i>  406   </i></font></a>      loop_ub = C-&gt;size[1];
-<a name="407"><font color="#888888 "><i>  407   </i></font></a>      <font color="#112266"><b>for</b></font> (i11 = 0; i11 &lt; loop_ub; i11++) <b>{</b>
+<a name="407"><font color="#888888 "><i>  407   </i></font></a>      <font color="#112266"><b>for</b></font> (i10 = 0; i10 &lt; loop_ub; i10++) <b>{</b>
 <a name="408"><font color="#888888 "><i>  408   </i></font></a>        b_loop_ub = C-&gt;size[0];
-<a name="409"><font color="#888888 "><i>  409   </i></font></a>        <font color="#112266"><b>for</b></font> (i12 = 0; i12 &lt; b_loop_ub; i12++) <b>{</b>
-<a name="410"><font color="#888888 "><i>  410   </i></font></a>          A-&gt;data[i12 + A-&gt;size[0] * i11] = C-&gt;data[i12 + C-&gt;size[0] * i11];
+<a name="409"><font color="#888888 "><i>  409   </i></font></a>        <font color="#112266"><b>for</b></font> (i11 = 0; i11 &lt; b_loop_ub; i11++) <b>{</b>
+<a name="410"><font color="#888888 "><i>  410   </i></font></a>          A-&gt;data[i11 + A-&gt;size[0] * i10] = C-&gt;data[i11 + C-&gt;size[0] * i10];
 <a name="411"><font color="#888888 "><i>  411   </i></font></a>        <b>}</b>
 <a name="412"><font color="#888888 "><i>  412   </i></font></a>      <b>}</b>
 <a name="413"><font color="#888888 "><i>  413   </i></font></a>
 <a name="414"><font color="#888888 "><i>  414   </i></font></a>      <a href="ukf_update_17_state_emxutil_c.html#fcn_emxInit_real_T" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'fcn_emxInit_real_T');" target="rtwreport_document_frame"><font color="#1122aa">emxInit_real_T</font></a>(&amp;x, 2, &amp;<a href="#var_r_emlrtRTEI" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_r_emlrtRTEI');" target="rtwreport_document_frame"><font color="#1122aa">r_emlrtRTEI</font></a>, TRUE);
-<a name="415"><font color="#888888 "><i>  415   </i></font></a>      i11 = x-&gt;size[0] * x-&gt;size[1];
+<a name="415"><font color="#888888 "><i>  415   </i></font></a>      i10 = x-&gt;size[0] * x-&gt;size[1];
 <a name="416"><font color="#888888 "><i>  416   </i></font></a>      x-&gt;size[0] = C-&gt;size[0];
 <a name="417"><font color="#888888 "><i>  417   </i></font></a>      x-&gt;size[1] = C-&gt;size[1];
-<a name="418"><font color="#888888 "><i>  418   </i></font></a>      <a href="ukf_update_17_state_emxutil_c.html#fcn_emxEnsureCapacity" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'fcn_emxEnsureCapacity');" target="rtwreport_document_frame"><font color="#1122aa">emxEnsureCapacity</font></a>((<a href="ukf_update_17_state_types_h.html#type_emxArray__common" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'type_emxArray__common');" target="rtwreport_document_frame"><font color="#1122aa">emxArray__common</font></a> *)x, i11, (int32_T)<font color="#112266"><b>sizeof</b></font>(real_T),
+<a name="418"><font color="#888888 "><i>  418   </i></font></a>      <a href="ukf_update_17_state_emxutil_c.html#fcn_emxEnsureCapacity" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'fcn_emxEnsureCapacity');" target="rtwreport_document_frame"><font color="#1122aa">emxEnsureCapacity</font></a>((<a href="ukf_update_17_state_types_h.html#type_emxArray__common" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'type_emxArray__common');" target="rtwreport_document_frame"><font color="#1122aa">emxArray__common</font></a> *)x, i10, (int32_T)<font color="#112266"><b>sizeof</b></font>(real_T),
 <a name="419"><font color="#888888 "><i>  419   </i></font></a>                        &amp;<a href="#var_r_emlrtRTEI" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_r_emlrtRTEI');" target="rtwreport_document_frame"><font color="#1122aa">r_emlrtRTEI</font></a>);
 <a name="420"><font color="#888888 "><i>  420   </i></font></a>      loop_ub = C-&gt;size[1];
-<a name="421"><font color="#888888 "><i>  421   </i></font></a>      <font color="#112266"><b>for</b></font> (i11 = 0; i11 &lt; loop_ub; i11++) <b>{</b>
+<a name="421"><font color="#888888 "><i>  421   </i></font></a>      <font color="#112266"><b>for</b></font> (i10 = 0; i10 &lt; loop_ub; i10++) <b>{</b>
 <a name="422"><font color="#888888 "><i>  422   </i></font></a>        b_loop_ub = C-&gt;size[0];
-<a name="423"><font color="#888888 "><i>  423   </i></font></a>        <font color="#112266"><b>for</b></font> (i12 = 0; i12 &lt; b_loop_ub; i12++) <b>{</b>
-<a name="424"><font color="#888888 "><i>  424   </i></font></a>          x-&gt;data[i12 + x-&gt;size[0] * i11] = C-&gt;data[i12 + C-&gt;size[0] * i11];
+<a name="423"><font color="#888888 "><i>  423   </i></font></a>        <font color="#112266"><b>for</b></font> (i11 = 0; i11 &lt; b_loop_ub; i11++) <b>{</b>
+<a name="424"><font color="#888888 "><i>  424   </i></font></a>          x-&gt;data[i11 + x-&gt;size[0] * i10] = C-&gt;data[i11 + C-&gt;size[0] * i10];
 <a name="425"><font color="#888888 "><i>  425   </i></font></a>        <b>}</b>
 <a name="426"><font color="#888888 "><i>  426   </i></font></a>      <b>}</b>
 <a name="427"><font color="#888888 "><i>  427   </i></font></a>
 <a name="428"><font color="#888888 "><i>  428   </i></font></a>      beta1 = 0.0;
 <a name="429"><font color="#888888 "><i>  429   </i></font></a>      TRANSA = <font color="#1122ff">'C'</font>;
-<a name="430"><font color="#888888 "><i>  430   </i></font></a>      i11 = y-&gt;size[0];
+<a name="430"><font color="#888888 "><i>  430   </i></font></a>      i10 = y-&gt;size[0];
 <a name="431"><font color="#888888 "><i>  431   </i></font></a>      y-&gt;size[0] = work_size[0];
-<a name="432"><font color="#888888 "><i>  432   </i></font></a>      <a href="ukf_update_17_state_emxutil_c.html#fcn_emxEnsureCapacity" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'fcn_emxEnsureCapacity');" target="rtwreport_document_frame"><font color="#1122aa">emxEnsureCapacity</font></a>((<a href="ukf_update_17_state_types_h.html#type_emxArray__common" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'type_emxArray__common');" target="rtwreport_document_frame"><font color="#1122aa">emxArray__common</font></a> *)y, i11, (int32_T)<font color="#112266"><b>sizeof</b></font>(real_T),
+<a name="432"><font color="#888888 "><i>  432   </i></font></a>      <a href="ukf_update_17_state_emxutil_c.html#fcn_emxEnsureCapacity" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'fcn_emxEnsureCapacity');" target="rtwreport_document_frame"><font color="#1122aa">emxEnsureCapacity</font></a>((<a href="ukf_update_17_state_types_h.html#type_emxArray__common" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'type_emxArray__common');" target="rtwreport_document_frame"><font color="#1122aa">emxArray__common</font></a> *)y, i10, (int32_T)<font color="#112266"><b>sizeof</b></font>(real_T),
 <a name="433"><font color="#888888 "><i>  433   </i></font></a>                        &amp;<a href="#var_r_emlrtRTEI" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_r_emlrtRTEI');" target="rtwreport_document_frame"><font color="#1122aa">r_emlrtRTEI</font></a>);
 <a name="434"><font color="#888888 "><i>  434   </i></font></a>      loop_ub = work_size[0];
-<a name="435"><font color="#888888 "><i>  435   </i></font></a>      <font color="#112266"><b>for</b></font> (i11 = 0; i11 &lt; loop_ub; i11++) <b>{</b>
-<a name="436"><font color="#888888 "><i>  436   </i></font></a>        y-&gt;data[i11] = work_data[i11];
+<a name="435"><font color="#888888 "><i>  435   </i></font></a>      <font color="#112266"><b>for</b></font> (i10 = 0; i10 &lt; loop_ub; i10++) <b>{</b>
+<a name="436"><font color="#888888 "><i>  436   </i></font></a>        y-&gt;data[i10] = work_data[i10];
 <a name="437"><font color="#888888 "><i>  437   </i></font></a>      <b>}</b>
 <a name="438"><font color="#888888 "><i>  438   </i></font></a>
 <a name="439"><font color="#888888 "><i>  439   </i></font></a>      emlrtPushRtStackR2012b(&amp;<a href="ukf_update_17_state_data_c.html#var_id_emlrtRSI" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_id_emlrtRSI');" target="rtwreport_document_frame"><font color="#1122aa">id_emlrtRSI</font></a>, <a href="ukf_update_17_state_mex_c.html#var_emlrtRootTLSGlobal" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_emlrtRootTLSGlobal');" target="rtwreport_document_frame"><font color="#1122aa">emlrtRootTLSGlobal</font></a>);
@@ -505,8 +505,8 @@
 <a name="494"><font color="#888888 "><i>  494   </i></font></a>      work_size[0] = y-&gt;size[0];
 <a name="495"><font color="#888888 "><i>  495   </i></font></a>      loop_ub = y-&gt;size[0];
 <a name="496"><font color="#888888 "><i>  496   </i></font></a>      <a href="ukf_update_17_state_emxutil_c.html#fcn_emxFree_real_T" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'fcn_emxFree_real_T');" target="rtwreport_document_frame"><font color="#1122aa">emxFree_real_T</font></a>(&amp;x);
-<a name="497"><font color="#888888 "><i>  497   </i></font></a>      <font color="#112266"><b>for</b></font> (i11 = 0; i11 &lt; loop_ub; i11++) <b>{</b>
-<a name="498"><font color="#888888 "><i>  498   </i></font></a>        work_data[i11] = y-&gt;data[i11];
+<a name="497"><font color="#888888 "><i>  497   </i></font></a>      <font color="#112266"><b>for</b></font> (i10 = 0; i10 &lt; loop_ub; i10++) <b>{</b>
+<a name="498"><font color="#888888 "><i>  498   </i></font></a>        work_data[i10] = y-&gt;data[i10];
 <a name="499"><font color="#888888 "><i>  499   </i></font></a>      <b>}</b>
 <a name="500"><font color="#888888 "><i>  500   </i></font></a>
 <a name="501"><font color="#888888 "><i>  501   </i></font></a>      emlrtPopRtStackR2012b(&amp;<a href="ukf_update_17_state_data_c.html#var_dd_emlrtRSI" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_dd_emlrtRSI');" target="rtwreport_document_frame"><font color="#1122aa">dd_emlrtRSI</font></a>, <a href="ukf_update_17_state_mex_c.html#var_emlrtRootTLSGlobal" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_emlrtRootTLSGlobal');" target="rtwreport_document_frame"><font color="#1122aa">emlrtRootTLSGlobal</font></a>);
@@ -521,25 +521,25 @@
 <a name="510"><font color="#888888 "><i>  510   </i></font></a>    <font color="#112266"><b>if</b></font> (lastc &lt; 1) <b>{</b>
 <a name="511"><font color="#888888 "><i>  511   </i></font></a>    <b>}</b> <font color="#112266"><b>else</b></font> <b>{</b>
 <a name="512"><font color="#888888 "><i>  512   </i></font></a>      emlrtPushRtStackR2012b(&amp;<a href="ukf_update_17_state_data_c.html#var_vd_emlrtRSI" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_vd_emlrtRSI');" target="rtwreport_document_frame"><font color="#1122aa">vd_emlrtRSI</font></a>, <a href="ukf_update_17_state_mex_c.html#var_emlrtRootTLSGlobal" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_emlrtRootTLSGlobal');" target="rtwreport_document_frame"><font color="#1122aa">emlrtRootTLSGlobal</font></a>);
-<a name="513"><font color="#888888 "><i>  513   </i></font></a>      i11 = y-&gt;size[0];
+<a name="513"><font color="#888888 "><i>  513   </i></font></a>      i10 = y-&gt;size[0];
 <a name="514"><font color="#888888 "><i>  514   </i></font></a>      y-&gt;size[0] = work_size[0];
-<a name="515"><font color="#888888 "><i>  515   </i></font></a>      <a href="ukf_update_17_state_emxutil_c.html#fcn_emxEnsureCapacity" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'fcn_emxEnsureCapacity');" target="rtwreport_document_frame"><font color="#1122aa">emxEnsureCapacity</font></a>((<a href="ukf_update_17_state_types_h.html#type_emxArray__common" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'type_emxArray__common');" target="rtwreport_document_frame"><font color="#1122aa">emxArray__common</font></a> *)y, i11, (int32_T)<font color="#112266"><b>sizeof</b></font>(real_T),
+<a name="515"><font color="#888888 "><i>  515   </i></font></a>      <a href="ukf_update_17_state_emxutil_c.html#fcn_emxEnsureCapacity" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'fcn_emxEnsureCapacity');" target="rtwreport_document_frame"><font color="#1122aa">emxEnsureCapacity</font></a>((<a href="ukf_update_17_state_types_h.html#type_emxArray__common" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'type_emxArray__common');" target="rtwreport_document_frame"><font color="#1122aa">emxArray__common</font></a> *)y, i10, (int32_T)<font color="#112266"><b>sizeof</b></font>(real_T),
 <a name="516"><font color="#888888 "><i>  516   </i></font></a>                        &amp;<a href="#var_r_emlrtRTEI" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_r_emlrtRTEI');" target="rtwreport_document_frame"><font color="#1122aa">r_emlrtRTEI</font></a>);
 <a name="517"><font color="#888888 "><i>  517   </i></font></a>      loop_ub = work_size[0];
-<a name="518"><font color="#888888 "><i>  518   </i></font></a>      <font color="#112266"><b>for</b></font> (i11 = 0; i11 &lt; loop_ub; i11++) <b>{</b>
-<a name="519"><font color="#888888 "><i>  519   </i></font></a>        y-&gt;data[i11] = work_data[i11];
+<a name="518"><font color="#888888 "><i>  518   </i></font></a>      <font color="#112266"><b>for</b></font> (i10 = 0; i10 &lt; loop_ub; i10++) <b>{</b>
+<a name="519"><font color="#888888 "><i>  519   </i></font></a>        y-&gt;data[i10] = work_data[i10];
 <a name="520"><font color="#888888 "><i>  520   </i></font></a>      <b>}</b>
 <a name="521"><font color="#888888 "><i>  521   </i></font></a>
-<a name="522"><font color="#888888 "><i>  522   </i></font></a>      i11 = A-&gt;size[0] * A-&gt;size[1];
+<a name="522"><font color="#888888 "><i>  522   </i></font></a>      i10 = A-&gt;size[0] * A-&gt;size[1];
 <a name="523"><font color="#888888 "><i>  523   </i></font></a>      A-&gt;size[0] = C-&gt;size[0];
 <a name="524"><font color="#888888 "><i>  524   </i></font></a>      A-&gt;size[1] = C-&gt;size[1];
-<a name="525"><font color="#888888 "><i>  525   </i></font></a>      <a href="ukf_update_17_state_emxutil_c.html#fcn_emxEnsureCapacity" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'fcn_emxEnsureCapacity');" target="rtwreport_document_frame"><font color="#1122aa">emxEnsureCapacity</font></a>((<a href="ukf_update_17_state_types_h.html#type_emxArray__common" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'type_emxArray__common');" target="rtwreport_document_frame"><font color="#1122aa">emxArray__common</font></a> *)A, i11, (int32_T)<font color="#112266"><b>sizeof</b></font>(real_T),
+<a name="525"><font color="#888888 "><i>  525   </i></font></a>      <a href="ukf_update_17_state_emxutil_c.html#fcn_emxEnsureCapacity" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'fcn_emxEnsureCapacity');" target="rtwreport_document_frame"><font color="#1122aa">emxEnsureCapacity</font></a>((<a href="ukf_update_17_state_types_h.html#type_emxArray__common" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'type_emxArray__common');" target="rtwreport_document_frame"><font color="#1122aa">emxArray__common</font></a> *)A, i10, (int32_T)<font color="#112266"><b>sizeof</b></font>(real_T),
 <a name="526"><font color="#888888 "><i>  526   </i></font></a>                        &amp;<a href="#var_r_emlrtRTEI" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_r_emlrtRTEI');" target="rtwreport_document_frame"><font color="#1122aa">r_emlrtRTEI</font></a>);
 <a name="527"><font color="#888888 "><i>  527   </i></font></a>      loop_ub = C-&gt;size[1];
-<a name="528"><font color="#888888 "><i>  528   </i></font></a>      <font color="#112266"><b>for</b></font> (i11 = 0; i11 &lt; loop_ub; i11++) <b>{</b>
+<a name="528"><font color="#888888 "><i>  528   </i></font></a>      <font color="#112266"><b>for</b></font> (i10 = 0; i10 &lt; loop_ub; i10++) <b>{</b>
 <a name="529"><font color="#888888 "><i>  529   </i></font></a>        b_loop_ub = C-&gt;size[0];
-<a name="530"><font color="#888888 "><i>  530   </i></font></a>        <font color="#112266"><b>for</b></font> (i12 = 0; i12 &lt; b_loop_ub; i12++) <b>{</b>
-<a name="531"><font color="#888888 "><i>  531   </i></font></a>          A-&gt;data[i12 + A-&gt;size[0] * i11] = C-&gt;data[i12 + C-&gt;size[0] * i11];
+<a name="530"><font color="#888888 "><i>  530   </i></font></a>        <font color="#112266"><b>for</b></font> (i11 = 0; i11 &lt; b_loop_ub; i11++) <b>{</b>
+<a name="531"><font color="#888888 "><i>  531   </i></font></a>          A-&gt;data[i11 + A-&gt;size[0] * i10] = C-&gt;data[i11 + C-&gt;size[0] * i10];
 <a name="532"><font color="#888888 "><i>  532   </i></font></a>        <b>}</b>
 <a name="533"><font color="#888888 "><i>  533   </i></font></a>      <b>}</b>
 <a name="534"><font color="#888888 "><i>  534   </i></font></a>
@@ -594,16 +594,16 @@
 <a name="583"><font color="#888888 "><i>  583   </i></font></a>      dger(&amp;m_t, &amp;n_t, alpha1_t, beta1_t, &amp;incx_t, yiy0_t, &amp;incy_t, Aia0_t,
 <a name="584"><font color="#888888 "><i>  584   </i></font></a>           &amp;lda_t);
 <a name="585"><font color="#888888 "><i>  585   </i></font></a>      emlrtPopRtStackR2012b(&amp;<a href="ukf_update_17_state_data_c.html#var_te_emlrtRSI" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_te_emlrtRSI');" target="rtwreport_document_frame"><font color="#1122aa">te_emlrtRSI</font></a>, <a href="ukf_update_17_state_mex_c.html#var_emlrtRootTLSGlobal" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_emlrtRootTLSGlobal');" target="rtwreport_document_frame"><font color="#1122aa">emlrtRootTLSGlobal</font></a>);
-<a name="586"><font color="#888888 "><i>  586   </i></font></a>      i11 = C-&gt;size[0] * C-&gt;size[1];
+<a name="586"><font color="#888888 "><i>  586   </i></font></a>      i10 = C-&gt;size[0] * C-&gt;size[1];
 <a name="587"><font color="#888888 "><i>  587   </i></font></a>      C-&gt;size[0] = A-&gt;size[0];
 <a name="588"><font color="#888888 "><i>  588   </i></font></a>      C-&gt;size[1] = A-&gt;size[1];
-<a name="589"><font color="#888888 "><i>  589   </i></font></a>      <a href="ukf_update_17_state_emxutil_c.html#fcn_emxEnsureCapacity" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'fcn_emxEnsureCapacity');" target="rtwreport_document_frame"><font color="#1122aa">emxEnsureCapacity</font></a>((<a href="ukf_update_17_state_types_h.html#type_emxArray__common" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'type_emxArray__common');" target="rtwreport_document_frame"><font color="#1122aa">emxArray__common</font></a> *)C, i11, (int32_T)<font color="#112266"><b>sizeof</b></font>(real_T),
+<a name="589"><font color="#888888 "><i>  589   </i></font></a>      <a href="ukf_update_17_state_emxutil_c.html#fcn_emxEnsureCapacity" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'fcn_emxEnsureCapacity');" target="rtwreport_document_frame"><font color="#1122aa">emxEnsureCapacity</font></a>((<a href="ukf_update_17_state_types_h.html#type_emxArray__common" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'type_emxArray__common');" target="rtwreport_document_frame"><font color="#1122aa">emxArray__common</font></a> *)C, i10, (int32_T)<font color="#112266"><b>sizeof</b></font>(real_T),
 <a name="590"><font color="#888888 "><i>  590   </i></font></a>                        &amp;<a href="#var_r_emlrtRTEI" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_r_emlrtRTEI');" target="rtwreport_document_frame"><font color="#1122aa">r_emlrtRTEI</font></a>);
 <a name="591"><font color="#888888 "><i>  591   </i></font></a>      loop_ub = A-&gt;size[1];
-<a name="592"><font color="#888888 "><i>  592   </i></font></a>      <font color="#112266"><b>for</b></font> (i11 = 0; i11 &lt; loop_ub; i11++) <b>{</b>
+<a name="592"><font color="#888888 "><i>  592   </i></font></a>      <font color="#112266"><b>for</b></font> (i10 = 0; i10 &lt; loop_ub; i10++) <b>{</b>
 <a name="593"><font color="#888888 "><i>  593   </i></font></a>        b_loop_ub = A-&gt;size[0];
-<a name="594"><font color="#888888 "><i>  594   </i></font></a>        <font color="#112266"><b>for</b></font> (i12 = 0; i12 &lt; b_loop_ub; i12++) <b>{</b>
-<a name="595"><font color="#888888 "><i>  595   </i></font></a>          C-&gt;data[i12 + C-&gt;size[0] * i11] = A-&gt;data[i12 + A-&gt;size[0] * i11];
+<a name="594"><font color="#888888 "><i>  594   </i></font></a>        <font color="#112266"><b>for</b></font> (i11 = 0; i11 &lt; b_loop_ub; i11++) <b>{</b>
+<a name="595"><font color="#888888 "><i>  595   </i></font></a>          C-&gt;data[i11 + C-&gt;size[0] * i10] = A-&gt;data[i11 + A-&gt;size[0] * i10];
 <a name="596"><font color="#888888 "><i>  596   </i></font></a>        <b>}</b>
 <a name="597"><font color="#888888 "><i>  597   </i></font></a>      <b>}</b>
 <a name="598"><font color="#888888 "><i>  598   </i></font></a>
@@ -795,7 +795,7 @@
 <a name="784"><font color="#888888 "><i>  784   </i></font></a>  real_T y;
 <a name="785"><font color="#888888 "><i>  785   </i></font></a>  real_T b_y;
 <a name="786"><font color="#888888 "><i>  786   </i></font></a>  <a href="ukf_update_17_state_types_h.html#type_emxArray_real_T" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'type_emxArray_real_T');" target="rtwreport_document_frame"><font color="#1122aa">emxArray_real_T</font></a> *b_x;
-<a name="787"><font color="#888888 "><i>  787   </i></font></a>  int32_T i15;
+<a name="787"><font color="#888888 "><i>  787   </i></font></a>  int32_T i14;
 <a name="788"><font color="#888888 "><i>  788   </i></font></a>  ptrdiff_t n_t;
 <a name="789"><font color="#888888 "><i>  789   </i></font></a>  ptrdiff_t incx_t;
 <a name="790"><font color="#888888 "><i>  790   </i></font></a>  ptrdiff_t incy_t;
@@ -842,8 +842,8 @@
 <a name="831"><font color="#888888 "><i>  831   </i></font></a>    iy = x-&gt;size[1];
 <a name="832"><font color="#888888 "><i>  832   </i></font></a>    <font color="#112266"><b>for</b></font> (ix = 0; ix &lt; iy; ix++) <b>{</b>
 <a name="833"><font color="#888888 "><i>  833   </i></font></a>      loop_ub = x-&gt;size[0];
-<a name="834"><font color="#888888 "><i>  834   </i></font></a>      <font color="#112266"><b>for</b></font> (i15 = 0; i15 &lt; loop_ub; i15++) <b>{</b>
-<a name="835"><font color="#888888 "><i>  835   </i></font></a>        b_x-&gt;data[i15 + b_x-&gt;size[0] * ix] = x-&gt;data[i15 + x-&gt;size[0] * ix];
+<a name="834"><font color="#888888 "><i>  834   </i></font></a>      <font color="#112266"><b>for</b></font> (i14 = 0; i14 &lt; loop_ub; i14++) <b>{</b>
+<a name="835"><font color="#888888 "><i>  835   </i></font></a>        b_x-&gt;data[i14 + b_x-&gt;size[0] * ix] = x-&gt;data[i14 + x-&gt;size[0] * ix];
 <a name="836"><font color="#888888 "><i>  836   </i></font></a>      <b>}</b>
 <a name="837"><font color="#888888 "><i>  837   </i></font></a>    <b>}</b>
 <a name="838"><font color="#888888 "><i>  838   </i></font></a>
@@ -894,8 +894,8 @@
 <a name="883"><font color="#888888 "><i>  883   </i></font></a>    iy = b_x-&gt;size[1];
 <a name="884"><font color="#888888 "><i>  884   </i></font></a>    <font color="#112266"><b>for</b></font> (ix = 0; ix &lt; iy; ix++) <b>{</b>
 <a name="885"><font color="#888888 "><i>  885   </i></font></a>      loop_ub = b_x-&gt;size[0];
-<a name="886"><font color="#888888 "><i>  886   </i></font></a>      <font color="#112266"><b>for</b></font> (i15 = 0; i15 &lt; loop_ub; i15++) <b>{</b>
-<a name="887"><font color="#888888 "><i>  887   </i></font></a>        x-&gt;data[i15 + x-&gt;size[0] * ix] = b_x-&gt;data[i15 + b_x-&gt;size[0] * ix];
+<a name="886"><font color="#888888 "><i>  886   </i></font></a>      <font color="#112266"><b>for</b></font> (i14 = 0; i14 &lt; loop_ub; i14++) <b>{</b>
+<a name="887"><font color="#888888 "><i>  887   </i></font></a>        x-&gt;data[i14 + x-&gt;size[0] * ix] = b_x-&gt;data[i14 + b_x-&gt;size[0] * ix];
 <a name="888"><font color="#888888 "><i>  888   </i></font></a>      <b>}</b>
 <a name="889"><font color="#888888 "><i>  889   </i></font></a>    <b>}</b>
 <a name="890"><font color="#888888 "><i>  890   </i></font></a>
@@ -1658,7 +1658,7 @@
 <a name="1647"><font color="#888888 "><i> 1647   </i></font></a>  <a href="ukf_update_17_state_types_h.html#type_emxArray_real_T" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'type_emxArray_real_T');" target="rtwreport_document_frame"><font color="#1122aa">emxArray_real_T</font></a> *r52;
 <a name="1648"><font color="#888888 "><i> 1648   </i></font></a>  int32_T iaii;
 <a name="1649"><font color="#888888 "><i> 1649   </i></font></a>  int32_T loop_ub;
-<a name="1650"><font color="#888888 "><i> 1650   </i></font></a>  int32_T i13;
+<a name="1650"><font color="#888888 "><i> 1650   </i></font></a>  int32_T i12;
 <a name="1651"><font color="#888888 "><i> 1651   </i></font></a>  emlrtHeapReferenceStackEnterFcnR2012b(<a href="ukf_update_17_state_mex_c.html#var_emlrtRootTLSGlobal" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_emlrtRootTLSGlobal');" target="rtwreport_document_frame"><font color="#1122aa">emlrtRootTLSGlobal</font></a>);
 <a name="1652"><font color="#888888 "><i> 1652   </i></font></a>  <a href="ukf_update_17_state_emxutil_c.html#fcn_emxInit_real_T" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'fcn_emxInit_real_T');" target="rtwreport_document_frame"><font color="#1122aa">emxInit_real_T</font></a>(&amp;r51, 2, &amp;<a href="#var_s_emlrtRTEI" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_s_emlrtRTEI');" target="rtwreport_document_frame"><font color="#1122aa">s_emlrtRTEI</font></a>, TRUE);
 <a name="1653"><font color="#888888 "><i> 1653   </i></font></a>  <font color="#112266"><b>if</b></font> (n &lt; 1) <b>{</b>
@@ -1705,8 +1705,8 @@
 <a name="1694"><font color="#888888 "><i> 1694   </i></font></a>        ia = A-&gt;size[1];
 <a name="1695"><font color="#888888 "><i> 1695   </i></font></a>        <font color="#112266"><b>for</b></font> (j = 0; j &lt; ia; j++) <b>{</b>
 <a name="1696"><font color="#888888 "><i> 1696   </i></font></a>          loop_ub = A-&gt;size[0];
-<a name="1697"><font color="#888888 "><i> 1697   </i></font></a>          <font color="#112266"><b>for</b></font> (i13 = 0; i13 &lt; loop_ub; i13++) <b>{</b>
-<a name="1698"><font color="#888888 "><i> 1698   </i></font></a>            b_A-&gt;data[i13 + b_A-&gt;size[0] * j] = A-&gt;data[i13 + A-&gt;size[0] * j];
+<a name="1697"><font color="#888888 "><i> 1697   </i></font></a>          <font color="#112266"><b>for</b></font> (i12 = 0; i12 &lt; loop_ub; i12++) <b>{</b>
+<a name="1698"><font color="#888888 "><i> 1698   </i></font></a>            b_A-&gt;data[i12 + b_A-&gt;size[0] * j] = A-&gt;data[i12 + A-&gt;size[0] * j];
 <a name="1699"><font color="#888888 "><i> 1699   </i></font></a>          <b>}</b>
 <a name="1700"><font color="#888888 "><i> 1700   </i></font></a>        <b>}</b>
 <a name="1701"><font color="#888888 "><i> 1701   </i></font></a>
@@ -1718,8 +1718,8 @@
 <a name="1707"><font color="#888888 "><i> 1707   </i></font></a>        ia = b_A-&gt;size[1];
 <a name="1708"><font color="#888888 "><i> 1708   </i></font></a>        <font color="#112266"><b>for</b></font> (j = 0; j &lt; ia; j++) <b>{</b>
 <a name="1709"><font color="#888888 "><i> 1709   </i></font></a>          loop_ub = b_A-&gt;size[0];
-<a name="1710"><font color="#888888 "><i> 1710   </i></font></a>          <font color="#112266"><b>for</b></font> (i13 = 0; i13 &lt; loop_ub; i13++) <b>{</b>
-<a name="1711"><font color="#888888 "><i> 1711   </i></font></a>            r51-&gt;data[i13 + r51-&gt;size[0] * j] = b_A-&gt;data[i13 + b_A-&gt;size[0] * j];
+<a name="1710"><font color="#888888 "><i> 1710   </i></font></a>          <font color="#112266"><b>for</b></font> (i12 = 0; i12 &lt; loop_ub; i12++) <b>{</b>
+<a name="1711"><font color="#888888 "><i> 1711   </i></font></a>            r51-&gt;data[i12 + r51-&gt;size[0] * j] = b_A-&gt;data[i12 + b_A-&gt;size[0] * j];
 <a name="1712"><font color="#888888 "><i> 1712   </i></font></a>          <b>}</b>
 <a name="1713"><font color="#888888 "><i> 1713   </i></font></a>        <b>}</b>
 <a name="1714"><font color="#888888 "><i> 1714   </i></font></a>
@@ -1732,8 +1732,8 @@
 <a name="1721"><font color="#888888 "><i> 1721   </i></font></a>        ia = r51-&gt;size[1];
 <a name="1722"><font color="#888888 "><i> 1722   </i></font></a>        <font color="#112266"><b>for</b></font> (j = 0; j &lt; ia; j++) <b>{</b>
 <a name="1723"><font color="#888888 "><i> 1723   </i></font></a>          loop_ub = r51-&gt;size[0];
-<a name="1724"><font color="#888888 "><i> 1724   </i></font></a>          <font color="#112266"><b>for</b></font> (i13 = 0; i13 &lt; loop_ub; i13++) <b>{</b>
-<a name="1725"><font color="#888888 "><i> 1725   </i></font></a>            r52-&gt;data[i13 + r52-&gt;size[0] * j] = r51-&gt;data[i13 + r51-&gt;size[0] * j];
+<a name="1724"><font color="#888888 "><i> 1724   </i></font></a>          <font color="#112266"><b>for</b></font> (i12 = 0; i12 &lt; loop_ub; i12++) <b>{</b>
+<a name="1725"><font color="#888888 "><i> 1725   </i></font></a>            r52-&gt;data[i12 + r52-&gt;size[0] * j] = r51-&gt;data[i12 + r51-&gt;size[0] * j];
 <a name="1726"><font color="#888888 "><i> 1726   </i></font></a>          <b>}</b>
 <a name="1727"><font color="#888888 "><i> 1727   </i></font></a>        <b>}</b>
 <a name="1728"><font color="#888888 "><i> 1728   </i></font></a>
@@ -1745,8 +1745,8 @@
 <a name="1734"><font color="#888888 "><i> 1734   </i></font></a>        ia = r52-&gt;size[1];
 <a name="1735"><font color="#888888 "><i> 1735   </i></font></a>        <font color="#112266"><b>for</b></font> (j = 0; j &lt; ia; j++) <b>{</b>
 <a name="1736"><font color="#888888 "><i> 1736   </i></font></a>          loop_ub = r52-&gt;size[0];
-<a name="1737"><font color="#888888 "><i> 1737   </i></font></a>          <font color="#112266"><b>for</b></font> (i13 = 0; i13 &lt; loop_ub; i13++) <b>{</b>
-<a name="1738"><font color="#888888 "><i> 1738   </i></font></a>            A-&gt;data[i13 + A-&gt;size[0] * j] = r52-&gt;data[i13 + r52-&gt;size[0] * j];
+<a name="1737"><font color="#888888 "><i> 1737   </i></font></a>          <font color="#112266"><b>for</b></font> (i12 = 0; i12 &lt; loop_ub; i12++) <b>{</b>
+<a name="1738"><font color="#888888 "><i> 1738   </i></font></a>            A-&gt;data[i12 + A-&gt;size[0] * j] = r52-&gt;data[i12 + r52-&gt;size[0] * j];
 <a name="1739"><font color="#888888 "><i> 1739   </i></font></a>          <b>}</b>
 <a name="1740"><font color="#888888 "><i> 1740   </i></font></a>        <b>}</b>
 <a name="1741"><font color="#888888 "><i> 1741   </i></font></a>
@@ -1813,7 +1813,7 @@
 <a name="1802"><font color="#888888 "><i> 1802   </i></font></a>  real_T y;
 <a name="1803"><font color="#888888 "><i> 1803   </i></font></a>  real_T b_y;
 <a name="1804"><font color="#888888 "><i> 1804   </i></font></a>  <a href="ukf_update_17_state_types_h.html#type_emxArray_real_T" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'type_emxArray_real_T');" target="rtwreport_document_frame"><font color="#1122aa">emxArray_real_T</font></a> *b_x;
-<a name="1805"><font color="#888888 "><i> 1805   </i></font></a>  int32_T i14;
+<a name="1805"><font color="#888888 "><i> 1805   </i></font></a>  int32_T i13;
 <a name="1806"><font color="#888888 "><i> 1806   </i></font></a>  ptrdiff_t n_t;
 <a name="1807"><font color="#888888 "><i> 1807   </i></font></a>  ptrdiff_t incx_t;
 <a name="1808"><font color="#888888 "><i> 1808   </i></font></a>  ptrdiff_t incy_t;
@@ -1860,8 +1860,8 @@
 <a name="1849"><font color="#888888 "><i> 1849   </i></font></a>    iy = x-&gt;size[1];
 <a name="1850"><font color="#888888 "><i> 1850   </i></font></a>    <font color="#112266"><b>for</b></font> (ix = 0; ix &lt; iy; ix++) <b>{</b>
 <a name="1851"><font color="#888888 "><i> 1851   </i></font></a>      loop_ub = x-&gt;size[0];
-<a name="1852"><font color="#888888 "><i> 1852   </i></font></a>      <font color="#112266"><b>for</b></font> (i14 = 0; i14 &lt; loop_ub; i14++) <b>{</b>
-<a name="1853"><font color="#888888 "><i> 1853   </i></font></a>        b_x-&gt;data[i14 + b_x-&gt;size[0] * ix] = x-&gt;data[i14 + x-&gt;size[0] * ix];
+<a name="1852"><font color="#888888 "><i> 1852   </i></font></a>      <font color="#112266"><b>for</b></font> (i13 = 0; i13 &lt; loop_ub; i13++) <b>{</b>
+<a name="1853"><font color="#888888 "><i> 1853   </i></font></a>        b_x-&gt;data[i13 + b_x-&gt;size[0] * ix] = x-&gt;data[i13 + x-&gt;size[0] * ix];
 <a name="1854"><font color="#888888 "><i> 1854   </i></font></a>      <b>}</b>
 <a name="1855"><font color="#888888 "><i> 1855   </i></font></a>    <b>}</b>
 <a name="1856"><font color="#888888 "><i> 1856   </i></font></a>
@@ -1912,8 +1912,8 @@
 <a name="1901"><font color="#888888 "><i> 1901   </i></font></a>    iy = b_x-&gt;size[1];
 <a name="1902"><font color="#888888 "><i> 1902   </i></font></a>    <font color="#112266"><b>for</b></font> (ix = 0; ix &lt; iy; ix++) <b>{</b>
 <a name="1903"><font color="#888888 "><i> 1903   </i></font></a>      loop_ub = b_x-&gt;size[0];
-<a name="1904"><font color="#888888 "><i> 1904   </i></font></a>      <font color="#112266"><b>for</b></font> (i14 = 0; i14 &lt; loop_ub; i14++) <b>{</b>
-<a name="1905"><font color="#888888 "><i> 1905   </i></font></a>        x-&gt;data[i14 + x-&gt;size[0] * ix] = b_x-&gt;data[i14 + b_x-&gt;size[0] * ix];
+<a name="1904"><font color="#888888 "><i> 1904   </i></font></a>      <font color="#112266"><b>for</b></font> (i13 = 0; i13 &lt; loop_ub; i13++) <b>{</b>
+<a name="1905"><font color="#888888 "><i> 1905   </i></font></a>        x-&gt;data[i13 + x-&gt;size[0] * ix] = b_x-&gt;data[i13 + b_x-&gt;size[0] * ix];
 <a name="1906"><font color="#888888 "><i> 1906   </i></font></a>      <b>}</b>
 <a name="1907"><font color="#888888 "><i> 1907   </i></font></a>    <b>}</b>
 <a name="1908"><font color="#888888 "><i> 1908   </i></font></a>

@@ -3,7 +3,7 @@
  *
  * Code generation for function 'ukf_update_17_state_data'
  *
- * C source code generated on: Thu Nov 20 12:39:29 2014
+ * C source code generated on: Thu Dec  4 12:26:46 2014
  *
  */
 
@@ -121,19 +121,19 @@ extern emlrtRSInfo ji_emlrtRSI;
 extern emlrtRSInfo ki_emlrtRSI;
 extern emlrtRSInfo pi_emlrtRSI;
 extern emlrtRSInfo qi_emlrtRSI;
-extern emlrtRSInfo nj_emlrtRSI;
-extern emlrtRSInfo oj_emlrtRSI;
 extern emlrtRSInfo pj_emlrtRSI;
 extern emlrtRSInfo qj_emlrtRSI;
+extern emlrtRSInfo rj_emlrtRSI;
 extern emlrtRSInfo sj_emlrtRSI;
-extern emlrtRSInfo xk_emlrtRSI;
+extern emlrtRSInfo uj_emlrtRSI;
 extern emlrtRSInfo al_emlrtRSI;
-extern emlrtRSInfo ol_emlrtRSI;
+extern emlrtRSInfo cl_emlrtRSI;
 extern emlrtRSInfo ql_emlrtRSI;
-extern emlrtRSInfo rl_emlrtRSI;
 extern emlrtRSInfo sl_emlrtRSI;
-extern emlrtRSInfo cm_emlrtRSI;
-extern emlrtRSInfo dm_emlrtRSI;
+extern emlrtRSInfo tl_emlrtRSI;
+extern emlrtRSInfo ul_emlrtRSI;
+extern emlrtRSInfo em_emlrtRSI;
+extern emlrtRSInfo fm_emlrtRSI;
 extern emlrtMCInfo b_emlrtMCI;
 extern emlrtMCInfo c_emlrtMCI;
 extern emlrtMCInfo j_emlrtMCI;

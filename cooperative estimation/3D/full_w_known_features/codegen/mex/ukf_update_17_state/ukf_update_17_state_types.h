@@ -3,7 +3,7 @@
  *
  * Code generation for function 'ukf_update_17_state'
  *
- * C source code generated on: Thu Nov 20 12:39:29 2014
+ * C source code generated on: Thu Dec  4 12:26:46 2014
  *
  */
 
@@ -163,6 +163,18 @@ struct emxArray_real_T_25
 #define typedef_emxArray_real_T_25
 typedef struct emxArray_real_T_25 emxArray_real_T_25;
 #endif /*typedef_emxArray_real_T_25*/
+#ifndef struct_emxArray_real_T_250
+#define struct_emxArray_real_T_250
+struct emxArray_real_T_250
+{
+    real_T data[250];
+    int32_T size[1];
+};
+#endif /*struct_emxArray_real_T_250*/
+#ifndef typedef_emxArray_real_T_250
+#define typedef_emxArray_real_T_250
+typedef struct emxArray_real_T_250 emxArray_real_T_250;
+#endif /*typedef_emxArray_real_T_250*/
 #ifndef struct_emxArray_real_T_299
 #define struct_emxArray_real_T_299
 struct emxArray_real_T_299

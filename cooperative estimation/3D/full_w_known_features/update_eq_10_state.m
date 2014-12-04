@@ -39,7 +39,7 @@ for k = 1:size(xk,2);
     Ain = 0.5*[ -qin(2:4)';qin(1)*eye(3) + squiggle(qin(2:4))];
     xdot(7:10) = Ain*wi;
 
-    xkPlus(:,k) = xhat(:) + Ts*xdot;
+    xkPlus(:,k) = xhat + Ts*xdot;
     %re-normalize
     xkPlus(7:10,k) = xkPlus(7:10,k)/norm(xkPlus(7:10,k));
 end

@@ -3,7 +3,7 @@
  *
  * Code generation for function 'schur'
  *
- * C source code generated on: Thu Nov 20 12:39:29 2014
+ * C source code generated on: Thu Dec  4 12:26:46 2014
  *
  */
 
@@ -355,10 +355,10 @@ static void b_eml_matlab_zlarf(int32_T m, int32_T n, int32_T iv0, real_T tau,
   emxArray_real_T *y;
   emxArray_real_T *A;
   real_T alpha1;
-  int32_T i11;
+  int32_T i10;
   int32_T loop_ub;
   int32_T b_loop_ub;
-  int32_T i12;
+  int32_T i11;
   emxArray_real_T *x;
   real_T beta1;
   char_T TRANSA;
@@ -398,42 +398,42 @@ static void b_eml_matlab_zlarf(int32_T m, int32_T n, int32_T iv0, real_T tau,
     } else {
       emlrtPushRtStackR2012b(&dd_emlrtRSI, emlrtRootTLSGlobal);
       alpha1 = 1.0;
-      i11 = A->size[0] * A->size[1];
+      i10 = A->size[0] * A->size[1];
       A->size[0] = C->size[0];
       A->size[1] = C->size[1];
-      emxEnsureCapacity((emxArray__common *)A, i11, (int32_T)sizeof(real_T),
+      emxEnsureCapacity((emxArray__common *)A, i10, (int32_T)sizeof(real_T),
                         &r_emlrtRTEI);
       loop_ub = C->size[1];
-      for (i11 = 0; i11 < loop_ub; i11++) {
+      for (i10 = 0; i10 < loop_ub; i10++) {
         b_loop_ub = C->size[0];
-        for (i12 = 0; i12 < b_loop_ub; i12++) {
-          A->data[i12 + A->size[0] * i11] = C->data[i12 + C->size[0] * i11];
+        for (i11 = 0; i11 < b_loop_ub; i11++) {
+          A->data[i11 + A->size[0] * i10] = C->data[i11 + C->size[0] * i10];
         }
       }
 
       emxInit_real_T(&x, 2, &r_emlrtRTEI, TRUE);
-      i11 = x->size[0] * x->size[1];
+      i10 = x->size[0] * x->size[1];
       x->size[0] = C->size[0];
       x->size[1] = C->size[1];
-      emxEnsureCapacity((emxArray__common *)x, i11, (int32_T)sizeof(real_T),
+      emxEnsureCapacity((emxArray__common *)x, i10, (int32_T)sizeof(real_T),
                         &r_emlrtRTEI);
       loop_ub = C->size[1];
-      for (i11 = 0; i11 < loop_ub; i11++) {
+      for (i10 = 0; i10 < loop_ub; i10++) {
         b_loop_ub = C->size[0];
-        for (i12 = 0; i12 < b_loop_ub; i12++) {
-          x->data[i12 + x->size[0] * i11] = C->data[i12 + C->size[0] * i11];
+        for (i11 = 0; i11 < b_loop_ub; i11++) {
+          x->data[i11 + x->size[0] * i10] = C->data[i11 + C->size[0] * i10];
         }
       }
 
       beta1 = 0.0;
       TRANSA = 'C';
-      i11 = y->size[0];
+      i10 = y->size[0];
       y->size[0] = work_size[0];
-      emxEnsureCapacity((emxArray__common *)y, i11, (int32_T)sizeof(real_T),
+      emxEnsureCapacity((emxArray__common *)y, i10, (int32_T)sizeof(real_T),
                         &r_emlrtRTEI);
       loop_ub = work_size[0];
-      for (i11 = 0; i11 < loop_ub; i11++) {
-        y->data[i11] = work_data[i11];
+      for (i10 = 0; i10 < loop_ub; i10++) {
+        y->data[i10] = work_data[i10];
       }
 
       emlrtPushRtStackR2012b(&id_emlrtRSI, emlrtRootTLSGlobal);
@@ -494,8 +494,8 @@ static void b_eml_matlab_zlarf(int32_T m, int32_T n, int32_T iv0, real_T tau,
       work_size[0] = y->size[0];
       loop_ub = y->size[0];
       emxFree_real_T(&x);
-      for (i11 = 0; i11 < loop_ub; i11++) {
-        work_data[i11] = y->data[i11];
+      for (i10 = 0; i10 < loop_ub; i10++) {
+        work_data[i10] = y->data[i10];
       }
 
       emlrtPopRtStackR2012b(&dd_emlrtRSI, emlrtRootTLSGlobal);
@@ -510,25 +510,25 @@ static void b_eml_matlab_zlarf(int32_T m, int32_T n, int32_T iv0, real_T tau,
     if (lastc < 1) {
     } else {
       emlrtPushRtStackR2012b(&vd_emlrtRSI, emlrtRootTLSGlobal);
-      i11 = y->size[0];
+      i10 = y->size[0];
       y->size[0] = work_size[0];
-      emxEnsureCapacity((emxArray__common *)y, i11, (int32_T)sizeof(real_T),
+      emxEnsureCapacity((emxArray__common *)y, i10, (int32_T)sizeof(real_T),
                         &r_emlrtRTEI);
       loop_ub = work_size[0];
-      for (i11 = 0; i11 < loop_ub; i11++) {
-        y->data[i11] = work_data[i11];
+      for (i10 = 0; i10 < loop_ub; i10++) {
+        y->data[i10] = work_data[i10];
       }
 
-      i11 = A->size[0] * A->size[1];
+      i10 = A->size[0] * A->size[1];
       A->size[0] = C->size[0];
       A->size[1] = C->size[1];
-      emxEnsureCapacity((emxArray__common *)A, i11, (int32_T)sizeof(real_T),
+      emxEnsureCapacity((emxArray__common *)A, i10, (int32_T)sizeof(real_T),
                         &r_emlrtRTEI);
       loop_ub = C->size[1];
-      for (i11 = 0; i11 < loop_ub; i11++) {
+      for (i10 = 0; i10 < loop_ub; i10++) {
         b_loop_ub = C->size[0];
-        for (i12 = 0; i12 < b_loop_ub; i12++) {
-          A->data[i12 + A->size[0] * i11] = C->data[i12 + C->size[0] * i11];
+        for (i11 = 0; i11 < b_loop_ub; i11++) {
+          A->data[i11 + A->size[0] * i10] = C->data[i11 + C->size[0] * i10];
         }
       }
 
@@ -583,16 +583,16 @@ static void b_eml_matlab_zlarf(int32_T m, int32_T n, int32_T iv0, real_T tau,
       dger(&m_t, &n_t, alpha1_t, beta1_t, &incx_t, yiy0_t, &incy_t, Aia0_t,
            &lda_t);
       emlrtPopRtStackR2012b(&te_emlrtRSI, emlrtRootTLSGlobal);
-      i11 = C->size[0] * C->size[1];
+      i10 = C->size[0] * C->size[1];
       C->size[0] = A->size[0];
       C->size[1] = A->size[1];
-      emxEnsureCapacity((emxArray__common *)C, i11, (int32_T)sizeof(real_T),
+      emxEnsureCapacity((emxArray__common *)C, i10, (int32_T)sizeof(real_T),
                         &r_emlrtRTEI);
       loop_ub = A->size[1];
-      for (i11 = 0; i11 < loop_ub; i11++) {
+      for (i10 = 0; i10 < loop_ub; i10++) {
         b_loop_ub = A->size[0];
-        for (i12 = 0; i12 < b_loop_ub; i12++) {
-          C->data[i12 + C->size[0] * i11] = A->data[i12 + A->size[0] * i11];
+        for (i11 = 0; i11 < b_loop_ub; i11++) {
+          C->data[i11 + C->size[0] * i10] = A->data[i11 + A->size[0] * i10];
         }
       }
 
@@ -784,7 +784,7 @@ static void b_eml_xrot(int32_T n, emxArray_real_T *x, int32_T ix0, int32_T iy0,
   real_T y;
   real_T b_y;
   emxArray_real_T *b_x;
-  int32_T i15;
+  int32_T i14;
   ptrdiff_t n_t;
   ptrdiff_t incx_t;
   ptrdiff_t incy_t;
@@ -831,8 +831,8 @@ static void b_eml_xrot(int32_T n, emxArray_real_T *x, int32_T ix0, int32_T iy0,
     iy = x->size[1];
     for (ix = 0; ix < iy; ix++) {
       loop_ub = x->size[0];
-      for (i15 = 0; i15 < loop_ub; i15++) {
-        b_x->data[i15 + b_x->size[0] * ix] = x->data[i15 + x->size[0] * ix];
+      for (i14 = 0; i14 < loop_ub; i14++) {
+        b_x->data[i14 + b_x->size[0] * ix] = x->data[i14 + x->size[0] * ix];
       }
     }
 
@@ -883,8 +883,8 @@ static void b_eml_xrot(int32_T n, emxArray_real_T *x, int32_T ix0, int32_T iy0,
     iy = b_x->size[1];
     for (ix = 0; ix < iy; ix++) {
       loop_ub = b_x->size[0];
-      for (i15 = 0; i15 < loop_ub; i15++) {
-        x->data[i15 + x->size[0] * ix] = b_x->data[i15 + b_x->size[0] * ix];
+      for (i14 = 0; i14 < loop_ub; i14++) {
+        x->data[i14 + x->size[0] * ix] = b_x->data[i14 + b_x->size[0] * ix];
       }
     }
 
@@ -1647,7 +1647,7 @@ static void eml_matlab_zungqr(int32_T m, int32_T n, int32_T k, emxArray_real_T
   emxArray_real_T *r52;
   int32_T iaii;
   int32_T loop_ub;
-  int32_T i13;
+  int32_T i12;
   emlrtHeapReferenceStackEnterFcnR2012b(emlrtRootTLSGlobal);
   emxInit_real_T(&r51, 2, &s_emlrtRTEI, TRUE);
   if (n < 1) {
@@ -1694,8 +1694,8 @@ static void eml_matlab_zungqr(int32_T m, int32_T n, int32_T k, emxArray_real_T
         ia = A->size[1];
         for (j = 0; j < ia; j++) {
           loop_ub = A->size[0];
-          for (i13 = 0; i13 < loop_ub; i13++) {
-            b_A->data[i13 + b_A->size[0] * j] = A->data[i13 + A->size[0] * j];
+          for (i12 = 0; i12 < loop_ub; i12++) {
+            b_A->data[i12 + b_A->size[0] * j] = A->data[i12 + A->size[0] * j];
           }
         }
 
@@ -1707,8 +1707,8 @@ static void eml_matlab_zungqr(int32_T m, int32_T n, int32_T k, emxArray_real_T
         ia = b_A->size[1];
         for (j = 0; j < ia; j++) {
           loop_ub = b_A->size[0];
-          for (i13 = 0; i13 < loop_ub; i13++) {
-            r51->data[i13 + r51->size[0] * j] = b_A->data[i13 + b_A->size[0] * j];
+          for (i12 = 0; i12 < loop_ub; i12++) {
+            r51->data[i12 + r51->size[0] * j] = b_A->data[i12 + b_A->size[0] * j];
           }
         }
 
@@ -1721,8 +1721,8 @@ static void eml_matlab_zungqr(int32_T m, int32_T n, int32_T k, emxArray_real_T
         ia = r51->size[1];
         for (j = 0; j < ia; j++) {
           loop_ub = r51->size[0];
-          for (i13 = 0; i13 < loop_ub; i13++) {
-            r52->data[i13 + r52->size[0] * j] = r51->data[i13 + r51->size[0] * j];
+          for (i12 = 0; i12 < loop_ub; i12++) {
+            r52->data[i12 + r52->size[0] * j] = r51->data[i12 + r51->size[0] * j];
           }
         }
 
@@ -1734,8 +1734,8 @@ static void eml_matlab_zungqr(int32_T m, int32_T n, int32_T k, emxArray_real_T
         ia = r52->size[1];
         for (j = 0; j < ia; j++) {
           loop_ub = r52->size[0];
-          for (i13 = 0; i13 < loop_ub; i13++) {
-            A->data[i13 + A->size[0] * j] = r52->data[i13 + r52->size[0] * j];
+          for (i12 = 0; i12 < loop_ub; i12++) {
+            A->data[i12 + A->size[0] * j] = r52->data[i12 + r52->size[0] * j];
           }
         }
 
@@ -1802,7 +1802,7 @@ static void eml_xrot(int32_T n, emxArray_real_T *x, int32_T ix0, int32_T incx,
   real_T y;
   real_T b_y;
   emxArray_real_T *b_x;
-  int32_T i14;
+  int32_T i13;
   ptrdiff_t n_t;
   ptrdiff_t incx_t;
   ptrdiff_t incy_t;
@@ -1849,8 +1849,8 @@ static void eml_xrot(int32_T n, emxArray_real_T *x, int32_T ix0, int32_T incx,
     iy = x->size[1];
     for (ix = 0; ix < iy; ix++) {
       loop_ub = x->size[0];
-      for (i14 = 0; i14 < loop_ub; i14++) {
-        b_x->data[i14 + b_x->size[0] * ix] = x->data[i14 + x->size[0] * ix];
+      for (i13 = 0; i13 < loop_ub; i13++) {
+        b_x->data[i13 + b_x->size[0] * ix] = x->data[i13 + x->size[0] * ix];
       }
     }
 
@@ -1901,8 +1901,8 @@ static void eml_xrot(int32_T n, emxArray_real_T *x, int32_T ix0, int32_T incx,
     iy = b_x->size[1];
     for (ix = 0; ix < iy; ix++) {
       loop_ub = b_x->size[0];
-      for (i14 = 0; i14 < loop_ub; i14++) {
-        x->data[i14 + x->size[0] * ix] = b_x->data[i14 + b_x->size[0] * ix];
+      for (i13 = 0; i13 < loop_ub; i13++) {
+        x->data[i13 + x->size[0] * ix] = b_x->data[i13 + b_x->size[0] * ix];
       }
     }
 

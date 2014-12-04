@@ -3,7 +3,7 @@
  *
  * Code generation for function 'eye'
  *
- * C source code generated on: Thu Nov 20 12:39:29 2014
+ * C source code generated on: Thu Dec  4 12:26:46 2014
  *
  */
 
@@ -18,15 +18,15 @@
 #include <stdio.h>
 
 /* Variable Definitions */
-static emlrtRSInfo wj_emlrtRSI = { 17, "eye",
+static emlrtRSInfo yj_emlrtRSI = { 17, "eye",
   "/usr/local/MATLAB/MATLAB_Production_Server/R2013a/toolbox/eml/lib/matlab/elmat/eye.m"
 };
 
-static emlrtRSInfo xj_emlrtRSI = { 50, "eye",
+static emlrtRSInfo ak_emlrtRSI = { 50, "eye",
   "/usr/local/MATLAB/MATLAB_Production_Server/R2013a/toolbox/eml/lib/matlab/elmat/eye.m"
 };
 
-static emlrtRSInfo yj_emlrtRSI = { 59, "eye",
+static emlrtRSInfo bk_emlrtRSI = { 59, "eye",
   "/usr/local/MATLAB/MATLAB_Production_Server/R2013a/toolbox/eml/lib/matlab/elmat/eye.m"
 };
 
@@ -63,8 +63,8 @@ void eye(real_T n, emxArray_real_T *I)
   int32_T loop_ub;
   real_T minval;
   boolean_T b2;
-  emlrtPushRtStackR2012b(&wj_emlrtRSI, emlrtRootTLSGlobal);
-  emlrtPushRtStackR2012b(&xj_emlrtRSI, emlrtRootTLSGlobal);
+  emlrtPushRtStackR2012b(&yj_emlrtRSI, emlrtRootTLSGlobal);
+  emlrtPushRtStackR2012b(&ak_emlrtRSI, emlrtRootTLSGlobal);
   if ((n != n) || muDoubleScalarIsInf(n)) {
     p = FALSE;
   } else {
@@ -140,7 +140,7 @@ void eye(real_T n, emxArray_real_T *I)
     emlrtPopRtStackR2012b(&qi_emlrtRSI, emlrtRootTLSGlobal);
   }
 
-  emlrtPopRtStackR2012b(&xj_emlrtRSI, emlrtRootTLSGlobal);
+  emlrtPopRtStackR2012b(&ak_emlrtRSI, emlrtRootTLSGlobal);
   i = I->size[0] * I->size[1];
   I->size[0] = (int32_T)n;
   I->size[1] = (int32_T)n;
@@ -153,7 +153,7 @@ void eye(real_T n, emxArray_real_T *I)
 
   minval = muDoubleScalarMin(n, n);
   if ((int32_T)minval > 0) {
-    emlrtPushRtStackR2012b(&yj_emlrtRSI, emlrtRootTLSGlobal);
+    emlrtPushRtStackR2012b(&bk_emlrtRSI, emlrtRootTLSGlobal);
     if (1 > (int32_T)minval) {
       b2 = FALSE;
     } else {
@@ -166,13 +166,13 @@ void eye(real_T n, emxArray_real_T *I)
       emlrtPopRtStackR2012b(&bb_emlrtRSI, emlrtRootTLSGlobal);
     }
 
-    emlrtPopRtStackR2012b(&yj_emlrtRSI, emlrtRootTLSGlobal);
+    emlrtPopRtStackR2012b(&bk_emlrtRSI, emlrtRootTLSGlobal);
     for (i = 0; i + 1 <= (int32_T)minval; i++) {
       I->data[i + I->size[0] * i] = 1.0;
     }
   }
 
-  emlrtPopRtStackR2012b(&wj_emlrtRSI, emlrtRootTLSGlobal);
+  emlrtPopRtStackR2012b(&yj_emlrtRSI, emlrtRootTLSGlobal);
 }
 
 /* End of code generation (eye.c) */

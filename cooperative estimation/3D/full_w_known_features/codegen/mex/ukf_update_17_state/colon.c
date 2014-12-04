@@ -3,7 +3,7 @@
  *
  * Code generation for function 'colon'
  *
- * C source code generated on: Thu Nov 20 12:39:29 2014
+ * C source code generated on: Thu Dec  4 12:26:46 2014
  *
  */
 
@@ -17,19 +17,19 @@
 #include <stdio.h>
 
 /* Variable Definitions */
-static emlrtRSInfo ik_emlrtRSI = { 238, "colon",
+static emlrtRSInfo kk_emlrtRSI = { 238, "colon",
   "/usr/local/MATLAB/MATLAB_Production_Server/R2013a/toolbox/eml/lib/matlab/ops/colon.m"
 };
 
-static emlrtRSInfo jk_emlrtRSI = { 265, "colon",
+static emlrtRSInfo lk_emlrtRSI = { 265, "colon",
   "/usr/local/MATLAB/MATLAB_Production_Server/R2013a/toolbox/eml/lib/matlab/ops/colon.m"
 };
 
-static emlrtRSInfo uk_emlrtRSI = { 151, "colon",
+static emlrtRSInfo wk_emlrtRSI = { 151, "colon",
   "/usr/local/MATLAB/MATLAB_Production_Server/R2013a/toolbox/eml/lib/matlab/ops/colon.m"
 };
 
-static emlrtRSInfo vk_emlrtRSI = { 156, "colon",
+static emlrtRSInfo xk_emlrtRSI = { 156, "colon",
   "/usr/local/MATLAB/MATLAB_Production_Server/R2013a/toolbox/eml/lib/matlab/ops/colon.m"
 };
 
@@ -44,18 +44,18 @@ void eml_signed_integer_colon(int32_T b, emxArray_int32_T *y)
   int32_T yk;
   boolean_T b3;
   int32_T k;
-  emlrtPushRtStackR2012b(&uk_emlrtRSI, emlrtRootTLSGlobal);
-  emlrtPushRtStackR2012b(&ik_emlrtRSI, emlrtRootTLSGlobal);
+  emlrtPushRtStackR2012b(&wk_emlrtRSI, emlrtRootTLSGlobal);
+  emlrtPushRtStackR2012b(&kk_emlrtRSI, emlrtRootTLSGlobal);
   if (b < 1) {
     n = 0;
   } else {
-    emlrtPushRtStackR2012b(&jk_emlrtRSI, emlrtRootTLSGlobal);
-    emlrtPopRtStackR2012b(&jk_emlrtRSI, emlrtRootTLSGlobal);
+    emlrtPushRtStackR2012b(&lk_emlrtRSI, emlrtRootTLSGlobal);
+    emlrtPopRtStackR2012b(&lk_emlrtRSI, emlrtRootTLSGlobal);
     n = b;
   }
 
-  emlrtPopRtStackR2012b(&ik_emlrtRSI, emlrtRootTLSGlobal);
-  emlrtPopRtStackR2012b(&uk_emlrtRSI, emlrtRootTLSGlobal);
+  emlrtPopRtStackR2012b(&kk_emlrtRSI, emlrtRootTLSGlobal);
+  emlrtPopRtStackR2012b(&wk_emlrtRSI, emlrtRootTLSGlobal);
   yk = y->size[0] * y->size[1];
   y->size[0] = 1;
   y->size[1] = n;
@@ -64,7 +64,7 @@ void eml_signed_integer_colon(int32_T b, emxArray_int32_T *y)
   if (n > 0) {
     y->data[0] = 1;
     yk = 1;
-    emlrtPushRtStackR2012b(&vk_emlrtRSI, emlrtRootTLSGlobal);
+    emlrtPushRtStackR2012b(&xk_emlrtRSI, emlrtRootTLSGlobal);
     if (2 > n) {
       b3 = FALSE;
     } else {
@@ -77,7 +77,7 @@ void eml_signed_integer_colon(int32_T b, emxArray_int32_T *y)
       emlrtPopRtStackR2012b(&bb_emlrtRSI, emlrtRootTLSGlobal);
     }
 
-    emlrtPopRtStackR2012b(&vk_emlrtRSI, emlrtRootTLSGlobal);
+    emlrtPopRtStackR2012b(&xk_emlrtRSI, emlrtRootTLSGlobal);
     for (k = 2; k <= n; k++) {
       yk++;
       y->data[k - 1] = yk;

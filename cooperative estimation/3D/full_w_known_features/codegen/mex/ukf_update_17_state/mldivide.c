@@ -3,7 +3,7 @@
  *
  * Code generation for function 'mldivide'
  *
- * C source code generated on: Thu Nov 20 12:39:30 2014
+ * C source code generated on: Thu Dec  4 12:26:47 2014
  *
  */
 
@@ -48,243 +48,243 @@ static emlrtRSInfo le_emlrtRSI = { 103, "eml_matlab_zlarf",
   "/usr/local/MATLAB/MATLAB_Production_Server/R2013a/toolbox/eml/lib/matlab/eml/lapack/matlab/eml_matlab_zlarf.m"
 };
 
-static emlrtRSInfo ak_emlrtRSI = { 1, "mldivide",
+static emlrtRSInfo ck_emlrtRSI = { 1, "mldivide",
   "/usr/local/MATLAB/MATLAB_Production_Server/R2013a/toolbox/eml/lib/matlab/ops/mldivide.p"
 };
 
-static emlrtRSInfo bk_emlrtRSI = { 20, "eml_lusolve",
+static emlrtRSInfo dk_emlrtRSI = { 20, "eml_lusolve",
   "/usr/local/MATLAB/MATLAB_Production_Server/R2013a/toolbox/eml/lib/matlab/eml/eml_lusolve.m"
 };
 
-static emlrtRSInfo ck_emlrtRSI = { 70, "eml_lusolve",
+static emlrtRSInfo ek_emlrtRSI = { 70, "eml_lusolve",
   "/usr/local/MATLAB/MATLAB_Production_Server/R2013a/toolbox/eml/lib/matlab/eml/eml_lusolve.m"
 };
 
-static emlrtRSInfo dk_emlrtRSI = { 68, "eml_lusolve",
+static emlrtRSInfo fk_emlrtRSI = { 68, "eml_lusolve",
   "/usr/local/MATLAB/MATLAB_Production_Server/R2013a/toolbox/eml/lib/matlab/eml/eml_lusolve.m"
 };
 
-static emlrtRSInfo ek_emlrtRSI = { 77, "eml_lusolve",
+static emlrtRSInfo gk_emlrtRSI = { 77, "eml_lusolve",
   "/usr/local/MATLAB/MATLAB_Production_Server/R2013a/toolbox/eml/lib/matlab/eml/eml_lusolve.m"
 };
 
-static emlrtRSInfo fk_emlrtRSI = { 80, "eml_lusolve",
+static emlrtRSInfo hk_emlrtRSI = { 80, "eml_lusolve",
   "/usr/local/MATLAB/MATLAB_Production_Server/R2013a/toolbox/eml/lib/matlab/eml/eml_lusolve.m"
 };
 
-static emlrtRSInfo gk_emlrtRSI = { 88, "eml_lusolve",
+static emlrtRSInfo ik_emlrtRSI = { 88, "eml_lusolve",
   "/usr/local/MATLAB/MATLAB_Production_Server/R2013a/toolbox/eml/lib/matlab/eml/eml_lusolve.m"
 };
 
-static emlrtRSInfo hk_emlrtRSI = { 90, "eml_lusolve",
+static emlrtRSInfo jk_emlrtRSI = { 90, "eml_lusolve",
   "/usr/local/MATLAB/MATLAB_Production_Server/R2013a/toolbox/eml/lib/matlab/eml/eml_lusolve.m"
 };
 
-static emlrtRSInfo kk_emlrtRSI = { 8, "eml_xgetrf",
+static emlrtRSInfo mk_emlrtRSI = { 8, "eml_xgetrf",
   "/usr/local/MATLAB/MATLAB_Production_Server/R2013a/toolbox/eml/lib/matlab/eml/lapack/eml_xgetrf.m"
 };
 
-static emlrtRSInfo lk_emlrtRSI = { 8, "eml_lapack_xgetrf",
+static emlrtRSInfo nk_emlrtRSI = { 8, "eml_lapack_xgetrf",
   "/usr/local/MATLAB/MATLAB_Production_Server/R2013a/toolbox/eml/lib/matlab/eml/lapack/internal/eml_lapack_xgetrf.m"
 };
 
-static emlrtRSInfo mk_emlrtRSI = { 23, "eml_matlab_zgetrf",
+static emlrtRSInfo ok_emlrtRSI = { 23, "eml_matlab_zgetrf",
   "/usr/local/MATLAB/MATLAB_Production_Server/R2013a/toolbox/eml/lib/matlab/eml/lapack/matlab/eml_matlab_zgetrf.m"
 };
 
-static emlrtRSInfo nk_emlrtRSI = { 30, "eml_matlab_zgetrf",
+static emlrtRSInfo pk_emlrtRSI = { 30, "eml_matlab_zgetrf",
   "/usr/local/MATLAB/MATLAB_Production_Server/R2013a/toolbox/eml/lib/matlab/eml/lapack/matlab/eml_matlab_zgetrf.m"
 };
 
-static emlrtRSInfo ok_emlrtRSI = { 36, "eml_matlab_zgetrf",
+static emlrtRSInfo qk_emlrtRSI = { 36, "eml_matlab_zgetrf",
   "/usr/local/MATLAB/MATLAB_Production_Server/R2013a/toolbox/eml/lib/matlab/eml/lapack/matlab/eml_matlab_zgetrf.m"
 };
 
-static emlrtRSInfo pk_emlrtRSI = { 44, "eml_matlab_zgetrf",
+static emlrtRSInfo rk_emlrtRSI = { 44, "eml_matlab_zgetrf",
   "/usr/local/MATLAB/MATLAB_Production_Server/R2013a/toolbox/eml/lib/matlab/eml/lapack/matlab/eml_matlab_zgetrf.m"
 };
 
-static emlrtRSInfo qk_emlrtRSI = { 50, "eml_matlab_zgetrf",
+static emlrtRSInfo sk_emlrtRSI = { 50, "eml_matlab_zgetrf",
   "/usr/local/MATLAB/MATLAB_Production_Server/R2013a/toolbox/eml/lib/matlab/eml/lapack/matlab/eml_matlab_zgetrf.m"
 };
 
-static emlrtRSInfo rk_emlrtRSI = { 58, "eml_matlab_zgetrf",
+static emlrtRSInfo tk_emlrtRSI = { 58, "eml_matlab_zgetrf",
   "/usr/local/MATLAB/MATLAB_Production_Server/R2013a/toolbox/eml/lib/matlab/eml/lapack/matlab/eml_matlab_zgetrf.m"
 };
 
-static emlrtRSInfo sk_emlrtRSI = { 75, "colon",
+static emlrtRSInfo uk_emlrtRSI = { 75, "colon",
   "/usr/local/MATLAB/MATLAB_Production_Server/R2013a/toolbox/eml/lib/matlab/ops/colon.m"
 };
 
-static emlrtRSInfo tk_emlrtRSI = { 112, "colon",
+static emlrtRSInfo vk_emlrtRSI = { 112, "colon",
   "/usr/local/MATLAB/MATLAB_Production_Server/R2013a/toolbox/eml/lib/matlab/ops/colon.m"
 };
 
-static emlrtRSInfo wk_emlrtRSI = { 20, "eml_ixamax",
+static emlrtRSInfo yk_emlrtRSI = { 20, "eml_ixamax",
   "/usr/local/MATLAB/MATLAB_Production_Server/R2013a/toolbox/eml/lib/matlab/eml/blas/eml_ixamax.m"
 };
 
-static emlrtRSInfo yk_emlrtRSI = { 24, "eml_blas_ixamax",
+static emlrtRSInfo bl_emlrtRSI = { 24, "eml_blas_ixamax",
   "/usr/local/MATLAB/MATLAB_Production_Server/R2013a/toolbox/eml/lib/matlab/eml/blas/external/eml_blas_ixamax.m"
 };
 
-static emlrtRSInfo bl_emlrtRSI = { 69, "eml_blas_ixamax",
+static emlrtRSInfo dl_emlrtRSI = { 69, "eml_blas_ixamax",
   "/usr/local/MATLAB/MATLAB_Production_Server/R2013a/toolbox/eml/lib/matlab/eml/blas/external/eml_blas_ixamax.m"
 };
 
-static emlrtRSInfo cl_emlrtRSI = { 70, "eml_blas_ixamax",
+static emlrtRSInfo el_emlrtRSI = { 70, "eml_blas_ixamax",
   "/usr/local/MATLAB/MATLAB_Production_Server/R2013a/toolbox/eml/lib/matlab/eml/blas/external/eml_blas_ixamax.m"
 };
 
-static emlrtRSInfo dl_emlrtRSI = { 74, "eml_blas_ixamax",
+static emlrtRSInfo fl_emlrtRSI = { 74, "eml_blas_ixamax",
   "/usr/local/MATLAB/MATLAB_Production_Server/R2013a/toolbox/eml/lib/matlab/eml/blas/external/eml_blas_ixamax.m"
 };
 
-static emlrtRSInfo el_emlrtRSI = { 80, "eml_blas_ixamax",
+static emlrtRSInfo gl_emlrtRSI = { 80, "eml_blas_ixamax",
   "/usr/local/MATLAB/MATLAB_Production_Server/R2013a/toolbox/eml/lib/matlab/eml/blas/external/eml_blas_ixamax.m"
 };
 
-static emlrtRSInfo fl_emlrtRSI = { 26, "eml_xswap",
+static emlrtRSInfo hl_emlrtRSI = { 26, "eml_xswap",
   "/usr/local/MATLAB/MATLAB_Production_Server/R2013a/toolbox/eml/lib/matlab/eml/blas/eml_xswap.m"
 };
 
-static emlrtRSInfo gl_emlrtRSI = { 15, "eml_blas_xswap",
+static emlrtRSInfo il_emlrtRSI = { 15, "eml_blas_xswap",
   "/usr/local/MATLAB/MATLAB_Production_Server/R2013a/toolbox/eml/lib/matlab/eml/blas/external/eml_blas_xswap.m"
 };
 
-static emlrtRSInfo hl_emlrtRSI = { 19, "eml_refblas_xswap",
+static emlrtRSInfo jl_emlrtRSI = { 19, "eml_refblas_xswap",
   "/usr/local/MATLAB/MATLAB_Production_Server/R2013a/toolbox/eml/lib/matlab/eml/blas/refblas/eml_refblas_xswap.m"
 };
 
-static emlrtRSInfo il_emlrtRSI = { 42, "eml_xgeru",
+static emlrtRSInfo kl_emlrtRSI = { 42, "eml_xgeru",
   "/usr/local/MATLAB/MATLAB_Production_Server/R2013a/toolbox/eml/lib/matlab/eml/blas/eml_xgeru.m"
 };
 
-static emlrtRSInfo jl_emlrtRSI = { 105, "eml_blas_xger",
+static emlrtRSInfo ll_emlrtRSI = { 105, "eml_blas_xger",
   "/usr/local/MATLAB/MATLAB_Production_Server/R2013a/toolbox/eml/lib/matlab/eml/blas/external/eml_blas_xger.m"
 };
 
-static emlrtRSInfo kl_emlrtRSI = { 108, "eml_blas_xger",
+static emlrtRSInfo ml_emlrtRSI = { 108, "eml_blas_xger",
   "/usr/local/MATLAB/MATLAB_Production_Server/R2013a/toolbox/eml/lib/matlab/eml/blas/external/eml_blas_xger.m"
 };
 
-static emlrtRSInfo ll_emlrtRSI = { 110, "eml_blas_xger",
+static emlrtRSInfo nl_emlrtRSI = { 110, "eml_blas_xger",
   "/usr/local/MATLAB/MATLAB_Production_Server/R2013a/toolbox/eml/lib/matlab/eml/blas/external/eml_blas_xger.m"
 };
 
-static emlrtRSInfo ml_emlrtRSI = { 54, "eml_lusolve",
+static emlrtRSInfo ol_emlrtRSI = { 54, "eml_lusolve",
   "/usr/local/MATLAB/MATLAB_Production_Server/R2013a/toolbox/eml/lib/matlab/eml/eml_lusolve.m"
 };
 
-static emlrtRSInfo nl_emlrtRSI = { 54, "eml_xtrsm",
+static emlrtRSInfo pl_emlrtRSI = { 54, "eml_xtrsm",
   "/usr/local/MATLAB/MATLAB_Production_Server/R2013a/toolbox/eml/lib/matlab/eml/blas/eml_xtrsm.m"
 };
 
-static emlrtRSInfo pl_emlrtRSI = { 28, "eml_blas_xtrsm",
+static emlrtRSInfo rl_emlrtRSI = { 28, "eml_blas_xtrsm",
   "/usr/local/MATLAB/MATLAB_Production_Server/R2013a/toolbox/eml/lib/matlab/eml/blas/external/eml_blas_xtrsm.m"
 };
 
-static emlrtRSInfo tl_emlrtRSI = { 87, "eml_blas_xtrsm",
+static emlrtRSInfo vl_emlrtRSI = { 87, "eml_blas_xtrsm",
   "/usr/local/MATLAB/MATLAB_Production_Server/R2013a/toolbox/eml/lib/matlab/eml/blas/external/eml_blas_xtrsm.m"
 };
 
-static emlrtRSInfo ul_emlrtRSI = { 88, "eml_blas_xtrsm",
+static emlrtRSInfo wl_emlrtRSI = { 88, "eml_blas_xtrsm",
   "/usr/local/MATLAB/MATLAB_Production_Server/R2013a/toolbox/eml/lib/matlab/eml/blas/external/eml_blas_xtrsm.m"
 };
 
-static emlrtRSInfo vl_emlrtRSI = { 89, "eml_blas_xtrsm",
+static emlrtRSInfo xl_emlrtRSI = { 89, "eml_blas_xtrsm",
   "/usr/local/MATLAB/MATLAB_Production_Server/R2013a/toolbox/eml/lib/matlab/eml/blas/external/eml_blas_xtrsm.m"
 };
 
-static emlrtRSInfo wl_emlrtRSI = { 90, "eml_blas_xtrsm",
+static emlrtRSInfo yl_emlrtRSI = { 90, "eml_blas_xtrsm",
   "/usr/local/MATLAB/MATLAB_Production_Server/R2013a/toolbox/eml/lib/matlab/eml/blas/external/eml_blas_xtrsm.m"
 };
 
-static emlrtRSInfo xl_emlrtRSI = { 94, "eml_blas_xtrsm",
+static emlrtRSInfo am_emlrtRSI = { 94, "eml_blas_xtrsm",
   "/usr/local/MATLAB/MATLAB_Production_Server/R2013a/toolbox/eml/lib/matlab/eml/blas/external/eml_blas_xtrsm.m"
 };
 
-static emlrtRSInfo yl_emlrtRSI = { 97, "eml_blas_xtrsm",
+static emlrtRSInfo bm_emlrtRSI = { 97, "eml_blas_xtrsm",
   "/usr/local/MATLAB/MATLAB_Production_Server/R2013a/toolbox/eml/lib/matlab/eml/blas/external/eml_blas_xtrsm.m"
 };
 
-static emlrtRSInfo am_emlrtRSI = { 100, "eml_blas_xtrsm",
+static emlrtRSInfo cm_emlrtRSI = { 100, "eml_blas_xtrsm",
   "/usr/local/MATLAB/MATLAB_Production_Server/R2013a/toolbox/eml/lib/matlab/eml/blas/external/eml_blas_xtrsm.m"
 };
 
-static emlrtRSInfo bm_emlrtRSI = { 103, "eml_blas_xtrsm",
+static emlrtRSInfo dm_emlrtRSI = { 103, "eml_blas_xtrsm",
   "/usr/local/MATLAB/MATLAB_Production_Server/R2013a/toolbox/eml/lib/matlab/eml/blas/external/eml_blas_xtrsm.m"
 };
 
-static emlrtRSInfo em_emlrtRSI = { 29, "eml_qrsolve",
+static emlrtRSInfo gm_emlrtRSI = { 29, "eml_qrsolve",
   "/usr/local/MATLAB/MATLAB_Production_Server/R2013a/toolbox/eml/lib/matlab/eml/eml_qrsolve.m"
 };
 
-static emlrtRSInfo fm_emlrtRSI = { 37, "eml_qrsolve",
+static emlrtRSInfo hm_emlrtRSI = { 37, "eml_qrsolve",
   "/usr/local/MATLAB/MATLAB_Production_Server/R2013a/toolbox/eml/lib/matlab/eml/eml_qrsolve.m"
 };
 
-static emlrtRSInfo gm_emlrtRSI = { 8, "eml_xgeqp3",
+static emlrtRSInfo im_emlrtRSI = { 8, "eml_xgeqp3",
   "/usr/local/MATLAB/MATLAB_Production_Server/R2013a/toolbox/eml/lib/matlab/eml/lapack/eml_xgeqp3.m"
 };
 
-static emlrtRSInfo hm_emlrtRSI = { 8, "eml_lapack_xgeqp3",
+static emlrtRSInfo jm_emlrtRSI = { 8, "eml_lapack_xgeqp3",
   "/usr/local/MATLAB/MATLAB_Production_Server/R2013a/toolbox/eml/lib/matlab/eml/lapack/internal/eml_lapack_xgeqp3.m"
 };
 
-static emlrtRSInfo im_emlrtRSI = { 19, "eml_matlab_zgeqp3",
+static emlrtRSInfo km_emlrtRSI = { 19, "eml_matlab_zgeqp3",
   "/usr/local/MATLAB/MATLAB_Production_Server/R2013a/toolbox/eml/lib/matlab/eml/lapack/matlab/eml_matlab_zgeqp3.m"
 };
 
-static emlrtRSInfo jm_emlrtRSI = { 25, "eml_matlab_zgeqp3",
+static emlrtRSInfo lm_emlrtRSI = { 25, "eml_matlab_zgeqp3",
   "/usr/local/MATLAB/MATLAB_Production_Server/R2013a/toolbox/eml/lib/matlab/eml/lapack/matlab/eml_matlab_zgeqp3.m"
 };
 
-static emlrtRSInfo km_emlrtRSI = { 31, "eml_matlab_zgeqp3",
+static emlrtRSInfo mm_emlrtRSI = { 31, "eml_matlab_zgeqp3",
   "/usr/local/MATLAB/MATLAB_Production_Server/R2013a/toolbox/eml/lib/matlab/eml/lapack/matlab/eml_matlab_zgeqp3.m"
 };
 
-static emlrtRSInfo lm_emlrtRSI = { 32, "eml_matlab_zgeqp3",
+static emlrtRSInfo nm_emlrtRSI = { 32, "eml_matlab_zgeqp3",
   "/usr/local/MATLAB/MATLAB_Production_Server/R2013a/toolbox/eml/lib/matlab/eml/lapack/matlab/eml_matlab_zgeqp3.m"
 };
 
-static emlrtRSInfo mm_emlrtRSI = { 37, "eml_matlab_zgeqp3",
+static emlrtRSInfo om_emlrtRSI = { 37, "eml_matlab_zgeqp3",
   "/usr/local/MATLAB/MATLAB_Production_Server/R2013a/toolbox/eml/lib/matlab/eml/lapack/matlab/eml_matlab_zgeqp3.m"
 };
 
-static emlrtRSInfo nm_emlrtRSI = { 47, "eml_matlab_zgeqp3",
+static emlrtRSInfo pm_emlrtRSI = { 47, "eml_matlab_zgeqp3",
   "/usr/local/MATLAB/MATLAB_Production_Server/R2013a/toolbox/eml/lib/matlab/eml/lapack/matlab/eml_matlab_zgeqp3.m"
 };
 
-static emlrtRSInfo om_emlrtRSI = { 51, "eml_matlab_zgeqp3",
+static emlrtRSInfo qm_emlrtRSI = { 51, "eml_matlab_zgeqp3",
   "/usr/local/MATLAB/MATLAB_Production_Server/R2013a/toolbox/eml/lib/matlab/eml/lapack/matlab/eml_matlab_zgeqp3.m"
 };
 
-static emlrtRSInfo pm_emlrtRSI = { 64, "eml_matlab_zgeqp3",
+static emlrtRSInfo rm_emlrtRSI = { 64, "eml_matlab_zgeqp3",
   "/usr/local/MATLAB/MATLAB_Production_Server/R2013a/toolbox/eml/lib/matlab/eml/lapack/matlab/eml_matlab_zgeqp3.m"
 };
 
-static emlrtRSInfo qm_emlrtRSI = { 66, "eml_matlab_zgeqp3",
+static emlrtRSInfo sm_emlrtRSI = { 66, "eml_matlab_zgeqp3",
   "/usr/local/MATLAB/MATLAB_Production_Server/R2013a/toolbox/eml/lib/matlab/eml/lapack/matlab/eml_matlab_zgeqp3.m"
 };
 
-static emlrtRSInfo rm_emlrtRSI = { 74, "eml_matlab_zgeqp3",
+static emlrtRSInfo tm_emlrtRSI = { 74, "eml_matlab_zgeqp3",
   "/usr/local/MATLAB/MATLAB_Production_Server/R2013a/toolbox/eml/lib/matlab/eml/lapack/matlab/eml_matlab_zgeqp3.m"
 };
 
-static emlrtRSInfo sm_emlrtRSI = { 79, "eml_matlab_zgeqp3",
+static emlrtRSInfo um_emlrtRSI = { 79, "eml_matlab_zgeqp3",
   "/usr/local/MATLAB/MATLAB_Production_Server/R2013a/toolbox/eml/lib/matlab/eml/lapack/matlab/eml_matlab_zgeqp3.m"
 };
 
-static emlrtRSInfo tm_emlrtRSI = { 93, "eml_matlab_zgeqp3",
+static emlrtRSInfo vm_emlrtRSI = { 93, "eml_matlab_zgeqp3",
   "/usr/local/MATLAB/MATLAB_Production_Server/R2013a/toolbox/eml/lib/matlab/eml/lapack/matlab/eml_matlab_zgeqp3.m"
 };
 
-static emlrtRSInfo um_emlrtRSI = { 100, "eml_matlab_zgeqp3",
+static emlrtRSInfo wm_emlrtRSI = { 100, "eml_matlab_zgeqp3",
   "/usr/local/MATLAB/MATLAB_Production_Server/R2013a/toolbox/eml/lib/matlab/eml/lapack/matlab/eml_matlab_zgeqp3.m"
 };
 
-static emlrtRSInfo vm_emlrtRSI = { 29, "eml_flt2str",
+static emlrtRSInfo xm_emlrtRSI = { 29, "eml_flt2str",
   "/usr/local/MATLAB/MATLAB_Production_Server/R2013a/toolbox/eml/lib/matlab/eml/eml_flt2str.m"
 };
 
@@ -688,10 +688,10 @@ static void eml_lusolve(const emxArray_real_T *A, const emxArray_real_T *B,
   char_T SIDE;
   emlrtHeapReferenceStackEnterFcnR2012b(emlrtRootTLSGlobal);
   emxInit_real_T(&b_A, 2, &lb_emlrtRTEI, TRUE);
-  emlrtPushRtStackR2012b(&bk_emlrtRSI, emlrtRootTLSGlobal);
   emlrtPushRtStackR2012b(&dk_emlrtRSI, emlrtRootTLSGlobal);
-  emlrtPushRtStackR2012b(&kk_emlrtRSI, emlrtRootTLSGlobal);
-  emlrtPushRtStackR2012b(&lk_emlrtRSI, emlrtRootTLSGlobal);
+  emlrtPushRtStackR2012b(&fk_emlrtRSI, emlrtRootTLSGlobal);
+  emlrtPushRtStackR2012b(&mk_emlrtRSI, emlrtRootTLSGlobal);
+  emlrtPushRtStackR2012b(&nk_emlrtRSI, emlrtRootTLSGlobal);
   k = b_A->size[0] * b_A->size[1];
   b_A->size[0] = A->size[0];
   b_A->size[1] = A->size[1];
@@ -703,65 +703,65 @@ static void eml_lusolve(const emxArray_real_T *A, const emxArray_real_T *B,
   }
 
   emxInit_int32_T(&ipiv, 2, &lb_emlrtRTEI, TRUE);
-  emlrtPushRtStackR2012b(&mk_emlrtRSI, emlrtRootTLSGlobal);
+  emlrtPushRtStackR2012b(&ok_emlrtRSI, emlrtRootTLSGlobal);
   emlrtPushRtStackR2012b(&v_emlrtRSI, emlrtRootTLSGlobal);
-  emlrtPushRtStackR2012b(&sk_emlrtRSI, emlrtRootTLSGlobal);
-  emlrtPushRtStackR2012b(&tk_emlrtRSI, emlrtRootTLSGlobal);
+  emlrtPushRtStackR2012b(&uk_emlrtRSI, emlrtRootTLSGlobal);
+  emlrtPushRtStackR2012b(&vk_emlrtRSI, emlrtRootTLSGlobal);
   eml_signed_integer_colon(muIntScalarMin_sint32(A->size[1], A->size[1]), ipiv);
-  emlrtPopRtStackR2012b(&tk_emlrtRSI, emlrtRootTLSGlobal);
-  emlrtPopRtStackR2012b(&sk_emlrtRSI, emlrtRootTLSGlobal);
+  emlrtPopRtStackR2012b(&vk_emlrtRSI, emlrtRootTLSGlobal);
+  emlrtPopRtStackR2012b(&uk_emlrtRSI, emlrtRootTLSGlobal);
   emlrtPopRtStackR2012b(&v_emlrtRSI, emlrtRootTLSGlobal);
-  emlrtPopRtStackR2012b(&mk_emlrtRSI, emlrtRootTLSGlobal);
+  emlrtPopRtStackR2012b(&ok_emlrtRSI, emlrtRootTLSGlobal);
   info = 0;
   if ((A->size[1] < 1) || (A->size[1] < 1)) {
   } else {
     b = muIntScalarMin_sint32(A->size[1] - 1, A->size[1]);
-    emlrtPushRtStackR2012b(&nk_emlrtRSI, emlrtRootTLSGlobal);
-    emlrtPopRtStackR2012b(&nk_emlrtRSI, emlrtRootTLSGlobal);
+    emlrtPushRtStackR2012b(&pk_emlrtRSI, emlrtRootTLSGlobal);
+    emlrtPopRtStackR2012b(&pk_emlrtRSI, emlrtRootTLSGlobal);
     for (j = 0; j + 1 <= b; j++) {
       mmj = A->size[1] - j;
       c = j * (A->size[1] + 1);
-      emlrtPushRtStackR2012b(&ok_emlrtRSI, emlrtRootTLSGlobal);
-      emlrtPushRtStackR2012b(&wk_emlrtRSI, emlrtRootTLSGlobal);
+      emlrtPushRtStackR2012b(&qk_emlrtRSI, emlrtRootTLSGlobal);
+      emlrtPushRtStackR2012b(&yk_emlrtRSI, emlrtRootTLSGlobal);
       if (mmj < 1) {
         iy = -1;
       } else {
-        emlrtPushRtStackR2012b(&yk_emlrtRSI, emlrtRootTLSGlobal);
         emlrtPushRtStackR2012b(&bl_emlrtRSI, emlrtRootTLSGlobal);
+        emlrtPushRtStackR2012b(&dl_emlrtRSI, emlrtRootTLSGlobal);
         emlrtPushRtStackR2012b(&nc_emlrtRSI, emlrtRootTLSGlobal);
         emlrt_checkEscapedGlobals();
         n_t = (ptrdiff_t)(mmj);
         emlrtPopRtStackR2012b(&nc_emlrtRSI, emlrtRootTLSGlobal);
-        emlrtPopRtStackR2012b(&bl_emlrtRSI, emlrtRootTLSGlobal);
-        emlrtPushRtStackR2012b(&cl_emlrtRSI, emlrtRootTLSGlobal);
+        emlrtPopRtStackR2012b(&dl_emlrtRSI, emlrtRootTLSGlobal);
+        emlrtPushRtStackR2012b(&el_emlrtRSI, emlrtRootTLSGlobal);
         emlrtPushRtStackR2012b(&nc_emlrtRSI, emlrtRootTLSGlobal);
         emlrt_checkEscapedGlobals();
         incx_t = (ptrdiff_t)(1);
         emlrtPopRtStackR2012b(&nc_emlrtRSI, emlrtRootTLSGlobal);
-        emlrtPopRtStackR2012b(&cl_emlrtRSI, emlrtRootTLSGlobal);
-        emlrtPushRtStackR2012b(&dl_emlrtRSI, emlrtRootTLSGlobal);
+        emlrtPopRtStackR2012b(&el_emlrtRSI, emlrtRootTLSGlobal);
+        emlrtPushRtStackR2012b(&fl_emlrtRSI, emlrtRootTLSGlobal);
         emlrt_checkEscapedGlobals();
         xix0_t = (double *)(&b_A->data[c]);
-        emlrtPopRtStackR2012b(&dl_emlrtRSI, emlrtRootTLSGlobal);
+        emlrtPopRtStackR2012b(&fl_emlrtRSI, emlrtRootTLSGlobal);
         emlrt_checkEscapedGlobals();
-        emlrtPushRtStackR2012b(&el_emlrtRSI, emlrtRootTLSGlobal);
+        emlrtPushRtStackR2012b(&gl_emlrtRSI, emlrtRootTLSGlobal);
         emlrt_checkEscapedGlobals();
         iy = (int32_T)(idamax(&n_t, xix0_t, &incx_t)) - 1;
-        emlrtPopRtStackR2012b(&el_emlrtRSI, emlrtRootTLSGlobal);
-        emlrtPopRtStackR2012b(&yk_emlrtRSI, emlrtRootTLSGlobal);
+        emlrtPopRtStackR2012b(&gl_emlrtRSI, emlrtRootTLSGlobal);
+        emlrtPopRtStackR2012b(&bl_emlrtRSI, emlrtRootTLSGlobal);
       }
 
-      emlrtPopRtStackR2012b(&wk_emlrtRSI, emlrtRootTLSGlobal);
-      emlrtPopRtStackR2012b(&ok_emlrtRSI, emlrtRootTLSGlobal);
+      emlrtPopRtStackR2012b(&yk_emlrtRSI, emlrtRootTLSGlobal);
+      emlrtPopRtStackR2012b(&qk_emlrtRSI, emlrtRootTLSGlobal);
       if (b_A->data[c + iy] != 0.0) {
         if (iy != 0) {
           ipiv->data[j] = (j + iy) + 1;
-          emlrtPushRtStackR2012b(&pk_emlrtRSI, emlrtRootTLSGlobal);
-          emlrtPushRtStackR2012b(&fl_emlrtRSI, emlrtRootTLSGlobal);
-          emlrtPushRtStackR2012b(&gl_emlrtRSI, emlrtRootTLSGlobal);
+          emlrtPushRtStackR2012b(&rk_emlrtRSI, emlrtRootTLSGlobal);
+          emlrtPushRtStackR2012b(&hl_emlrtRSI, emlrtRootTLSGlobal);
+          emlrtPushRtStackR2012b(&il_emlrtRSI, emlrtRootTLSGlobal);
           ix = j;
           iy += j;
-          emlrtPushRtStackR2012b(&hl_emlrtRSI, emlrtRootTLSGlobal);
+          emlrtPushRtStackR2012b(&jl_emlrtRSI, emlrtRootTLSGlobal);
           if (1 > A->size[1]) {
             overflow = FALSE;
           } else {
@@ -774,7 +774,7 @@ static void eml_lusolve(const emxArray_real_T *A, const emxArray_real_T *B,
             emlrtPopRtStackR2012b(&bb_emlrtRSI, emlrtRootTLSGlobal);
           }
 
-          emlrtPopRtStackR2012b(&hl_emlrtRSI, emlrtRootTLSGlobal);
+          emlrtPopRtStackR2012b(&jl_emlrtRSI, emlrtRootTLSGlobal);
           for (k = 1; k <= A->size[1]; k++) {
             temp = b_A->data[ix];
             b_A->data[ix] = b_A->data[iy];
@@ -783,13 +783,13 @@ static void eml_lusolve(const emxArray_real_T *A, const emxArray_real_T *B,
             iy += A->size[1];
           }
 
-          emlrtPopRtStackR2012b(&gl_emlrtRSI, emlrtRootTLSGlobal);
-          emlrtPopRtStackR2012b(&fl_emlrtRSI, emlrtRootTLSGlobal);
-          emlrtPopRtStackR2012b(&pk_emlrtRSI, emlrtRootTLSGlobal);
+          emlrtPopRtStackR2012b(&il_emlrtRSI, emlrtRootTLSGlobal);
+          emlrtPopRtStackR2012b(&hl_emlrtRSI, emlrtRootTLSGlobal);
+          emlrtPopRtStackR2012b(&rk_emlrtRSI, emlrtRootTLSGlobal);
         }
 
         iy = c + mmj;
-        emlrtPushRtStackR2012b(&qk_emlrtRSI, emlrtRootTLSGlobal);
+        emlrtPushRtStackR2012b(&sk_emlrtRSI, emlrtRootTLSGlobal);
         if (c + 2 > iy) {
           b_c = FALSE;
         } else {
@@ -802,7 +802,7 @@ static void eml_lusolve(const emxArray_real_T *A, const emxArray_real_T *B,
           emlrtPopRtStackR2012b(&bb_emlrtRSI, emlrtRootTLSGlobal);
         }
 
-        emlrtPopRtStackR2012b(&qk_emlrtRSI, emlrtRootTLSGlobal);
+        emlrtPopRtStackR2012b(&sk_emlrtRSI, emlrtRootTLSGlobal);
         for (k = c + 1; k + 1 <= iy; k++) {
           b_A->data[k] /= b_A->data[c];
         }
@@ -810,9 +810,9 @@ static void eml_lusolve(const emxArray_real_T *A, const emxArray_real_T *B,
         info = j + 1;
       }
 
-      emlrtPushRtStackR2012b(&rk_emlrtRSI, emlrtRootTLSGlobal);
+      emlrtPushRtStackR2012b(&tk_emlrtRSI, emlrtRootTLSGlobal);
       k = (A->size[1] - j) - 1;
-      emlrtPushRtStackR2012b(&il_emlrtRSI, emlrtRootTLSGlobal);
+      emlrtPushRtStackR2012b(&kl_emlrtRSI, emlrtRootTLSGlobal);
       emlrtPushRtStackR2012b(&ud_emlrtRSI, emlrtRootTLSGlobal);
       if ((mmj - 1 < 1) || (k < 1)) {
       } else {
@@ -856,25 +856,25 @@ static void eml_lusolve(const emxArray_real_T *A, const emxArray_real_T *B,
         emlrt_checkEscapedGlobals();
         Aia0_t = (double *)(&b_A->data[(c + A->size[1]) + 1]);
         emlrtPopRtStackR2012b(&he_emlrtRSI, emlrtRootTLSGlobal);
-        emlrtPushRtStackR2012b(&jl_emlrtRSI, emlrtRootTLSGlobal);
+        emlrtPushRtStackR2012b(&ll_emlrtRSI, emlrtRootTLSGlobal);
         emlrt_checkEscapedGlobals();
         xix0_t = (double *)(&b_A->data[c + 1]);
-        emlrtPopRtStackR2012b(&jl_emlrtRSI, emlrtRootTLSGlobal);
-        emlrtPushRtStackR2012b(&kl_emlrtRSI, emlrtRootTLSGlobal);
+        emlrtPopRtStackR2012b(&ll_emlrtRSI, emlrtRootTLSGlobal);
+        emlrtPushRtStackR2012b(&ml_emlrtRSI, emlrtRootTLSGlobal);
         emlrt_checkEscapedGlobals();
         Aiy0_t = (double *)(&b_A->data[c + A->size[1]]);
-        emlrtPopRtStackR2012b(&kl_emlrtRSI, emlrtRootTLSGlobal);
-        emlrtPushRtStackR2012b(&ll_emlrtRSI, emlrtRootTLSGlobal);
+        emlrtPopRtStackR2012b(&ml_emlrtRSI, emlrtRootTLSGlobal);
+        emlrtPushRtStackR2012b(&nl_emlrtRSI, emlrtRootTLSGlobal);
         emlrt_checkEscapedGlobals();
         dger(&m_t, &n_t, alpha1_t, xix0_t, &incx_t, Aiy0_t, &incy_t, Aia0_t,
              &lda_t);
-        emlrtPopRtStackR2012b(&ll_emlrtRSI, emlrtRootTLSGlobal);
+        emlrtPopRtStackR2012b(&nl_emlrtRSI, emlrtRootTLSGlobal);
         emlrtPopRtStackR2012b(&vd_emlrtRSI, emlrtRootTLSGlobal);
       }
 
       emlrtPopRtStackR2012b(&ud_emlrtRSI, emlrtRootTLSGlobal);
-      emlrtPopRtStackR2012b(&il_emlrtRSI, emlrtRootTLSGlobal);
-      emlrtPopRtStackR2012b(&rk_emlrtRSI, emlrtRootTLSGlobal);
+      emlrtPopRtStackR2012b(&kl_emlrtRSI, emlrtRootTLSGlobal);
+      emlrtPopRtStackR2012b(&tk_emlrtRSI, emlrtRootTLSGlobal);
     }
 
     if ((info == 0) && (!(b_A->data[(A->size[1] + b_A->size[0] * (A->size[1] - 1))
@@ -883,15 +883,15 @@ static void eml_lusolve(const emxArray_real_T *A, const emxArray_real_T *B,
     }
   }
 
-  emlrtPopRtStackR2012b(&lk_emlrtRSI, emlrtRootTLSGlobal);
-  emlrtPopRtStackR2012b(&kk_emlrtRSI, emlrtRootTLSGlobal);
-  emlrtPopRtStackR2012b(&dk_emlrtRSI, emlrtRootTLSGlobal);
+  emlrtPopRtStackR2012b(&nk_emlrtRSI, emlrtRootTLSGlobal);
+  emlrtPopRtStackR2012b(&mk_emlrtRSI, emlrtRootTLSGlobal);
+  emlrtPopRtStackR2012b(&fk_emlrtRSI, emlrtRootTLSGlobal);
   if (info > 0) {
-    emlrtPushRtStackR2012b(&ck_emlrtRSI, emlrtRootTLSGlobal);
-    emlrtPushRtStackR2012b(&ml_emlrtRSI, emlrtRootTLSGlobal);
+    emlrtPushRtStackR2012b(&ek_emlrtRSI, emlrtRootTLSGlobal);
+    emlrtPushRtStackR2012b(&ol_emlrtRSI, emlrtRootTLSGlobal);
     b_eml_warning();
-    emlrtPopRtStackR2012b(&ml_emlrtRSI, emlrtRootTLSGlobal);
-    emlrtPopRtStackR2012b(&ck_emlrtRSI, emlrtRootTLSGlobal);
+    emlrtPopRtStackR2012b(&ol_emlrtRSI, emlrtRootTLSGlobal);
+    emlrtPopRtStackR2012b(&ek_emlrtRSI, emlrtRootTLSGlobal);
   }
 
   k = X->size[0] * X->size[1];
@@ -904,7 +904,7 @@ static void eml_lusolve(const emxArray_real_T *A, const emxArray_real_T *B,
     X->data[k] = B->data[k];
   }
 
-  emlrtPushRtStackR2012b(&ek_emlrtRSI, emlrtRootTLSGlobal);
+  emlrtPushRtStackR2012b(&gk_emlrtRSI, emlrtRootTLSGlobal);
   if (1 > A->size[1]) {
     overflow = FALSE;
   } else {
@@ -917,10 +917,10 @@ static void eml_lusolve(const emxArray_real_T *A, const emxArray_real_T *B,
     emlrtPopRtStackR2012b(&bb_emlrtRSI, emlrtRootTLSGlobal);
   }
 
-  emlrtPopRtStackR2012b(&ek_emlrtRSI, emlrtRootTLSGlobal);
+  emlrtPopRtStackR2012b(&gk_emlrtRSI, emlrtRootTLSGlobal);
   for (k = 0; k + 1 <= A->size[1]; k++) {
     if (ipiv->data[k] != k + 1) {
-      emlrtPushRtStackR2012b(&fk_emlrtRSI, emlrtRootTLSGlobal);
+      emlrtPushRtStackR2012b(&hk_emlrtRSI, emlrtRootTLSGlobal);
       if (1 > B->size[1]) {
         overflow = FALSE;
       } else {
@@ -933,7 +933,7 @@ static void eml_lusolve(const emxArray_real_T *A, const emxArray_real_T *B,
         emlrtPopRtStackR2012b(&bb_emlrtRSI, emlrtRootTLSGlobal);
       }
 
-      emlrtPopRtStackR2012b(&fk_emlrtRSI, emlrtRootTLSGlobal);
+      emlrtPopRtStackR2012b(&hk_emlrtRSI, emlrtRootTLSGlobal);
       for (j = 0; j + 1 <= B->size[1]; j++) {
         temp = X->data[k + X->size[0] * j];
         X->data[k + X->size[0] * j] = X->data[(ipiv->data[k] + X->size[0] * j) -
@@ -944,120 +944,120 @@ static void eml_lusolve(const emxArray_real_T *A, const emxArray_real_T *B,
   }
 
   emxFree_int32_T(&ipiv);
-  emlrtPushRtStackR2012b(&gk_emlrtRSI, emlrtRootTLSGlobal);
-  emlrtPushRtStackR2012b(&nl_emlrtRSI, emlrtRootTLSGlobal);
+  emlrtPushRtStackR2012b(&ik_emlrtRSI, emlrtRootTLSGlobal);
+  emlrtPushRtStackR2012b(&pl_emlrtRSI, emlrtRootTLSGlobal);
   if ((A->size[1] < 1) || (B->size[1] < 1)) {
   } else {
-    emlrtPushRtStackR2012b(&pl_emlrtRSI, emlrtRootTLSGlobal);
+    emlrtPushRtStackR2012b(&rl_emlrtRSI, emlrtRootTLSGlobal);
     temp = 1.0;
     DIAGA = 'U';
     TRANSA = 'N';
     UPLO = 'L';
     SIDE = 'L';
-    emlrtPushRtStackR2012b(&tl_emlrtRSI, emlrtRootTLSGlobal);
-    emlrtPushRtStackR2012b(&nc_emlrtRSI, emlrtRootTLSGlobal);
-    emlrt_checkEscapedGlobals();
-    m_t = (ptrdiff_t)(A->size[1]);
-    emlrtPopRtStackR2012b(&nc_emlrtRSI, emlrtRootTLSGlobal);
-    emlrtPopRtStackR2012b(&tl_emlrtRSI, emlrtRootTLSGlobal);
-    emlrtPushRtStackR2012b(&ul_emlrtRSI, emlrtRootTLSGlobal);
-    emlrtPushRtStackR2012b(&nc_emlrtRSI, emlrtRootTLSGlobal);
-    emlrt_checkEscapedGlobals();
-    n_t = (ptrdiff_t)(B->size[1]);
-    emlrtPopRtStackR2012b(&nc_emlrtRSI, emlrtRootTLSGlobal);
-    emlrtPopRtStackR2012b(&ul_emlrtRSI, emlrtRootTLSGlobal);
     emlrtPushRtStackR2012b(&vl_emlrtRSI, emlrtRootTLSGlobal);
     emlrtPushRtStackR2012b(&nc_emlrtRSI, emlrtRootTLSGlobal);
     emlrt_checkEscapedGlobals();
-    lda_t = (ptrdiff_t)(A->size[1]);
+    m_t = (ptrdiff_t)(A->size[1]);
     emlrtPopRtStackR2012b(&nc_emlrtRSI, emlrtRootTLSGlobal);
     emlrtPopRtStackR2012b(&vl_emlrtRSI, emlrtRootTLSGlobal);
     emlrtPushRtStackR2012b(&wl_emlrtRSI, emlrtRootTLSGlobal);
     emlrtPushRtStackR2012b(&nc_emlrtRSI, emlrtRootTLSGlobal);
     emlrt_checkEscapedGlobals();
-    incx_t = (ptrdiff_t)(A->size[1]);
+    n_t = (ptrdiff_t)(B->size[1]);
     emlrtPopRtStackR2012b(&nc_emlrtRSI, emlrtRootTLSGlobal);
     emlrtPopRtStackR2012b(&wl_emlrtRSI, emlrtRootTLSGlobal);
     emlrtPushRtStackR2012b(&xl_emlrtRSI, emlrtRootTLSGlobal);
+    emlrtPushRtStackR2012b(&nc_emlrtRSI, emlrtRootTLSGlobal);
     emlrt_checkEscapedGlobals();
-    Aia0_t = (double *)(&b_A->data[0]);
+    lda_t = (ptrdiff_t)(A->size[1]);
+    emlrtPopRtStackR2012b(&nc_emlrtRSI, emlrtRootTLSGlobal);
     emlrtPopRtStackR2012b(&xl_emlrtRSI, emlrtRootTLSGlobal);
     emlrtPushRtStackR2012b(&yl_emlrtRSI, emlrtRootTLSGlobal);
+    emlrtPushRtStackR2012b(&nc_emlrtRSI, emlrtRootTLSGlobal);
     emlrt_checkEscapedGlobals();
-    xix0_t = (double *)(&X->data[0]);
+    incx_t = (ptrdiff_t)(A->size[1]);
+    emlrtPopRtStackR2012b(&nc_emlrtRSI, emlrtRootTLSGlobal);
     emlrtPopRtStackR2012b(&yl_emlrtRSI, emlrtRootTLSGlobal);
     emlrtPushRtStackR2012b(&am_emlrtRSI, emlrtRootTLSGlobal);
     emlrt_checkEscapedGlobals();
-    alpha1_t = (double *)(&temp);
+    Aia0_t = (double *)(&b_A->data[0]);
     emlrtPopRtStackR2012b(&am_emlrtRSI, emlrtRootTLSGlobal);
     emlrtPushRtStackR2012b(&bm_emlrtRSI, emlrtRootTLSGlobal);
     emlrt_checkEscapedGlobals();
+    xix0_t = (double *)(&X->data[0]);
+    emlrtPopRtStackR2012b(&bm_emlrtRSI, emlrtRootTLSGlobal);
+    emlrtPushRtStackR2012b(&cm_emlrtRSI, emlrtRootTLSGlobal);
+    emlrt_checkEscapedGlobals();
+    alpha1_t = (double *)(&temp);
+    emlrtPopRtStackR2012b(&cm_emlrtRSI, emlrtRootTLSGlobal);
+    emlrtPushRtStackR2012b(&dm_emlrtRSI, emlrtRootTLSGlobal);
+    emlrt_checkEscapedGlobals();
     dtrsm(&SIDE, &UPLO, &TRANSA, &DIAGA, &m_t, &n_t, alpha1_t, Aia0_t, &lda_t,
           xix0_t, &incx_t);
-    emlrtPopRtStackR2012b(&bm_emlrtRSI, emlrtRootTLSGlobal);
-    emlrtPopRtStackR2012b(&pl_emlrtRSI, emlrtRootTLSGlobal);
+    emlrtPopRtStackR2012b(&dm_emlrtRSI, emlrtRootTLSGlobal);
+    emlrtPopRtStackR2012b(&rl_emlrtRSI, emlrtRootTLSGlobal);
   }
 
-  emlrtPopRtStackR2012b(&nl_emlrtRSI, emlrtRootTLSGlobal);
-  emlrtPopRtStackR2012b(&gk_emlrtRSI, emlrtRootTLSGlobal);
-  emlrtPushRtStackR2012b(&hk_emlrtRSI, emlrtRootTLSGlobal);
-  emlrtPushRtStackR2012b(&nl_emlrtRSI, emlrtRootTLSGlobal);
+  emlrtPopRtStackR2012b(&pl_emlrtRSI, emlrtRootTLSGlobal);
+  emlrtPopRtStackR2012b(&ik_emlrtRSI, emlrtRootTLSGlobal);
+  emlrtPushRtStackR2012b(&jk_emlrtRSI, emlrtRootTLSGlobal);
+  emlrtPushRtStackR2012b(&pl_emlrtRSI, emlrtRootTLSGlobal);
   if ((A->size[1] < 1) || (B->size[1] < 1)) {
   } else {
-    emlrtPushRtStackR2012b(&pl_emlrtRSI, emlrtRootTLSGlobal);
+    emlrtPushRtStackR2012b(&rl_emlrtRSI, emlrtRootTLSGlobal);
     temp = 1.0;
     DIAGA = 'N';
     TRANSA = 'N';
     UPLO = 'U';
     SIDE = 'L';
-    emlrtPushRtStackR2012b(&tl_emlrtRSI, emlrtRootTLSGlobal);
-    emlrtPushRtStackR2012b(&nc_emlrtRSI, emlrtRootTLSGlobal);
-    emlrt_checkEscapedGlobals();
-    m_t = (ptrdiff_t)(A->size[1]);
-    emlrtPopRtStackR2012b(&nc_emlrtRSI, emlrtRootTLSGlobal);
-    emlrtPopRtStackR2012b(&tl_emlrtRSI, emlrtRootTLSGlobal);
-    emlrtPushRtStackR2012b(&ul_emlrtRSI, emlrtRootTLSGlobal);
-    emlrtPushRtStackR2012b(&nc_emlrtRSI, emlrtRootTLSGlobal);
-    emlrt_checkEscapedGlobals();
-    n_t = (ptrdiff_t)(B->size[1]);
-    emlrtPopRtStackR2012b(&nc_emlrtRSI, emlrtRootTLSGlobal);
-    emlrtPopRtStackR2012b(&ul_emlrtRSI, emlrtRootTLSGlobal);
     emlrtPushRtStackR2012b(&vl_emlrtRSI, emlrtRootTLSGlobal);
     emlrtPushRtStackR2012b(&nc_emlrtRSI, emlrtRootTLSGlobal);
     emlrt_checkEscapedGlobals();
-    lda_t = (ptrdiff_t)(A->size[1]);
+    m_t = (ptrdiff_t)(A->size[1]);
     emlrtPopRtStackR2012b(&nc_emlrtRSI, emlrtRootTLSGlobal);
     emlrtPopRtStackR2012b(&vl_emlrtRSI, emlrtRootTLSGlobal);
     emlrtPushRtStackR2012b(&wl_emlrtRSI, emlrtRootTLSGlobal);
     emlrtPushRtStackR2012b(&nc_emlrtRSI, emlrtRootTLSGlobal);
     emlrt_checkEscapedGlobals();
-    incx_t = (ptrdiff_t)(A->size[1]);
+    n_t = (ptrdiff_t)(B->size[1]);
     emlrtPopRtStackR2012b(&nc_emlrtRSI, emlrtRootTLSGlobal);
     emlrtPopRtStackR2012b(&wl_emlrtRSI, emlrtRootTLSGlobal);
     emlrtPushRtStackR2012b(&xl_emlrtRSI, emlrtRootTLSGlobal);
+    emlrtPushRtStackR2012b(&nc_emlrtRSI, emlrtRootTLSGlobal);
     emlrt_checkEscapedGlobals();
-    Aia0_t = (double *)(&b_A->data[0]);
+    lda_t = (ptrdiff_t)(A->size[1]);
+    emlrtPopRtStackR2012b(&nc_emlrtRSI, emlrtRootTLSGlobal);
     emlrtPopRtStackR2012b(&xl_emlrtRSI, emlrtRootTLSGlobal);
     emlrtPushRtStackR2012b(&yl_emlrtRSI, emlrtRootTLSGlobal);
+    emlrtPushRtStackR2012b(&nc_emlrtRSI, emlrtRootTLSGlobal);
     emlrt_checkEscapedGlobals();
-    xix0_t = (double *)(&X->data[0]);
+    incx_t = (ptrdiff_t)(A->size[1]);
+    emlrtPopRtStackR2012b(&nc_emlrtRSI, emlrtRootTLSGlobal);
     emlrtPopRtStackR2012b(&yl_emlrtRSI, emlrtRootTLSGlobal);
     emlrtPushRtStackR2012b(&am_emlrtRSI, emlrtRootTLSGlobal);
     emlrt_checkEscapedGlobals();
-    alpha1_t = (double *)(&temp);
+    Aia0_t = (double *)(&b_A->data[0]);
     emlrtPopRtStackR2012b(&am_emlrtRSI, emlrtRootTLSGlobal);
     emlrtPushRtStackR2012b(&bm_emlrtRSI, emlrtRootTLSGlobal);
     emlrt_checkEscapedGlobals();
+    xix0_t = (double *)(&X->data[0]);
+    emlrtPopRtStackR2012b(&bm_emlrtRSI, emlrtRootTLSGlobal);
+    emlrtPushRtStackR2012b(&cm_emlrtRSI, emlrtRootTLSGlobal);
+    emlrt_checkEscapedGlobals();
+    alpha1_t = (double *)(&temp);
+    emlrtPopRtStackR2012b(&cm_emlrtRSI, emlrtRootTLSGlobal);
+    emlrtPushRtStackR2012b(&dm_emlrtRSI, emlrtRootTLSGlobal);
+    emlrt_checkEscapedGlobals();
     dtrsm(&SIDE, &UPLO, &TRANSA, &DIAGA, &m_t, &n_t, alpha1_t, Aia0_t, &lda_t,
           xix0_t, &incx_t);
-    emlrtPopRtStackR2012b(&bm_emlrtRSI, emlrtRootTLSGlobal);
-    emlrtPopRtStackR2012b(&pl_emlrtRSI, emlrtRootTLSGlobal);
+    emlrtPopRtStackR2012b(&dm_emlrtRSI, emlrtRootTLSGlobal);
+    emlrtPopRtStackR2012b(&rl_emlrtRSI, emlrtRootTLSGlobal);
   }
 
   emxFree_real_T(&b_A);
-  emlrtPopRtStackR2012b(&nl_emlrtRSI, emlrtRootTLSGlobal);
-  emlrtPopRtStackR2012b(&hk_emlrtRSI, emlrtRootTLSGlobal);
-  emlrtPopRtStackR2012b(&bk_emlrtRSI, emlrtRootTLSGlobal);
+  emlrtPopRtStackR2012b(&pl_emlrtRSI, emlrtRootTLSGlobal);
+  emlrtPopRtStackR2012b(&jk_emlrtRSI, emlrtRootTLSGlobal);
+  emlrtPopRtStackR2012b(&dk_emlrtRSI, emlrtRootTLSGlobal);
   emlrtHeapReferenceStackLeaveFcnR2012b(emlrtRootTLSGlobal);
 }
 
@@ -1104,9 +1104,9 @@ static void eml_qrsolve(const emxArray_real_T *A, emxArray_real_T *B,
   b_emxInit_real_T(&work, 1, &rb_emlrtRTEI, TRUE);
   nb = B->size[1] - 1;
   mn = (int32_T)muDoubleScalarMin(A->size[0], A->size[1]);
-  emlrtPushRtStackR2012b(&em_emlrtRSI, emlrtRootTLSGlobal);
   emlrtPushRtStackR2012b(&gm_emlrtRSI, emlrtRootTLSGlobal);
-  emlrtPushRtStackR2012b(&hm_emlrtRSI, emlrtRootTLSGlobal);
+  emlrtPushRtStackR2012b(&im_emlrtRSI, emlrtRootTLSGlobal);
+  emlrtPushRtStackR2012b(&jm_emlrtRSI, emlrtRootTLSGlobal);
   ix = b_A->size[0] * b_A->size[1];
   b_A->size[0] = A->size[0];
   b_A->size[1] = A->size[1];
@@ -1124,15 +1124,15 @@ static void eml_qrsolve(const emxArray_real_T *A, emxArray_real_T *B,
   tau->size[0] = b_mn;
   emxEnsureCapacity((emxArray__common *)tau, ix, (int32_T)sizeof(real_T),
                     &ob_emlrtRTEI);
-  emlrtPushRtStackR2012b(&im_emlrtRSI, emlrtRootTLSGlobal);
+  emlrtPushRtStackR2012b(&km_emlrtRSI, emlrtRootTLSGlobal);
   emlrtPushRtStackR2012b(&v_emlrtRSI, emlrtRootTLSGlobal);
-  emlrtPushRtStackR2012b(&sk_emlrtRSI, emlrtRootTLSGlobal);
-  emlrtPushRtStackR2012b(&tk_emlrtRSI, emlrtRootTLSGlobal);
+  emlrtPushRtStackR2012b(&uk_emlrtRSI, emlrtRootTLSGlobal);
+  emlrtPushRtStackR2012b(&vk_emlrtRSI, emlrtRootTLSGlobal);
   eml_signed_integer_colon(A->size[1], jpvt);
-  emlrtPopRtStackR2012b(&tk_emlrtRSI, emlrtRootTLSGlobal);
-  emlrtPopRtStackR2012b(&sk_emlrtRSI, emlrtRootTLSGlobal);
+  emlrtPopRtStackR2012b(&vk_emlrtRSI, emlrtRootTLSGlobal);
+  emlrtPopRtStackR2012b(&uk_emlrtRSI, emlrtRootTLSGlobal);
   emlrtPopRtStackR2012b(&v_emlrtRSI, emlrtRootTLSGlobal);
-  emlrtPopRtStackR2012b(&im_emlrtRSI, emlrtRootTLSGlobal);
+  emlrtPopRtStackR2012b(&km_emlrtRSI, emlrtRootTLSGlobal);
   if ((A->size[0] == 0) || (A->size[1] == 0)) {
   } else {
     iy = A->size[1];
@@ -1146,8 +1146,8 @@ static void eml_qrsolve(const emxArray_real_T *A, emxArray_real_T *B,
 
     b_emxInit_real_T(&vn1, 1, &pb_emlrtRTEI, TRUE);
     b_emxInit_real_T(&vn2, 1, &qb_emlrtRTEI, TRUE);
-    emlrtPushRtStackR2012b(&jm_emlrtRSI, emlrtRootTLSGlobal);
-    emlrtPopRtStackR2012b(&jm_emlrtRSI, emlrtRootTLSGlobal);
+    emlrtPushRtStackR2012b(&lm_emlrtRSI, emlrtRootTLSGlobal);
+    emlrtPopRtStackR2012b(&lm_emlrtRSI, emlrtRootTLSGlobal);
     iy = A->size[1];
     ix = vn1->size[0];
     vn1->size[0] = iy;
@@ -1158,7 +1158,7 @@ static void eml_qrsolve(const emxArray_real_T *A, emxArray_real_T *B,
     emxEnsureCapacity((emxArray__common *)vn2, ix, (int32_T)sizeof(real_T),
                       &qb_emlrtRTEI);
     k = 1;
-    emlrtPushRtStackR2012b(&km_emlrtRSI, emlrtRootTLSGlobal);
+    emlrtPushRtStackR2012b(&mm_emlrtRSI, emlrtRootTLSGlobal);
     overflow = (A->size[1] > 2147483646);
     if (overflow) {
       emlrtPushRtStackR2012b(&bb_emlrtRSI, emlrtRootTLSGlobal);
@@ -1166,16 +1166,16 @@ static void eml_qrsolve(const emxArray_real_T *A, emxArray_real_T *B,
       emlrtPopRtStackR2012b(&bb_emlrtRSI, emlrtRootTLSGlobal);
     }
 
-    emlrtPopRtStackR2012b(&km_emlrtRSI, emlrtRootTLSGlobal);
+    emlrtPopRtStackR2012b(&mm_emlrtRSI, emlrtRootTLSGlobal);
     for (iy = 0; iy + 1 <= A->size[1]; iy++) {
-      emlrtPushRtStackR2012b(&lm_emlrtRSI, emlrtRootTLSGlobal);
+      emlrtPushRtStackR2012b(&nm_emlrtRSI, emlrtRootTLSGlobal);
       vn1->data[iy] = eml_xnrm2(A->size[0], A, k);
-      emlrtPopRtStackR2012b(&lm_emlrtRSI, emlrtRootTLSGlobal);
+      emlrtPopRtStackR2012b(&nm_emlrtRSI, emlrtRootTLSGlobal);
       vn2->data[iy] = vn1->data[iy];
       k += A->size[0];
     }
 
-    emlrtPushRtStackR2012b(&mm_emlrtRSI, emlrtRootTLSGlobal);
+    emlrtPushRtStackR2012b(&om_emlrtRSI, emlrtRootTLSGlobal);
     if (1 > b_mn) {
       b4 = FALSE;
     } else {
@@ -1188,51 +1188,51 @@ static void eml_qrsolve(const emxArray_real_T *A, emxArray_real_T *B,
       emlrtPopRtStackR2012b(&bb_emlrtRSI, emlrtRootTLSGlobal);
     }
 
-    emlrtPopRtStackR2012b(&mm_emlrtRSI, emlrtRootTLSGlobal);
+    emlrtPopRtStackR2012b(&om_emlrtRSI, emlrtRootTLSGlobal);
     for (i = 0; i + 1 <= b_mn; i++) {
       i_i = i + i * A->size[0];
       nmi = A->size[1] - i;
       mmi = (A->size[0] - i) - 1;
-      emlrtPushRtStackR2012b(&nm_emlrtRSI, emlrtRootTLSGlobal);
-      emlrtPushRtStackR2012b(&wk_emlrtRSI, emlrtRootTLSGlobal);
+      emlrtPushRtStackR2012b(&pm_emlrtRSI, emlrtRootTLSGlobal);
+      emlrtPushRtStackR2012b(&yk_emlrtRSI, emlrtRootTLSGlobal);
       if (nmi < 1) {
         iy = 0;
       } else {
-        emlrtPushRtStackR2012b(&yk_emlrtRSI, emlrtRootTLSGlobal);
         emlrtPushRtStackR2012b(&bl_emlrtRSI, emlrtRootTLSGlobal);
+        emlrtPushRtStackR2012b(&dl_emlrtRSI, emlrtRootTLSGlobal);
         emlrtPushRtStackR2012b(&nc_emlrtRSI, emlrtRootTLSGlobal);
         emlrt_checkEscapedGlobals();
         n_t = (ptrdiff_t)(nmi);
         emlrtPopRtStackR2012b(&nc_emlrtRSI, emlrtRootTLSGlobal);
-        emlrtPopRtStackR2012b(&bl_emlrtRSI, emlrtRootTLSGlobal);
-        emlrtPushRtStackR2012b(&cl_emlrtRSI, emlrtRootTLSGlobal);
+        emlrtPopRtStackR2012b(&dl_emlrtRSI, emlrtRootTLSGlobal);
+        emlrtPushRtStackR2012b(&el_emlrtRSI, emlrtRootTLSGlobal);
         emlrtPushRtStackR2012b(&nc_emlrtRSI, emlrtRootTLSGlobal);
         emlrt_checkEscapedGlobals();
         incx_t = (ptrdiff_t)(1);
         emlrtPopRtStackR2012b(&nc_emlrtRSI, emlrtRootTLSGlobal);
-        emlrtPopRtStackR2012b(&cl_emlrtRSI, emlrtRootTLSGlobal);
-        emlrtPushRtStackR2012b(&dl_emlrtRSI, emlrtRootTLSGlobal);
+        emlrtPopRtStackR2012b(&el_emlrtRSI, emlrtRootTLSGlobal);
+        emlrtPushRtStackR2012b(&fl_emlrtRSI, emlrtRootTLSGlobal);
         emlrt_checkEscapedGlobals();
         xix0_t = (double *)(&vn1->data[i]);
-        emlrtPopRtStackR2012b(&dl_emlrtRSI, emlrtRootTLSGlobal);
+        emlrtPopRtStackR2012b(&fl_emlrtRSI, emlrtRootTLSGlobal);
         emlrt_checkEscapedGlobals();
-        emlrtPushRtStackR2012b(&el_emlrtRSI, emlrtRootTLSGlobal);
+        emlrtPushRtStackR2012b(&gl_emlrtRSI, emlrtRootTLSGlobal);
         emlrt_checkEscapedGlobals();
         iy = (int32_T)(idamax(&n_t, xix0_t, &incx_t));
-        emlrtPopRtStackR2012b(&el_emlrtRSI, emlrtRootTLSGlobal);
-        emlrtPopRtStackR2012b(&yk_emlrtRSI, emlrtRootTLSGlobal);
+        emlrtPopRtStackR2012b(&gl_emlrtRSI, emlrtRootTLSGlobal);
+        emlrtPopRtStackR2012b(&bl_emlrtRSI, emlrtRootTLSGlobal);
       }
 
-      emlrtPopRtStackR2012b(&wk_emlrtRSI, emlrtRootTLSGlobal);
+      emlrtPopRtStackR2012b(&yk_emlrtRSI, emlrtRootTLSGlobal);
       pvt = (i + iy) - 1;
-      emlrtPopRtStackR2012b(&nm_emlrtRSI, emlrtRootTLSGlobal);
+      emlrtPopRtStackR2012b(&pm_emlrtRSI, emlrtRootTLSGlobal);
       if (pvt + 1 != i + 1) {
-        emlrtPushRtStackR2012b(&om_emlrtRSI, emlrtRootTLSGlobal);
-        emlrtPushRtStackR2012b(&fl_emlrtRSI, emlrtRootTLSGlobal);
-        emlrtPushRtStackR2012b(&gl_emlrtRSI, emlrtRootTLSGlobal);
+        emlrtPushRtStackR2012b(&qm_emlrtRSI, emlrtRootTLSGlobal);
+        emlrtPushRtStackR2012b(&hl_emlrtRSI, emlrtRootTLSGlobal);
+        emlrtPushRtStackR2012b(&il_emlrtRSI, emlrtRootTLSGlobal);
         ix = A->size[0] * pvt;
         iy = A->size[0] * i;
-        emlrtPushRtStackR2012b(&hl_emlrtRSI, emlrtRootTLSGlobal);
+        emlrtPushRtStackR2012b(&jl_emlrtRSI, emlrtRootTLSGlobal);
         overflow = (A->size[0] > 2147483646);
         if (overflow) {
           emlrtPushRtStackR2012b(&bb_emlrtRSI, emlrtRootTLSGlobal);
@@ -1240,7 +1240,7 @@ static void eml_qrsolve(const emxArray_real_T *A, emxArray_real_T *B,
           emlrtPopRtStackR2012b(&bb_emlrtRSI, emlrtRootTLSGlobal);
         }
 
-        emlrtPopRtStackR2012b(&hl_emlrtRSI, emlrtRootTLSGlobal);
+        emlrtPopRtStackR2012b(&jl_emlrtRSI, emlrtRootTLSGlobal);
         for (k = 1; k <= A->size[0]; k++) {
           temp2 = b_A->data[ix];
           b_A->data[ix] = b_A->data[iy];
@@ -1249,9 +1249,9 @@ static void eml_qrsolve(const emxArray_real_T *A, emxArray_real_T *B,
           iy++;
         }
 
-        emlrtPopRtStackR2012b(&gl_emlrtRSI, emlrtRootTLSGlobal);
-        emlrtPopRtStackR2012b(&fl_emlrtRSI, emlrtRootTLSGlobal);
-        emlrtPopRtStackR2012b(&om_emlrtRSI, emlrtRootTLSGlobal);
+        emlrtPopRtStackR2012b(&il_emlrtRSI, emlrtRootTLSGlobal);
+        emlrtPopRtStackR2012b(&hl_emlrtRSI, emlrtRootTLSGlobal);
+        emlrtPopRtStackR2012b(&qm_emlrtRSI, emlrtRootTLSGlobal);
         iy = jpvt->data[pvt];
         jpvt->data[pvt] = jpvt->data[i];
         jpvt->data[i] = iy;
@@ -1260,16 +1260,16 @@ static void eml_qrsolve(const emxArray_real_T *A, emxArray_real_T *B,
       }
 
       if (i + 1 < A->size[0]) {
-        emlrtPushRtStackR2012b(&pm_emlrtRSI, emlrtRootTLSGlobal);
+        emlrtPushRtStackR2012b(&rm_emlrtRSI, emlrtRootTLSGlobal);
         atmp = b_A->data[i_i];
         temp2 = eml_matlab_zlarfg(mmi + 1, &atmp, b_A, i_i + 2);
-        emlrtPopRtStackR2012b(&pm_emlrtRSI, emlrtRootTLSGlobal);
+        emlrtPopRtStackR2012b(&rm_emlrtRSI, emlrtRootTLSGlobal);
         tau->data[i] = temp2;
       } else {
-        emlrtPushRtStackR2012b(&qm_emlrtRSI, emlrtRootTLSGlobal);
+        emlrtPushRtStackR2012b(&sm_emlrtRSI, emlrtRootTLSGlobal);
         temp2 = b_A->data[i_i];
         atmp = b_A->data[i_i];
-        emlrtPopRtStackR2012b(&qm_emlrtRSI, emlrtRootTLSGlobal);
+        emlrtPopRtStackR2012b(&sm_emlrtRSI, emlrtRootTLSGlobal);
         b_A->data[i_i] = temp2;
         tau->data[i] = 0.0;
       }
@@ -1278,14 +1278,14 @@ static void eml_qrsolve(const emxArray_real_T *A, emxArray_real_T *B,
       if (i + 1 < A->size[1]) {
         atmp = b_A->data[i_i];
         b_A->data[i_i] = 1.0;
-        emlrtPushRtStackR2012b(&rm_emlrtRSI, emlrtRootTLSGlobal);
+        emlrtPushRtStackR2012b(&tm_emlrtRSI, emlrtRootTLSGlobal);
         c_eml_matlab_zlarf(mmi + 1, nmi - 1, i_i + 1, tau->data[i], b_A, (i + (i
           + 1) * A->size[0]) + 1, A->size[0], work);
-        emlrtPopRtStackR2012b(&rm_emlrtRSI, emlrtRootTLSGlobal);
+        emlrtPopRtStackR2012b(&tm_emlrtRSI, emlrtRootTLSGlobal);
         b_A->data[i_i] = atmp;
       }
 
-      emlrtPushRtStackR2012b(&sm_emlrtRSI, emlrtRootTLSGlobal);
+      emlrtPushRtStackR2012b(&um_emlrtRSI, emlrtRootTLSGlobal);
       if (i + 2 > A->size[1]) {
         overflow = FALSE;
       } else {
@@ -1298,7 +1298,7 @@ static void eml_qrsolve(const emxArray_real_T *A, emxArray_real_T *B,
         emlrtPopRtStackR2012b(&bb_emlrtRSI, emlrtRootTLSGlobal);
       }
 
-      emlrtPopRtStackR2012b(&sm_emlrtRSI, emlrtRootTLSGlobal);
+      emlrtPopRtStackR2012b(&um_emlrtRSI, emlrtRootTLSGlobal);
       for (iy = i + 1; iy + 1 <= A->size[1]; iy++) {
         if (vn1->data[iy] != 0.0) {
           atmp = muDoubleScalarAbs(b_A->data[i + b_A->size[0] * iy]) / vn1->
@@ -1312,7 +1312,7 @@ static void eml_qrsolve(const emxArray_real_T *A, emxArray_real_T *B,
           temp2 = vn1->data[iy] / vn2->data[iy];
           if (atmp * (temp2 * temp2) <= 1.4901161193847656E-8) {
             if (i + 1 < A->size[0]) {
-              emlrtPushRtStackR2012b(&tm_emlrtRSI, emlrtRootTLSGlobal);
+              emlrtPushRtStackR2012b(&vm_emlrtRSI, emlrtRootTLSGlobal);
               emlrtPushRtStackR2012b(&gc_emlrtRSI, emlrtRootTLSGlobal);
               if (mmi < 1) {
                 temp2 = 0.0;
@@ -1341,14 +1341,14 @@ static void eml_qrsolve(const emxArray_real_T *A, emxArray_real_T *B,
 
               emlrtPopRtStackR2012b(&gc_emlrtRSI, emlrtRootTLSGlobal);
               vn1->data[iy] = temp2;
-              emlrtPopRtStackR2012b(&tm_emlrtRSI, emlrtRootTLSGlobal);
+              emlrtPopRtStackR2012b(&vm_emlrtRSI, emlrtRootTLSGlobal);
               vn2->data[iy] = vn1->data[iy];
             } else {
               vn1->data[iy] = 0.0;
               vn2->data[iy] = 0.0;
             }
           } else {
-            emlrtPushRtStackR2012b(&um_emlrtRSI, emlrtRootTLSGlobal);
+            emlrtPushRtStackR2012b(&wm_emlrtRSI, emlrtRootTLSGlobal);
             if (atmp < 0.0) {
               emlrtPushRtStackR2012b(&t_emlrtRSI, emlrtRootTLSGlobal);
               eml_error();
@@ -1356,7 +1356,7 @@ static void eml_qrsolve(const emxArray_real_T *A, emxArray_real_T *B,
             }
 
             vn1->data[iy] *= muDoubleScalarSqrt(atmp);
-            emlrtPopRtStackR2012b(&um_emlrtRSI, emlrtRootTLSGlobal);
+            emlrtPopRtStackR2012b(&wm_emlrtRSI, emlrtRootTLSGlobal);
           }
         }
       }
@@ -1366,9 +1366,9 @@ static void eml_qrsolve(const emxArray_real_T *A, emxArray_real_T *B,
     emxFree_real_T(&vn1);
   }
 
-  emlrtPopRtStackR2012b(&hm_emlrtRSI, emlrtRootTLSGlobal);
+  emlrtPopRtStackR2012b(&jm_emlrtRSI, emlrtRootTLSGlobal);
+  emlrtPopRtStackR2012b(&im_emlrtRSI, emlrtRootTLSGlobal);
   emlrtPopRtStackR2012b(&gm_emlrtRSI, emlrtRootTLSGlobal);
-  emlrtPopRtStackR2012b(&em_emlrtRSI, emlrtRootTLSGlobal);
   atmp = 0.0;
   if (mn > 0) {
     temp2 = muDoubleScalarMax(A->size[0], A->size[1]) * muDoubleScalarAbs
@@ -1377,8 +1377,8 @@ static void eml_qrsolve(const emxArray_real_T *A, emxArray_real_T *B,
     exitg1 = FALSE;
     while ((exitg1 == FALSE) && (k <= mn - 1)) {
       if (muDoubleScalarAbs(b_A->data[k + b_A->size[0] * k]) <= temp2) {
-        emlrtPushRtStackR2012b(&fm_emlrtRSI, emlrtRootTLSGlobal);
-        emlrtPushRtStackR2012b(&vm_emlrtRSI, emlrtRootTLSGlobal);
+        emlrtPushRtStackR2012b(&hm_emlrtRSI, emlrtRootTLSGlobal);
+        emlrtPushRtStackR2012b(&xm_emlrtRSI, emlrtRootTLSGlobal);
         emlrt_synchGlobalsToML();
         y = NULL;
         m14 = mxCreateCharArray(2, iv71);
@@ -1392,9 +1392,9 @@ static void eml_qrsolve(const emxArray_real_T *A, emxArray_real_T *B,
           emlrt_marshallOut(6.0), &hb_emlrtMCI), emlrt_marshallOut(temp2),
           &ib_emlrtMCI), "sprintf", str);
         emlrt_synchGlobalsFromML();
-        emlrtPopRtStackR2012b(&vm_emlrtRSI, emlrtRootTLSGlobal);
+        emlrtPopRtStackR2012b(&xm_emlrtRSI, emlrtRootTLSGlobal);
         c_eml_warning(atmp, str);
-        emlrtPopRtStackR2012b(&fm_emlrtRSI, emlrtRootTLSGlobal);
+        emlrtPopRtStackR2012b(&hm_emlrtRSI, emlrtRootTLSGlobal);
         exitg1 = TRUE;
       } else {
         atmp++;
@@ -1517,9 +1517,9 @@ static void n_emlrt_marshallIn(const mxArray *src, const emlrtMsgIdentifier
   *msgId, char_T ret[14])
 {
   int32_T iv77[2];
-  int32_T i10;
-  for (i10 = 0; i10 < 2; i10++) {
-    iv77[i10] = 1 + 13 * i10;
+  int32_T i9;
+  for (i9 = 0; i9 < 2; i9++) {
+    iv77[i9] = 1 + 13 * i9;
   }
 
   emlrtCheckBuiltInR2012b(emlrtRootTLSGlobal, msgId, src, "char", FALSE, 2U,
@@ -1725,7 +1725,7 @@ void mldivide(const emxArray_real_T *A, const emxArray_real_T *B,
   emlrtHeapReferenceStackEnterFcnR2012b(emlrtRootTLSGlobal);
   if (B->size[0] == A->size[0]) {
   } else {
-    emlrtPushRtStackR2012b(&ak_emlrtRSI, emlrtRootTLSGlobal);
+    emlrtPushRtStackR2012b(&ck_emlrtRSI, emlrtRootTLSGlobal);
     emlrt_synchGlobalsToML();
     y = NULL;
     m12 = mxCreateCharArray(2, iv69);
@@ -1737,7 +1737,7 @@ void mldivide(const emxArray_real_T *A, const emxArray_real_T *B,
     emlrtAssign(&y, m12);
     error(message(y, &gb_emlrtMCI), &gb_emlrtMCI);
     emlrt_synchGlobalsFromML();
-    emlrtPopRtStackR2012b(&ak_emlrtRSI, emlrtRootTLSGlobal);
+    emlrtPopRtStackR2012b(&ck_emlrtRSI, emlrtRootTLSGlobal);
   }
 
   emxInit_real_T(&b_B, 2, &kb_emlrtRTEI, TRUE);
@@ -1758,11 +1758,11 @@ void mldivide(const emxArray_real_T *A, const emxArray_real_T *B,
       Y->data[i] = 0.0;
     }
   } else if (A->size[0] == A->size[1]) {
-    emlrtPushRtStackR2012b(&ak_emlrtRSI, emlrtRootTLSGlobal);
+    emlrtPushRtStackR2012b(&ck_emlrtRSI, emlrtRootTLSGlobal);
     eml_lusolve(A, B, Y);
-    emlrtPopRtStackR2012b(&ak_emlrtRSI, emlrtRootTLSGlobal);
+    emlrtPopRtStackR2012b(&ck_emlrtRSI, emlrtRootTLSGlobal);
   } else {
-    emlrtPushRtStackR2012b(&ak_emlrtRSI, emlrtRootTLSGlobal);
+    emlrtPushRtStackR2012b(&ck_emlrtRSI, emlrtRootTLSGlobal);
     i = b_B->size[0] * b_B->size[1];
     b_B->size[0] = B->size[0];
     b_B->size[1] = B->size[1];
@@ -1774,7 +1774,7 @@ void mldivide(const emxArray_real_T *A, const emxArray_real_T *B,
     }
 
     eml_qrsolve(A, b_B, Y);
-    emlrtPopRtStackR2012b(&ak_emlrtRSI, emlrtRootTLSGlobal);
+    emlrtPopRtStackR2012b(&ck_emlrtRSI, emlrtRootTLSGlobal);
   }
 
   emxFree_real_T(&b_B);

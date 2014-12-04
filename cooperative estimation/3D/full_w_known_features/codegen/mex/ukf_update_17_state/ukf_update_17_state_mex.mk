@@ -29,6 +29,7 @@ SRC_FILES =  \
 	repmat.c \
 	sum.c \
 	measurement_eq_17_state.c \
+	vector2polar.c \
 	minangle.c \
 	any.c \
 	mldivide.c \

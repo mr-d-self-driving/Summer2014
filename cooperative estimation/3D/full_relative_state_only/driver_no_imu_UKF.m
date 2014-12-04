@@ -83,7 +83,7 @@ end
 
 % measurement error
 Rhalf = diag([range_dev err_dev err_dev range_dev err_dev err_dev]).^2;
-magnom = [1e-8 mag_dev mag_dev];
+magnom = [1e-8 mag_dev mag_dev].^2;
 Rx = zeros(12);
 Rx(1:6,1:6) = Rhalf;
 

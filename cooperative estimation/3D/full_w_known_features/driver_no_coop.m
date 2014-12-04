@@ -1,8 +1,7 @@
 % individual filters
 % no cooperation
 %
-% no IMU sharing
-% has magnetometer
+% corresponds to ukf_update_10_state.m/mex
 
 clear variables;
 close all;
@@ -25,15 +24,15 @@ load('data_3d.mat');
 err_dev = 0.0001;%rads
 % error stdev in magnetometer
 mag_dev = 0.0001;%rads
-% range sensing error
+% interagent range sensing error
 range_dev = 0.01;%metres
 % gyro stdev
 gyro_noise = 1e-2;%rads
 % accelerometer stdev
 accel_noise = 1e-1;%metres/sec^2
 % feature sensing error
-feature_angle_err = .1;%rads, stdev
-feature_range_err = .1;%metres
+feature_angle_err = 1e-2;%rads, stdev
+feature_range_err = 1e-1;%metres
 
 % noise stdevs are set in this script
 add_noise;
@@ -41,10 +40,10 @@ add_noise;
 %% process
 
 % feature visibility in degrees
-FEATURE_FOV_BEARING = [180 180];% half-angle specified here
-FEATURE_FOV_DECLIN = [180 180];
+FEATURE_FOV_BEARING = [90 90];% half-angle specified here
+FEATURE_FOV_DECLIN = [90 90];
 FEATURE_RANGE_MIN = [0.1 0.1];% metres
-FEATURE_RANGE_MAX = [5 5];%metres
+FEATURE_RANGE_MAX = [10 10];%metres
 
 % process noise
 % assume both agents have same IMU noise: [gyro_i acc_i]
@@ -63,20 +62,16 @@ for i = 1:2
     Ph{i} = zeros(length(tv),100);
     % random quaternion
     xh{i}(1,7:10) = randn(4,1);xh{i}(1,7:10) = xh{i}(1,7:10)./norm(xh{i}(1,7:10));% inertial attitude
-    xh{i}(1,1:3) = randn(3,1).*[10;10;10];% inertial position, inertial frame
+    xh{i}(1,1:3) = randn(3,1).*[1;1;1];% inertial position, inertial frame
     xh{i}(1,4:6) = [0 0 0];%randn(3,1);% inertial velocity, body frame
-    Ph{i}(1,:) = reshape( diag([ones(1,3) 0.1*ones(1,3) 0.1*ones(1,4)]) + 1e-6*ones(10), 100,1)';
+    Ph{i}(1,:) = reshape( diag([1*ones(1,3) 1e-0*ones(1,3) 1*ones(1,4)]) + 1e-8*ones(10), 100,1)';
 end
 
 %% use exact initial conditions
-% xh{1}(1,14:17) = qji(1,:);
-% xh{1}(1,11:13) = rji_i_tr(1,:);
- xh{1}(1,7:10) = Yc{1}(1,7:10);
- xh{1}(1,1:3) = Yc{1}(1,1:3);
-% xh{2}(1,14:17) = qji(1,:);xh{2}(1,14) = -xh{2}(1,14);
-% xh{2}(1,11:13) = rij_j_tr(1,:);
- xh{2}(1,7:10) = Yc{2}(1,7:10);
- xh{2}(1,1:3) = Yc{2}(1,1:3);
+%xh{1}(1,7:10) = Yc{1}(1,7:10) + 1e-3.*randn(1,4);
+%xh{1}(1,1:3) = Yc{1}(1,1:3) + 1e0.*randn(1,3);
+%xh{2}(1,7:10) = Yc{2}(1,7:10) + 1e-3.*randn(1,4);
+%xh{2}(1,1:3) = Yc{2}(1,1:3) + 1e0.*randn(1,3);
 
 % measurement error
 
@@ -111,7 +106,7 @@ for j = 1:2
             if rbd(1) < FEATURE_RANGE_MAX(j) && rbd(1) > FEATURE_RANGE_MIN(j) && abs(rbd(2)) < d2r*(FEATURE_FOV_BEARING(j)) && abs(rbd(3)) < d2r*(FEATURE_FOV_DECLIN(j))
                 m1 = m1 + 1;
                 % generate the measurement of this feature
-                % error angle
+                %error angle
                 err_angle = randn*feature_angle_err;
                 % error axis of rotation
                 a_error = randn(3,1);a_error = a_error./norm(a_error);
@@ -122,8 +117,13 @@ for j = 1:2
                 rmeas = (Cerr_i*rki)*(1+range_err/norm(rki));
                 % measured vecor in my frame
                 xyz_known_i(m1,:) = vector2polar(rmeas);
+                %rmeas = rki;
+                %xyz_known_i(m1,:) = truthv = vector2polar(rmeas);
                 % index of the known feature corresponding
                 known_features_used_i(m1) = mm;
+            end
+            if m1 == 1
+                break;
             end
         end
         xyz_known_i(m1+1:end,:) = [];
@@ -143,7 +143,7 @@ for j = 1:2
         Rx = zeros(3*m1);
         
         % error covariance for range/bearing/declination to features
-        Rx((1:m1*3),(1:m1*3)) = diag(repmat([feature_range_err feature_angle_err feature_angle_err],1,m1));
+        Rx((1:m1*3),(1:m1*3)) = diag(repmat([feature_range_err^2 feature_angle_err^2 feature_angle_err^2],1,m1));
         
         uk = [wi;ai;m1; reshape(XYZ_KNOWN(known_features_used_i,:)',[],1) ];
         

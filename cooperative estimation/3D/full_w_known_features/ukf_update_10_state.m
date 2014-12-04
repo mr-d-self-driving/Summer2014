@@ -1,7 +1,7 @@
 function [xnew,Pnew] = ukf_update_10_state(xk,Pxk,Pvk,Pnk,uk,ytilde,alpha)
 % Pxk: covariance associated with state
 % Pvk: covariance associated with process noise
-% Pnk: covariance assocaited with measurement noise
+% Pnk: covariance associated with measurement noise
 
 % vector lengths
 n = length(xk);
@@ -75,10 +75,6 @@ g = size(YKAUG,1);
 yhat = sum(YKAUG.*repmat(wm',g,1),2);
 % add something to handle magnetometer normalization if necessary here
 
-if ~isempty(yhat)
-    [yhat ytilde]
-end
-
 % measurement covariance
 Pyk = zeros(g);
 % cross covariance
@@ -96,14 +92,10 @@ if any(any(isnan(Pyk)))
     return;
 end
 
-if rank(Pyk) < length(Pyk)
-    disp('pause');
-end
-
-Kk = Pxkyk*(Pyk\eye(g));
+% equivalent: Kk = Pxkyk*inv(Pyk)
+Kk = Pxkyk/Pyk;
 
 % minimize diff between bearing/declination to features
-m1 = uk(7);
 yhat( (2:3:(3*m1))) = minangle(yhat( (2:3:(3*m1))),ytilde( (2:3:(3*m1))));
 yhat( (3:3:(3*m1))) = minangle(yhat( (3:3:(3*m1))),ytilde( (3:3:(3*m1))));
 xn = xp + Kk*(ytilde-yhat);

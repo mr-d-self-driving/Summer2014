@@ -19,18 +19,18 @@ load('data_3d.mat');
 
 % measurement standard errors
 % error stdev in agent-agent measurement
-err_dev = 0.0001;%rads
+err_dev = 0.01;%rads
 % error stdev in magnetometer
-mag_dev = 0.0001;%rads
+mag_dev = 0.1;%rads
 % range sensing error
-range_dev = 0.01;%metres
+range_dev = 0.1;%metres
 % gyro stdev
-gyro_noise = 1e-4;%rads
+gyro_noise = 1e-2;%rads
 % accelerometer stdev
-accel_noise = 1e-2;%metres/sec^2
+accel_noise = 1e-1;%metres/sec^2
 % feature sensing error
-feature_angle_err = .0001;%rads, stdev
-feature_range_err = .01;%metres
+feature_angle_err = .01;%rads, stdev
+feature_range_err = .1;%metres
 
 % noise stdevs are set in this script
 add_noise;
@@ -38,10 +38,10 @@ add_noise;
 %% process
 
 % feature visibility in degrees
-FEATURE_FOV_BEARING = [180 180];% half-angle specified here
-FEATURE_FOV_DECLIN = [180 180];
+FEATURE_FOV_BEARING = [60 60];% half-angle specified here
+FEATURE_FOV_DECLIN = [60 60];
 FEATURE_RANGE_MIN = [0.1 0.1];% metres
-FEATURE_RANGE_MAX = [20 20];%metres
+FEATURE_RANGE_MAX = [15 15];%metres
 
 % process noise
 % assume both agents have same IMU noise: [gyro_i gyro_j acc_i acc_j]
@@ -84,9 +84,10 @@ for i = 1:2
     % random quaternion
     xh{i}(1,7:10) = randn(4,1);xh{i}(1,7:10) = xh{i}(1,7:10)./norm(xh{i}(1,7:10));% inertial attitude
     xh{i}(1,14:17) = randn(4,1);xh{i}(1,14:17) = xh{i}(1,14:17)./norm(xh{i}(1,14:17));% inertial attitude
-    xh{i}(1,1:3) = randn(3,1).*[10;10;10];% inertial position, inertial frame
+    xh{i}(1,1:3) = randn(3,1).*[1;1;1];% inertial position, inertial frame
+    xh{i}(1,11:13) = randn(3,1).*[5;5;5];%relative position, body frame
     xh{i}(1,4:6) = [0 0 0];%randn(3,1);% inertial velocity, body frame
-    Ph{i}(1,:) = reshape( diag([ones(1,6) 0.1*ones(1,4) ones(1,3) 0.1*ones(1,4)]) + 1e-6*ones(17), 289,1)';
+    Ph{i}(1,:) = reshape( diag([1*ones(1,3) 0.1*ones(1,3)  1*ones(1,4) ones(1,3) 0.1*ones(1,4)]) + 1e-6*ones(17), 289,1)';
 end
 
 %% use exact initial conditions
@@ -101,11 +102,7 @@ end
 
 % measurement error
 Rhalf = diag([range_dev err_dev err_dev range_dev err_dev err_dev]).^2;
-magnom = [1e-8 mag_dev mag_dev];
-% Rx is the sensor noise for nominal set of measurements, i.e. the ones we
-% always get
-Rx = zeros(12);
-Rx(1:6,1:6) = Rhalf;
+magnom = [1e-8 mag_dev mag_dev].^2;
 
 tic;
 for j = 1:2
@@ -166,29 +163,29 @@ for j = 1:2
         m2 = 0;
         xyz_known_j = zeros(M,3);
         known_features_used_j = zeros(M,1);
-%         for mm = 1:M
-%             % compute the j frame TRUE position vector to feature
-%             rkj = Cjn_true*(XYZ_KNOWN(mm,:)' - rjn_true);
-%             % compute range/bearing/declination
-%             rbd = vector2polar(rkj);
-%             
-%             % if this is satisfied, we can see the feature
-%             if rbd(1) < FEATURE_RANGE_MAX(notj) && rbd(1) > FEATURE_RANGE_MIN(notj) && abs(rbd(2)) < d2r*(FEATURE_FOV_BEARING(notj)) && abs(rbd(3)) < d2r*(FEATURE_FOV_DECLIN(notj))
-%                 m2 = m2 + 1;
-%                 % generate the measurement of this feature
-%                 % error angle
-%                 err_angle = randn*feature_angle_err;
-%                 % error axis of rotation
-%                 a_error = randn(3,1);a_error = a_error./norm(a_error);
-%                 % range error
-%                 range_err = randn*feature_range_err;
-%                 Cerr_j = attparsilent([a_error [err_angle;0;0]],[2 1]);
-%                 % measurement with angle error and range error
-%                 rmeas = (Cerr_j*rkj)*(1+range_err/norm(rkj));
-%                 xyz_known_j(m2,:) = vector2polar(rmeas);
-%                 known_features_used_j(m2) = mm;
-%             end
-%         end
+        for mm = 1:M
+            % compute the j frame TRUE position vector to feature
+            rkj = Cjn_true*(XYZ_KNOWN(mm,:)' - rjn_true);
+            % compute range/bearing/declination
+            rbd = vector2polar(rkj);
+            
+            % if this is satisfied, we can see the feature
+            if rbd(1) < FEATURE_RANGE_MAX(notj) && rbd(1) > FEATURE_RANGE_MIN(notj) && abs(rbd(2)) < d2r*(FEATURE_FOV_BEARING(notj)) && abs(rbd(3)) < d2r*(FEATURE_FOV_DECLIN(notj))
+                m2 = m2 + 1;
+                % generate the measurement of this feature
+                % error angle
+                err_angle = randn*feature_angle_err;
+                % error axis of rotation
+                a_error = randn(3,1);a_error = a_error./norm(a_error);
+                % range error
+                range_err = randn*feature_range_err;
+                Cerr_j = attparsilent([a_error [err_angle;0;0]],[2 1]);
+                % measurement with angle error and range error
+                rmeas = (Cerr_j*rkj)*(1+range_err/norm(rkj));
+                xyz_known_j(m2,:) = vector2polar(rmeas);
+                known_features_used_j(m2) = mm;
+            end
+        end
         xyz_known_j(m2+1:end,:) = [];
         known_features_used_j(m2+1:end) = [];
         
@@ -201,19 +198,13 @@ for j = 1:2
             wi = W(k,4:6)';
             ai = A(k,4:6)';
         end
-        if j == 1
-            % his meas of me
-            rij_j = meas{2}(k,(1:3))';
-            % his magnetometer
-            mag_j = meas{2}(k,4:6)';
-        else
-            rij_j = meas{1}(k,(1:3))';
-            % his magnetometer
-            mag_j = meas{1}(k,4:6)';
-        end
+        % his meas of me
+        rij_j = meas{notj}(k,1:3)';
+        % his magnetometer
+        mag_j = meas{notj}(k,4:6)';
         
         % my meas of him
-        rji_i = meas{j}(k,(1:3))';
+        rji_i = meas{j}(k,1:3)';
         % my magnetometer
         mag_i = meas{j}(k,4:6)';
         
@@ -242,14 +233,14 @@ for j = 1:2
         Rx(10:12,10:12) = Crt_b'*diag(magnom)*Crt_b;
         
         % error covariance for range/bearing/declination of agent i
-        Rx(12 + (1:m1*3),12 + (1:m1*3)) = diag(repmat([feature_range_err feature_angle_err feature_angle_err],1,m1));
+        Rx(12 + (1:m1*3),12 + (1:m1*3)) = diag(repmat([feature_range_err feature_angle_err feature_angle_err].^2,1,m1));
         % error covariance for range/bearing/declination of agent j
-        Rx(12 + 3*m1 + (1:m2*3),12 + 3*m1 + (1:m2*3)) = diag(repmat([feature_range_err feature_angle_err feature_angle_err],1,m2));
+        Rx(12 + 3*m1 + (1:m2*3),12 + 3*m1 + (1:m2*3)) = diag(repmat([feature_range_err feature_angle_err feature_angle_err].^2,1,m2));
         
         uk = [wi;ai;mag_i;m1; reshape(XYZ_KNOWN(known_features_used_i,:)',[],1); m2;reshape(XYZ_KNOWN(known_features_used_j,:)',[],1) ];
         
-        yk = [sqrt(sum(rji_i.^2));atan2(rji_i(2),rji_i(1));atan2(rji_i(3),sqrt(sum(rji_i(1:2).^2))); ...
-		sqrt(sum(rij_j.^2));atan2(rij_j(2),rij_j(1));atan2(rij_j(3),sqrt(sum(rij_j(1:2).^2))); ...
+        yk = [vector2polar(rji_i); ...
+		vector2polar(rij_j); ...
         mag_j;
         reshape(xyz_known_i',[],1);
         reshape(xyz_known_j',[],1)];
@@ -403,6 +394,7 @@ for k = 4:6
     plot(tv,xh{1}(:,k) + 3*sqrt(Ph{1}(:,Pdiag(k))),'r--');
     plot(tv,xh{1}(:,k) - 3*sqrt(Ph{1}(:,Pdiag(k))),'r--');
     plot(tv,v1n(:,k-3),'k-');
+    set(gca,'ylim',[-15 15])
     title( 'Agent 1 body velocity estimate');
 end
 set(gcf,'position',[200 275 1300 625])
@@ -415,6 +407,7 @@ for k = 4:6
     plot(tv,xh{2}(:,k) + 3*sqrt(Ph{2}(:,Pdiag(k))),'r--');
     plot(tv,xh{2}(:,k) - 3*sqrt(Ph{2}(:,Pdiag(k))),'r--');
     plot(tv,v2n(:,k-3),'k-');
+    set(gca,'ylim',[-15 15])
     title( 'Agent 2 body velocity estimate');
 end
 set(gcf,'position',[200 275 1300 625])
