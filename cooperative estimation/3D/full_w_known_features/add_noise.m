@@ -19,7 +19,7 @@ for II = 1:N
         rmeas = zeros(size(rdiff));
         for i = 1:length(T)
             quat = Yc{II}(i,7:10)';
-            Cbn = attpar(quat,[6 1]);
+            Cbn = attparsilent(quat,[6 1]);
             rsee(i,:) = rdiff(i,:)*Cbn';
 
             % generate error angle
@@ -27,7 +27,7 @@ for II = 1:N
             % get arbitrary axis of rotation
             vec = rand(3,1);vec = vec./norm(vec);
             % get DCM from true to error "frame"
-            Crp_r = attpar([vec [delta;0;0]],[2 1]);
+            Crp_r = attparsilent([vec [delta;0;0]],[2 1]);
 
             % get the measured range
             range_frac = (norm(rsee(i,:))+randn(1)*range_dev)/norm(rsee(i,:));
@@ -50,7 +50,7 @@ for II = 1:N
         % get arbitrary axis of rotation
         vec = rand(3,1);vec = vec./norm(vec);
         % get DCM from true to error "frame"
-        Crp_r = attpar([vec [delta;0;0]],[2 1]);
+        Crp_r = attparsilent([vec [delta;0;0]],[2 1]);
         %store the heading angle measurement (magnetometer)
         rmeas(i,1:3) = psiVec'*Crp_r;
         
