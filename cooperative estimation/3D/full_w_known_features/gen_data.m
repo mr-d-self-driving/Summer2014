@@ -25,8 +25,17 @@ if ~exist('data_3d.mat','file');
     phi = rand(M,1)*pi-0.5*pi;
     % array of known feature locations
     XYZ_KNOWN = repmat(r,1,3).*[cos(phi).*cos(thet) cos(phi).*sin(thet) sin(phi)];
+    
+    % unknown features
+    U = 20;
+    % generate known feature locations
+    r = rand(U,1)*R_feature;
+    thet = rand(U,1)*2*pi-pi;
+    phi = rand(U,1)*pi-0.5*pi;
+    % array of known feature locations
+    XYZ_UNKNOWN = repmat(r,1,3).*[cos(phi).*cos(thet) cos(phi).*sin(thet) sin(phi)];
         
-    % allowed initialization space
+    % allowed agent initialization space
     R = 10;
     % target average speed
     Vb = 1.25;
