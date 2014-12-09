@@ -17,8 +17,8 @@ mag_i = uk(7:9);
 m1 = uk(10);
 m2 = uk(10+3*m1+1);
 m = m1+m2;% total # of features
-w1 = uk(10 + 2 + 3*m1 + 3*m2 + 1);
-w2 = uk(10 + 2 + 3*m1 + 3*m2 + 2 + w1);
+w1 = uk(10 + 2 + 3*m1 + 3*m2);
+w2 = uk(10 + 2 + 3*m1 + 3*m2 + w1 + 1);
 
 % 3 x m1 array of known inertial position of features seen by agent 1
 if m1 > 0
@@ -33,9 +33,9 @@ else
     RKN_2 = [];
 end
 % feature indices of unknown features
-feature_index_1 = uk(12 + 3*(m1+m2) + 1 + (1:w1));
+feature_index_1 = uk(12 + 3*(m1+m2) + (1:w1));
 % feature indices of other agent's unknown features
-feature_index_2 = uk(12 + 3*(m1+m2) + 2 + w1 + (1:w2));
+feature_index_2 = uk(12 + 3*(m1+m2) + 1 + w1 + (1:w2));
 
 n = size(xk,1);
 l = size(nk,1);
@@ -101,7 +101,7 @@ for k = 1:size(xk,2)
         % the inertial vector to the feature, in inertial frame
         rkn = feature_vec(1:3) + 1/feature_vec(4)*[cos(feature_vec(6))*[cos(feature_vec(6));sin(feature_vec(6))]; sin(feature_vec(6))];
         % the body-frame vector to the feature
-        rki_b = Cin'*(rkn - rin);
+        rki_b = Cin*(rkn - rin);
         % extract range/bearing/azimuth
         y_kk = vector2polar(rki_b) + nv(12 + index);
         yk(9 + index,k) = y_kk;

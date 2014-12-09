@@ -1,0 +1,10 @@
+MEX {
+	global:
+		mexFunction;
+		emlrtMexFcnProperties;
+		ukf_update_unknown_state;
+		ukf_update_unknown_state_initialize;
+		ukf_update_unknown_state_terminate;
+	local:
+		*;
+};

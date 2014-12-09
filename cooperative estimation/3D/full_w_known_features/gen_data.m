@@ -16,7 +16,7 @@ if ~exist('data_3d.mat','file');
     Tmax = 20;
     
     % number of known features
-    M = 20;
+    M = 10;
     % allowable sphere for feature initialization
     R_feature = 20;
     % generate known feature locations
@@ -27,7 +27,7 @@ if ~exist('data_3d.mat','file');
     XYZ_KNOWN = repmat(r,1,3).*[cos(phi).*cos(thet) cos(phi).*sin(thet) sin(phi)];
     
     % unknown features
-    U = 20;
+    U = 30;
     % generate known feature locations
     r = rand(U,1)*R_feature;
     thet = rand(U,1)*2*pi-pi;

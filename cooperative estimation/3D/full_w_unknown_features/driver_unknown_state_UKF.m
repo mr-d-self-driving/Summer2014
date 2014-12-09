@@ -20,6 +20,10 @@ end
 load('data_3d.mat');
 % add noise - will not work unless this is run first
 
+% unknown feature initialization parameters
+RHO0 = 0.5;
+SIGMA_RHO = 0.25;
+
 % measurement standard errors
 % error stdev in agent-agent measurement
 err_dev = 0.01;%rads
@@ -102,16 +106,19 @@ end
 %% use exact initial conditions
 % xh{1}(1,14:17) = qji(1,:);
 % xh{1}(1,11:13) = rji_i_tr(1,:);
-% xh{1}(1,7:10) = Yc{1}(1,7:10);
-% xh{1}(1,1:3) = Yc{1}(1,1:3);
+xh{1}(1,7:10) = Yc{1}(1,7:10);
+xh{1}(1,1:3) = Yc{1}(1,1:3);
 % xh{2}(1,14:17) = qji(1,:);xh{2}(1,14) = -xh{2}(1,14);
 % xh{2}(1,11:13) = rij_j_tr(1,:);
-% xh{2}(1,7:10) = Yc{2}(1,7:10);
-% xh{2}(1,1:3) = Yc{2}(1,1:3);
+xh{2}(1,7:10) = Yc{2}(1,7:10);
+xh{2}(1,1:3) = Yc{2}(1,1:3);
 
 % measurement error
 Rhalf = diag([range_dev err_dev err_dev range_dev err_dev err_dev]).^2;
 magnom = [1e-8 mag_dev mag_dev].^2;
+% permanent vector that stores the GLOBAL index corresponding to each
+% feature seen by a given agent
+feature_ids = zeros(U,2);% 
 
 tic;
 for j = 1:2
@@ -220,25 +227,6 @@ for j = 1:2
                 % if this is satisfied, we can see the feature
                 if rbd(1) < FEATURE_RANGE_MAX(j) && rbd(1) > FEATURE_RANGE_MIN(j) && abs(rbd(2)) < d2r*(FEATURE_FOV_BEARING(j)) && abs(rbd(3)) < d2r*(FEATURE_FOV_DECLIN(j))
                     u1 = u1 + 1;
-                    % see if this is a new feature
-                    if ~any(ww==features_seen)
-                        features_seen = [features_seen;ww];
-                        % compute covariance for new feature
-                        Pfake = zeros(6);
-                        Pfake(1:3,1:3) = Pk(1:3,1:3);
-                        Pfake(5:6,5:6) = [feature_angle_err feature_angle_err].^2;
-                        Pfake(4,4) = SIGMA_RHO^2;
-                        % use statistical linearization here f balls
-                        % RESUME HERE NEXT TIME
-                        %Pnew = 
-                        % add these features to the current state & covariance 
-                        xhat = [xhat;zeros(6,1)];
-                        Pk = [Pk; zeros(Ns,6);zeros(6,Ns);Pnew];
-                        % RESUME HERE NEXT TIME
-                        Ns = Ns + 6;
-                        Ns2 = Ns^2;
-                    end
-                    thisFeatureIndex = find(ww==features_seen);
                     % generate the measurement of this feature
                     % error angle
                     err_angle = randn*feature_angle_err;
@@ -249,7 +237,33 @@ for j = 1:2
                     Cerr_i = attparsilent([a_error [err_angle;0;0]],[2 1]);
                     % measurement with angle error and range error
                     rmeas = (Cerr_i*rki)*(1+range_err/norm(rki));
-                    xyz_unknown_i(u1,:) = vector2polar(rmeas);
+                    rbd = vector2polar(rmeas);
+                    
+                    % see if this is a new feature
+                    if ~any(ww==features_seen)
+                        features_seen = [features_seen;ww];
+                        % compute covariance for new feature
+                        Pfake = zeros(3);
+                        Pfake(2:3,2:3) = diag([feature_angle_err feature_angle_err].^2);
+                        Pfake(1,1) = feature_range_err^2;
+                        % use statistical linearization here
+                        % add these features to the current state & covariance
+                        % state vector for linearization: current state
+                        % plus feature range/bearing/declination in body frame 
+                        %xlin = [xhat;RHO0;rbd(2:3)];
+                        xlin = [xhat;rbd(1);rbd(2:3)];
+                        Plin = [Pk zeros(Ns,3);zeros(3,Ns) Pfake];
+                        
+                        [xnew,Pnew] = statisticalLinearization(xlin,Plin,@featureInitialization);
+                        % append new state/covariances
+                        xhat = [xhat;xnew];
+                        Pk = [Pk zeros(Ns,6);zeros(6,Ns) Pnew];
+                        % increment the number of states
+                        Ns = Ns + 6;
+                        Ns2 = Ns^2;
+                    end
+                    thisFeatureIndex = find(ww==features_seen);
+                    xyz_unknown_i(u1,:) = rbd;
                     % store the identifying feature index. This is a label
                     %   specific to this particular agent.
                     unknown_features_used_i(u1) = thisFeatureIndex;
@@ -343,8 +357,8 @@ for j = 1:2
         uk = [wi;ai;mag_i;...
             m1; reshape(XYZ_KNOWN(known_features_used_i,:)',[],1);...
             m2; reshape(XYZ_KNOWN(known_features_used_j,:)',[],1);...
-            u1, unknown_features_used_i;...
-            u2, unknown_features_used_j];
+            u1; unknown_features_used_i;...
+            u2; unknown_features_used_j];
         
         yk = [vector2polar(rji_i); ...
 		vector2polar(rij_j); ...
@@ -358,7 +372,7 @@ for j = 1:2
         
         Pnk = Rx;
         
-        [xp,Pp] = ukf_update_unknown_state(xhat,Pk,Pvk,Pnk,uk,yk,1e-3);
+        [xp,Pp] = ukf_update_unknown_state_mex(xhat,Pk,Pvk,Pnk,uk,yk,1e-3);
         
         if any(any(isnan(Pp)))
             disp('Error: NaN in covariance output');
@@ -373,6 +387,7 @@ for j = 1:2
             etaCalc((j-1)*length(T) + k,2*length(T),toc);
         end
     end
+    feature_ids(1:length(features_seen),j) = features_seen;
 end
 toc;
 
@@ -545,3 +560,62 @@ for k = 1:4
     title( 'Agent 2 attitude estimate');
 end
 set(gcf,'position',[200 275 1300 625])
+
+%% unknown feature relative positions
+for j = 1:2
+    nFeatures = length(nonzeros(feature_ids(:,j)));
+    figure;
+    for k = 1:nFeatures
+        index = 17 + (k-1)*6 + (1:6);
+        
+        % find the time index of the first time we saw the feature
+        t0 = find(xh{j}(:,index(1))~=0,1,'first');
+        
+        xyz = xh{j}(:,index(1:3));
+        rho = xh{j}(:,index(4));
+        bear = xh{j}(:,index(5));
+        decl = xh{j}(:,index(6));
+        qin = xh{j}(:,7:10);
+        
+        rkn = xyz + repmat(1./rho,1,3).*[cos(bear).*cos(decl) sin(bear).*cos(decl) sin(decl)];
+        rki = rkn - xh{j}(:,1:3);
+        
+        rkn_true = XYZ_UNKNOWN(feature_ids(k,j),:);
+        rki_true = repmat(rkn_true,length(T),1) - Yc{j}(:,1:3);
+        qin_true = Yc{j}(:,7:10);
+        
+        rki_i = zeros(size(rki));
+        rki_i_true = zeros(size(rki_true));
+        for kk = 1:length(T)
+            Cin = attparsilentmex(qin(kk,:)',[6 1]);
+            rki_i(kk,:) = rki(kk,:)*Cin';
+            Cin_t = attparsilentmex(qin_true(kk,:)',[6 1]);
+            rki_i_true(kk,:) = rki_true(kk,:)*Cin_t';
+        end
+        
+        subplot(121);
+        hold on;
+        %plot(rki_i(t0:end,1),rki_i(t0:end,2),'-x');
+        plot([rki_i(end,1) rki_i_true(end,1)],[rki_i(end,2) rki_i_true(end,2)],'-x');
+        hold on;
+        % plot the initial points for reference
+        %plot(rki_i_true(:,1),rki_i_true(:,2),'rd');
+        %plot(rki_i(t0,1),rki_i(t0,2),'k-o','markersize',6,'linewidth',2);
+        %plot(rki_i_true(1,1),rki_i_true(1,2),'ko','markersize',6,'linewidth',2);
+        title(['Agent ' num2str(j) ' body axis X-Y feature coordinates']);
+        xlabel('x');
+        ylabel('y');
+        
+        subplot(122);
+        hold on;
+        %plot(rki_i(t0:end,1),rki_i(t0:end,3),'-x');
+        plot([rki_i(end,1) rki_i_true(end,1)],[rki_i(end,3) rki_i_true(end,3)],'-x');
+        hold on;
+        %plot(rki_i_true(:,1),rki_i_true(:,3),'rd');
+        %plot(rki_i(t0,1),rki_i(t0,3),'k-o','markersize',6,'linewidth',2);
+        %plot(rki_i_true(1,1),rki_i_true(1,3),'ko','markersize',6,'linewidth',2);
+        title(['Agent ' num2str(j) ' body axis X-Z feature coordinates']);
+        xlabel('x');
+        ylabel('z');
+    end
+end

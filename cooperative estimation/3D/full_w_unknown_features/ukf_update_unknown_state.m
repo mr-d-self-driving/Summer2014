@@ -13,7 +13,7 @@ N = n+nl+vl;
 % number of known features seen by agents i and j (1 and 2)
 m1 = uk(10);
 m2 = uk(10 + 1 + 3*m1);
-w1 = uk(10 + 2 + 3*m1 + 3*m2 + 1);
+w1 = uk(10 + 2 + 3*m1 + 3*m2);
 w2 = uk(10 + 2 + 3*m1 + 3*m2 + w1 + 1);
 
 % constant gamma that influences sigma points
@@ -111,6 +111,8 @@ yhat( (2:3:(3*m1)) + 9) = minangle(yhat( (2:3:(3*m1)) + 9),ytilde( (2:3:(3*m1)) 
 yhat( (3:3:(3*m1)) + 9) = minangle(yhat( (3:3:(3*m1)) + 9),ytilde( (3:3:(3*m1)) + 9));
 yhat( 9 + 3*m1 + (2:3:3*m2) ) = minangle(yhat( 9 + 3*m1 + (2:3:3*m2) ),ytilde( 9 + 3*m1 + (2:3:3*m2) ));
 yhat( 9 + 3*m1 + (3:3:3*m2) ) = minangle(yhat( 9 + 3*m1 + (3:3:3*m2) ),ytilde( 9 + 3*m1 + (3:3:3*m2) ));
+yhat( 9 + 3*(m1+m2) + (2:3:3*w1) ) = minangle(yhat( 9 + 3*(m1+m2) + (2:3:3*w1) ),ytilde( 9 + 3*(m1+m2) + (2:3:3*w1) ));
+yhat( 9 + 3*(m1+m2) + (3:3:3*w1) ) = minangle(yhat( 9 + 3*(m1+m2) + (3:3:3*w1) ),ytilde( 9 + 3*(m1+m2) + (3:3:3*w1) ));
 xn = xp + Kk*(ytilde-yhat);
 
 % renormalize quaternions as necessary

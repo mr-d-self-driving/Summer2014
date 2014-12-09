@@ -25,7 +25,7 @@ gamma = sqrt(n+lambda);
 nSigma = zeros(n,2*n+1);
 nSigma(:,1) = x;
 sqrtRx = sqrtm(Rx);
-sqrtRx = real(sqrt(Rx));
+sqrtRx = real(sqrtRx);
 nSigma(:,2:(n+1)) = repmat(x,1,n) + gamma*sqrtRx;
 nSigma(:,(n+2):(2*n+1)) = repmat(x,1,n) - gamma*sqrtRx;
 
