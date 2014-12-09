@@ -186,29 +186,29 @@ for j = 1:2
         m2 = 0;
         xyz_known_j = zeros(M,3);
         known_features_used_j = zeros(M,1);
-        for mm = 1:M
-            % compute the j frame TRUE position vector to feature
-            rkj = Cjn_true*(XYZ_KNOWN(mm,:)' - rjn_true);
-            % compute range/bearing/declination
-            rbd = vector2polar(rkj);
-            
-            % if this is satisfied, we can see the feature
-            if rbd(1) < FEATURE_RANGE_MAX(notj) && rbd(1) > FEATURE_RANGE_MIN(notj) && abs(rbd(2)) < d2r*(FEATURE_FOV_BEARING(notj)) && abs(rbd(3)) < d2r*(FEATURE_FOV_DECLIN(notj))
-                m2 = m2 + 1;
-                % generate the measurement of this feature
-                % error angle
-                err_angle = randn*feature_angle_err;
-                % error axis of rotation
-                a_error = randn(3,1);a_error = a_error./norm(a_error);
-                % range error
-                range_err = randn*feature_range_err;
-                Cerr_j = attparsilent([a_error [err_angle;0;0]],[2 1]);
-                % measurement with angle error and range error
-                rmeas = (Cerr_j*rkj)*(1+range_err/norm(rkj));
-                xyz_known_j(m2,:) = vector2polar(rmeas);
-                known_features_used_j(m2) = mm;
-            end
-        end
+%         for mm = 1:M
+%             % compute the j frame TRUE position vector to feature
+%             rkj = Cjn_true*(XYZ_KNOWN(mm,:)' - rjn_true);
+%             % compute range/bearing/declination
+%             rbd = vector2polar(rkj);
+%             
+%             % if this is satisfied, we can see the feature
+%             if rbd(1) < FEATURE_RANGE_MAX(notj) && rbd(1) > FEATURE_RANGE_MIN(notj) && abs(rbd(2)) < d2r*(FEATURE_FOV_BEARING(notj)) && abs(rbd(3)) < d2r*(FEATURE_FOV_DECLIN(notj))
+%                 m2 = m2 + 1;
+%                 % generate the measurement of this feature
+%                 % error angle
+%                 err_angle = randn*feature_angle_err;
+%                 % error axis of rotation
+%                 a_error = randn(3,1);a_error = a_error./norm(a_error);
+%                 % range error
+%                 range_err = randn*feature_range_err;
+%                 Cerr_j = attparsilent([a_error [err_angle;0;0]],[2 1]);
+%                 % measurement with angle error and range error
+%                 rmeas = (Cerr_j*rkj)*(1+range_err/norm(rkj));
+%                 xyz_known_j(m2,:) = vector2polar(rmeas);
+%                 known_features_used_j(m2) = mm;
+%             end
+%         end
         xyz_known_j(m2+1:end,:) = [];
         known_features_used_j(m2+1:end) = [];
         
@@ -562,60 +562,6 @@ end
 set(gcf,'position',[200 275 1300 625])
 
 %% unknown feature relative positions
-for j = 1:2
-    nFeatures = length(nonzeros(feature_ids(:,j)));
-    figure;
-    for k = 1:nFeatures
-        index = 17 + (k-1)*6 + (1:6);
-        
-        % find the time index of the first time we saw the feature
-        t0 = find(xh{j}(:,index(1))~=0,1,'first');
-        
-        xyz = xh{j}(:,index(1:3));
-        rho = xh{j}(:,index(4));
-        bear = xh{j}(:,index(5));
-        decl = xh{j}(:,index(6));
-        qin = xh{j}(:,7:10);
-        
-        rkn = xyz + repmat(1./rho,1,3).*[cos(bear).*cos(decl) sin(bear).*cos(decl) sin(decl)];
-        rki = rkn - xh{j}(:,1:3);
-        
-        rkn_true = XYZ_UNKNOWN(feature_ids(k,j),:);
-        rki_true = repmat(rkn_true,length(T),1) - Yc{j}(:,1:3);
-        qin_true = Yc{j}(:,7:10);
-        
-        rki_i = zeros(size(rki));
-        rki_i_true = zeros(size(rki_true));
-        for kk = 1:length(T)
-            Cin = attparsilentmex(qin(kk,:)',[6 1]);
-            rki_i(kk,:) = rki(kk,:)*Cin';
-            Cin_t = attparsilentmex(qin_true(kk,:)',[6 1]);
-            rki_i_true(kk,:) = rki_true(kk,:)*Cin_t';
-        end
-        
-        subplot(121);
-        hold on;
-        %plot(rki_i(t0:end,1),rki_i(t0:end,2),'-x');
-        plot([rki_i(end,1) rki_i_true(end,1)],[rki_i(end,2) rki_i_true(end,2)],'-x');
-        hold on;
-        % plot the initial points for reference
-        %plot(rki_i_true(:,1),rki_i_true(:,2),'rd');
-        %plot(rki_i(t0,1),rki_i(t0,2),'k-o','markersize',6,'linewidth',2);
-        %plot(rki_i_true(1,1),rki_i_true(1,2),'ko','markersize',6,'linewidth',2);
-        title(['Agent ' num2str(j) ' body axis X-Y feature coordinates']);
-        xlabel('x');
-        ylabel('y');
-        
-        subplot(122);
-        hold on;
-        %plot(rki_i(t0:end,1),rki_i(t0:end,3),'-x');
-        plot([rki_i(end,1) rki_i_true(end,1)],[rki_i(end,3) rki_i_true(end,3)],'-x');
-        hold on;
-        %plot(rki_i_true(:,1),rki_i_true(:,3),'rd');
-        %plot(rki_i(t0,1),rki_i(t0,3),'k-o','markersize',6,'linewidth',2);
-        %plot(rki_i_true(1,1),rki_i_true(1,3),'ko','markersize',6,'linewidth',2);
-        title(['Agent ' num2str(j) ' body axis X-Z feature coordinates']);
-        xlabel('x');
-        ylabel('z');
-    end
-end
+
+% call the animation script
+animate;
