@@ -3,7 +3,7 @@
  *
  * Code generation for function 'repmat'
  *
- * C source code generated on: Tue Dec  9 10:58:59 2014
+ * C source code generated on: Thu Dec 11 11:40:54 2014
  *
  */
 
@@ -18,19 +18,19 @@
 #include <stdio.h>
 
 /* Variable Definitions */
-static emlrtRSInfo ni_emlrtRSI = { 11, "repmat",
+static emlrtRSInfo pi_emlrtRSI = { 11, "repmat",
   "/usr/local/MATLAB/MATLAB_Production_Server/R2013a/toolbox/eml/lib/matlab/elmat/repmat.m"
 };
 
-static emlrtRSInfo oi_emlrtRSI = { 58, "repmat",
+static emlrtRSInfo qi_emlrtRSI = { 58, "repmat",
   "/usr/local/MATLAB/MATLAB_Production_Server/R2013a/toolbox/eml/lib/matlab/elmat/repmat.m"
 };
 
-static emlrtRSInfo pi_emlrtRSI = { 60, "repmat",
+static emlrtRSInfo ri_emlrtRSI = { 60, "repmat",
   "/usr/local/MATLAB/MATLAB_Production_Server/R2013a/toolbox/eml/lib/matlab/elmat/repmat.m"
 };
 
-static emlrtRSInfo qi_emlrtRSI = { 61, "repmat",
+static emlrtRSInfo si_emlrtRSI = { 61, "repmat",
   "/usr/local/MATLAB/MATLAB_Production_Server/R2013a/toolbox/eml/lib/matlab/elmat/repmat.m"
 };
 
@@ -44,7 +44,7 @@ void repmat(const real_T a_data[1001], const int32_T a_size[2], real_T m,
 {
   boolean_T p;
   const mxArray *y;
-  static const int32_T iv44[2] = { 1, 28 };
+  static const int32_T iv50[2] = { 1, 28 };
 
   const mxArray *m7;
   char_T cv26[28];
@@ -55,7 +55,7 @@ void repmat(const real_T a_data[1001], const int32_T a_size[2], real_T m,
 
   real_T b_m;
   const mxArray *b_y;
-  static const int32_T iv45[2] = { 1, 21 };
+  static const int32_T iv51[2] = { 1, 21 };
 
   char_T cv28[21];
   static const char_T cv29[21] = { 'C', 'o', 'd', 'e', 'r', ':', 'M', 'A', 'T',
@@ -68,7 +68,7 @@ void repmat(const real_T a_data[1001], const int32_T a_size[2], real_T m,
   int32_T jcol;
   boolean_T b1;
   int32_T itilerow;
-  emlrtPushRtStackR2012b(&ni_emlrtRSI, emlrtRootTLSGlobal);
+  emlrtPushRtStackR2012b(&pi_emlrtRSI, emlrtRootTLSGlobal);
   if ((m != m) || muDoubleScalarIsInf(m)) {
     p = FALSE;
   } else {
@@ -77,10 +77,10 @@ void repmat(const real_T a_data[1001], const int32_T a_size[2], real_T m,
 
   if (p) {
   } else {
-    emlrtPushRtStackR2012b(&ri_emlrtRSI, emlrtRootTLSGlobal);
+    emlrtPushRtStackR2012b(&ti_emlrtRSI, emlrtRootTLSGlobal);
     emlrt_synchGlobalsToML();
     y = NULL;
-    m7 = mxCreateCharArray(2, iv44);
+    m7 = mxCreateCharArray(2, iv50);
     for (i = 0; i < 28; i++) {
       cv26[i] = cv27[i];
     }
@@ -89,7 +89,7 @@ void repmat(const real_T a_data[1001], const int32_T a_size[2], real_T m,
     emlrtAssign(&y, m7);
     error(message(y, &r_emlrtMCI), &s_emlrtMCI);
     emlrt_synchGlobalsFromML();
-    emlrtPopRtStackR2012b(&ri_emlrtRSI, emlrtRootTLSGlobal);
+    emlrtPopRtStackR2012b(&ti_emlrtRSI, emlrtRootTLSGlobal);
   }
 
   if (m <= 0.0) {
@@ -100,10 +100,10 @@ void repmat(const real_T a_data[1001], const int32_T a_size[2], real_T m,
 
   if (2.147483647E+9 >= b_m) {
   } else {
-    emlrtPushRtStackR2012b(&si_emlrtRSI, emlrtRootTLSGlobal);
+    emlrtPushRtStackR2012b(&ui_emlrtRSI, emlrtRootTLSGlobal);
     emlrt_synchGlobalsToML();
     b_y = NULL;
-    m7 = mxCreateCharArray(2, iv45);
+    m7 = mxCreateCharArray(2, iv51);
     for (i = 0; i < 21; i++) {
       cv28[i] = cv29[i];
     }
@@ -112,10 +112,10 @@ void repmat(const real_T a_data[1001], const int32_T a_size[2], real_T m,
     emlrtAssign(&b_y, m7);
     error(message(b_y, &t_emlrtMCI), &u_emlrtMCI);
     emlrt_synchGlobalsFromML();
-    emlrtPopRtStackR2012b(&si_emlrtRSI, emlrtRootTLSGlobal);
+    emlrtPopRtStackR2012b(&ui_emlrtRSI, emlrtRootTLSGlobal);
   }
 
-  emlrtPopRtStackR2012b(&ni_emlrtRSI, emlrtRootTLSGlobal);
+  emlrtPopRtStackR2012b(&pi_emlrtRSI, emlrtRootTLSGlobal);
   mv[0] = (int32_T)m;
   mv[1] = 1;
   for (i = 0; i < 2; i++) {
@@ -131,13 +131,13 @@ void repmat(const real_T a_data[1001], const int32_T a_size[2], real_T m,
   } else {
     i = 0;
     ib = 0;
-    emlrtPushRtStackR2012b(&oi_emlrtRSI, emlrtRootTLSGlobal);
-    emlrtPopRtStackR2012b(&oi_emlrtRSI, emlrtRootTLSGlobal);
+    emlrtPushRtStackR2012b(&qi_emlrtRSI, emlrtRootTLSGlobal);
+    emlrtPopRtStackR2012b(&qi_emlrtRSI, emlrtRootTLSGlobal);
     iacol = 0;
-    emlrtPushRtStackR2012b(&pi_emlrtRSI, emlrtRootTLSGlobal);
-    emlrtPopRtStackR2012b(&pi_emlrtRSI, emlrtRootTLSGlobal);
+    emlrtPushRtStackR2012b(&ri_emlrtRSI, emlrtRootTLSGlobal);
+    emlrtPopRtStackR2012b(&ri_emlrtRSI, emlrtRootTLSGlobal);
     for (jcol = 1; jcol <= a_size[1]; jcol++) {
-      emlrtPushRtStackR2012b(&qi_emlrtRSI, emlrtRootTLSGlobal);
+      emlrtPushRtStackR2012b(&si_emlrtRSI, emlrtRootTLSGlobal);
       if (1 > (int32_T)m) {
         b1 = FALSE;
       } else {
@@ -145,12 +145,12 @@ void repmat(const real_T a_data[1001], const int32_T a_size[2], real_T m,
       }
 
       if (b1) {
-        emlrtPushRtStackR2012b(&db_emlrtRSI, emlrtRootTLSGlobal);
+        emlrtPushRtStackR2012b(&fb_emlrtRSI, emlrtRootTLSGlobal);
         check_forloop_overflow_error();
-        emlrtPopRtStackR2012b(&db_emlrtRSI, emlrtRootTLSGlobal);
+        emlrtPopRtStackR2012b(&fb_emlrtRSI, emlrtRootTLSGlobal);
       }
 
-      emlrtPopRtStackR2012b(&qi_emlrtRSI, emlrtRootTLSGlobal);
+      emlrtPopRtStackR2012b(&si_emlrtRSI, emlrtRootTLSGlobal);
       for (itilerow = 1; itilerow <= (int32_T)m; itilerow++) {
         b->data[ib] = a_data[iacol];
         i = iacol + 1;

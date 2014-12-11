@@ -3,7 +3,7 @@
  *
  * Code generation for function 'sum'
  *
- * C source code generated on: Tue Dec  9 10:58:59 2014
+ * C source code generated on: Thu Dec 11 11:40:54 2014
  *
  */
 
@@ -17,11 +17,11 @@
 #include <stdio.h>
 
 /* Variable Definitions */
-static emlrtRSInfo ti_emlrtRSI = { 72, "sum",
+static emlrtRSInfo vi_emlrtRSI = { 72, "sum",
   "/usr/local/MATLAB/MATLAB_Production_Server/R2013a/toolbox/eml/lib/matlab/datafun/sum.m"
 };
 
-static emlrtRSInfo ui_emlrtRSI = { 76, "sum",
+static emlrtRSInfo wi_emlrtRSI = { 76, "sum",
   "/usr/local/MATLAB/MATLAB_Production_Server/R2013a/toolbox/eml/lib/matlab/datafun/sum.m"
 };
 
@@ -76,21 +76,21 @@ void sum(const emxArray_real_T *x, emxArray_real_T *y)
   } else {
     iy = -1;
     ixstart = -1;
-    emlrtPushRtStackR2012b(&ti_emlrtRSI, emlrtRootTLSGlobal);
+    emlrtPushRtStackR2012b(&vi_emlrtRSI, emlrtRootTLSGlobal);
     overflow = (x->size[0] > 2147483646);
     if (overflow) {
-      emlrtPushRtStackR2012b(&db_emlrtRSI, emlrtRootTLSGlobal);
+      emlrtPushRtStackR2012b(&fb_emlrtRSI, emlrtRootTLSGlobal);
       check_forloop_overflow_error();
-      emlrtPopRtStackR2012b(&db_emlrtRSI, emlrtRootTLSGlobal);
+      emlrtPopRtStackR2012b(&fb_emlrtRSI, emlrtRootTLSGlobal);
     }
 
-    emlrtPopRtStackR2012b(&ti_emlrtRSI, emlrtRootTLSGlobal);
+    emlrtPopRtStackR2012b(&vi_emlrtRSI, emlrtRootTLSGlobal);
     for (j = 1; j <= x->size[0]; j++) {
       ixstart++;
       ix = ixstart;
       s = x->data[ixstart];
-      emlrtPushRtStackR2012b(&ui_emlrtRSI, emlrtRootTLSGlobal);
-      emlrtPopRtStackR2012b(&ui_emlrtRSI, emlrtRootTLSGlobal);
+      emlrtPushRtStackR2012b(&wi_emlrtRSI, emlrtRootTLSGlobal);
+      emlrtPopRtStackR2012b(&wi_emlrtRSI, emlrtRootTLSGlobal);
       for (k = 2; k <= x->size[1]; k++) {
         ix += x->size[0];
         s += x->data[ix];

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <deployment-project plugin="plugin.matlabcoder" plugin-version="R2013a">
-  <configuration target="target.matlab.coder" target-name="MEX, C, and C++ Code Generation" name="ukf_update_unknown_state" location="/home/tim/github/Summer2014/cooperative estimation/3D/full_w_unknown_features" file="/home/tim/github/Summer2014/cooperative estimation/3D/full_w_unknown_features/ukf_update_unknown_state.prj" build-checksum="4219363342">
+  <configuration target="target.matlab.coder" target-name="MEX, C, and C++ Code Generation" name="ukf_update_unknown_state" location="/home/tim/github/Summer2014/cooperative estimation/3D/full_w_unknown_features" file="/home/tim/github/Summer2014/cooperative estimation/3D/full_w_unknown_features/ukf_update_unknown_state.prj" build-checksum="75258040">
     <profile key="profile.mex">
       <param.MergeInstrumentationResults>false</param.MergeInstrumentationResults>
       <param.BuiltInstrumentedMex>false</param.BuiltInstrumentedMex>
@@ -400,7 +400,7 @@
       <param.DefaultFixedPointSignedness />
     </unset>
     <fileset.entrypoints>
-      <file value="${PROJECT_ROOT}/ukf_update_unknown_state.m" custom-data-expanded="true">
+      <file value="${PROJECT_ROOT}/ukf_update_unknown_state.m" custom-data-expanded="false">
         <Inputs fileName="ukf_update_unknown_state.m" functionName="ukf_update_unknown_state">
           <Input Name="xk">
             <Class>double</Class>

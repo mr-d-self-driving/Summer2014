@@ -113,6 +113,8 @@ yhat( 9 + 3*m1 + (2:3:3*m2) ) = minangle(yhat( 9 + 3*m1 + (2:3:3*m2) ),ytilde( 9
 yhat( 9 + 3*m1 + (3:3:3*m2) ) = minangle(yhat( 9 + 3*m1 + (3:3:3*m2) ),ytilde( 9 + 3*m1 + (3:3:3*m2) ));
 yhat( 9 + 3*(m1+m2) + (2:3:3*w1) ) = minangle(yhat( 9 + 3*(m1+m2) + (2:3:3*w1) ),ytilde( 9 + 3*(m1+m2) + (2:3:3*w1) ));
 yhat( 9 + 3*(m1+m2) + (3:3:3*w1) ) = minangle(yhat( 9 + 3*(m1+m2) + (3:3:3*w1) ),ytilde( 9 + 3*(m1+m2) + (3:3:3*w1) ));
+yhat( 9 + 3*(m1+m2+w1) + (2:3:3*w2) ) = minangle(yhat( 9 + 3*(m1+m2+w1) + (2:3:3*w2) ),ytilde( 9 + 3*(m1+m2+w1) + (2:3:3*w2) ));
+yhat( 9 + 3*(m1+m2+w1) + (3:3:3*w2) ) = minangle(yhat( 9 + 3*(m1+m2+w1) + (3:3:3*w2) ),ytilde( 9 + 3*(m1+m2+w1) + (3:3:3*w2) ));
 xn = xp + Kk*(ytilde-yhat);
 
 % renormalize quaternions as necessary

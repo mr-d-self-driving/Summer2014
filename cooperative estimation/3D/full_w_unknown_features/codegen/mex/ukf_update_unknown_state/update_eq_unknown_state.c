@@ -3,7 +3,7 @@
  *
  * Code generation for function 'update_eq_unknown_state'
  *
- * C source code generated on: Tue Dec  9 10:58:59 2014
+ * C source code generated on: Thu Dec 11 11:40:54 2014
  *
  */
 
@@ -22,200 +22,200 @@ static emlrtRTEInfo x_emlrtRTEI = { 1, 19, "update_eq_unknown_state",
   "/home/tim/github/Summer2014/cooperative estimation/3D/full_w_unknown_features/update_eq_unknown_state.m"
 };
 
-static emlrtBCInfo tc_emlrtBCI = { -1, -1, 66, 18, "xkPlus",
+static emlrtBCInfo ad_emlrtBCI = { -1, -1, 66, 18, "xkPlus",
   "update_eq_unknown_state",
   "/home/tim/github/Summer2014/cooperative estimation/3D/full_w_unknown_features/update_eq_unknown_state.m",
   0 };
 
-static emlrtBCInfo uc_emlrtBCI = { -1, -1, 66, 57, "xkPlus",
+static emlrtBCInfo bd_emlrtBCI = { -1, -1, 66, 57, "xkPlus",
   "update_eq_unknown_state",
   "/home/tim/github/Summer2014/cooperative estimation/3D/full_w_unknown_features/update_eq_unknown_state.m",
   0 };
 
-static emlrtBCInfo vc_emlrtBCI = { -1, -1, 66, 36, "xkPlus",
+static emlrtBCInfo cd_emlrtBCI = { -1, -1, 66, 36, "xkPlus",
   "update_eq_unknown_state",
   "/home/tim/github/Summer2014/cooperative estimation/3D/full_w_unknown_features/update_eq_unknown_state.m",
   0 };
 
-static emlrtBCInfo wc_emlrtBCI = { -1, -1, 65, 17, "xkPlus",
+static emlrtBCInfo dd_emlrtBCI = { -1, -1, 65, 17, "xkPlus",
   "update_eq_unknown_state",
   "/home/tim/github/Summer2014/cooperative estimation/3D/full_w_unknown_features/update_eq_unknown_state.m",
   0 };
 
-static emlrtBCInfo xc_emlrtBCI = { -1, -1, 65, 54, "xkPlus",
+static emlrtBCInfo ed_emlrtBCI = { -1, -1, 65, 54, "xkPlus",
   "update_eq_unknown_state",
   "/home/tim/github/Summer2014/cooperative estimation/3D/full_w_unknown_features/update_eq_unknown_state.m",
   0 };
 
-static emlrtBCInfo yc_emlrtBCI = { -1, -1, 65, 34, "xkPlus",
+static emlrtBCInfo fd_emlrtBCI = { -1, -1, 65, 34, "xkPlus",
   "update_eq_unknown_state",
   "/home/tim/github/Summer2014/cooperative estimation/3D/full_w_unknown_features/update_eq_unknown_state.m",
   0 };
 
-static emlrtECInfo cc_emlrtECI = { -1, 63, 5, "update_eq_unknown_state",
+static emlrtECInfo ic_emlrtECI = { -1, 63, 5, "update_eq_unknown_state",
   "/home/tim/github/Summer2014/cooperative estimation/3D/full_w_unknown_features/update_eq_unknown_state.m"
 };
 
-static emlrtBCInfo ad_emlrtBCI = { -1, -1, 63, 14, "xkPlus",
+static emlrtBCInfo gd_emlrtBCI = { -1, -1, 63, 14, "xkPlus",
   "update_eq_unknown_state",
   "/home/tim/github/Summer2014/cooperative estimation/3D/full_w_unknown_features/update_eq_unknown_state.m",
   0 };
 
-static emlrtECInfo dc_emlrtECI = { -1, 63, 19, "update_eq_unknown_state",
+static emlrtECInfo jc_emlrtECI = { -1, 63, 19, "update_eq_unknown_state",
   "/home/tim/github/Summer2014/cooperative estimation/3D/full_w_unknown_features/update_eq_unknown_state.m"
 };
 
-static emlrtECInfo ec_emlrtECI = { -1, 37, 17, "update_eq_unknown_state",
+static emlrtECInfo kc_emlrtECI = { -1, 37, 17, "update_eq_unknown_state",
   "/home/tim/github/Summer2014/cooperative estimation/3D/full_w_unknown_features/update_eq_unknown_state.m"
 };
 
-static emlrtECInfo fc_emlrtECI = { -1, 36, 17, "update_eq_unknown_state",
+static emlrtECInfo lc_emlrtECI = { -1, 36, 17, "update_eq_unknown_state",
   "/home/tim/github/Summer2014/cooperative estimation/3D/full_w_unknown_features/update_eq_unknown_state.m"
 };
 
-static emlrtECInfo gc_emlrtECI = { -1, 34, 10, "update_eq_unknown_state",
+static emlrtECInfo mc_emlrtECI = { -1, 34, 10, "update_eq_unknown_state",
   "/home/tim/github/Summer2014/cooperative estimation/3D/full_w_unknown_features/update_eq_unknown_state.m"
 };
 
-static emlrtECInfo hc_emlrtECI = { -1, 33, 10, "update_eq_unknown_state",
+static emlrtECInfo nc_emlrtECI = { -1, 33, 10, "update_eq_unknown_state",
   "/home/tim/github/Summer2014/cooperative estimation/3D/full_w_unknown_features/update_eq_unknown_state.m"
 };
 
-static emlrtBCInfo bd_emlrtBCI = { -1, -1, 30, 15, "vk",
+static emlrtBCInfo hd_emlrtBCI = { -1, -1, 30, 15, "vk",
   "update_eq_unknown_state",
   "/home/tim/github/Summer2014/cooperative estimation/3D/full_w_unknown_features/update_eq_unknown_state.m",
   0 };
 
-static emlrtECInfo ic_emlrtECI = { -1, 27, 11, "update_eq_unknown_state",
+static emlrtECInfo oc_emlrtECI = { -1, 27, 11, "update_eq_unknown_state",
   "/home/tim/github/Summer2014/cooperative estimation/3D/full_w_unknown_features/update_eq_unknown_state.m"
 };
 
-static emlrtECInfo jc_emlrtECI = { -1, 25, 11, "update_eq_unknown_state",
+static emlrtECInfo pc_emlrtECI = { -1, 25, 11, "update_eq_unknown_state",
   "/home/tim/github/Summer2014/cooperative estimation/3D/full_w_unknown_features/update_eq_unknown_state.m"
 };
 
-static emlrtECInfo kc_emlrtECI = { -1, 23, 11, "update_eq_unknown_state",
+static emlrtECInfo qc_emlrtECI = { -1, 23, 11, "update_eq_unknown_state",
   "/home/tim/github/Summer2014/cooperative estimation/3D/full_w_unknown_features/update_eq_unknown_state.m"
 };
 
-static emlrtECInfo lc_emlrtECI = { -1, 21, 11, "update_eq_unknown_state",
+static emlrtECInfo rc_emlrtECI = { -1, 21, 11, "update_eq_unknown_state",
   "/home/tim/github/Summer2014/cooperative estimation/3D/full_w_unknown_features/update_eq_unknown_state.m"
 };
 
-static emlrtBCInfo cd_emlrtBCI = { -1, -1, 19, 17, "xk",
+static emlrtBCInfo id_emlrtBCI = { -1, -1, 19, 17, "xk",
   "update_eq_unknown_state",
   "/home/tim/github/Summer2014/cooperative estimation/3D/full_w_unknown_features/update_eq_unknown_state.m",
   0 };
 
-static emlrtECInfo mc_emlrtECI = { -1, 15, 8, "update_eq_unknown_state",
+static emlrtECInfo sc_emlrtECI = { -1, 15, 8, "update_eq_unknown_state",
   "/home/tim/github/Summer2014/cooperative estimation/3D/full_w_unknown_features/update_eq_unknown_state.m"
 };
 
-static emlrtECInfo nc_emlrtECI = { -1, 14, 8, "update_eq_unknown_state",
+static emlrtECInfo tc_emlrtECI = { -1, 14, 8, "update_eq_unknown_state",
   "/home/tim/github/Summer2014/cooperative estimation/3D/full_w_unknown_features/update_eq_unknown_state.m"
 };
 
-static emlrtBCInfo dd_emlrtBCI = { -1, -1, 14, 8, "uk",
+static emlrtBCInfo jd_emlrtBCI = { -1, -1, 14, 8, "uk",
   "update_eq_unknown_state",
   "/home/tim/github/Summer2014/cooperative estimation/3D/full_w_unknown_features/update_eq_unknown_state.m",
   0 };
 
-static emlrtBCInfo ed_emlrtBCI = { -1, -1, 15, 8, "uk",
+static emlrtBCInfo kd_emlrtBCI = { -1, -1, 15, 8, "uk",
   "update_eq_unknown_state",
   "/home/tim/github/Summer2014/cooperative estimation/3D/full_w_unknown_features/update_eq_unknown_state.m",
   0 };
 
-static emlrtBCInfo fd_emlrtBCI = { -1, -1, 21, 11, "xhat",
+static emlrtBCInfo ld_emlrtBCI = { -1, -1, 21, 11, "xhat",
   "update_eq_unknown_state",
   "/home/tim/github/Summer2014/cooperative estimation/3D/full_w_unknown_features/update_eq_unknown_state.m",
   0 };
 
-static emlrtBCInfo gd_emlrtBCI = { -1, -1, 23, 11, "xhat",
+static emlrtBCInfo md_emlrtBCI = { -1, -1, 23, 11, "xhat",
   "update_eq_unknown_state",
   "/home/tim/github/Summer2014/cooperative estimation/3D/full_w_unknown_features/update_eq_unknown_state.m",
   0 };
 
-static emlrtBCInfo hd_emlrtBCI = { -1, -1, 25, 11, "xhat",
+static emlrtBCInfo nd_emlrtBCI = { -1, -1, 25, 11, "xhat",
   "update_eq_unknown_state",
   "/home/tim/github/Summer2014/cooperative estimation/3D/full_w_unknown_features/update_eq_unknown_state.m",
   0 };
 
-static emlrtBCInfo id_emlrtBCI = { -1, -1, 27, 11, "xhat",
+static emlrtBCInfo od_emlrtBCI = { -1, -1, 27, 11, "xhat",
   "update_eq_unknown_state",
   "/home/tim/github/Summer2014/cooperative estimation/3D/full_w_unknown_features/update_eq_unknown_state.m",
   0 };
 
-static emlrtBCInfo jd_emlrtBCI = { -1, -1, 33, 10, "vn",
+static emlrtBCInfo pd_emlrtBCI = { -1, -1, 33, 10, "vn",
   "update_eq_unknown_state",
   "/home/tim/github/Summer2014/cooperative estimation/3D/full_w_unknown_features/update_eq_unknown_state.m",
   0 };
 
-static emlrtBCInfo kd_emlrtBCI = { -1, -1, 34, 10, "vn",
+static emlrtBCInfo qd_emlrtBCI = { -1, -1, 34, 10, "vn",
   "update_eq_unknown_state",
   "/home/tim/github/Summer2014/cooperative estimation/3D/full_w_unknown_features/update_eq_unknown_state.m",
   0 };
 
-static emlrtBCInfo ld_emlrtBCI = { -1, -1, 36, 17, "vn",
+static emlrtBCInfo rd_emlrtBCI = { -1, -1, 36, 17, "vn",
   "update_eq_unknown_state",
   "/home/tim/github/Summer2014/cooperative estimation/3D/full_w_unknown_features/update_eq_unknown_state.m",
   0 };
 
-static emlrtBCInfo md_emlrtBCI = { -1, -1, 37, 17, "vn",
+static emlrtBCInfo sd_emlrtBCI = { -1, -1, 37, 17, "vn",
   "update_eq_unknown_state",
   "/home/tim/github/Summer2014/cooperative estimation/3D/full_w_unknown_features/update_eq_unknown_state.m",
   0 };
 
-static emlrtBCInfo nd_emlrtBCI = { -1, -1, 42, 5, "xdot",
+static emlrtBCInfo td_emlrtBCI = { -1, -1, 42, 5, "xdot",
   "update_eq_unknown_state",
   "/home/tim/github/Summer2014/cooperative estimation/3D/full_w_unknown_features/update_eq_unknown_state.m",
   0 };
 
-static emlrtBCInfo od_emlrtBCI = { -1, -1, 44, 5, "xdot",
+static emlrtBCInfo ud_emlrtBCI = { -1, -1, 44, 5, "xdot",
   "update_eq_unknown_state",
   "/home/tim/github/Summer2014/cooperative estimation/3D/full_w_unknown_features/update_eq_unknown_state.m",
   0 };
 
-static emlrtBCInfo pd_emlrtBCI = { -1, -1, 48, 5, "xdot",
+static emlrtBCInfo vd_emlrtBCI = { -1, -1, 48, 5, "xdot",
   "update_eq_unknown_state",
   "/home/tim/github/Summer2014/cooperative estimation/3D/full_w_unknown_features/update_eq_unknown_state.m",
   0 };
 
-static emlrtBCInfo qd_emlrtBCI = { -1, -1, 58, 5, "xdot",
+static emlrtBCInfo wd_emlrtBCI = { -1, -1, 58, 5, "xdot",
   "update_eq_unknown_state",
   "/home/tim/github/Summer2014/cooperative estimation/3D/full_w_unknown_features/update_eq_unknown_state.m",
   0 };
 
-static emlrtBCInfo rd_emlrtBCI = { -1, -1, 61, 5, "xdot",
+static emlrtBCInfo xd_emlrtBCI = { -1, -1, 61, 5, "xdot",
   "update_eq_unknown_state",
   "/home/tim/github/Summer2014/cooperative estimation/3D/full_w_unknown_features/update_eq_unknown_state.m",
   0 };
 
-static emlrtBCInfo sd_emlrtBCI = { -1, -1, 65, 29, "xkPlus",
+static emlrtBCInfo yd_emlrtBCI = { -1, -1, 65, 29, "xkPlus",
   "update_eq_unknown_state",
   "/home/tim/github/Summer2014/cooperative estimation/3D/full_w_unknown_features/update_eq_unknown_state.m",
   0 };
 
-static emlrtBCInfo td_emlrtBCI = { -1, -1, 65, 49, "xkPlus",
+static emlrtBCInfo ae_emlrtBCI = { -1, -1, 65, 49, "xkPlus",
   "update_eq_unknown_state",
   "/home/tim/github/Summer2014/cooperative estimation/3D/full_w_unknown_features/update_eq_unknown_state.m",
   0 };
 
-static emlrtBCInfo ud_emlrtBCI = { -1, -1, 65, 12, "xkPlus",
+static emlrtBCInfo be_emlrtBCI = { -1, -1, 65, 12, "xkPlus",
   "update_eq_unknown_state",
   "/home/tim/github/Summer2014/cooperative estimation/3D/full_w_unknown_features/update_eq_unknown_state.m",
   0 };
 
-static emlrtBCInfo vd_emlrtBCI = { -1, -1, 66, 30, "xkPlus",
+static emlrtBCInfo ce_emlrtBCI = { -1, -1, 66, 30, "xkPlus",
   "update_eq_unknown_state",
   "/home/tim/github/Summer2014/cooperative estimation/3D/full_w_unknown_features/update_eq_unknown_state.m",
   0 };
 
-static emlrtBCInfo wd_emlrtBCI = { -1, -1, 66, 51, "xkPlus",
+static emlrtBCInfo de_emlrtBCI = { -1, -1, 66, 51, "xkPlus",
   "update_eq_unknown_state",
   "/home/tim/github/Summer2014/cooperative estimation/3D/full_w_unknown_features/update_eq_unknown_state.m",
   0 };
 
-static emlrtBCInfo xd_emlrtBCI = { -1, -1, 66, 12, "xkPlus",
+static emlrtBCInfo ee_emlrtBCI = { -1, -1, 66, 12, "xkPlus",
   "update_eq_unknown_state",
   "/home/tim/github/Summer2014/cooperative estimation/3D/full_w_unknown_features/update_eq_unknown_state.m",
   0 };
@@ -227,7 +227,7 @@ void update_eq_unknown_state(const emxArray_real_T *xk, const emxArray_real_T
 {
   int32_T i4;
   int32_T i5;
-  int16_T iv42[2];
+  int16_T iv48[2];
   int32_T loop_ub;
   int32_T k;
   emxArray_real_T *y;
@@ -253,7 +253,7 @@ void update_eq_unknown_state(const emxArray_real_T *xk, const emxArray_real_T
   real_T b_xk_data[200];
   real_T dv6[9];
   int32_T tmp_data[200];
-  int32_T iv43[1];
+  int32_T iv49[1];
   int32_T f_xk[1];
   emlrtHeapReferenceStackEnterFcnR2012b(emlrtRootTLSGlobal);
 
@@ -261,35 +261,35 @@ void update_eq_unknown_state(const emxArray_real_T *xk, const emxArray_real_T
   /* vk: 12 x 2N+1, noise on wi,(wj_est),ai,(vj_inertial) */
   /* uk[wi;ai;mag_i] : 9 x 2N+1 */
   /*  IMU measurements of me */
-  emlrtVectorVectorIndexCheckR2012b(uk_size[0], 1, 1, 3, &nc_emlrtECI,
+  emlrtVectorVectorIndexCheckR2012b(uk_size[0], 1, 1, 3, &tc_emlrtECI,
     emlrtRootTLSGlobal);
   for (i4 = 0; i4 < 3; i4++) {
     i5 = 1 + i4;
-    emlrtDynamicBoundsCheckFastR2012b(i5, 1, uk_size[0], &dd_emlrtBCI,
+    emlrtDynamicBoundsCheckFastR2012b(i5, 1, uk_size[0], &jd_emlrtBCI,
       emlrtRootTLSGlobal);
   }
 
-  emlrtVectorVectorIndexCheckR2012b(uk_size[0], 1, 1, 3, &mc_emlrtECI,
+  emlrtVectorVectorIndexCheckR2012b(uk_size[0], 1, 1, 3, &sc_emlrtECI,
     emlrtRootTLSGlobal);
   for (i4 = 0; i4 < 3; i4++) {
     i5 = 4 + i4;
-    emlrtDynamicBoundsCheckFastR2012b(i5, 1, uk_size[0], &ed_emlrtBCI,
+    emlrtDynamicBoundsCheckFastR2012b(i5, 1, uk_size[0], &kd_emlrtBCI,
       emlrtRootTLSGlobal);
   }
 
   for (i4 = 0; i4 < 2; i4++) {
-    iv42[i4] = (int16_T)xk->size[i4];
+    iv48[i4] = (int16_T)xk->size[i4];
   }
 
   i4 = xkPlus->size[0] * xkPlus->size[1];
-  xkPlus->size[0] = iv42[0];
+  xkPlus->size[0] = iv48[0];
   emxEnsureCapacity((emxArray__common *)xkPlus, i4, (int32_T)sizeof(real_T),
                     &x_emlrtRTEI);
   i4 = xkPlus->size[0] * xkPlus->size[1];
-  xkPlus->size[1] = iv42[1];
+  xkPlus->size[1] = iv48[1];
   emxEnsureCapacity((emxArray__common *)xkPlus, i4, (int32_T)sizeof(real_T),
                     &x_emlrtRTEI);
-  loop_ub = iv42[0] * iv42[1];
+  loop_ub = iv48[0] * iv48[1];
   for (i4 = 0; i4 < loop_ub; i4++) {
     xkPlus->data[i4] = 0.0;
   }
@@ -299,57 +299,57 @@ void update_eq_unknown_state(const emxArray_real_T *xk, const emxArray_real_T
   while (k <= xk->size[1] - 1) {
     i4 = xk->size[1];
     i5 = (int32_T)(1.0 + (real_T)k);
-    emlrtDynamicBoundsCheckFastR2012b(i5, 1, i4, &cd_emlrtBCI,
+    emlrtDynamicBoundsCheckFastR2012b(i5, 1, i4, &id_emlrtBCI,
       emlrtRootTLSGlobal);
 
     /*  hist position relative to my. My body frame */
     i4 = xk->size[0];
-    emlrtVectorVectorIndexCheckR2012b(i4, 1, 1, 3, &lc_emlrtECI,
+    emlrtVectorVectorIndexCheckR2012b(i4, 1, 1, 3, &rc_emlrtECI,
       emlrtRootTLSGlobal);
     i4 = xk->size[0];
     for (i5 = 0; i5 < 3; i5++) {
       xk_idx_0 = 11 + i5;
-      emlrtDynamicBoundsCheckFastR2012b(xk_idx_0, 1, i4, &fd_emlrtBCI,
+      emlrtDynamicBoundsCheckFastR2012b(xk_idx_0, 1, i4, &ld_emlrtBCI,
         emlrtRootTLSGlobal);
     }
 
     /*  my velocity */
     i4 = xk->size[0];
-    emlrtVectorVectorIndexCheckR2012b(i4, 1, 1, 3, &kc_emlrtECI,
+    emlrtVectorVectorIndexCheckR2012b(i4, 1, 1, 3, &qc_emlrtECI,
       emlrtRootTLSGlobal);
     i4 = xk->size[0];
     for (i5 = 0; i5 < 3; i5++) {
       xk_idx_0 = 4 + i5;
-      emlrtDynamicBoundsCheckFastR2012b(xk_idx_0, 1, i4, &gd_emlrtBCI,
+      emlrtDynamicBoundsCheckFastR2012b(xk_idx_0, 1, i4, &md_emlrtBCI,
         emlrtRootTLSGlobal);
     }
 
     /*  my attitude */
     i4 = xk->size[0];
-    emlrtVectorVectorIndexCheckR2012b(i4, 1, 1, 4, &jc_emlrtECI,
+    emlrtVectorVectorIndexCheckR2012b(i4, 1, 1, 4, &pc_emlrtECI,
       emlrtRootTLSGlobal);
     i4 = xk->size[0];
     for (i5 = 0; i5 < 4; i5++) {
       xk_idx_0 = 7 + i5;
-      emlrtDynamicBoundsCheckFastR2012b(xk_idx_0, 1, i4, &hd_emlrtBCI,
+      emlrtDynamicBoundsCheckFastR2012b(xk_idx_0, 1, i4, &nd_emlrtBCI,
         emlrtRootTLSGlobal);
     }
 
     /*  his attitude relative to mine. His body frame */
     i4 = xk->size[0];
-    emlrtVectorVectorIndexCheckR2012b(i4, 1, 1, 4, &ic_emlrtECI,
+    emlrtVectorVectorIndexCheckR2012b(i4, 1, 1, 4, &oc_emlrtECI,
       emlrtRootTLSGlobal);
     i4 = xk->size[0];
     for (i5 = 0; i5 < 4; i5++) {
       xk_idx_0 = 14 + i5;
-      emlrtDynamicBoundsCheckFastR2012b(xk_idx_0, 1, i4, &id_emlrtBCI,
+      emlrtDynamicBoundsCheckFastR2012b(xk_idx_0, 1, i4, &od_emlrtBCI,
         emlrtRootTLSGlobal);
     }
 
     /*  the unknown feature locations are in the inertial frame and DO NOT update  */
     i4 = vk->size[1];
     i5 = (int32_T)(1.0 + (real_T)k);
-    emlrtDynamicBoundsCheckFastR2012b(i5, 1, i4, &bd_emlrtBCI,
+    emlrtDynamicBoundsCheckFastR2012b(i5, 1, i4, &hd_emlrtBCI,
       emlrtRootTLSGlobal);
     xdot_size_idx_0 = xk->size[0];
     loop_ub = xk->size[0];
@@ -358,27 +358,27 @@ void update_eq_unknown_state(const emxArray_real_T *xk, const emxArray_real_T
     }
 
     i4 = vk->size[0];
-    emlrtVectorVectorIndexCheckR2012b(i4, 1, 1, 3, &hc_emlrtECI,
+    emlrtVectorVectorIndexCheckR2012b(i4, 1, 1, 3, &nc_emlrtECI,
       emlrtRootTLSGlobal);
     i4 = vk->size[0];
     for (i5 = 0; i5 < 3; i5++) {
       xk_idx_0 = 10 + i5;
-      emlrtDynamicBoundsCheckFastR2012b(xk_idx_0, 1, i4, &jd_emlrtBCI,
+      emlrtDynamicBoundsCheckFastR2012b(xk_idx_0, 1, i4, &pd_emlrtBCI,
         emlrtRootTLSGlobal);
     }
 
     i4 = vk->size[0];
-    emlrtVectorVectorIndexCheckR2012b(i4, 1, 1, 3, &gc_emlrtECI,
+    emlrtVectorVectorIndexCheckR2012b(i4, 1, 1, 3, &mc_emlrtECI,
       emlrtRootTLSGlobal);
     i4 = vk->size[0];
     for (i5 = 0; i5 < 3; i5++) {
       xk_idx_0 = 4 + i5;
-      emlrtDynamicBoundsCheckFastR2012b(xk_idx_0, 1, i4, &kd_emlrtBCI,
+      emlrtDynamicBoundsCheckFastR2012b(xk_idx_0, 1, i4, &qd_emlrtBCI,
         emlrtRootTLSGlobal);
     }
 
     i4 = vk->size[0];
-    emlrtVectorVectorIndexCheckR2012b(i4, 1, 1, 3, &fc_emlrtECI,
+    emlrtVectorVectorIndexCheckR2012b(i4, 1, 1, 3, &lc_emlrtECI,
       emlrtRootTLSGlobal);
     i4 = vk->size[0];
     loop_ub = vk->size[0];
@@ -389,11 +389,11 @@ void update_eq_unknown_state(const emxArray_real_T *xk, const emxArray_real_T
     for (i5 = 0; i5 < 3; i5++) {
       xk_idx_0 = 1 + i5;
       wi[i5] = uk_data[i5] + vk_data[emlrtDynamicBoundsCheckFastR2012b(xk_idx_0,
-        1, i4, &ld_emlrtBCI, emlrtRootTLSGlobal) - 1];
+        1, i4, &rd_emlrtBCI, emlrtRootTLSGlobal) - 1];
     }
 
     i4 = vk->size[0];
-    emlrtVectorVectorIndexCheckR2012b(i4, 1, 1, 3, &ec_emlrtECI,
+    emlrtVectorVectorIndexCheckR2012b(i4, 1, 1, 3, &kc_emlrtECI,
       emlrtRootTLSGlobal);
     i4 = vk->size[0];
     loop_ub = vk->size[0];
@@ -404,7 +404,7 @@ void update_eq_unknown_state(const emxArray_real_T *xk, const emxArray_real_T
     for (i5 = 0; i5 < 3; i5++) {
       xk_idx_0 = 7 + i5;
       ai[i5] = uk_data[i5 + 3] + vk_data[emlrtDynamicBoundsCheckFastR2012b
-        (xk_idx_0, 1, i4, &md_emlrtBCI, emlrtRootTLSGlobal) - 1];
+        (xk_idx_0, 1, i4, &sd_emlrtBCI, emlrtRootTLSGlobal) - 1];
     }
 
     /*  cosine matrix */
@@ -438,7 +438,7 @@ void update_eq_unknown_state(const emxArray_real_T *xk, const emxArray_real_T
 
     for (i4 = 0; i4 < 3; i4++) {
       i5 = 1 + i4;
-      xdot_data[emlrtDynamicBoundsCheckFastR2012b(i5, 1, xk_idx_0, &nd_emlrtBCI,
+      xdot_data[emlrtDynamicBoundsCheckFastR2012b(i5, 1, xk_idx_0, &td_emlrtBCI,
         emlrtRootTLSGlobal) - 1] = b_ai[i4];
     }
 
@@ -474,7 +474,7 @@ void update_eq_unknown_state(const emxArray_real_T *xk, const emxArray_real_T
     for (i4 = 0; i4 < 3; i4++) {
       i5 = 4 + i4;
       xdot_data[emlrtDynamicBoundsCheckFastR2012b(i5, 1, xdot_size_idx_0,
-        &od_emlrtBCI, emlrtRootTLSGlobal) - 1] = b_ai[i4];
+        &ud_emlrtBCI, emlrtRootTLSGlobal) - 1] = b_ai[i4];
     }
 
     /*  time rate of my attitude */
@@ -517,7 +517,7 @@ void update_eq_unknown_state(const emxArray_real_T *xk, const emxArray_real_T
     for (i4 = 0; i4 < 4; i4++) {
       i5 = 7 + i4;
       xdot_data[emlrtDynamicBoundsCheckFastR2012b(i5, 1, xdot_size_idx_0,
-        &pd_emlrtBCI, emlrtRootTLSGlobal) - 1] = b_xk[i4];
+        &vd_emlrtBCI, emlrtRootTLSGlobal) - 1] = b_xk[i4];
     }
 
     /*  relative attitude cosine matrix */
@@ -588,7 +588,7 @@ void update_eq_unknown_state(const emxArray_real_T *xk, const emxArray_real_T
     for (i4 = 0; i4 < 4; i4++) {
       i5 = 14 + i4;
       xdot_data[emlrtDynamicBoundsCheckFastR2012b(i5, 1, xdot_size_idx_0,
-        &qd_emlrtBCI, emlrtRootTLSGlobal) - 1] = b_xk[i4];
+        &wd_emlrtBCI, emlrtRootTLSGlobal) - 1] = b_xk[i4];
     }
 
     /*  time rate of relative position */
@@ -633,7 +633,7 @@ void update_eq_unknown_state(const emxArray_real_T *xk, const emxArray_real_T
     for (i4 = 0; i4 < 3; i4++) {
       i5 = 11 + i4;
       xdot_data[emlrtDynamicBoundsCheckFastR2012b(i5, 1, xdot_size_idx_0,
-        &rd_emlrtBCI, emlrtRootTLSGlobal) - 1] = b_ai[i4];
+        &xd_emlrtBCI, emlrtRootTLSGlobal) - 1] = b_ai[i4];
     }
 
     i4 = y->size[0];
@@ -646,7 +646,7 @@ void update_eq_unknown_state(const emxArray_real_T *xk, const emxArray_real_T
 
     i4 = xk->size[0];
     i5 = y->size[0];
-    emlrtSizeEqCheck1DFastR2012b(i4, i5, &dc_emlrtECI, emlrtRootTLSGlobal);
+    emlrtSizeEqCheck1DFastR2012b(i4, i5, &jc_emlrtECI, emlrtRootTLSGlobal);
     loop_ub = xkPlus->size[0];
     for (i4 = 0; i4 < loop_ub; i4++) {
       tmp_data[i4] = i4;
@@ -654,12 +654,12 @@ void update_eq_unknown_state(const emxArray_real_T *xk, const emxArray_real_T
 
     i4 = xkPlus->size[1];
     i5 = (int32_T)(1.0 + (real_T)k);
-    emlrtDynamicBoundsCheckFastR2012b(i5, 1, i4, &ad_emlrtBCI,
+    emlrtDynamicBoundsCheckFastR2012b(i5, 1, i4, &gd_emlrtBCI,
       emlrtRootTLSGlobal);
-    iv43[0] = loop_ub;
+    iv49[0] = loop_ub;
     i4 = xk->size[0];
     f_xk[0] = i4;
-    emlrtSubAssignSizeCheckR2012b(iv43, 1, f_xk, 1, &cc_emlrtECI,
+    emlrtSubAssignSizeCheckR2012b(iv49, 1, f_xk, 1, &ic_emlrtECI,
       emlrtRootTLSGlobal);
     loop_ub = xk->size[0] - 1;
     for (i4 = 0; i4 <= loop_ub; i4++) {
@@ -670,24 +670,24 @@ void update_eq_unknown_state(const emxArray_real_T *xk, const emxArray_real_T
     /* re-normalize quaternions */
     i4 = xkPlus->size[1];
     i5 = (int32_T)(1.0 + (real_T)k);
-    emlrtDynamicBoundsCheckFastR2012b(i5, 1, i4, &yc_emlrtBCI,
+    emlrtDynamicBoundsCheckFastR2012b(i5, 1, i4, &fd_emlrtBCI,
       emlrtRootTLSGlobal);
     for (i4 = 0; i4 < 4; i4++) {
       i5 = xkPlus->size[0];
       xk_idx_0 = 7 + i4;
-      emlrtDynamicBoundsCheckFastR2012b(xk_idx_0, 1, i5, &sd_emlrtBCI,
+      emlrtDynamicBoundsCheckFastR2012b(xk_idx_0, 1, i5, &yd_emlrtBCI,
         emlrtRootTLSGlobal);
     }
 
     i4 = xkPlus->size[1];
     i5 = 1 + k;
-    i4 = emlrtDynamicBoundsCheckFastR2012b(i5, 1, i4, &xc_emlrtBCI,
+    i4 = emlrtDynamicBoundsCheckFastR2012b(i5, 1, i4, &ed_emlrtBCI,
       emlrtRootTLSGlobal);
     for (i5 = 0; i5 < 4; i5++) {
       xk_idx_0 = xkPlus->size[0];
       loop_ub = 7 + i5;
       b_xk[i5] = xkPlus->data[(emlrtDynamicBoundsCheckFastR2012b(loop_ub, 1,
-        xk_idx_0, &td_emlrtBCI, emlrtRootTLSGlobal) + xkPlus->size[0] * (i4 - 1))
+        xk_idx_0, &ae_emlrtBCI, emlrtRootTLSGlobal) + xkPlus->size[0] * (i4 - 1))
         - 1];
     }
 
@@ -695,7 +695,7 @@ void update_eq_unknown_state(const emxArray_real_T *xk, const emxArray_real_T
     xk_idx_0 = xkPlus->size[0];
     loop_ub = xkPlus->size[1];
     i4 = 1 + k;
-    emlrtDynamicBoundsCheckFastR2012b(i4, 1, loop_ub, &wc_emlrtBCI,
+    emlrtDynamicBoundsCheckFastR2012b(i4, 1, loop_ub, &dd_emlrtBCI,
       emlrtRootTLSGlobal);
     for (i4 = 0; i4 < 4; i4++) {
       b_xk[i4] = xkPlus->data[(i4 + xkPlus->size[0] * k) + 6] / d_xk;
@@ -704,29 +704,29 @@ void update_eq_unknown_state(const emxArray_real_T *xk, const emxArray_real_T
     for (i4 = 0; i4 < 4; i4++) {
       i5 = 7 + i4;
       xkPlus->data[(emlrtDynamicBoundsCheckFastR2012b(i5, 1, xk_idx_0,
-        &ud_emlrtBCI, emlrtRootTLSGlobal) + xkPlus->size[0] * k) - 1] = b_xk[i4];
+        &be_emlrtBCI, emlrtRootTLSGlobal) + xkPlus->size[0] * k) - 1] = b_xk[i4];
     }
 
     i4 = xkPlus->size[1];
     i5 = (int32_T)(1.0 + (real_T)k);
-    emlrtDynamicBoundsCheckFastR2012b(i5, 1, i4, &vc_emlrtBCI,
+    emlrtDynamicBoundsCheckFastR2012b(i5, 1, i4, &cd_emlrtBCI,
       emlrtRootTLSGlobal);
     for (i4 = 0; i4 < 4; i4++) {
       i5 = xkPlus->size[0];
       xk_idx_0 = 14 + i4;
-      emlrtDynamicBoundsCheckFastR2012b(xk_idx_0, 1, i5, &vd_emlrtBCI,
+      emlrtDynamicBoundsCheckFastR2012b(xk_idx_0, 1, i5, &ce_emlrtBCI,
         emlrtRootTLSGlobal);
     }
 
     i4 = xkPlus->size[1];
     i5 = 1 + k;
-    i4 = emlrtDynamicBoundsCheckFastR2012b(i5, 1, i4, &uc_emlrtBCI,
+    i4 = emlrtDynamicBoundsCheckFastR2012b(i5, 1, i4, &bd_emlrtBCI,
       emlrtRootTLSGlobal);
     for (i5 = 0; i5 < 4; i5++) {
       xk_idx_0 = xkPlus->size[0];
       loop_ub = 14 + i5;
       b_xk[i5] = xkPlus->data[(emlrtDynamicBoundsCheckFastR2012b(loop_ub, 1,
-        xk_idx_0, &wd_emlrtBCI, emlrtRootTLSGlobal) + xkPlus->size[0] * (i4 - 1))
+        xk_idx_0, &de_emlrtBCI, emlrtRootTLSGlobal) + xkPlus->size[0] * (i4 - 1))
         - 1];
     }
 
@@ -734,7 +734,7 @@ void update_eq_unknown_state(const emxArray_real_T *xk, const emxArray_real_T
     xk_idx_0 = xkPlus->size[0];
     loop_ub = xkPlus->size[1];
     i4 = 1 + k;
-    emlrtDynamicBoundsCheckFastR2012b(i4, 1, loop_ub, &tc_emlrtBCI,
+    emlrtDynamicBoundsCheckFastR2012b(i4, 1, loop_ub, &ad_emlrtBCI,
       emlrtRootTLSGlobal);
     for (i4 = 0; i4 < 4; i4++) {
       b_xk[i4] = xkPlus->data[(i4 + xkPlus->size[0] * k) + 13] / d_xk;
@@ -743,7 +743,7 @@ void update_eq_unknown_state(const emxArray_real_T *xk, const emxArray_real_T
     for (i4 = 0; i4 < 4; i4++) {
       i5 = 14 + i4;
       xkPlus->data[(emlrtDynamicBoundsCheckFastR2012b(i5, 1, xk_idx_0,
-        &xd_emlrtBCI, emlrtRootTLSGlobal) + xkPlus->size[0] * k) - 1] = b_xk[i4];
+        &ee_emlrtBCI, emlrtRootTLSGlobal) + xkPlus->size[0] * k) - 1] = b_xk[i4];
     }
 
     k++;

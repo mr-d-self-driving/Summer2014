@@ -3,7 +3,7 @@
  *
  * Code generation for function 'fprintf'
  *
- * C source code generated on: Tue Dec  9 10:58:59 2014
+ * C source code generated on: Thu Dec 11 11:40:54 2014
  *
  */
 
@@ -15,11 +15,11 @@
 #include <stdio.h>
 
 /* Variable Definitions */
-static emlrtRSInfo ji_emlrtRSI = { 33, "fprintf",
+static emlrtRSInfo li_emlrtRSI = { 33, "fprintf",
   "/usr/local/MATLAB/MATLAB_Production_Server/R2013a/toolbox/eml/lib/matlab/lang/fprintf.m"
 };
 
-static emlrtRSInfo ki_emlrtRSI = { 66, "fprintf",
+static emlrtRSInfo mi_emlrtRSI = { 66, "fprintf",
   "/usr/local/MATLAB/MATLAB_Production_Server/R2013a/toolbox/eml/lib/matlab/lang/fprintf.m"
 };
 
@@ -37,7 +37,7 @@ static real_T c_fprintf(real_T varargin_1)
 {
   real_T nbytes;
   const mxArray *y;
-  static const int32_T iv40[2] = { 1, 7 };
+  static const int32_T iv46[2] = { 1, 7 };
 
   const mxArray *m6;
   char_T cv22[7];
@@ -45,7 +45,7 @@ static real_T c_fprintf(real_T varargin_1)
   static const char_T cv23[7] = { 'f', 'p', 'r', 'i', 'n', 't', 'f' };
 
   const mxArray *b_y;
-  static const int32_T iv41[2] = { 1, 48 };
+  static const int32_T iv47[2] = { 1, 48 };
 
   char_T cv24[48];
   static const char_T cv25[48] = { 'E', 'r', 'r', 'o', 'r', ':', ' ', 'm', 'a',
@@ -53,10 +53,10 @@ static real_T c_fprintf(real_T varargin_1)
     't', ' ', 'r', 'e', 's', 'i', 'd', 'u', 'a', 'l', ' ', 'n', 'o', 'r', 'm',
     ' ', 'i', 's', ' ', '%', 'g', '.', '\\', 'n' };
 
-  emlrtPushRtStackR2012b(&ki_emlrtRSI, emlrtRootTLSGlobal);
+  emlrtPushRtStackR2012b(&mi_emlrtRSI, emlrtRootTLSGlobal);
   emlrt_synchGlobalsToML();
   y = NULL;
-  m6 = mxCreateCharArray(2, iv40);
+  m6 = mxCreateCharArray(2, iv46);
   for (i = 0; i < 7; i++) {
     cv22[i] = cv23[i];
   }
@@ -64,7 +64,7 @@ static real_T c_fprintf(real_T varargin_1)
   emlrtInitCharArrayR2013a(emlrtRootTLSGlobal, 7, m6, cv22);
   emlrtAssign(&y, m6);
   b_y = NULL;
-  m6 = mxCreateCharArray(2, iv41);
+  m6 = mxCreateCharArray(2, iv47);
   for (i = 0; i < 48; i++) {
     cv24[i] = cv25[i];
   }
@@ -74,7 +74,7 @@ static real_T c_fprintf(real_T varargin_1)
   nbytes = emlrt_marshallIn(feval(y, emlrt_marshallOut(1.0), b_y,
     emlrt_marshallOut(varargin_1), &p_emlrtMCI), "feval");
   emlrt_synchGlobalsFromML();
-  emlrtPopRtStackR2012b(&ki_emlrtRSI, emlrtRootTLSGlobal);
+  emlrtPopRtStackR2012b(&mi_emlrtRSI, emlrtRootTLSGlobal);
   return nbytes;
 }
 
@@ -93,9 +93,9 @@ static const mxArray *feval(const mxArray *b, const mxArray *c, const mxArray *d
 
 void b_fprintf(real_T formatSpec)
 {
-  emlrtPushRtStackR2012b(&ji_emlrtRSI, emlrtRootTLSGlobal);
+  emlrtPushRtStackR2012b(&li_emlrtRSI, emlrtRootTLSGlobal);
   c_fprintf(formatSpec);
-  emlrtPopRtStackR2012b(&ji_emlrtRSI, emlrtRootTLSGlobal);
+  emlrtPopRtStackR2012b(&li_emlrtRSI, emlrtRootTLSGlobal);
 }
 
 /* End of code generation (fprintf.c) */

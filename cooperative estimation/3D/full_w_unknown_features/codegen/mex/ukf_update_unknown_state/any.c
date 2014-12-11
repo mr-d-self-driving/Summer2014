@@ -3,7 +3,7 @@
  *
  * Code generation for function 'any'
  *
- * C source code generated on: Tue Dec  9 10:58:59 2014
+ * C source code generated on: Thu Dec 11 11:40:55 2014
  *
  */
 
@@ -18,7 +18,7 @@
 #include <stdio.h>
 
 /* Variable Definitions */
-static emlrtRSInfo fk_emlrtRSI = { 102, "eml_all_or_any",
+static emlrtRSInfo kk_emlrtRSI = { 102, "eml_all_or_any",
   "/usr/local/MATLAB/MATLAB_Production_Server/R2013a/toolbox/eml/lib/matlab/eml/eml_all_or_any.m"
 };
 
@@ -34,7 +34,7 @@ void any(const emxArray_boolean_T *x, emxArray_boolean_T *y)
   int32_T i;
   int32_T exitg2;
   const mxArray *b_y;
-  static const int32_T iv78[2] = { 1, 41 };
+  static const int32_T iv92[2] = { 1, 41 };
 
   const mxArray *m9;
   char_T cv34[41];
@@ -44,7 +44,7 @@ void any(const emxArray_boolean_T *x, emxArray_boolean_T *y)
     't', 'y' };
 
   const mxArray *c_y;
-  static const int32_T iv79[2] = { 1, 51 };
+  static const int32_T iv93[2] = { 1, 51 };
 
   char_T cv36[51];
   static const char_T cv37[51] = { 'C', 'o', 'd', 'e', 'r', ':', 't', 'o', 'o',
@@ -58,7 +58,7 @@ void any(const emxArray_boolean_T *x, emxArray_boolean_T *y)
   int32_T i1;
   boolean_T b_i1;
   boolean_T exitg1;
-  emlrtPushRtStackR2012b(&wj_emlrtRSI, emlrtRootTLSGlobal);
+  emlrtPushRtStackR2012b(&ck_emlrtRSI, emlrtRootTLSGlobal);
   overflow = FALSE;
   p = FALSE;
   i = 0;
@@ -83,10 +83,10 @@ void any(const emxArray_boolean_T *x, emxArray_boolean_T *y)
 
   if (!overflow) {
   } else {
-    emlrtPushRtStackR2012b(&xj_emlrtRSI, emlrtRootTLSGlobal);
+    emlrtPushRtStackR2012b(&dk_emlrtRSI, emlrtRootTLSGlobal);
     emlrt_synchGlobalsToML();
     b_y = NULL;
-    m9 = mxCreateCharArray(2, iv78);
+    m9 = mxCreateCharArray(2, iv92);
     for (i = 0; i < 41; i++) {
       cv34[i] = cv35[i];
     }
@@ -95,7 +95,7 @@ void any(const emxArray_boolean_T *x, emxArray_boolean_T *y)
     emlrtAssign(&b_y, m9);
     error(message(b_y, &ab_emlrtMCI), &bb_emlrtMCI);
     emlrt_synchGlobalsFromML();
-    emlrtPopRtStackR2012b(&xj_emlrtRSI, emlrtRootTLSGlobal);
+    emlrtPopRtStackR2012b(&dk_emlrtRSI, emlrtRootTLSGlobal);
   }
 
   if (((x->size[0] == 1) && (x->size[1] == 1)) || (x->size[0] != 1)) {
@@ -106,10 +106,10 @@ void any(const emxArray_boolean_T *x, emxArray_boolean_T *y)
 
   if (overflow) {
   } else {
-    emlrtPushRtStackR2012b(&yj_emlrtRSI, emlrtRootTLSGlobal);
+    emlrtPushRtStackR2012b(&ek_emlrtRSI, emlrtRootTLSGlobal);
     emlrt_synchGlobalsToML();
     c_y = NULL;
-    m9 = mxCreateCharArray(2, iv79);
+    m9 = mxCreateCharArray(2, iv93);
     for (i = 0; i < 51; i++) {
       cv36[i] = cv37[i];
     }
@@ -118,7 +118,7 @@ void any(const emxArray_boolean_T *x, emxArray_boolean_T *y)
     emlrtAssign(&c_y, m9);
     error(message(c_y, &cb_emlrtMCI), &db_emlrtMCI);
     emlrt_synchGlobalsFromML();
-    emlrtPopRtStackR2012b(&yj_emlrtRSI, emlrtRootTLSGlobal);
+    emlrtPopRtStackR2012b(&ek_emlrtRSI, emlrtRootTLSGlobal);
   }
 
   for (i = 0; i < 2; i++) {
@@ -140,7 +140,7 @@ void any(const emxArray_boolean_T *x, emxArray_boolean_T *y)
 
   i2 = 0;
   iy = -1;
-  emlrtPushRtStackR2012b(&fk_emlrtRSI, emlrtRootTLSGlobal);
+  emlrtPushRtStackR2012b(&kk_emlrtRSI, emlrtRootTLSGlobal);
   if (1 > x->size[1]) {
     overflow = FALSE;
   } else {
@@ -148,17 +148,17 @@ void any(const emxArray_boolean_T *x, emxArray_boolean_T *y)
   }
 
   if (overflow) {
-    emlrtPushRtStackR2012b(&db_emlrtRSI, emlrtRootTLSGlobal);
+    emlrtPushRtStackR2012b(&fb_emlrtRSI, emlrtRootTLSGlobal);
     check_forloop_overflow_error();
-    emlrtPopRtStackR2012b(&db_emlrtRSI, emlrtRootTLSGlobal);
+    emlrtPopRtStackR2012b(&fb_emlrtRSI, emlrtRootTLSGlobal);
   }
 
-  emlrtPopRtStackR2012b(&fk_emlrtRSI, emlrtRootTLSGlobal);
+  emlrtPopRtStackR2012b(&kk_emlrtRSI, emlrtRootTLSGlobal);
   for (i = 1; i <= x->size[1]; i++) {
     i1 = i2 + 1;
     i2 += x->size[0];
     iy++;
-    emlrtPushRtStackR2012b(&ak_emlrtRSI, emlrtRootTLSGlobal);
+    emlrtPushRtStackR2012b(&fk_emlrtRSI, emlrtRootTLSGlobal);
     if (i1 > i2) {
       b_i1 = FALSE;
     } else {
@@ -166,12 +166,12 @@ void any(const emxArray_boolean_T *x, emxArray_boolean_T *y)
     }
 
     if (b_i1) {
-      emlrtPushRtStackR2012b(&db_emlrtRSI, emlrtRootTLSGlobal);
+      emlrtPushRtStackR2012b(&fb_emlrtRSI, emlrtRootTLSGlobal);
       check_forloop_overflow_error();
-      emlrtPopRtStackR2012b(&db_emlrtRSI, emlrtRootTLSGlobal);
+      emlrtPopRtStackR2012b(&fb_emlrtRSI, emlrtRootTLSGlobal);
     }
 
-    emlrtPopRtStackR2012b(&ak_emlrtRSI, emlrtRootTLSGlobal);
+    emlrtPopRtStackR2012b(&fk_emlrtRSI, emlrtRootTLSGlobal);
     exitg1 = FALSE;
     while ((exitg1 == FALSE) && (i1 <= i2)) {
       overflow = (x->data[i1 - 1] == 0);
@@ -184,7 +184,7 @@ void any(const emxArray_boolean_T *x, emxArray_boolean_T *y)
     }
   }
 
-  emlrtPopRtStackR2012b(&wj_emlrtRSI, emlrtRootTLSGlobal);
+  emlrtPopRtStackR2012b(&ck_emlrtRSI, emlrtRootTLSGlobal);
 }
 
 boolean_T b_any(const emxArray_boolean_T *x)
@@ -195,7 +195,7 @@ boolean_T b_any(const emxArray_boolean_T *x)
   int32_T i;
   int32_T exitg2;
   const mxArray *b_y;
-  static const int32_T iv80[2] = { 1, 41 };
+  static const int32_T iv94[2] = { 1, 41 };
 
   const mxArray *m10;
   char_T cv38[41];
@@ -205,7 +205,7 @@ boolean_T b_any(const emxArray_boolean_T *x)
     't', 'y' };
 
   const mxArray *c_y;
-  static const int32_T iv81[2] = { 1, 51 };
+  static const int32_T iv95[2] = { 1, 51 };
 
   char_T cv40[51];
   static const char_T cv41[51] = { 'C', 'o', 'd', 'e', 'r', ':', 't', 'o', 'o',
@@ -214,7 +214,7 @@ boolean_T b_any(const emxArray_boolean_T *x)
     'o', 'm', 'p', 'a', 't', 'i', 'b', 'i', 'l', 'i', 't', 'y' };
 
   boolean_T exitg1;
-  emlrtPushRtStackR2012b(&wj_emlrtRSI, emlrtRootTLSGlobal);
+  emlrtPushRtStackR2012b(&ck_emlrtRSI, emlrtRootTLSGlobal);
   overflow = FALSE;
   p = FALSE;
   i = 0;
@@ -239,10 +239,10 @@ boolean_T b_any(const emxArray_boolean_T *x)
 
   if (!overflow) {
   } else {
-    emlrtPushRtStackR2012b(&xj_emlrtRSI, emlrtRootTLSGlobal);
+    emlrtPushRtStackR2012b(&dk_emlrtRSI, emlrtRootTLSGlobal);
     emlrt_synchGlobalsToML();
     b_y = NULL;
-    m10 = mxCreateCharArray(2, iv80);
+    m10 = mxCreateCharArray(2, iv94);
     for (i = 0; i < 41; i++) {
       cv38[i] = cv39[i];
     }
@@ -251,7 +251,7 @@ boolean_T b_any(const emxArray_boolean_T *x)
     emlrtAssign(&b_y, m10);
     error(message(b_y, &ab_emlrtMCI), &bb_emlrtMCI);
     emlrt_synchGlobalsFromML();
-    emlrtPopRtStackR2012b(&xj_emlrtRSI, emlrtRootTLSGlobal);
+    emlrtPopRtStackR2012b(&dk_emlrtRSI, emlrtRootTLSGlobal);
   }
 
   if ((x->size[1] == 1) || (x->size[1] != 1)) {
@@ -262,10 +262,10 @@ boolean_T b_any(const emxArray_boolean_T *x)
 
   if (overflow) {
   } else {
-    emlrtPushRtStackR2012b(&yj_emlrtRSI, emlrtRootTLSGlobal);
+    emlrtPushRtStackR2012b(&ek_emlrtRSI, emlrtRootTLSGlobal);
     emlrt_synchGlobalsToML();
     c_y = NULL;
-    m10 = mxCreateCharArray(2, iv81);
+    m10 = mxCreateCharArray(2, iv95);
     for (i = 0; i < 51; i++) {
       cv40[i] = cv41[i];
     }
@@ -274,11 +274,11 @@ boolean_T b_any(const emxArray_boolean_T *x)
     emlrtAssign(&c_y, m10);
     error(message(c_y, &cb_emlrtMCI), &db_emlrtMCI);
     emlrt_synchGlobalsFromML();
-    emlrtPopRtStackR2012b(&yj_emlrtRSI, emlrtRootTLSGlobal);
+    emlrtPopRtStackR2012b(&ek_emlrtRSI, emlrtRootTLSGlobal);
   }
 
   y = FALSE;
-  emlrtPushRtStackR2012b(&ak_emlrtRSI, emlrtRootTLSGlobal);
+  emlrtPushRtStackR2012b(&fk_emlrtRSI, emlrtRootTLSGlobal);
   if (1 > x->size[1]) {
     overflow = FALSE;
   } else {
@@ -286,12 +286,12 @@ boolean_T b_any(const emxArray_boolean_T *x)
   }
 
   if (overflow) {
-    emlrtPushRtStackR2012b(&db_emlrtRSI, emlrtRootTLSGlobal);
+    emlrtPushRtStackR2012b(&fb_emlrtRSI, emlrtRootTLSGlobal);
     check_forloop_overflow_error();
-    emlrtPopRtStackR2012b(&db_emlrtRSI, emlrtRootTLSGlobal);
+    emlrtPopRtStackR2012b(&fb_emlrtRSI, emlrtRootTLSGlobal);
   }
 
-  emlrtPopRtStackR2012b(&ak_emlrtRSI, emlrtRootTLSGlobal);
+  emlrtPopRtStackR2012b(&fk_emlrtRSI, emlrtRootTLSGlobal);
   i = 1;
   exitg1 = FALSE;
   while ((exitg1 == FALSE) && (i <= x->size[1])) {
@@ -304,7 +304,7 @@ boolean_T b_any(const emxArray_boolean_T *x)
     }
   }
 
-  emlrtPopRtStackR2012b(&wj_emlrtRSI, emlrtRootTLSGlobal);
+  emlrtPopRtStackR2012b(&ck_emlrtRSI, emlrtRootTLSGlobal);
   return y;
 }
 

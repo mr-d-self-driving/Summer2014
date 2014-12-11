@@ -3,7 +3,7 @@
  *
  * Code generation for function 'mtimes'
  *
- * C source code generated on: Tue Dec  9 10:58:58 2014
+ * C source code generated on: Thu Dec 11 11:40:54 2014
  *
  */
 
@@ -19,7 +19,7 @@
 void dynamic_size_checks(const emxArray_creal_T *a, const emxArray_creal_T *b)
 {
   const mxArray *y;
-  static const int32_T iv38[2] = { 1, 45 };
+  static const int32_T iv44[2] = { 1, 45 };
 
   const mxArray *m5;
   char_T cv18[45];
@@ -30,7 +30,7 @@ void dynamic_size_checks(const emxArray_creal_T *a, const emxArray_creal_T *b)
     'a', 'n', 's', 'i', 'o', 'n' };
 
   const mxArray *b_y;
-  static const int32_T iv39[2] = { 1, 21 };
+  static const int32_T iv45[2] = { 1, 21 };
 
   char_T cv20[21];
   static const char_T cv21[21] = { 'C', 'o', 'd', 'e', 'r', ':', 'M', 'A', 'T',
@@ -39,10 +39,10 @@ void dynamic_size_checks(const emxArray_creal_T *a, const emxArray_creal_T *b)
   if (!(a->size[1] == b->size[0])) {
     if (((a->size[0] == 1) && (a->size[1] == 1)) || ((b->size[0] == 1) &&
          (b->size[1] == 1))) {
-      emlrtPushRtStackR2012b(&kh_emlrtRSI, emlrtRootTLSGlobal);
+      emlrtPushRtStackR2012b(&mh_emlrtRSI, emlrtRootTLSGlobal);
       emlrt_synchGlobalsToML();
       y = NULL;
-      m5 = mxCreateCharArray(2, iv38);
+      m5 = mxCreateCharArray(2, iv44);
       for (i = 0; i < 45; i++) {
         cv18[i] = cv19[i];
       }
@@ -51,12 +51,12 @@ void dynamic_size_checks(const emxArray_creal_T *a, const emxArray_creal_T *b)
       emlrtAssign(&y, m5);
       error(message(y, &l_emlrtMCI), &m_emlrtMCI);
       emlrt_synchGlobalsFromML();
-      emlrtPopRtStackR2012b(&kh_emlrtRSI, emlrtRootTLSGlobal);
+      emlrtPopRtStackR2012b(&mh_emlrtRSI, emlrtRootTLSGlobal);
     } else {
-      emlrtPushRtStackR2012b(&jh_emlrtRSI, emlrtRootTLSGlobal);
+      emlrtPushRtStackR2012b(&lh_emlrtRSI, emlrtRootTLSGlobal);
       emlrt_synchGlobalsToML();
       b_y = NULL;
-      m5 = mxCreateCharArray(2, iv39);
+      m5 = mxCreateCharArray(2, iv45);
       for (i = 0; i < 21; i++) {
         cv20[i] = cv21[i];
       }
@@ -65,7 +65,7 @@ void dynamic_size_checks(const emxArray_creal_T *a, const emxArray_creal_T *b)
       emlrtAssign(&b_y, m5);
       error(message(b_y, &n_emlrtMCI), &o_emlrtMCI);
       emlrt_synchGlobalsFromML();
-      emlrtPopRtStackR2012b(&jh_emlrtRSI, emlrtRootTLSGlobal);
+      emlrtPopRtStackR2012b(&lh_emlrtRSI, emlrtRootTLSGlobal);
     }
   }
 }

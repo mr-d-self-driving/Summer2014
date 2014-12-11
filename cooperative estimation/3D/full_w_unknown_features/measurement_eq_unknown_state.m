@@ -99,11 +99,27 @@ for k = 1:size(xk,2)
         feature_no = feature_index_1(kk);
         feature_vec = xhat(17 + (feature_no-1)*6 + (1:6));%xyz,rho,bearing,azimuth
         % the inertial vector to the feature, in inertial frame
-        rkn = feature_vec(1:3) + 1/feature_vec(4)*[cos(feature_vec(6))*[cos(feature_vec(6));sin(feature_vec(6))]; sin(feature_vec(6))];
+        rkn = feature_vec(1:3) + 1/feature_vec(4)*[cos(feature_vec(6))*[cos(feature_vec(5));sin(feature_vec(5))]; sin(feature_vec(6))];
         % the body-frame vector to the feature
         rki_b = Cin*(rkn - rin);
         % extract range/bearing/azimuth
         y_kk = vector2polar(rki_b) + nv(12 + index);
+        yk(9 + index,k) = y_kk;
+    end
+    
+    % unknown feature measurements agent 2
+    for kk = 1:w2;
+        % the index for where to store these data
+        index = (kk-1)*3 + (1:3) + (m1+m2+w1)*3;
+        % the label for this feature
+        feature_no = feature_index_2(kk);
+        feature_vec = xhat(17 + (feature_no-1)*6 + (1:6));%xyz,rho,bearing,azimuth
+        % the inertial vector to the feature, in inertial frame
+        rkn = feature_vec(1:3) + 1/feature_vec(4)*[cos(feature_vec(6))*[cos(feature_vec(5));sin(feature_vec(5))]; sin(feature_vec(6))];
+        % the OTHER AGENT'S body-frame vector to the feature
+        rkj_j = Cji*Cin*(rkn - rin - Cin'*rji_i_hat);
+        % extract range/bearing/azimuth
+        y_kk = vector2polar(rkj_j) + nv(12 + index);
         yk(9 + index,k) = y_kk;
     end
     
@@ -116,6 +132,8 @@ for k = 1:size(xk,2)
         yk( 9 + 3*m1 + (3:3:3*m2),k ) = minangle( yk( 9 + 3*m1 + (3:3:3*m2),k ), yk( 9 + 3*m1 + (3:3:3*m2),1 ) );
         yk( 9 + 3*(m1+m2) + (2:3:3*w1),k ) = minangle(yk( 9 + 3*(m1+m2) + (2:3:3*w1),k ), yk( 9 + 3*(m1+m2) + (2:3:3*w1),1 ) );
         yk( 9 + 3*(m1+m2) + (3:3:3*w1),k ) = minangle(yk( 9 + 3*(m1+m2) + (3:3:3*w1),k ), yk( 9 + 3*(m1+m2) + (3:3:3*w1),1 ) );
+        yk( 9 + 3*(m1+m2+w1) + (2:3:3*w2),k ) = minangle(yk( 9 + 3*(m1+m2+w1) + (2:3:3*w2),k ), yk( 9 + 3*(m1+m2+w1) + (2:3:3*w2),k ) );
+        yk( 9 + 3*(m1+m2+w1) + (3:3:3*w2),k ) = minangle(yk( 9 + 3*(m1+m2+w1) + (3:3:3*w2),k ), yk( 9 + 3*(m1+m2+w1) + (3:3:3*w2),k ) );
     end
 end
 

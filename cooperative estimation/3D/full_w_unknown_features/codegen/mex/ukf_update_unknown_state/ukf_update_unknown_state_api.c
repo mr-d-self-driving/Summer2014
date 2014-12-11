@@ -3,7 +3,7 @@
  *
  * Code generation for function 'ukf_update_unknown_state_api'
  *
- * C source code generated on: Tue Dec  9 10:58:59 2014
+ * C source code generated on: Thu Dec 11 11:40:55 2014
  *
  */
 
@@ -62,9 +62,9 @@ static void r_emlrt_marshallIn(const mxArray *src, const emlrtMsgIdentifier
 static const mxArray *b_emlrt_marshallOut(ResolvedFunctionInfo u[567])
 {
   const mxArray *y;
-  int32_T iv90[1];
+  int32_T iv104[1];
   int32_T i8;
-  ResolvedFunctionInfo *r62;
+  ResolvedFunctionInfo *r74;
   const char * b_u;
   const mxArray *b_y;
   const mxArray *m17;
@@ -77,49 +77,49 @@ static const mxArray *b_emlrt_marshallOut(ResolvedFunctionInfo u[567])
   const mxArray *h_y;
   const mxArray *i_y;
   y = NULL;
-  iv90[0] = 567;
-  emlrtAssign(&y, mxCreateStructArray(1, iv90, 0, NULL));
+  iv104[0] = 567;
+  emlrtAssign(&y, mxCreateStructArray(1, iv104, 0, NULL));
   for (i8 = 0; i8 < 567; i8++) {
-    r62 = &u[i8];
-    b_u = r62->context;
+    r74 = &u[i8];
+    b_u = r74->context;
     b_y = NULL;
     m17 = mxCreateString(b_u);
     emlrtAssign(&b_y, m17);
     emlrtAddField(y, b_y, "context", i8);
-    b_u = r62->name;
+    b_u = r74->name;
     c_y = NULL;
     m17 = mxCreateString(b_u);
     emlrtAssign(&c_y, m17);
     emlrtAddField(y, c_y, "name", i8);
-    b_u = r62->dominantType;
+    b_u = r74->dominantType;
     d_y = NULL;
     m17 = mxCreateString(b_u);
     emlrtAssign(&d_y, m17);
     emlrtAddField(y, d_y, "dominantType", i8);
-    b_u = r62->resolved;
+    b_u = r74->resolved;
     e_y = NULL;
     m17 = mxCreateString(b_u);
     emlrtAssign(&e_y, m17);
     emlrtAddField(y, e_y, "resolved", i8);
-    c_u = r62->fileTimeLo;
+    c_u = r74->fileTimeLo;
     f_y = NULL;
     m17 = mxCreateNumericMatrix(1, 1, mxUINT32_CLASS, mxREAL);
     *(uint32_T *)mxGetData(m17) = c_u;
     emlrtAssign(&f_y, m17);
     emlrtAddField(y, f_y, "fileTimeLo", i8);
-    c_u = r62->fileTimeHi;
+    c_u = r74->fileTimeHi;
     g_y = NULL;
     m17 = mxCreateNumericMatrix(1, 1, mxUINT32_CLASS, mxREAL);
     *(uint32_T *)mxGetData(m17) = c_u;
     emlrtAssign(&g_y, m17);
     emlrtAddField(y, g_y, "fileTimeHi", i8);
-    c_u = r62->mFileTimeLo;
+    c_u = r74->mFileTimeLo;
     h_y = NULL;
     m17 = mxCreateNumericMatrix(1, 1, mxUINT32_CLASS, mxREAL);
     *(uint32_T *)mxGetData(m17) = c_u;
     emlrtAssign(&h_y, m17);
     emlrtAddField(y, h_y, "mFileTimeLo", i8);
-    c_u = r62->mFileTimeHi;
+    c_u = r74->mFileTimeHi;
     i_y = NULL;
     m17 = mxCreateNumericMatrix(1, 1, mxUINT32_CLASS, mxREAL);
     *(uint32_T *)mxGetData(m17) = c_u;
@@ -765,11 +765,11 @@ static void b_info_helper(ResolvedFunctionInfo info[567])
 static const mxArray *c_emlrt_marshallOut(real_T u_data[200], int32_T u_size[1])
 {
   const mxArray *y;
-  static const int32_T iv91[1] = { 0 };
+  static const int32_T iv105[1] = { 0 };
 
   const mxArray *m18;
   y = NULL;
-  m18 = mxCreateNumericArray(1, (int32_T *)&iv91, mxDOUBLE_CLASS, mxREAL);
+  m18 = mxCreateNumericArray(1, (int32_T *)&iv105, mxDOUBLE_CLASS, mxREAL);
   mxSetData((mxArray *)m18, (void *)u_data);
   mxSetDimensions((mxArray *)m18, u_size, 1);
   emlrtAssign(&y, m18);
@@ -1417,11 +1417,11 @@ static void c_info_helper(ResolvedFunctionInfo info[567])
 static const mxArray *d_emlrt_marshallOut(emxArray_real_T *u)
 {
   const mxArray *y;
-  static const int32_T iv92[2] = { 0, 0 };
+  static const int32_T iv106[2] = { 0, 0 };
 
   const mxArray *m19;
   y = NULL;
-  m19 = mxCreateNumericArray(2, (int32_T *)&iv92, mxDOUBLE_CLASS, mxREAL);
+  m19 = mxCreateNumericArray(2, (int32_T *)&iv106, mxDOUBLE_CLASS, mxREAL);
   mxSetData((mxArray *)m19, (void *)u->data);
   mxSetDimensions((mxArray *)m19, u->size, 2);
   emlrtAssign(&y, m19);
@@ -3315,7 +3315,7 @@ static void g_info_helper(ResolvedFunctionInfo info[567])
   info[386].dominantType = "double";
   info[386].resolved =
     "[E]/home/tim/github/Summer2014/cooperative estimation/3D/full_w_unknown_features/measurement_eq_unknown_state.m";
-  info[386].fileTimeLo = 1418141431U;
+  info[386].fileTimeLo = 1418319103U;
   info[386].fileTimeHi = 0U;
   info[386].mFileTimeLo = 0U;
   info[386].mFileTimeHi = 0U;
@@ -5714,14 +5714,14 @@ static void l_emlrt_marshallIn(const mxArray *u, const emlrtMsgIdentifier
 static void o_emlrt_marshallIn(const mxArray *src, const emlrtMsgIdentifier
   *msgId, real_T (**ret_data)[200], int32_T ret_size[1])
 {
-  int32_T iv94[1];
+  int32_T iv108[1];
   boolean_T bv0[1];
-  int32_T iv95[1];
-  iv94[0] = 200;
+  int32_T iv109[1];
+  iv108[0] = 200;
   bv0[0] = TRUE;
   emlrtCheckVsBuiltInR2012b(emlrtRootTLSGlobal, msgId, src, "double", FALSE, 1U,
-    iv94, bv0, iv95);
-  ret_size[0] = iv95[0];
+    iv108, bv0, iv109);
+  ret_size[0] = iv109[0];
   *ret_data = (real_T (*)[200])mxGetData(src);
   emlrtDestroyArray(&src);
 }
@@ -5729,19 +5729,19 @@ static void o_emlrt_marshallIn(const mxArray *src, const emlrtMsgIdentifier
 static void p_emlrt_marshallIn(const mxArray *src, const emlrtMsgIdentifier
   *msgId, emxArray_real_T *ret)
 {
-  int32_T iv96[2];
+  int32_T iv110[2];
   boolean_T bv1[2];
   int32_T i;
-  int32_T iv97[2];
+  int32_T iv111[2];
   for (i = 0; i < 2; i++) {
-    iv96[i] = 200;
+    iv110[i] = 200;
     bv1[i] = TRUE;
   }
 
   emlrtCheckVsBuiltInR2012b(emlrtRootTLSGlobal, msgId, src, "double", FALSE, 2U,
-    iv96, bv1, iv97);
-  ret->size[0] = iv97[0];
-  ret->size[1] = iv97[1];
+    iv110, bv1, iv111);
+  ret->size[0] = iv111[0];
+  ret->size[1] = iv111[1];
   ret->allocatedSize = ret->size[0] * ret->size[1];
   ret->data = (real_T *)mxGetData(src);
   ret->canFreeData = FALSE;
@@ -5751,19 +5751,19 @@ static void p_emlrt_marshallIn(const mxArray *src, const emlrtMsgIdentifier
 static void q_emlrt_marshallIn(const mxArray *src, const emlrtMsgIdentifier
   *msgId, emxArray_real_T *ret)
 {
-  int32_T iv98[2];
+  int32_T iv112[2];
   boolean_T bv2[2];
   int32_T i;
-  int32_T iv99[2];
+  int32_T iv113[2];
   for (i = 0; i < 2; i++) {
-    iv98[i] = 100;
+    iv112[i] = 100;
     bv2[i] = TRUE;
   }
 
   emlrtCheckVsBuiltInR2012b(emlrtRootTLSGlobal, msgId, src, "double", FALSE, 2U,
-    iv98, bv2, iv99);
-  ret->size[0] = iv99[0];
-  ret->size[1] = iv99[1];
+    iv112, bv2, iv113);
+  ret->size[0] = iv113[0];
+  ret->size[1] = iv113[1];
   ret->allocatedSize = ret->size[0] * ret->size[1];
   ret->data = (real_T *)mxGetData(src);
   ret->canFreeData = FALSE;
@@ -5773,14 +5773,14 @@ static void q_emlrt_marshallIn(const mxArray *src, const emlrtMsgIdentifier
 static void r_emlrt_marshallIn(const mxArray *src, const emlrtMsgIdentifier
   *msgId, real_T (**ret_data)[100], int32_T ret_size[1])
 {
-  int32_T iv100[1];
+  int32_T iv114[1];
   boolean_T bv3[1];
-  int32_T iv101[1];
-  iv100[0] = 100;
+  int32_T iv115[1];
+  iv114[0] = 100;
   bv3[0] = TRUE;
   emlrtCheckVsBuiltInR2012b(emlrtRootTLSGlobal, msgId, src, "double", FALSE, 1U,
-    iv100, bv3, iv101);
-  ret_size[0] = iv101[0];
+    iv114, bv3, iv115);
+  ret_size[0] = iv115[0];
   *ret_data = (real_T (*)[100])mxGetData(src);
   emlrtDestroyArray(&src);
 }

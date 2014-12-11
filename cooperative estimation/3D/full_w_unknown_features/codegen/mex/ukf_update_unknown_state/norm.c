@@ -3,7 +3,7 @@
  *
  * Code generation for function 'norm'
  *
- * C source code generated on: Tue Dec  9 10:58:59 2014
+ * C source code generated on: Thu Dec 11 11:40:54 2014
  *
  */
 
@@ -16,15 +16,15 @@
 #include <stdio.h>
 
 /* Variable Definitions */
-static emlrtRSInfo gi_emlrtRSI = { 37, "norm",
+static emlrtRSInfo ii_emlrtRSI = { 37, "norm",
   "/usr/local/MATLAB/MATLAB_Production_Server/R2013a/toolbox/eml/lib/matlab/matfun/norm.m"
 };
 
-static emlrtRSInfo hi_emlrtRSI = { 39, "norm",
+static emlrtRSInfo ji_emlrtRSI = { 39, "norm",
   "/usr/local/MATLAB/MATLAB_Production_Server/R2013a/toolbox/eml/lib/matlab/matfun/norm.m"
 };
 
-static emlrtRSInfo ii_emlrtRSI = { 170, "norm",
+static emlrtRSInfo ki_emlrtRSI = { 170, "norm",
   "/usr/local/MATLAB/MATLAB_Production_Server/R2013a/toolbox/eml/lib/matlab/matfun/norm.m"
 };
 
@@ -37,69 +37,69 @@ real_T b_norm(const emxArray_real_T *x)
   ptrdiff_t incx_t;
   double * xix0_t;
   if ((x->size[0] == 1) || (x->size[1] == 1)) {
-    emlrtPushRtStackR2012b(&gi_emlrtRSI, emlrtRootTLSGlobal);
     emlrtPushRtStackR2012b(&ii_emlrtRSI, emlrtRootTLSGlobal);
+    emlrtPushRtStackR2012b(&ki_emlrtRSI, emlrtRootTLSGlobal);
     n = x->size[0] * x->size[1];
-    emlrtPushRtStackR2012b(&ic_emlrtRSI, emlrtRootTLSGlobal);
+    emlrtPushRtStackR2012b(&kc_emlrtRSI, emlrtRootTLSGlobal);
     if (1 > n) {
       y = 0.0;
     } else {
-      emlrtPushRtStackR2012b(&kc_emlrtRSI, emlrtRootTLSGlobal);
       emlrtPushRtStackR2012b(&mc_emlrtRSI, emlrtRootTLSGlobal);
-      emlrtPushRtStackR2012b(&pc_emlrtRSI, emlrtRootTLSGlobal);
+      emlrtPushRtStackR2012b(&oc_emlrtRSI, emlrtRootTLSGlobal);
+      emlrtPushRtStackR2012b(&rc_emlrtRSI, emlrtRootTLSGlobal);
       emlrt_checkEscapedGlobals();
       n_t = (ptrdiff_t)(n);
-      emlrtPopRtStackR2012b(&pc_emlrtRSI, emlrtRootTLSGlobal);
-      emlrtPopRtStackR2012b(&mc_emlrtRSI, emlrtRootTLSGlobal);
-      emlrtPushRtStackR2012b(&nc_emlrtRSI, emlrtRootTLSGlobal);
+      emlrtPopRtStackR2012b(&rc_emlrtRSI, emlrtRootTLSGlobal);
+      emlrtPopRtStackR2012b(&oc_emlrtRSI, emlrtRootTLSGlobal);
       emlrtPushRtStackR2012b(&pc_emlrtRSI, emlrtRootTLSGlobal);
+      emlrtPushRtStackR2012b(&rc_emlrtRSI, emlrtRootTLSGlobal);
       emlrt_checkEscapedGlobals();
       incx_t = (ptrdiff_t)(1);
+      emlrtPopRtStackR2012b(&rc_emlrtRSI, emlrtRootTLSGlobal);
       emlrtPopRtStackR2012b(&pc_emlrtRSI, emlrtRootTLSGlobal);
-      emlrtPopRtStackR2012b(&nc_emlrtRSI, emlrtRootTLSGlobal);
-      emlrtPushRtStackR2012b(&oc_emlrtRSI, emlrtRootTLSGlobal);
+      emlrtPushRtStackR2012b(&qc_emlrtRSI, emlrtRootTLSGlobal);
       emlrt_checkEscapedGlobals();
       xix0_t = (double *)(&x->data[0]);
-      emlrtPopRtStackR2012b(&oc_emlrtRSI, emlrtRootTLSGlobal);
+      emlrtPopRtStackR2012b(&qc_emlrtRSI, emlrtRootTLSGlobal);
       emlrt_checkEscapedGlobals();
       y = dnrm2(&n_t, xix0_t, &incx_t);
-      emlrtPopRtStackR2012b(&kc_emlrtRSI, emlrtRootTLSGlobal);
+      emlrtPopRtStackR2012b(&mc_emlrtRSI, emlrtRootTLSGlobal);
     }
 
-    emlrtPopRtStackR2012b(&ic_emlrtRSI, emlrtRootTLSGlobal);
+    emlrtPopRtStackR2012b(&kc_emlrtRSI, emlrtRootTLSGlobal);
+    emlrtPopRtStackR2012b(&ki_emlrtRSI, emlrtRootTLSGlobal);
     emlrtPopRtStackR2012b(&ii_emlrtRSI, emlrtRootTLSGlobal);
-    emlrtPopRtStackR2012b(&gi_emlrtRSI, emlrtRootTLSGlobal);
   } else {
-    emlrtPushRtStackR2012b(&hi_emlrtRSI, emlrtRootTLSGlobal);
+    emlrtPushRtStackR2012b(&ji_emlrtRSI, emlrtRootTLSGlobal);
     n = x->size[0] * x->size[1];
-    emlrtPushRtStackR2012b(&ic_emlrtRSI, emlrtRootTLSGlobal);
+    emlrtPushRtStackR2012b(&kc_emlrtRSI, emlrtRootTLSGlobal);
     if (1 > n) {
       y = 0.0;
     } else {
-      emlrtPushRtStackR2012b(&kc_emlrtRSI, emlrtRootTLSGlobal);
       emlrtPushRtStackR2012b(&mc_emlrtRSI, emlrtRootTLSGlobal);
-      emlrtPushRtStackR2012b(&pc_emlrtRSI, emlrtRootTLSGlobal);
+      emlrtPushRtStackR2012b(&oc_emlrtRSI, emlrtRootTLSGlobal);
+      emlrtPushRtStackR2012b(&rc_emlrtRSI, emlrtRootTLSGlobal);
       emlrt_checkEscapedGlobals();
       n_t = (ptrdiff_t)(n);
-      emlrtPopRtStackR2012b(&pc_emlrtRSI, emlrtRootTLSGlobal);
-      emlrtPopRtStackR2012b(&mc_emlrtRSI, emlrtRootTLSGlobal);
-      emlrtPushRtStackR2012b(&nc_emlrtRSI, emlrtRootTLSGlobal);
+      emlrtPopRtStackR2012b(&rc_emlrtRSI, emlrtRootTLSGlobal);
+      emlrtPopRtStackR2012b(&oc_emlrtRSI, emlrtRootTLSGlobal);
       emlrtPushRtStackR2012b(&pc_emlrtRSI, emlrtRootTLSGlobal);
+      emlrtPushRtStackR2012b(&rc_emlrtRSI, emlrtRootTLSGlobal);
       emlrt_checkEscapedGlobals();
       incx_t = (ptrdiff_t)(1);
+      emlrtPopRtStackR2012b(&rc_emlrtRSI, emlrtRootTLSGlobal);
       emlrtPopRtStackR2012b(&pc_emlrtRSI, emlrtRootTLSGlobal);
-      emlrtPopRtStackR2012b(&nc_emlrtRSI, emlrtRootTLSGlobal);
-      emlrtPushRtStackR2012b(&oc_emlrtRSI, emlrtRootTLSGlobal);
+      emlrtPushRtStackR2012b(&qc_emlrtRSI, emlrtRootTLSGlobal);
       emlrt_checkEscapedGlobals();
       xix0_t = (double *)(&x->data[0]);
-      emlrtPopRtStackR2012b(&oc_emlrtRSI, emlrtRootTLSGlobal);
+      emlrtPopRtStackR2012b(&qc_emlrtRSI, emlrtRootTLSGlobal);
       emlrt_checkEscapedGlobals();
       y = dnrm2(&n_t, xix0_t, &incx_t);
-      emlrtPopRtStackR2012b(&kc_emlrtRSI, emlrtRootTLSGlobal);
+      emlrtPopRtStackR2012b(&mc_emlrtRSI, emlrtRootTLSGlobal);
     }
 
-    emlrtPopRtStackR2012b(&ic_emlrtRSI, emlrtRootTLSGlobal);
-    emlrtPopRtStackR2012b(&hi_emlrtRSI, emlrtRootTLSGlobal);
+    emlrtPopRtStackR2012b(&kc_emlrtRSI, emlrtRootTLSGlobal);
+    emlrtPopRtStackR2012b(&ji_emlrtRSI, emlrtRootTLSGlobal);
   }
 
   return y;
@@ -240,69 +240,69 @@ real_T norm(const emxArray_creal_T *x)
   ptrdiff_t incx_t;
   double * xix0_t;
   if ((x->size[0] == 1) || (x->size[1] == 1)) {
-    emlrtPushRtStackR2012b(&gi_emlrtRSI, emlrtRootTLSGlobal);
     emlrtPushRtStackR2012b(&ii_emlrtRSI, emlrtRootTLSGlobal);
+    emlrtPushRtStackR2012b(&ki_emlrtRSI, emlrtRootTLSGlobal);
     n = x->size[0] * x->size[1];
-    emlrtPushRtStackR2012b(&ic_emlrtRSI, emlrtRootTLSGlobal);
+    emlrtPushRtStackR2012b(&kc_emlrtRSI, emlrtRootTLSGlobal);
     if (1 > n) {
       y = 0.0;
     } else {
-      emlrtPushRtStackR2012b(&kc_emlrtRSI, emlrtRootTLSGlobal);
       emlrtPushRtStackR2012b(&mc_emlrtRSI, emlrtRootTLSGlobal);
-      emlrtPushRtStackR2012b(&pc_emlrtRSI, emlrtRootTLSGlobal);
+      emlrtPushRtStackR2012b(&oc_emlrtRSI, emlrtRootTLSGlobal);
+      emlrtPushRtStackR2012b(&rc_emlrtRSI, emlrtRootTLSGlobal);
       emlrt_checkEscapedGlobals();
       n_t = (ptrdiff_t)(n);
-      emlrtPopRtStackR2012b(&pc_emlrtRSI, emlrtRootTLSGlobal);
-      emlrtPopRtStackR2012b(&mc_emlrtRSI, emlrtRootTLSGlobal);
-      emlrtPushRtStackR2012b(&nc_emlrtRSI, emlrtRootTLSGlobal);
+      emlrtPopRtStackR2012b(&rc_emlrtRSI, emlrtRootTLSGlobal);
+      emlrtPopRtStackR2012b(&oc_emlrtRSI, emlrtRootTLSGlobal);
       emlrtPushRtStackR2012b(&pc_emlrtRSI, emlrtRootTLSGlobal);
+      emlrtPushRtStackR2012b(&rc_emlrtRSI, emlrtRootTLSGlobal);
       emlrt_checkEscapedGlobals();
       incx_t = (ptrdiff_t)(1);
+      emlrtPopRtStackR2012b(&rc_emlrtRSI, emlrtRootTLSGlobal);
       emlrtPopRtStackR2012b(&pc_emlrtRSI, emlrtRootTLSGlobal);
-      emlrtPopRtStackR2012b(&nc_emlrtRSI, emlrtRootTLSGlobal);
-      emlrtPushRtStackR2012b(&oc_emlrtRSI, emlrtRootTLSGlobal);
+      emlrtPushRtStackR2012b(&qc_emlrtRSI, emlrtRootTLSGlobal);
       emlrt_checkEscapedGlobals();
       xix0_t = (double *)(&x->data[0]);
-      emlrtPopRtStackR2012b(&oc_emlrtRSI, emlrtRootTLSGlobal);
+      emlrtPopRtStackR2012b(&qc_emlrtRSI, emlrtRootTLSGlobal);
       emlrt_checkEscapedGlobals();
       y = dznrm2(&n_t, xix0_t, &incx_t);
-      emlrtPopRtStackR2012b(&kc_emlrtRSI, emlrtRootTLSGlobal);
+      emlrtPopRtStackR2012b(&mc_emlrtRSI, emlrtRootTLSGlobal);
     }
 
-    emlrtPopRtStackR2012b(&ic_emlrtRSI, emlrtRootTLSGlobal);
+    emlrtPopRtStackR2012b(&kc_emlrtRSI, emlrtRootTLSGlobal);
+    emlrtPopRtStackR2012b(&ki_emlrtRSI, emlrtRootTLSGlobal);
     emlrtPopRtStackR2012b(&ii_emlrtRSI, emlrtRootTLSGlobal);
-    emlrtPopRtStackR2012b(&gi_emlrtRSI, emlrtRootTLSGlobal);
   } else {
-    emlrtPushRtStackR2012b(&hi_emlrtRSI, emlrtRootTLSGlobal);
+    emlrtPushRtStackR2012b(&ji_emlrtRSI, emlrtRootTLSGlobal);
     n = x->size[0] * x->size[1];
-    emlrtPushRtStackR2012b(&ic_emlrtRSI, emlrtRootTLSGlobal);
+    emlrtPushRtStackR2012b(&kc_emlrtRSI, emlrtRootTLSGlobal);
     if (1 > n) {
       y = 0.0;
     } else {
-      emlrtPushRtStackR2012b(&kc_emlrtRSI, emlrtRootTLSGlobal);
       emlrtPushRtStackR2012b(&mc_emlrtRSI, emlrtRootTLSGlobal);
-      emlrtPushRtStackR2012b(&pc_emlrtRSI, emlrtRootTLSGlobal);
+      emlrtPushRtStackR2012b(&oc_emlrtRSI, emlrtRootTLSGlobal);
+      emlrtPushRtStackR2012b(&rc_emlrtRSI, emlrtRootTLSGlobal);
       emlrt_checkEscapedGlobals();
       n_t = (ptrdiff_t)(n);
-      emlrtPopRtStackR2012b(&pc_emlrtRSI, emlrtRootTLSGlobal);
-      emlrtPopRtStackR2012b(&mc_emlrtRSI, emlrtRootTLSGlobal);
-      emlrtPushRtStackR2012b(&nc_emlrtRSI, emlrtRootTLSGlobal);
+      emlrtPopRtStackR2012b(&rc_emlrtRSI, emlrtRootTLSGlobal);
+      emlrtPopRtStackR2012b(&oc_emlrtRSI, emlrtRootTLSGlobal);
       emlrtPushRtStackR2012b(&pc_emlrtRSI, emlrtRootTLSGlobal);
+      emlrtPushRtStackR2012b(&rc_emlrtRSI, emlrtRootTLSGlobal);
       emlrt_checkEscapedGlobals();
       incx_t = (ptrdiff_t)(1);
+      emlrtPopRtStackR2012b(&rc_emlrtRSI, emlrtRootTLSGlobal);
       emlrtPopRtStackR2012b(&pc_emlrtRSI, emlrtRootTLSGlobal);
-      emlrtPopRtStackR2012b(&nc_emlrtRSI, emlrtRootTLSGlobal);
-      emlrtPushRtStackR2012b(&oc_emlrtRSI, emlrtRootTLSGlobal);
+      emlrtPushRtStackR2012b(&qc_emlrtRSI, emlrtRootTLSGlobal);
       emlrt_checkEscapedGlobals();
       xix0_t = (double *)(&x->data[0]);
-      emlrtPopRtStackR2012b(&oc_emlrtRSI, emlrtRootTLSGlobal);
+      emlrtPopRtStackR2012b(&qc_emlrtRSI, emlrtRootTLSGlobal);
       emlrt_checkEscapedGlobals();
       y = dznrm2(&n_t, xix0_t, &incx_t);
-      emlrtPopRtStackR2012b(&kc_emlrtRSI, emlrtRootTLSGlobal);
+      emlrtPopRtStackR2012b(&mc_emlrtRSI, emlrtRootTLSGlobal);
     }
 
-    emlrtPopRtStackR2012b(&ic_emlrtRSI, emlrtRootTLSGlobal);
-    emlrtPopRtStackR2012b(&hi_emlrtRSI, emlrtRootTLSGlobal);
+    emlrtPopRtStackR2012b(&kc_emlrtRSI, emlrtRootTLSGlobal);
+    emlrtPopRtStackR2012b(&ji_emlrtRSI, emlrtRootTLSGlobal);
   }
 
   return y;

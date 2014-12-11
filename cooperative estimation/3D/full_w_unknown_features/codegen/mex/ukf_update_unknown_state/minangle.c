@@ -3,7 +3,7 @@
  *
  * Code generation for function 'minangle'
  *
- * C source code generated on: Tue Dec  9 10:58:59 2014
+ * C source code generated on: Thu Dec 11 11:40:55 2014
  *
  */
 
@@ -18,31 +18,31 @@
 #include <stdio.h>
 
 /* Variable Definitions */
-static emlrtRSInfo eb_emlrtRSI = { 51, "eml_int_forloop_overflow_check",
+static emlrtRSInfo gb_emlrtRSI = { 51, "eml_int_forloop_overflow_check",
   "/usr/local/MATLAB/MATLAB_Production_Server/R2013a/toolbox/eml/lib/matlab/eml/eml_int_forloop_overflow_check.m"
 };
 
-static emlrtRSInfo sj_emlrtRSI = { 11, "minangle",
+static emlrtRSInfo xj_emlrtRSI = { 11, "minangle",
   "/home/tim/github/Summer2014/cooperative estimation/2D/minangle.m" };
 
-static emlrtRSInfo tj_emlrtRSI = { 4, "minangle",
+static emlrtRSInfo yj_emlrtRSI = { 4, "minangle",
   "/home/tim/github/Summer2014/cooperative estimation/2D/minangle.m" };
 
-static emlrtRSInfo uj_emlrtRSI = { 5, "minangle",
+static emlrtRSInfo ak_emlrtRSI = { 5, "minangle",
   "/home/tim/github/Summer2014/cooperative estimation/2D/minangle.m" };
 
-static emlrtRSInfo vj_emlrtRSI = { 7, "minangle",
+static emlrtRSInfo bk_emlrtRSI = { 7, "minangle",
   "/home/tim/github/Summer2014/cooperative estimation/2D/minangle.m" };
 
-static emlrtRSInfo bk_emlrtRSI = { 41, "find",
+static emlrtRSInfo gk_emlrtRSI = { 41, "find",
   "/usr/local/MATLAB/MATLAB_Production_Server/R2013a/toolbox/eml/lib/matlab/elmat/find.m"
 };
 
-static emlrtRSInfo dk_emlrtRSI = { 230, "find",
+static emlrtRSInfo ik_emlrtRSI = { 230, "find",
   "/usr/local/MATLAB/MATLAB_Production_Server/R2013a/toolbox/eml/lib/matlab/elmat/find.m"
 };
 
-static emlrtRSInfo ek_emlrtRSI = { 239, "find",
+static emlrtRSInfo jk_emlrtRSI = { 239, "find",
   "/usr/local/MATLAB/MATLAB_Production_Server/R2013a/toolbox/eml/lib/matlab/elmat/find.m"
 };
 
@@ -75,61 +75,61 @@ static emlrtRTEInfo vb_emlrtRTEI = { 33, 6, "find",
   "/usr/local/MATLAB/MATLAB_Production_Server/R2013a/toolbox/eml/lib/matlab/elmat/find.m"
 };
 
-static emlrtECInfo kd_emlrtECI = { -1, 6, 5, "minangle",
+static emlrtECInfo ud_emlrtECI = { -1, 6, 5, "minangle",
   "/home/tim/github/Summer2014/cooperative estimation/2D/minangle.m" };
 
-static emlrtECInfo ld_emlrtECI = { -1, 8, 5, "minangle",
+static emlrtECInfo vd_emlrtECI = { -1, 8, 5, "minangle",
   "/home/tim/github/Summer2014/cooperative estimation/2D/minangle.m" };
 
-static emlrtECInfo md_emlrtECI = { -1, 7, 17, "minangle",
+static emlrtECInfo wd_emlrtECI = { -1, 7, 17, "minangle",
   "/home/tim/github/Summer2014/cooperative estimation/2D/minangle.m" };
 
-static emlrtECInfo nd_emlrtECI = { -1, 7, 39, "minangle",
+static emlrtECInfo xd_emlrtECI = { -1, 7, 39, "minangle",
   "/home/tim/github/Summer2014/cooperative estimation/2D/minangle.m" };
 
-static emlrtECInfo od_emlrtECI = { -1, 7, 21, "minangle",
+static emlrtECInfo yd_emlrtECI = { -1, 7, 21, "minangle",
   "/home/tim/github/Summer2014/cooperative estimation/2D/minangle.m" };
 
-static emlrtECInfo pd_emlrtECI = { -1, 5, 17, "minangle",
+static emlrtECInfo ae_emlrtECI = { -1, 5, 17, "minangle",
   "/home/tim/github/Summer2014/cooperative estimation/2D/minangle.m" };
 
-static emlrtECInfo qd_emlrtECI = { -1, 5, 39, "minangle",
+static emlrtECInfo be_emlrtECI = { -1, 5, 39, "minangle",
   "/home/tim/github/Summer2014/cooperative estimation/2D/minangle.m" };
 
-static emlrtECInfo rd_emlrtECI = { -1, 5, 21, "minangle",
+static emlrtECInfo ce_emlrtECI = { -1, 5, 21, "minangle",
   "/home/tim/github/Summer2014/cooperative estimation/2D/minangle.m" };
 
-static emlrtECInfo sd_emlrtECI = { -1, 4, 12, "minangle",
+static emlrtECInfo de_emlrtECI = { -1, 4, 12, "minangle",
   "/home/tim/github/Summer2014/cooperative estimation/2D/minangle.m" };
 
-static emlrtECInfo td_emlrtECI = { -1, 4, 46, "minangle",
+static emlrtECInfo ee_emlrtECI = { -1, 4, 46, "minangle",
   "/home/tim/github/Summer2014/cooperative estimation/2D/minangle.m" };
 
-static emlrtECInfo ud_emlrtECI = { -1, 4, 68, "minangle",
+static emlrtECInfo fe_emlrtECI = { -1, 4, 68, "minangle",
   "/home/tim/github/Summer2014/cooperative estimation/2D/minangle.m" };
 
-static emlrtECInfo vd_emlrtECI = { -1, 4, 50, "minangle",
+static emlrtECInfo ge_emlrtECI = { -1, 4, 50, "minangle",
   "/home/tim/github/Summer2014/cooperative estimation/2D/minangle.m" };
 
-static emlrtECInfo wd_emlrtECI = { -1, 4, 13, "minangle",
+static emlrtECInfo he_emlrtECI = { -1, 4, 13, "minangle",
   "/home/tim/github/Summer2014/cooperative estimation/2D/minangle.m" };
 
-static emlrtECInfo xd_emlrtECI = { -1, 4, 35, "minangle",
+static emlrtECInfo ie_emlrtECI = { -1, 4, 35, "minangle",
   "/home/tim/github/Summer2014/cooperative estimation/2D/minangle.m" };
 
-static emlrtECInfo yd_emlrtECI = { -1, 4, 17, "minangle",
+static emlrtECInfo je_emlrtECI = { -1, 4, 17, "minangle",
   "/home/tim/github/Summer2014/cooperative estimation/2D/minangle.m" };
 
-static emlrtBCInfo bh_emlrtBCI = { -1, -1, 6, 5, "x1", "minangle",
+static emlrtBCInfo yh_emlrtBCI = { -1, -1, 6, 5, "x1", "minangle",
   "/home/tim/github/Summer2014/cooperative estimation/2D/minangle.m", 0 };
 
-static emlrtBCInfo ch_emlrtBCI = { -1, -1, 6, 15, "x1", "minangle",
+static emlrtBCInfo ai_emlrtBCI = { -1, -1, 6, 15, "x1", "minangle",
   "/home/tim/github/Summer2014/cooperative estimation/2D/minangle.m", 0 };
 
-static emlrtBCInfo dh_emlrtBCI = { -1, -1, 8, 5, "x1", "minangle",
+static emlrtBCInfo bi_emlrtBCI = { -1, -1, 8, 5, "x1", "minangle",
   "/home/tim/github/Summer2014/cooperative estimation/2D/minangle.m", 0 };
 
-static emlrtBCInfo eh_emlrtBCI = { -1, -1, 8, 15, "x1", "minangle",
+static emlrtBCInfo ci_emlrtBCI = { -1, -1, 8, 15, "x1", "minangle",
   "/home/tim/github/Summer2014/cooperative estimation/2D/minangle.m", 0 };
 
 /* Function Declarations */
@@ -169,7 +169,7 @@ void b_minangle(real_T x1[4], const real_T x2[4])
   boolean_T exitg2;
   boolean_T guard1 = FALSE;
   const mxArray *f_y;
-  static const int32_T iv102[2] = { 1, 39 };
+  static const int32_T iv116[2] = { 1, 39 };
 
   const mxArray *m26;
   char_T cv54[39];
@@ -284,7 +284,7 @@ void b_minangle(real_T x1[4], const real_T x2[4])
         ii_data[ii] = in1_data[ii];
       }
 
-      emlrtSizeEqCheck1DFastR2012b(i, i, &kd_emlrtECI, emlrtRootTLSGlobal);
+      emlrtSizeEqCheck1DFastR2012b(i, i, &ud_emlrtECI, emlrtRootTLSGlobal);
       for (ii = 0; ii < i; ii++) {
         b_ii_data[ii] = (int8_T)(ii_data[ii] - 1);
       }
@@ -355,7 +355,7 @@ void b_minangle(real_T x1[4], const real_T x2[4])
         ii_data[ii] = in1_data[ii];
       }
 
-      emlrtSizeEqCheck1DFastR2012b(i, i, &ld_emlrtECI, emlrtRootTLSGlobal);
+      emlrtSizeEqCheck1DFastR2012b(i, i, &vd_emlrtECI, emlrtRootTLSGlobal);
       for (ii = 0; ii < i; ii++) {
         b_ii_data[ii] = (int8_T)(ii_data[ii] - 1);
       }
@@ -371,9 +371,9 @@ void b_minangle(real_T x1[4], const real_T x2[4])
       count++;
       emlrtBreakCheckFastR2012b(emlrtBreakCheckR2012bFlagVar, emlrtRootTLSGlobal);
       if (count > 50) {
-        emlrtPushRtStackR2012b(&sj_emlrtRSI, emlrtRootTLSGlobal);
+        emlrtPushRtStackR2012b(&xj_emlrtRSI, emlrtRootTLSGlobal);
         f_y = NULL;
-        m26 = mxCreateCharArray(2, iv102);
+        m26 = mxCreateCharArray(2, iv116);
         for (i = 0; i < 39; i++) {
           cv54[i] = cv55[i];
         }
@@ -381,7 +381,7 @@ void b_minangle(real_T x1[4], const real_T x2[4])
         emlrtInitCharArrayR2013a(emlrtRootTLSGlobal, 39, m26, cv54);
         emlrtAssign(&f_y, m26);
         disp(f_y, &y_emlrtMCI);
-        emlrtPopRtStackR2012b(&sj_emlrtRSI, emlrtRootTLSGlobal);
+        emlrtPopRtStackR2012b(&xj_emlrtRSI, emlrtRootTLSGlobal);
         exitg1 = 1;
       }
     } else {
@@ -394,10 +394,10 @@ void c_minangle(emxArray_real_T *x1, const emxArray_real_T *x2)
 {
   int32_T count;
   emxArray_real_T *in1;
-  emxArray_real_T *r65;
-  emxArray_real_T *r66;
-  emxArray_real_T *r67;
-  emxArray_boolean_T *r68;
+  emxArray_real_T *r77;
+  emxArray_real_T *r78;
+  emxArray_real_T *r79;
+  emxArray_boolean_T *r80;
   emxArray_boolean_T *x;
   emxArray_int32_T *ii;
   emxArray_real_T *b_x1;
@@ -422,7 +422,7 @@ void c_minangle(emxArray_real_T *x1, const emxArray_real_T *x2)
   boolean_T p;
   int32_T exitg5;
   const mxArray *y;
-  static const int32_T iv103[2] = { 1, 41 };
+  static const int32_T iv117[2] = { 1, 41 };
 
   const mxArray *m27;
   char_T cv56[41];
@@ -433,7 +433,7 @@ void c_minangle(emxArray_real_T *x1, const emxArray_real_T *x2)
 
   boolean_T b9;
   const mxArray *b_y;
-  static const int32_T iv104[2] = { 1, 51 };
+  static const int32_T iv118[2] = { 1, 51 };
 
   char_T cv58[51];
   static const char_T cv59[51] = { 'C', 'o', 'd', 'e', 'r', ':', 't', 'o', 'o',
@@ -450,7 +450,7 @@ void c_minangle(emxArray_real_T *x1, const emxArray_real_T *x2)
   boolean_T guard1 = FALSE;
   const mxArray *d_y;
   const mxArray *e_y;
-  static const int32_T iv105[2] = { 1, 39 };
+  static const int32_T iv119[2] = { 1, 39 };
 
   char_T cv60[39];
   static const char_T cv61[39] = { 'W', 'a', 'r', 'n', 'i', 'n', 'g', ':', ' ',
@@ -462,10 +462,10 @@ void c_minangle(emxArray_real_T *x1, const emxArray_real_T *x2)
   /* find the minimum angle between two vectors of 2D angles x1 and x2 */
   count = 0;
   b_emxInit_real_T(&in1, 1, &ub_emlrtRTEI, TRUE);
-  b_emxInit_real_T(&r65, 1, &gb_emlrtRTEI, TRUE);
-  b_emxInit_real_T(&r66, 1, &gb_emlrtRTEI, TRUE);
-  b_emxInit_real_T(&r67, 1, &gb_emlrtRTEI, TRUE);
-  b_emxInit_boolean_T(&r68, 1, &gb_emlrtRTEI, TRUE);
+  b_emxInit_real_T(&r77, 1, &gb_emlrtRTEI, TRUE);
+  b_emxInit_real_T(&r78, 1, &gb_emlrtRTEI, TRUE);
+  b_emxInit_real_T(&r79, 1, &gb_emlrtRTEI, TRUE);
+  b_emxInit_boolean_T(&r80, 1, &gb_emlrtRTEI, TRUE);
   b_emxInit_boolean_T(&x, 1, &gb_emlrtRTEI, TRUE);
   b_emxInit_int32_T(&ii, 1, &vb_emlrtRTEI, TRUE);
   b_emxInit_real_T(&b_x1, 1, &gb_emlrtRTEI, TRUE);
@@ -486,10 +486,10 @@ void c_minangle(emxArray_real_T *x1, const emxArray_real_T *x2)
     exitg1 = 0;
     i15 = x1->size[0];
     i = x2->size[0];
-    emlrtSizeEqCheck1DFastR2012b(i15, i, &yd_emlrtECI, emlrtRootTLSGlobal);
+    emlrtSizeEqCheck1DFastR2012b(i15, i, &je_emlrtECI, emlrtRootTLSGlobal);
     i15 = x1->size[0];
     i = x2->size[0];
-    emlrtSizeEqCheck1DFastR2012b(i15, i, &xd_emlrtECI, emlrtRootTLSGlobal);
+    emlrtSizeEqCheck1DFastR2012b(i15, i, &ie_emlrtECI, emlrtRootTLSGlobal);
     i15 = i_x1->size[0];
     i_x1->size[0] = x1->size[0];
     emxEnsureCapacity((emxArray__common *)i_x1, i15, (int32_T)sizeof(real_T),
@@ -509,16 +509,16 @@ void c_minangle(emxArray_real_T *x1, const emxArray_real_T *x2)
       h_x1->data[i15] = x1->data[i15] - x2->data[i15];
     }
 
-    b_abs(h_x1, r65);
+    b_abs(h_x1, r77);
     i15 = in1->size[0];
-    i = r65->size[0];
-    emlrtSizeEqCheck1DFastR2012b(i15, i, &wd_emlrtECI, emlrtRootTLSGlobal);
+    i = r77->size[0];
+    emlrtSizeEqCheck1DFastR2012b(i15, i, &he_emlrtECI, emlrtRootTLSGlobal);
     i15 = x1->size[0];
     i = x2->size[0];
-    emlrtSizeEqCheck1DFastR2012b(i15, i, &vd_emlrtECI, emlrtRootTLSGlobal);
+    emlrtSizeEqCheck1DFastR2012b(i15, i, &ge_emlrtECI, emlrtRootTLSGlobal);
     i15 = x1->size[0];
     i = x2->size[0];
-    emlrtSizeEqCheck1DFastR2012b(i15, i, &ud_emlrtECI, emlrtRootTLSGlobal);
+    emlrtSizeEqCheck1DFastR2012b(i15, i, &fe_emlrtECI, emlrtRootTLSGlobal);
     i15 = g_x1->size[0];
     g_x1->size[0] = x1->size[0];
     emxEnsureCapacity((emxArray__common *)g_x1, i15, (int32_T)sizeof(real_T),
@@ -528,7 +528,7 @@ void c_minangle(emxArray_real_T *x1, const emxArray_real_T *x2)
       g_x1->data[i15] = (x1->data[i15] + 6.2831853071795862) - x2->data[i15];
     }
 
-    b_abs(g_x1, r66);
+    b_abs(g_x1, r78);
     i15 = f_x1->size[0];
     f_x1->size[0] = x1->size[0];
     emxEnsureCapacity((emxArray__common *)f_x1, i15, (int32_T)sizeof(real_T),
@@ -538,41 +538,41 @@ void c_minangle(emxArray_real_T *x1, const emxArray_real_T *x2)
       f_x1->data[i15] = x1->data[i15] - x2->data[i15];
     }
 
-    b_abs(f_x1, r67);
-    i15 = r66->size[0];
-    i = r67->size[0];
-    emlrtSizeEqCheck1DFastR2012b(i15, i, &td_emlrtECI, emlrtRootTLSGlobal);
+    b_abs(f_x1, r79);
+    i15 = r78->size[0];
+    i = r79->size[0];
+    emlrtSizeEqCheck1DFastR2012b(i15, i, &ee_emlrtECI, emlrtRootTLSGlobal);
     i15 = x->size[0];
     x->size[0] = in1->size[0];
     emxEnsureCapacity((emxArray__common *)x, i15, (int32_T)sizeof(boolean_T),
                       &gb_emlrtRTEI);
     idx = in1->size[0];
     for (i15 = 0; i15 < idx; i15++) {
-      x->data[i15] = (in1->data[i15] < r65->data[i15]);
+      x->data[i15] = (in1->data[i15] < r77->data[i15]);
     }
 
-    i15 = r68->size[0];
-    r68->size[0] = r66->size[0];
-    emxEnsureCapacity((emxArray__common *)r68, i15, (int32_T)sizeof(boolean_T),
+    i15 = r80->size[0];
+    r80->size[0] = r78->size[0];
+    emxEnsureCapacity((emxArray__common *)r80, i15, (int32_T)sizeof(boolean_T),
                       &gb_emlrtRTEI);
-    idx = r66->size[0];
+    idx = r78->size[0];
     for (i15 = 0; i15 < idx; i15++) {
-      r68->data[i15] = (r66->data[i15] < r67->data[i15]);
+      r80->data[i15] = (r78->data[i15] < r79->data[i15]);
     }
 
     i15 = x->size[0];
-    i = r68->size[0];
-    emlrtSizeEqCheck1DFastR2012b(i15, i, &sd_emlrtECI, emlrtRootTLSGlobal);
-    emlrtPushRtStackR2012b(&tj_emlrtRSI, emlrtRootTLSGlobal);
+    i = r80->size[0];
+    emlrtSizeEqCheck1DFastR2012b(i15, i, &de_emlrtECI, emlrtRootTLSGlobal);
+    emlrtPushRtStackR2012b(&yj_emlrtRSI, emlrtRootTLSGlobal);
     i15 = x->size[0];
     emxEnsureCapacity((emxArray__common *)x, i15, (int32_T)sizeof(boolean_T),
                       &gb_emlrtRTEI);
     idx = x->size[0];
     for (i15 = 0; i15 < idx; i15++) {
-      x->data[i15] = (x->data[i15] || r68->data[i15]);
+      x->data[i15] = (x->data[i15] || r80->data[i15]);
     }
 
-    emlrtPushRtStackR2012b(&wj_emlrtRSI, emlrtRootTLSGlobal);
+    emlrtPushRtStackR2012b(&ck_emlrtRSI, emlrtRootTLSGlobal);
     overflow = FALSE;
     p = FALSE;
     i = 0;
@@ -603,10 +603,10 @@ void c_minangle(emxArray_real_T *x1, const emxArray_real_T *x2)
 
     if (!overflow) {
     } else {
-      emlrtPushRtStackR2012b(&xj_emlrtRSI, emlrtRootTLSGlobal);
+      emlrtPushRtStackR2012b(&dk_emlrtRSI, emlrtRootTLSGlobal);
       emlrt_synchGlobalsToML();
       y = NULL;
-      m27 = mxCreateCharArray(2, iv103);
+      m27 = mxCreateCharArray(2, iv117);
       for (i = 0; i < 41; i++) {
         cv56[i] = cv57[i];
       }
@@ -615,7 +615,7 @@ void c_minangle(emxArray_real_T *x1, const emxArray_real_T *x2)
       emlrtAssign(&y, m27);
       error(message(y, &ab_emlrtMCI), &bb_emlrtMCI);
       emlrt_synchGlobalsFromML();
-      emlrtPopRtStackR2012b(&xj_emlrtRSI, emlrtRootTLSGlobal);
+      emlrtPopRtStackR2012b(&dk_emlrtRSI, emlrtRootTLSGlobal);
     }
 
     if ((x->size[0] == 1) || (x->size[0] != 1)) {
@@ -626,10 +626,10 @@ void c_minangle(emxArray_real_T *x1, const emxArray_real_T *x2)
 
     if (b9) {
     } else {
-      emlrtPushRtStackR2012b(&yj_emlrtRSI, emlrtRootTLSGlobal);
+      emlrtPushRtStackR2012b(&ek_emlrtRSI, emlrtRootTLSGlobal);
       emlrt_synchGlobalsToML();
       b_y = NULL;
-      m27 = mxCreateCharArray(2, iv104);
+      m27 = mxCreateCharArray(2, iv118);
       for (i = 0; i < 51; i++) {
         cv58[i] = cv59[i];
       }
@@ -638,11 +638,11 @@ void c_minangle(emxArray_real_T *x1, const emxArray_real_T *x2)
       emlrtAssign(&b_y, m27);
       error(message(b_y, &cb_emlrtMCI), &db_emlrtMCI);
       emlrt_synchGlobalsFromML();
-      emlrtPopRtStackR2012b(&yj_emlrtRSI, emlrtRootTLSGlobal);
+      emlrtPopRtStackR2012b(&ek_emlrtRSI, emlrtRootTLSGlobal);
     }
 
     b9 = FALSE;
-    emlrtPushRtStackR2012b(&ak_emlrtRSI, emlrtRootTLSGlobal);
+    emlrtPushRtStackR2012b(&fk_emlrtRSI, emlrtRootTLSGlobal);
     if (1 > x->size[0]) {
       overflow = FALSE;
     } else {
@@ -650,12 +650,12 @@ void c_minangle(emxArray_real_T *x1, const emxArray_real_T *x2)
     }
 
     if (overflow) {
-      emlrtPushRtStackR2012b(&db_emlrtRSI, emlrtRootTLSGlobal);
+      emlrtPushRtStackR2012b(&fb_emlrtRSI, emlrtRootTLSGlobal);
       check_forloop_overflow_error();
-      emlrtPopRtStackR2012b(&db_emlrtRSI, emlrtRootTLSGlobal);
+      emlrtPopRtStackR2012b(&fb_emlrtRSI, emlrtRootTLSGlobal);
     }
 
-    emlrtPopRtStackR2012b(&ak_emlrtRSI, emlrtRootTLSGlobal);
+    emlrtPopRtStackR2012b(&fk_emlrtRSI, emlrtRootTLSGlobal);
     i = 1;
     exitg4 = FALSE;
     while ((exitg4 == FALSE) && (i <= x->size[0])) {
@@ -668,15 +668,15 @@ void c_minangle(emxArray_real_T *x1, const emxArray_real_T *x2)
       }
     }
 
-    emlrtPopRtStackR2012b(&wj_emlrtRSI, emlrtRootTLSGlobal);
-    emlrtPopRtStackR2012b(&tj_emlrtRSI, emlrtRootTLSGlobal);
+    emlrtPopRtStackR2012b(&ck_emlrtRSI, emlrtRootTLSGlobal);
+    emlrtPopRtStackR2012b(&yj_emlrtRSI, emlrtRootTLSGlobal);
     if (b9) {
       i15 = x1->size[0];
       i = x2->size[0];
-      emlrtSizeEqCheck1DFastR2012b(i15, i, &rd_emlrtECI, emlrtRootTLSGlobal);
+      emlrtSizeEqCheck1DFastR2012b(i15, i, &ce_emlrtECI, emlrtRootTLSGlobal);
       i15 = x1->size[0];
       i = x2->size[0];
-      emlrtSizeEqCheck1DFastR2012b(i15, i, &qd_emlrtECI, emlrtRootTLSGlobal);
+      emlrtSizeEqCheck1DFastR2012b(i15, i, &be_emlrtECI, emlrtRootTLSGlobal);
       i15 = e_x1->size[0];
       e_x1->size[0] = x1->size[0];
       emxEnsureCapacity((emxArray__common *)e_x1, i15, (int32_T)sizeof(real_T),
@@ -696,27 +696,27 @@ void c_minangle(emxArray_real_T *x1, const emxArray_real_T *x2)
         d_x1->data[i15] = x1->data[i15] - x2->data[i15];
       }
 
-      b_abs(d_x1, r65);
+      b_abs(d_x1, r77);
       i15 = in1->size[0];
-      i = r65->size[0];
-      emlrtSizeEqCheck1DFastR2012b(i15, i, &pd_emlrtECI, emlrtRootTLSGlobal);
-      emlrtPushRtStackR2012b(&uj_emlrtRSI, emlrtRootTLSGlobal);
+      i = r77->size[0];
+      emlrtSizeEqCheck1DFastR2012b(i15, i, &ae_emlrtECI, emlrtRootTLSGlobal);
+      emlrtPushRtStackR2012b(&ak_emlrtRSI, emlrtRootTLSGlobal);
       i15 = x->size[0];
       x->size[0] = in1->size[0];
       emxEnsureCapacity((emxArray__common *)x, i15, (int32_T)sizeof(boolean_T),
                         &gb_emlrtRTEI);
       idx = in1->size[0];
       for (i15 = 0; i15 < idx; i15++) {
-        x->data[i15] = (in1->data[i15] < r65->data[i15]);
+        x->data[i15] = (in1->data[i15] < r77->data[i15]);
       }
 
-      emlrtPushRtStackR2012b(&bk_emlrtRSI, emlrtRootTLSGlobal);
+      emlrtPushRtStackR2012b(&gk_emlrtRSI, emlrtRootTLSGlobal);
       idx = 0;
       i15 = ii->size[0];
       ii->size[0] = x->size[0];
       emxEnsureCapacity((emxArray__common *)ii, i15, (int32_T)sizeof(int32_T),
                         &tb_emlrtRTEI);
-      emlrtPushRtStackR2012b(&dk_emlrtRSI, emlrtRootTLSGlobal);
+      emlrtPushRtStackR2012b(&ik_emlrtRSI, emlrtRootTLSGlobal);
       if (1 > x->size[0]) {
         overflow = FALSE;
       } else {
@@ -724,12 +724,12 @@ void c_minangle(emxArray_real_T *x1, const emxArray_real_T *x2)
       }
 
       if (overflow) {
-        emlrtPushRtStackR2012b(&db_emlrtRSI, emlrtRootTLSGlobal);
+        emlrtPushRtStackR2012b(&fb_emlrtRSI, emlrtRootTLSGlobal);
         check_forloop_overflow_error();
-        emlrtPopRtStackR2012b(&db_emlrtRSI, emlrtRootTLSGlobal);
+        emlrtPopRtStackR2012b(&fb_emlrtRSI, emlrtRootTLSGlobal);
       }
 
-      emlrtPopRtStackR2012b(&dk_emlrtRSI, emlrtRootTLSGlobal);
+      emlrtPopRtStackR2012b(&ik_emlrtRSI, emlrtRootTLSGlobal);
       i = 1;
       exitg3 = FALSE;
       while ((exitg3 == FALSE) && (i <= x->size[0])) {
@@ -753,14 +753,14 @@ void c_minangle(emxArray_real_T *x1, const emxArray_real_T *x2)
 
       if (idx <= x->size[0]) {
       } else {
-        emlrtPushRtStackR2012b(&ek_emlrtRSI, emlrtRootTLSGlobal);
+        emlrtPushRtStackR2012b(&jk_emlrtRSI, emlrtRootTLSGlobal);
         emlrt_synchGlobalsToML();
         c_y = NULL;
         m27 = mxCreateString("Assertion failed.");
         emlrtAssign(&c_y, m27);
         error(c_y, &fb_emlrtMCI);
         emlrt_synchGlobalsFromML();
-        emlrtPopRtStackR2012b(&ek_emlrtRSI, emlrtRootTLSGlobal);
+        emlrtPopRtStackR2012b(&jk_emlrtRSI, emlrtRootTLSGlobal);
       }
 
       if (x->size[0] == 1) {
@@ -793,7 +793,7 @@ void c_minangle(emxArray_real_T *x1, const emxArray_real_T *x2)
         }
       }
 
-      emlrtPopRtStackR2012b(&bk_emlrtRSI, emlrtRootTLSGlobal);
+      emlrtPopRtStackR2012b(&gk_emlrtRSI, emlrtRootTLSGlobal);
       i15 = in1->size[0];
       in1->size[0] = ii->size[0];
       emxEnsureCapacity((emxArray__common *)in1, i15, (int32_T)sizeof(real_T),
@@ -803,7 +803,7 @@ void c_minangle(emxArray_real_T *x1, const emxArray_real_T *x2)
         in1->data[i15] = ii->data[i15];
       }
 
-      emlrtPopRtStackR2012b(&uj_emlrtRSI, emlrtRootTLSGlobal);
+      emlrtPopRtStackR2012b(&ak_emlrtRSI, emlrtRootTLSGlobal);
       i15 = ii->size[0];
       ii->size[0] = in1->size[0];
       emxEnsureCapacity((emxArray__common *)ii, i15, (int32_T)sizeof(int32_T),
@@ -813,20 +813,20 @@ void c_minangle(emxArray_real_T *x1, const emxArray_real_T *x2)
         i = x1->size[0];
         i16 = (int32_T)in1->data[i15];
         ii->data[i15] = emlrtDynamicBoundsCheckFastR2012b(i16, 1, i,
-          &bh_emlrtBCI, emlrtRootTLSGlobal);
+          &yh_emlrtBCI, emlrtRootTLSGlobal);
       }
 
       idx = in1->size[0];
       for (i15 = 0; i15 < idx; i15++) {
         i = x1->size[0];
         i16 = (int32_T)in1->data[i15];
-        emlrtDynamicBoundsCheckFastR2012b(i16, 1, i, &ch_emlrtBCI,
+        emlrtDynamicBoundsCheckFastR2012b(i16, 1, i, &ai_emlrtBCI,
           emlrtRootTLSGlobal);
       }
 
       i15 = ii->size[0];
       i = in1->size[0];
-      emlrtSizeEqCheck1DFastR2012b(i15, i, &kd_emlrtECI, emlrtRootTLSGlobal);
+      emlrtSizeEqCheck1DFastR2012b(i15, i, &ud_emlrtECI, emlrtRootTLSGlobal);
       i15 = c_ii->size[0];
       c_ii->size[0] = ii->size[0];
       emxEnsureCapacity((emxArray__common *)c_ii, i15, (int32_T)sizeof(int32_T),
@@ -853,10 +853,10 @@ void c_minangle(emxArray_real_T *x1, const emxArray_real_T *x2)
 
       i15 = x1->size[0];
       i = x2->size[0];
-      emlrtSizeEqCheck1DFastR2012b(i15, i, &od_emlrtECI, emlrtRootTLSGlobal);
+      emlrtSizeEqCheck1DFastR2012b(i15, i, &yd_emlrtECI, emlrtRootTLSGlobal);
       i15 = x1->size[0];
       i = x2->size[0];
-      emlrtSizeEqCheck1DFastR2012b(i15, i, &nd_emlrtECI, emlrtRootTLSGlobal);
+      emlrtSizeEqCheck1DFastR2012b(i15, i, &xd_emlrtECI, emlrtRootTLSGlobal);
       i15 = c_x1->size[0];
       c_x1->size[0] = x1->size[0];
       emxEnsureCapacity((emxArray__common *)c_x1, i15, (int32_T)sizeof(real_T),
@@ -876,27 +876,27 @@ void c_minangle(emxArray_real_T *x1, const emxArray_real_T *x2)
         b_x1->data[i15] = x1->data[i15] - x2->data[i15];
       }
 
-      b_abs(b_x1, r65);
+      b_abs(b_x1, r77);
       i15 = in1->size[0];
-      i = r65->size[0];
-      emlrtSizeEqCheck1DFastR2012b(i15, i, &md_emlrtECI, emlrtRootTLSGlobal);
-      emlrtPushRtStackR2012b(&vj_emlrtRSI, emlrtRootTLSGlobal);
+      i = r77->size[0];
+      emlrtSizeEqCheck1DFastR2012b(i15, i, &wd_emlrtECI, emlrtRootTLSGlobal);
+      emlrtPushRtStackR2012b(&bk_emlrtRSI, emlrtRootTLSGlobal);
       i15 = x->size[0];
       x->size[0] = in1->size[0];
       emxEnsureCapacity((emxArray__common *)x, i15, (int32_T)sizeof(boolean_T),
                         &gb_emlrtRTEI);
       idx = in1->size[0];
       for (i15 = 0; i15 < idx; i15++) {
-        x->data[i15] = (in1->data[i15] < r65->data[i15]);
+        x->data[i15] = (in1->data[i15] < r77->data[i15]);
       }
 
-      emlrtPushRtStackR2012b(&bk_emlrtRSI, emlrtRootTLSGlobal);
+      emlrtPushRtStackR2012b(&gk_emlrtRSI, emlrtRootTLSGlobal);
       idx = 0;
       i15 = ii->size[0];
       ii->size[0] = x->size[0];
       emxEnsureCapacity((emxArray__common *)ii, i15, (int32_T)sizeof(int32_T),
                         &tb_emlrtRTEI);
-      emlrtPushRtStackR2012b(&dk_emlrtRSI, emlrtRootTLSGlobal);
+      emlrtPushRtStackR2012b(&ik_emlrtRSI, emlrtRootTLSGlobal);
       if (1 > x->size[0]) {
         overflow = FALSE;
       } else {
@@ -904,12 +904,12 @@ void c_minangle(emxArray_real_T *x1, const emxArray_real_T *x2)
       }
 
       if (overflow) {
-        emlrtPushRtStackR2012b(&db_emlrtRSI, emlrtRootTLSGlobal);
+        emlrtPushRtStackR2012b(&fb_emlrtRSI, emlrtRootTLSGlobal);
         check_forloop_overflow_error();
-        emlrtPopRtStackR2012b(&db_emlrtRSI, emlrtRootTLSGlobal);
+        emlrtPopRtStackR2012b(&fb_emlrtRSI, emlrtRootTLSGlobal);
       }
 
-      emlrtPopRtStackR2012b(&dk_emlrtRSI, emlrtRootTLSGlobal);
+      emlrtPopRtStackR2012b(&ik_emlrtRSI, emlrtRootTLSGlobal);
       i = 1;
       exitg2 = FALSE;
       while ((exitg2 == FALSE) && (i <= x->size[0])) {
@@ -933,14 +933,14 @@ void c_minangle(emxArray_real_T *x1, const emxArray_real_T *x2)
 
       if (idx <= x->size[0]) {
       } else {
-        emlrtPushRtStackR2012b(&ek_emlrtRSI, emlrtRootTLSGlobal);
+        emlrtPushRtStackR2012b(&jk_emlrtRSI, emlrtRootTLSGlobal);
         emlrt_synchGlobalsToML();
         d_y = NULL;
         m27 = mxCreateString("Assertion failed.");
         emlrtAssign(&d_y, m27);
         error(d_y, &fb_emlrtMCI);
         emlrt_synchGlobalsFromML();
-        emlrtPopRtStackR2012b(&ek_emlrtRSI, emlrtRootTLSGlobal);
+        emlrtPopRtStackR2012b(&jk_emlrtRSI, emlrtRootTLSGlobal);
       }
 
       if (x->size[0] == 1) {
@@ -973,7 +973,7 @@ void c_minangle(emxArray_real_T *x1, const emxArray_real_T *x2)
         }
       }
 
-      emlrtPopRtStackR2012b(&bk_emlrtRSI, emlrtRootTLSGlobal);
+      emlrtPopRtStackR2012b(&gk_emlrtRSI, emlrtRootTLSGlobal);
       i15 = in1->size[0];
       in1->size[0] = ii->size[0];
       emxEnsureCapacity((emxArray__common *)in1, i15, (int32_T)sizeof(real_T),
@@ -983,7 +983,7 @@ void c_minangle(emxArray_real_T *x1, const emxArray_real_T *x2)
         in1->data[i15] = ii->data[i15];
       }
 
-      emlrtPopRtStackR2012b(&vj_emlrtRSI, emlrtRootTLSGlobal);
+      emlrtPopRtStackR2012b(&bk_emlrtRSI, emlrtRootTLSGlobal);
       i15 = ii->size[0];
       ii->size[0] = in1->size[0];
       emxEnsureCapacity((emxArray__common *)ii, i15, (int32_T)sizeof(int32_T),
@@ -993,20 +993,20 @@ void c_minangle(emxArray_real_T *x1, const emxArray_real_T *x2)
         i = x1->size[0];
         i16 = (int32_T)in1->data[i15];
         ii->data[i15] = emlrtDynamicBoundsCheckFastR2012b(i16, 1, i,
-          &dh_emlrtBCI, emlrtRootTLSGlobal);
+          &bi_emlrtBCI, emlrtRootTLSGlobal);
       }
 
       idx = in1->size[0];
       for (i15 = 0; i15 < idx; i15++) {
         i = x1->size[0];
         i16 = (int32_T)in1->data[i15];
-        emlrtDynamicBoundsCheckFastR2012b(i16, 1, i, &eh_emlrtBCI,
+        emlrtDynamicBoundsCheckFastR2012b(i16, 1, i, &ci_emlrtBCI,
           emlrtRootTLSGlobal);
       }
 
       i15 = ii->size[0];
       i = in1->size[0];
-      emlrtSizeEqCheck1DFastR2012b(i15, i, &ld_emlrtECI, emlrtRootTLSGlobal);
+      emlrtSizeEqCheck1DFastR2012b(i15, i, &vd_emlrtECI, emlrtRootTLSGlobal);
       i15 = e_ii->size[0];
       e_ii->size[0] = ii->size[0];
       emxEnsureCapacity((emxArray__common *)e_ii, i15, (int32_T)sizeof(int32_T),
@@ -1034,9 +1034,9 @@ void c_minangle(emxArray_real_T *x1, const emxArray_real_T *x2)
       count++;
       emlrtBreakCheckFastR2012b(emlrtBreakCheckR2012bFlagVar, emlrtRootTLSGlobal);
       if (count > 50) {
-        emlrtPushRtStackR2012b(&sj_emlrtRSI, emlrtRootTLSGlobal);
+        emlrtPushRtStackR2012b(&xj_emlrtRSI, emlrtRootTLSGlobal);
         e_y = NULL;
-        m27 = mxCreateCharArray(2, iv105);
+        m27 = mxCreateCharArray(2, iv119);
         for (i = 0; i < 39; i++) {
           cv60[i] = cv61[i];
         }
@@ -1044,7 +1044,7 @@ void c_minangle(emxArray_real_T *x1, const emxArray_real_T *x2)
         emlrtInitCharArrayR2013a(emlrtRootTLSGlobal, 39, m27, cv60);
         emlrtAssign(&e_y, m27);
         disp(e_y, &y_emlrtMCI);
-        emlrtPopRtStackR2012b(&sj_emlrtRSI, emlrtRootTLSGlobal);
+        emlrtPopRtStackR2012b(&xj_emlrtRSI, emlrtRootTLSGlobal);
         exitg1 = 1;
       }
     } else {
@@ -1068,10 +1068,10 @@ void c_minangle(emxArray_real_T *x1, const emxArray_real_T *x2)
   emxFree_real_T(&b_x1);
   emxFree_int32_T(&ii);
   emxFree_boolean_T(&x);
-  emxFree_boolean_T(&r68);
-  emxFree_real_T(&r67);
-  emxFree_real_T(&r66);
-  emxFree_real_T(&r65);
+  emxFree_boolean_T(&r80);
+  emxFree_real_T(&r79);
+  emxFree_real_T(&r78);
+  emxFree_real_T(&r77);
   emxFree_real_T(&in1);
   emlrtHeapReferenceStackLeaveFcnR2012b(emlrtRootTLSGlobal);
 }
@@ -1079,7 +1079,7 @@ void c_minangle(emxArray_real_T *x1, const emxArray_real_T *x2)
 void check_forloop_overflow_error(void)
 {
   const mxArray *y;
-  static const int32_T iv32[2] = { 1, 34 };
+  static const int32_T iv38[2] = { 1, 34 };
 
   const mxArray *m1;
   char_T cv8[34];
@@ -1089,16 +1089,16 @@ void check_forloop_overflow_error(void)
     'p', '_', 'o', 'v', 'e', 'r', 'f', 'l', 'o', 'w' };
 
   const mxArray *b_y;
-  static const int32_T iv33[2] = { 1, 23 };
+  static const int32_T iv39[2] = { 1, 23 };
 
   char_T cv10[23];
   static const char_T cv11[23] = { 'c', 'o', 'd', 'e', 'r', '.', 'i', 'n', 't',
     'e', 'r', 'n', 'a', 'l', '.', 'i', 'n', 'd', 'e', 'x', 'I', 'n', 't' };
 
-  emlrtPushRtStackR2012b(&eb_emlrtRSI, emlrtRootTLSGlobal);
+  emlrtPushRtStackR2012b(&gb_emlrtRSI, emlrtRootTLSGlobal);
   emlrt_synchGlobalsToML();
   y = NULL;
-  m1 = mxCreateCharArray(2, iv32);
+  m1 = mxCreateCharArray(2, iv38);
   for (i = 0; i < 34; i++) {
     cv8[i] = cv9[i];
   }
@@ -1106,7 +1106,7 @@ void check_forloop_overflow_error(void)
   emlrtInitCharArrayR2013a(emlrtRootTLSGlobal, 34, m1, cv8);
   emlrtAssign(&y, m1);
   b_y = NULL;
-  m1 = mxCreateCharArray(2, iv33);
+  m1 = mxCreateCharArray(2, iv39);
   for (i = 0; i < 23; i++) {
     cv10[i] = cv11[i];
   }
@@ -1115,7 +1115,7 @@ void check_forloop_overflow_error(void)
   emlrtAssign(&b_y, m1);
   error(b_message(y, b_y, &d_emlrtMCI), &e_emlrtMCI);
   emlrt_synchGlobalsFromML();
-  emlrtPopRtStackR2012b(&eb_emlrtRSI, emlrtRootTLSGlobal);
+  emlrtPopRtStackR2012b(&gb_emlrtRSI, emlrtRootTLSGlobal);
 }
 
 void minangle(const real_T x1[4], const real_T x2[4], real_T b_x1[4])

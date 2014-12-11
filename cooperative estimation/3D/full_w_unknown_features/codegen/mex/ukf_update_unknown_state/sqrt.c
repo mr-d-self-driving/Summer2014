@@ -3,7 +3,7 @@
  *
  * Code generation for function 'sqrt'
  *
- * C source code generated on: Tue Dec  9 10:58:58 2014
+ * C source code generated on: Thu Dec 11 11:40:54 2014
  *
  */
 
@@ -19,9 +19,9 @@
 void b_sqrt(real_T *x)
 {
   if (*x < 0.0) {
-    emlrtPushRtStackR2012b(&v_emlrtRSI, emlrtRootTLSGlobal);
+    emlrtPushRtStackR2012b(&x_emlrtRSI, emlrtRootTLSGlobal);
     eml_error();
-    emlrtPopRtStackR2012b(&v_emlrtRSI, emlrtRootTLSGlobal);
+    emlrtPopRtStackR2012b(&x_emlrtRSI, emlrtRootTLSGlobal);
   }
 
   *x = muDoubleScalarSqrt(*x);

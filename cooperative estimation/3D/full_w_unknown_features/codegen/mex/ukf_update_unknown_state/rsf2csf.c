@@ -3,7 +3,7 @@
  *
  * Code generation for function 'rsf2csf'
  *
- * C source code generated on: Tue Dec  9 10:58:59 2014
+ * C source code generated on: Thu Dec 11 11:40:54 2014
  *
  */
 
@@ -17,23 +17,23 @@
 #include <stdio.h>
 
 /* Variable Definitions */
-static emlrtRSInfo yg_emlrtRSI = { 15, "rsf2csf",
+static emlrtRSInfo bh_emlrtRSI = { 15, "rsf2csf",
   "/usr/local/MATLAB/MATLAB_Production_Server/R2013a/toolbox/eml/lib/matlab/matfun/rsf2csf.m"
 };
 
-static emlrtRSInfo ah_emlrtRSI = { 31, "eml_rsf2csf",
+static emlrtRSInfo ch_emlrtRSI = { 31, "eml_rsf2csf",
   "/usr/local/MATLAB/MATLAB_Production_Server/R2013a/toolbox/eml/lib/matlab/eml/eml_rsf2csf.m"
 };
 
-static emlrtRSInfo bh_emlrtRSI = { 41, "eml_rsf2csf",
+static emlrtRSInfo dh_emlrtRSI = { 41, "eml_rsf2csf",
   "/usr/local/MATLAB/MATLAB_Production_Server/R2013a/toolbox/eml/lib/matlab/eml/eml_rsf2csf.m"
 };
 
-static emlrtRSInfo ch_emlrtRSI = { 49, "eml_rsf2csf",
+static emlrtRSInfo eh_emlrtRSI = { 49, "eml_rsf2csf",
   "/usr/local/MATLAB/MATLAB_Production_Server/R2013a/toolbox/eml/lib/matlab/eml/eml_rsf2csf.m"
 };
 
-static emlrtRSInfo dh_emlrtRSI = { 56, "eml_rsf2csf",
+static emlrtRSInfo fh_emlrtRSI = { 56, "eml_rsf2csf",
   "/usr/local/MATLAB/MATLAB_Production_Server/R2013a/toolbox/eml/lib/matlab/eml/eml_rsf2csf.m"
 };
 
@@ -62,7 +62,7 @@ void rsf2csf(const emxArray_real_T *Ur, const emxArray_real_T *Tr,
   int32_T b_scale;
   real_T b_c;
   real_T mu1_re;
-  emlrtPushRtStackR2012b(&yg_emlrtRSI, emlrtRootTLSGlobal);
+  emlrtPushRtStackR2012b(&bh_emlrtRSI, emlrtRootTLSGlobal);
   y = T->size[0] * T->size[1];
   T->size[0] = Tr->size[0];
   T->size[1] = Tr->size[1];
@@ -108,7 +108,7 @@ void rsf2csf(const emxArray_real_T *Ur, const emxArray_real_T *Tr,
   } else {
     for (m = mtmp - 1; m + 1 >= 2; m--) {
       if (Tr->data[m + Tr->size[0] * (m - 1)] != 0.0) {
-        emlrtPushRtStackR2012b(&ah_emlrtRSI, emlrtRootTLSGlobal);
+        emlrtPushRtStackR2012b(&ch_emlrtRSI, emlrtRootTLSGlobal);
         c = Tr->data[m + Tr->size[0] * (m - 1)];
         b = Tr->data[(m + Tr->size[0] * m) - 1];
         temp = Tr->data[(m + Tr->size[0] * (m - 1)) - 1];
@@ -144,9 +144,9 @@ void rsf2csf(const emxArray_real_T *Ur, const emxArray_real_T *Tr,
              muDoubleScalarAbs(Tr->data[m + Tr->size[0] * (m - 1)])) * (real_T)
             loop_ub * (real_T)y);
           if (bcmax >= 8.8817841970012523E-16) {
-            emlrtPushRtStackR2012b(&eg_emlrtRSI, emlrtRootTLSGlobal);
+            emlrtPushRtStackR2012b(&gg_emlrtRSI, emlrtRootTLSGlobal);
             bb = muDoubleScalarSqrt(scale) * muDoubleScalarSqrt(bcmax);
-            emlrtPopRtStackR2012b(&eg_emlrtRSI, emlrtRootTLSGlobal);
+            emlrtPopRtStackR2012b(&gg_emlrtRSI, emlrtRootTLSGlobal);
             if (!(p < 0.0)) {
               b_p = bb;
             } else {
@@ -161,16 +161,16 @@ void rsf2csf(const emxArray_real_T *Ur, const emxArray_real_T *Tr,
             scale = Tr->data[(m + Tr->size[0] * m) - 1] + Tr->data[m + Tr->size
               [0] * (m - 1)];
             bcmax = muDoubleScalarHypot(scale, temp);
-            emlrtPushRtStackR2012b(&fg_emlrtRSI, emlrtRootTLSGlobal);
+            emlrtPushRtStackR2012b(&hg_emlrtRSI, emlrtRootTLSGlobal);
             bb = 0.5 * (1.0 + muDoubleScalarAbs(scale) / bcmax);
             if (bb < 0.0) {
-              emlrtPushRtStackR2012b(&v_emlrtRSI, emlrtRootTLSGlobal);
+              emlrtPushRtStackR2012b(&x_emlrtRSI, emlrtRootTLSGlobal);
               eml_error();
-              emlrtPopRtStackR2012b(&v_emlrtRSI, emlrtRootTLSGlobal);
+              emlrtPopRtStackR2012b(&x_emlrtRSI, emlrtRootTLSGlobal);
             }
 
             cs = muDoubleScalarSqrt(bb);
-            emlrtPopRtStackR2012b(&fg_emlrtRSI, emlrtRootTLSGlobal);
+            emlrtPopRtStackR2012b(&hg_emlrtRSI, emlrtRootTLSGlobal);
             if (!(scale < 0.0)) {
               b_scale = 1;
             } else {
@@ -192,14 +192,14 @@ void rsf2csf(const emxArray_real_T *Ur, const emxArray_real_T *Tr,
             if (c != 0.0) {
               if (b != 0.0) {
                 if ((b < 0.0) == (c < 0.0)) {
-                  emlrtPushRtStackR2012b(&gg_emlrtRSI, emlrtRootTLSGlobal);
-                  emlrtPopRtStackR2012b(&gg_emlrtRSI, emlrtRootTLSGlobal);
-                  emlrtPushRtStackR2012b(&hg_emlrtRSI, emlrtRootTLSGlobal);
-                  emlrtPopRtStackR2012b(&hg_emlrtRSI, emlrtRootTLSGlobal);
-                  bb = muDoubleScalarSqrt(muDoubleScalarAbs(b)) *
-                    muDoubleScalarSqrt(muDoubleScalarAbs(c));
                   emlrtPushRtStackR2012b(&ig_emlrtRSI, emlrtRootTLSGlobal);
                   emlrtPopRtStackR2012b(&ig_emlrtRSI, emlrtRootTLSGlobal);
+                  emlrtPushRtStackR2012b(&jg_emlrtRSI, emlrtRootTLSGlobal);
+                  emlrtPopRtStackR2012b(&jg_emlrtRSI, emlrtRootTLSGlobal);
+                  bb = muDoubleScalarSqrt(muDoubleScalarAbs(b)) *
+                    muDoubleScalarSqrt(muDoubleScalarAbs(c));
+                  emlrtPushRtStackR2012b(&kg_emlrtRSI, emlrtRootTLSGlobal);
+                  emlrtPopRtStackR2012b(&kg_emlrtRSI, emlrtRootTLSGlobal);
                   if (!(c < 0.0)) {
                     b_c = bb;
                   } else {
@@ -221,13 +221,13 @@ void rsf2csf(const emxArray_real_T *Ur, const emxArray_real_T *Tr,
         if (c == 0.0) {
           bcmax = 0.0;
         } else {
-          emlrtPushRtStackR2012b(&jg_emlrtRSI, emlrtRootTLSGlobal);
+          emlrtPushRtStackR2012b(&lg_emlrtRSI, emlrtRootTLSGlobal);
           bcmax = muDoubleScalarSqrt(muDoubleScalarAbs(b)) * muDoubleScalarSqrt
             (muDoubleScalarAbs(c));
-          emlrtPopRtStackR2012b(&jg_emlrtRSI, emlrtRootTLSGlobal);
+          emlrtPopRtStackR2012b(&lg_emlrtRSI, emlrtRootTLSGlobal);
         }
 
-        emlrtPopRtStackR2012b(&ah_emlrtRSI, emlrtRootTLSGlobal);
+        emlrtPopRtStackR2012b(&ch_emlrtRSI, emlrtRootTLSGlobal);
         mu1_re = temp - Tr->data[m + Tr->size[0] * m];
         scale = muDoubleScalarHypot(muDoubleScalarHypot(mu1_re, bcmax), Tr->
           data[m + Tr->size[0] * (m - 1)]);
@@ -243,8 +243,8 @@ void rsf2csf(const emxArray_real_T *Ur, const emxArray_real_T *Tr,
         }
 
         c = Tr->data[m + Tr->size[0] * (m - 1)] / scale;
-        emlrtPushRtStackR2012b(&bh_emlrtRSI, emlrtRootTLSGlobal);
-        emlrtPopRtStackR2012b(&bh_emlrtRSI, emlrtRootTLSGlobal);
+        emlrtPushRtStackR2012b(&dh_emlrtRSI, emlrtRootTLSGlobal);
+        emlrtPopRtStackR2012b(&dh_emlrtRSI, emlrtRootTLSGlobal);
         for (loop_ub = m - 1; loop_ub + 1 <= mtmp; loop_ub++) {
           b = T->data[(m + T->size[0] * loop_ub) - 1].re;
           temp = T->data[(m + T->size[0] * loop_ub) - 1].im;
@@ -264,8 +264,8 @@ void rsf2csf(const emxArray_real_T *Ur, const emxArray_real_T *Tr,
           T->data[m + T->size[0] * loop_ub].im = scale - c * temp;
         }
 
-        emlrtPushRtStackR2012b(&ch_emlrtRSI, emlrtRootTLSGlobal);
-        emlrtPopRtStackR2012b(&ch_emlrtRSI, emlrtRootTLSGlobal);
+        emlrtPushRtStackR2012b(&eh_emlrtRSI, emlrtRootTLSGlobal);
+        emlrtPopRtStackR2012b(&eh_emlrtRSI, emlrtRootTLSGlobal);
         for (loop_ub = 0; loop_ub + 1 <= m + 1; loop_ub++) {
           b = T->data[loop_ub + T->size[0] * (m - 1)].re;
           temp = T->data[loop_ub + T->size[0] * (m - 1)].im;
@@ -286,8 +286,8 @@ void rsf2csf(const emxArray_real_T *Ur, const emxArray_real_T *Tr,
             c * temp;
         }
 
-        emlrtPushRtStackR2012b(&dh_emlrtRSI, emlrtRootTLSGlobal);
-        emlrtPopRtStackR2012b(&dh_emlrtRSI, emlrtRootTLSGlobal);
+        emlrtPushRtStackR2012b(&fh_emlrtRSI, emlrtRootTLSGlobal);
+        emlrtPopRtStackR2012b(&fh_emlrtRSI, emlrtRootTLSGlobal);
         for (loop_ub = 0; loop_ub + 1 <= mtmp; loop_ub++) {
           b = U->data[loop_ub + U->size[0] * (m - 1)].re;
           temp = U->data[loop_ub + U->size[0] * (m - 1)].im;
@@ -314,7 +314,7 @@ void rsf2csf(const emxArray_real_T *Ur, const emxArray_real_T *Tr,
     }
   }
 
-  emlrtPopRtStackR2012b(&yg_emlrtRSI, emlrtRootTLSGlobal);
+  emlrtPopRtStackR2012b(&bh_emlrtRSI, emlrtRootTLSGlobal);
 }
 
 /* End of code generation (rsf2csf.c) */

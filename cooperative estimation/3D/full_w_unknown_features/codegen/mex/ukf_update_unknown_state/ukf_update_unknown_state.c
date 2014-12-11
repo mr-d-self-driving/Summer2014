@@ -3,7 +3,7 @@
  *
  * Code generation for function 'ukf_update_unknown_state'
  *
- * C source code generated on: Tue Dec  9 10:58:58 2014
+ * C source code generated on: Thu Dec 11 11:40:54 2014
  *
  */
 
@@ -109,7 +109,15 @@ static emlrtRSInfo t_emlrtRSI = { 116, "ukf_update_unknown_state",
   "/home/tim/github/Summer2014/cooperative estimation/3D/full_w_unknown_features/ukf_update_unknown_state.m"
 };
 
-static emlrtRSInfo u_emlrtRSI = { 122, "ukf_update_unknown_state",
+static emlrtRSInfo u_emlrtRSI = { 117, "ukf_update_unknown_state",
+  "/home/tim/github/Summer2014/cooperative estimation/3D/full_w_unknown_features/ukf_update_unknown_state.m"
+};
+
+static emlrtRSInfo v_emlrtRSI = { 118, "ukf_update_unknown_state",
+  "/home/tim/github/Summer2014/cooperative estimation/3D/full_w_unknown_features/ukf_update_unknown_state.m"
+};
+
+static emlrtRSInfo w_emlrtRSI = { 124, "ukf_update_unknown_state",
   "/home/tim/github/Summer2014/cooperative estimation/3D/full_w_unknown_features/ukf_update_unknown_state.m"
 };
 
@@ -153,103 +161,127 @@ static emlrtRTEInfo j_emlrtRTEI = { 99, 1, "ukf_update_unknown_state",
   "/home/tim/github/Summer2014/cooperative estimation/3D/full_w_unknown_features/ukf_update_unknown_state.m"
 };
 
-static emlrtECInfo emlrtECI = { 2, 122, 8, "ukf_update_unknown_state",
+static emlrtECInfo emlrtECI = { 2, 124, 8, "ukf_update_unknown_state",
   "/home/tim/github/Summer2014/cooperative estimation/3D/full_w_unknown_features/ukf_update_unknown_state.m"
 };
 
-static emlrtECInfo b_emlrtECI = { -1, 120, 28, "ukf_update_unknown_state",
+static emlrtECInfo b_emlrtECI = { -1, 122, 28, "ukf_update_unknown_state",
   "/home/tim/github/Summer2014/cooperative estimation/3D/full_w_unknown_features/ukf_update_unknown_state.m"
 };
 
-static emlrtECInfo c_emlrtECI = { -1, 120, 13, "ukf_update_unknown_state",
+static emlrtECInfo c_emlrtECI = { -1, 122, 13, "ukf_update_unknown_state",
   "/home/tim/github/Summer2014/cooperative estimation/3D/full_w_unknown_features/ukf_update_unknown_state.m"
 };
 
-static emlrtECInfo d_emlrtECI = { -1, 119, 26, "ukf_update_unknown_state",
+static emlrtECInfo d_emlrtECI = { -1, 121, 26, "ukf_update_unknown_state",
   "/home/tim/github/Summer2014/cooperative estimation/3D/full_w_unknown_features/ukf_update_unknown_state.m"
 };
 
-static emlrtECInfo e_emlrtECI = { -1, 119, 12, "ukf_update_unknown_state",
+static emlrtECInfo e_emlrtECI = { -1, 121, 12, "ukf_update_unknown_state",
   "/home/tim/github/Summer2014/cooperative estimation/3D/full_w_unknown_features/ukf_update_unknown_state.m"
 };
 
-static emlrtECInfo f_emlrtECI = { -1, 116, 6, "ukf_update_unknown_state",
+static emlrtECInfo f_emlrtECI = { -1, 118, 6, "ukf_update_unknown_state",
   "/home/tim/github/Summer2014/cooperative estimation/3D/full_w_unknown_features/ukf_update_unknown_state.m"
 };
 
-static emlrtECInfo g_emlrtECI = { -1, 116, 15, "ukf_update_unknown_state",
+static emlrtECInfo g_emlrtECI = { -1, 118, 15, "ukf_update_unknown_state",
   "/home/tim/github/Summer2014/cooperative estimation/3D/full_w_unknown_features/ukf_update_unknown_state.m"
 };
 
-static emlrtECInfo h_emlrtECI = { -1, 115, 1, "ukf_update_unknown_state",
+static emlrtECInfo h_emlrtECI = { -1, 117, 1, "ukf_update_unknown_state",
   "/home/tim/github/Summer2014/cooperative estimation/3D/full_w_unknown_features/ukf_update_unknown_state.m"
 };
 
-static emlrtECInfo i_emlrtECI = { -1, 115, 82, "ukf_update_unknown_state",
+static emlrtECInfo i_emlrtECI = { -1, 117, 88, "ukf_update_unknown_state",
   "/home/tim/github/Summer2014/cooperative estimation/3D/full_w_unknown_features/ukf_update_unknown_state.m"
 };
 
-static emlrtECInfo j_emlrtECI = { -1, 115, 47, "ukf_update_unknown_state",
+static emlrtECInfo j_emlrtECI = { -1, 117, 50, "ukf_update_unknown_state",
   "/home/tim/github/Summer2014/cooperative estimation/3D/full_w_unknown_features/ukf_update_unknown_state.m"
 };
 
-static emlrtECInfo k_emlrtECI = { -1, 114, 1, "ukf_update_unknown_state",
+static emlrtECInfo k_emlrtECI = { -1, 116, 1, "ukf_update_unknown_state",
   "/home/tim/github/Summer2014/cooperative estimation/3D/full_w_unknown_features/ukf_update_unknown_state.m"
 };
 
-static emlrtECInfo l_emlrtECI = { -1, 114, 82, "ukf_update_unknown_state",
+static emlrtECInfo l_emlrtECI = { -1, 116, 88, "ukf_update_unknown_state",
   "/home/tim/github/Summer2014/cooperative estimation/3D/full_w_unknown_features/ukf_update_unknown_state.m"
 };
 
-static emlrtECInfo m_emlrtECI = { -1, 114, 47, "ukf_update_unknown_state",
+static emlrtECInfo m_emlrtECI = { -1, 116, 50, "ukf_update_unknown_state",
   "/home/tim/github/Summer2014/cooperative estimation/3D/full_w_unknown_features/ukf_update_unknown_state.m"
 };
 
-static emlrtECInfo n_emlrtECI = { -1, 113, 1, "ukf_update_unknown_state",
+static emlrtECInfo n_emlrtECI = { -1, 115, 1, "ukf_update_unknown_state",
   "/home/tim/github/Summer2014/cooperative estimation/3D/full_w_unknown_features/ukf_update_unknown_state.m"
 };
 
-static emlrtECInfo o_emlrtECI = { -1, 113, 72, "ukf_update_unknown_state",
+static emlrtECInfo o_emlrtECI = { -1, 115, 82, "ukf_update_unknown_state",
   "/home/tim/github/Summer2014/cooperative estimation/3D/full_w_unknown_features/ukf_update_unknown_state.m"
 };
 
-static emlrtECInfo p_emlrtECI = { -1, 113, 42, "ukf_update_unknown_state",
+static emlrtECInfo p_emlrtECI = { -1, 115, 47, "ukf_update_unknown_state",
   "/home/tim/github/Summer2014/cooperative estimation/3D/full_w_unknown_features/ukf_update_unknown_state.m"
 };
 
-static emlrtECInfo q_emlrtECI = { -1, 112, 1, "ukf_update_unknown_state",
+static emlrtECInfo q_emlrtECI = { -1, 114, 1, "ukf_update_unknown_state",
   "/home/tim/github/Summer2014/cooperative estimation/3D/full_w_unknown_features/ukf_update_unknown_state.m"
 };
 
-static emlrtECInfo r_emlrtECI = { -1, 112, 72, "ukf_update_unknown_state",
+static emlrtECInfo r_emlrtECI = { -1, 114, 82, "ukf_update_unknown_state",
   "/home/tim/github/Summer2014/cooperative estimation/3D/full_w_unknown_features/ukf_update_unknown_state.m"
 };
 
-static emlrtECInfo s_emlrtECI = { -1, 112, 42, "ukf_update_unknown_state",
+static emlrtECInfo s_emlrtECI = { -1, 114, 47, "ukf_update_unknown_state",
   "/home/tim/github/Summer2014/cooperative estimation/3D/full_w_unknown_features/ukf_update_unknown_state.m"
 };
 
-static emlrtECInfo t_emlrtECI = { -1, 111, 1, "ukf_update_unknown_state",
+static emlrtECInfo t_emlrtECI = { -1, 113, 1, "ukf_update_unknown_state",
   "/home/tim/github/Summer2014/cooperative estimation/3D/full_w_unknown_features/ukf_update_unknown_state.m"
 };
 
-static emlrtECInfo u_emlrtECI = { -1, 111, 60, "ukf_update_unknown_state",
+static emlrtECInfo u_emlrtECI = { -1, 113, 72, "ukf_update_unknown_state",
   "/home/tim/github/Summer2014/cooperative estimation/3D/full_w_unknown_features/ukf_update_unknown_state.m"
 };
 
-static emlrtECInfo v_emlrtECI = { -1, 111, 36, "ukf_update_unknown_state",
+static emlrtECInfo v_emlrtECI = { -1, 113, 42, "ukf_update_unknown_state",
   "/home/tim/github/Summer2014/cooperative estimation/3D/full_w_unknown_features/ukf_update_unknown_state.m"
 };
 
-static emlrtECInfo w_emlrtECI = { -1, 110, 1, "ukf_update_unknown_state",
+static emlrtECInfo w_emlrtECI = { -1, 112, 1, "ukf_update_unknown_state",
   "/home/tim/github/Summer2014/cooperative estimation/3D/full_w_unknown_features/ukf_update_unknown_state.m"
 };
 
-static emlrtECInfo x_emlrtECI = { -1, 110, 60, "ukf_update_unknown_state",
+static emlrtECInfo x_emlrtECI = { -1, 112, 72, "ukf_update_unknown_state",
   "/home/tim/github/Summer2014/cooperative estimation/3D/full_w_unknown_features/ukf_update_unknown_state.m"
 };
 
-static emlrtECInfo y_emlrtECI = { -1, 110, 36, "ukf_update_unknown_state",
+static emlrtECInfo y_emlrtECI = { -1, 112, 42, "ukf_update_unknown_state",
+  "/home/tim/github/Summer2014/cooperative estimation/3D/full_w_unknown_features/ukf_update_unknown_state.m"
+};
+
+static emlrtECInfo ab_emlrtECI = { -1, 111, 1, "ukf_update_unknown_state",
+  "/home/tim/github/Summer2014/cooperative estimation/3D/full_w_unknown_features/ukf_update_unknown_state.m"
+};
+
+static emlrtECInfo bb_emlrtECI = { -1, 111, 60, "ukf_update_unknown_state",
+  "/home/tim/github/Summer2014/cooperative estimation/3D/full_w_unknown_features/ukf_update_unknown_state.m"
+};
+
+static emlrtECInfo cb_emlrtECI = { -1, 111, 36, "ukf_update_unknown_state",
+  "/home/tim/github/Summer2014/cooperative estimation/3D/full_w_unknown_features/ukf_update_unknown_state.m"
+};
+
+static emlrtECInfo db_emlrtECI = { -1, 110, 1, "ukf_update_unknown_state",
+  "/home/tim/github/Summer2014/cooperative estimation/3D/full_w_unknown_features/ukf_update_unknown_state.m"
+};
+
+static emlrtECInfo eb_emlrtECI = { -1, 110, 60, "ukf_update_unknown_state",
+  "/home/tim/github/Summer2014/cooperative estimation/3D/full_w_unknown_features/ukf_update_unknown_state.m"
+};
+
+static emlrtECInfo fb_emlrtECI = { -1, 110, 36, "ukf_update_unknown_state",
   "/home/tim/github/Summer2014/cooperative estimation/3D/full_w_unknown_features/ukf_update_unknown_state.m"
 };
 
@@ -266,27 +298,27 @@ static emlrtBCInfo b_emlrtBCI = { -1, -1, 108, 6, "uk",
   "/home/tim/github/Summer2014/cooperative estimation/3D/full_w_unknown_features/ukf_update_unknown_state.m",
   0 };
 
-static emlrtECInfo ab_emlrtECI = { -1, 106, 29, "ukf_update_unknown_state",
+static emlrtECInfo gb_emlrtECI = { -1, 106, 29, "ukf_update_unknown_state",
   "/home/tim/github/Summer2014/cooperative estimation/3D/full_w_unknown_features/ukf_update_unknown_state.m"
 };
 
-static emlrtECInfo bb_emlrtECI = { -1, 106, 13, "ukf_update_unknown_state",
+static emlrtECInfo hb_emlrtECI = { -1, 106, 13, "ukf_update_unknown_state",
   "/home/tim/github/Summer2014/cooperative estimation/3D/full_w_unknown_features/ukf_update_unknown_state.m"
 };
 
-static emlrtECInfo cb_emlrtECI = { -1, 104, 44, "ukf_update_unknown_state",
+static emlrtECInfo ib_emlrtECI = { -1, 104, 44, "ukf_update_unknown_state",
   "/home/tim/github/Summer2014/cooperative estimation/3D/full_w_unknown_features/ukf_update_unknown_state.m"
 };
 
-static emlrtECInfo db_emlrtECI = { -1, 104, 28, "ukf_update_unknown_state",
+static emlrtECInfo jb_emlrtECI = { -1, 104, 28, "ukf_update_unknown_state",
   "/home/tim/github/Summer2014/cooperative estimation/3D/full_w_unknown_features/ukf_update_unknown_state.m"
 };
 
-static emlrtECInfo eb_emlrtECI = { 2, 88, 13, "ukf_update_unknown_state",
+static emlrtECInfo kb_emlrtECI = { 2, 88, 13, "ukf_update_unknown_state",
   "/home/tim/github/Summer2014/cooperative estimation/3D/full_w_unknown_features/ukf_update_unknown_state.m"
 };
 
-static emlrtECInfo fb_emlrtECI = { -1, 88, 49, "ukf_update_unknown_state",
+static emlrtECInfo lb_emlrtECI = { -1, 88, 49, "ukf_update_unknown_state",
   "/home/tim/github/Summer2014/cooperative estimation/3D/full_w_unknown_features/ukf_update_unknown_state.m"
 };
 
@@ -295,7 +327,7 @@ static emlrtBCInfo c_emlrtBCI = { -1, -1, 88, 57, "YKAUG",
   "/home/tim/github/Summer2014/cooperative estimation/3D/full_w_unknown_features/ukf_update_unknown_state.m",
   0 };
 
-static emlrtECInfo gb_emlrtECI = { -1, 88, 28, "ukf_update_unknown_state",
+static emlrtECInfo mb_emlrtECI = { -1, 88, 28, "ukf_update_unknown_state",
   "/home/tim/github/Summer2014/cooperative estimation/3D/full_w_unknown_features/ukf_update_unknown_state.m"
 };
 
@@ -314,11 +346,11 @@ static emlrtBCInfo f_emlrtBCI = { -1, -1, 88, 21, "wc",
   "/home/tim/github/Summer2014/cooperative estimation/3D/full_w_unknown_features/ukf_update_unknown_state.m",
   0 };
 
-static emlrtECInfo hb_emlrtECI = { 2, 87, 11, "ukf_update_unknown_state",
+static emlrtECInfo nb_emlrtECI = { 2, 87, 11, "ukf_update_unknown_state",
   "/home/tim/github/Summer2014/cooperative estimation/3D/full_w_unknown_features/ukf_update_unknown_state.m"
 };
 
-static emlrtECInfo ib_emlrtECI = { -1, 87, 42, "ukf_update_unknown_state",
+static emlrtECInfo ob_emlrtECI = { -1, 87, 42, "ukf_update_unknown_state",
   "/home/tim/github/Summer2014/cooperative estimation/3D/full_w_unknown_features/ukf_update_unknown_state.m"
 };
 
@@ -327,7 +359,7 @@ static emlrtBCInfo g_emlrtBCI = { -1, -1, 87, 50, "YKAUG",
   "/home/tim/github/Summer2014/cooperative estimation/3D/full_w_unknown_features/ukf_update_unknown_state.m",
   0 };
 
-static emlrtECInfo jb_emlrtECI = { -1, 87, 24, "ukf_update_unknown_state",
+static emlrtECInfo pb_emlrtECI = { -1, 87, 24, "ukf_update_unknown_state",
   "/home/tim/github/Summer2014/cooperative estimation/3D/full_w_unknown_features/ukf_update_unknown_state.m"
 };
 
@@ -341,7 +373,7 @@ static emlrtBCInfo i_emlrtBCI = { -1, -1, 87, 17, "wc",
   "/home/tim/github/Summer2014/cooperative estimation/3D/full_w_unknown_features/ukf_update_unknown_state.m",
   0 };
 
-static emlrtECInfo kb_emlrtECI = { 2, 79, 12, "ukf_update_unknown_state",
+static emlrtECInfo qb_emlrtECI = { 2, 79, 12, "ukf_update_unknown_state",
   "/home/tim/github/Summer2014/cooperative estimation/3D/full_w_unknown_features/ukf_update_unknown_state.m"
 };
 
@@ -350,11 +382,11 @@ static emlrtBCInfo j_emlrtBCI = { -1, -1, 75, 47, "XAUGPLUS",
   "/home/tim/github/Summer2014/cooperative estimation/3D/full_w_unknown_features/ukf_update_unknown_state.m",
   0 };
 
-static emlrtECInfo lb_emlrtECI = { 2, 71, 10, "ukf_update_unknown_state",
+static emlrtECInfo rb_emlrtECI = { 2, 71, 10, "ukf_update_unknown_state",
   "/home/tim/github/Summer2014/cooperative estimation/3D/full_w_unknown_features/ukf_update_unknown_state.m"
 };
 
-static emlrtECInfo mb_emlrtECI = { -1, 71, 43, "ukf_update_unknown_state",
+static emlrtECInfo sb_emlrtECI = { -1, 71, 43, "ukf_update_unknown_state",
   "/home/tim/github/Summer2014/cooperative estimation/3D/full_w_unknown_features/ukf_update_unknown_state.m"
 };
 
@@ -368,7 +400,7 @@ static emlrtBCInfo l_emlrtBCI = { -1, -1, 71, 52, "XAUGPLUS",
   "/home/tim/github/Summer2014/cooperative estimation/3D/full_w_unknown_features/ukf_update_unknown_state.m",
   0 };
 
-static emlrtECInfo nb_emlrtECI = { -1, 71, 22, "ukf_update_unknown_state",
+static emlrtECInfo tb_emlrtECI = { -1, 71, 22, "ukf_update_unknown_state",
   "/home/tim/github/Summer2014/cooperative estimation/3D/full_w_unknown_features/ukf_update_unknown_state.m"
 };
 
@@ -387,23 +419,23 @@ static emlrtBCInfo o_emlrtBCI = { -1, -1, 71, 15, "wc",
   "/home/tim/github/Summer2014/cooperative estimation/3D/full_w_unknown_features/ukf_update_unknown_state.m",
   0 };
 
-static emlrtECInfo ob_emlrtECI = { -1, 67, 28, "ukf_update_unknown_state",
+static emlrtECInfo ub_emlrtECI = { -1, 67, 28, "ukf_update_unknown_state",
   "/home/tim/github/Summer2014/cooperative estimation/3D/full_w_unknown_features/ukf_update_unknown_state.m"
 };
 
-static emlrtECInfo pb_emlrtECI = { -1, 67, 13, "ukf_update_unknown_state",
+static emlrtECInfo vb_emlrtECI = { -1, 67, 13, "ukf_update_unknown_state",
   "/home/tim/github/Summer2014/cooperative estimation/3D/full_w_unknown_features/ukf_update_unknown_state.m"
 };
 
-static emlrtECInfo qb_emlrtECI = { -1, 66, 26, "ukf_update_unknown_state",
+static emlrtECInfo wb_emlrtECI = { -1, 66, 26, "ukf_update_unknown_state",
   "/home/tim/github/Summer2014/cooperative estimation/3D/full_w_unknown_features/ukf_update_unknown_state.m"
 };
 
-static emlrtECInfo rb_emlrtECI = { -1, 66, 12, "ukf_update_unknown_state",
+static emlrtECInfo xb_emlrtECI = { -1, 66, 12, "ukf_update_unknown_state",
   "/home/tim/github/Summer2014/cooperative estimation/3D/full_w_unknown_features/ukf_update_unknown_state.m"
 };
 
-static emlrtECInfo sb_emlrtECI = { 2, 63, 10, "ukf_update_unknown_state",
+static emlrtECInfo yb_emlrtECI = { 2, 63, 10, "ukf_update_unknown_state",
   "/home/tim/github/Summer2014/cooperative estimation/3D/full_w_unknown_features/ukf_update_unknown_state.m"
 };
 
@@ -417,7 +449,7 @@ static emlrtBCInfo q_emlrtBCI = { -1, -1, 53, 41, "XAUG",
   "/home/tim/github/Summer2014/cooperative estimation/3D/full_w_unknown_features/ukf_update_unknown_state.m",
   0 };
 
-static emlrtECInfo tb_emlrtECI = { -1, 49, 5, "ukf_update_unknown_state",
+static emlrtECInfo ac_emlrtECI = { -1, 49, 5, "ukf_update_unknown_state",
   "/home/tim/github/Summer2014/cooperative estimation/3D/full_w_unknown_features/ukf_update_unknown_state.m"
 };
 
@@ -426,7 +458,7 @@ static emlrtBCInfo r_emlrtBCI = { -1, -1, 49, 12, "XAUG",
   "/home/tim/github/Summer2014/cooperative estimation/3D/full_w_unknown_features/ukf_update_unknown_state.m",
   0 };
 
-static emlrtECInfo ub_emlrtECI = { -1, 48, 5, "ukf_update_unknown_state",
+static emlrtECInfo bc_emlrtECI = { -1, 48, 5, "ukf_update_unknown_state",
   "/home/tim/github/Summer2014/cooperative estimation/3D/full_w_unknown_features/ukf_update_unknown_state.m"
 };
 
@@ -435,11 +467,11 @@ static emlrtBCInfo s_emlrtBCI = { -1, -1, 48, 12, "XAUG",
   "/home/tim/github/Summer2014/cooperative estimation/3D/full_w_unknown_features/ukf_update_unknown_state.m",
   0 };
 
-static emlrtECInfo vb_emlrtECI = { -1, 46, 1, "ukf_update_unknown_state",
+static emlrtECInfo cc_emlrtECI = { -1, 46, 1, "ukf_update_unknown_state",
   "/home/tim/github/Summer2014/cooperative estimation/3D/full_w_unknown_features/ukf_update_unknown_state.m"
 };
 
-static emlrtECInfo wb_emlrtECI = { -1, 49, 21, "ukf_update_unknown_state",
+static emlrtECInfo dc_emlrtECI = { -1, 49, 21, "ukf_update_unknown_state",
   "/home/tim/github/Summer2014/cooperative estimation/3D/full_w_unknown_features/ukf_update_unknown_state.m"
 };
 
@@ -448,7 +480,7 @@ static emlrtBCInfo t_emlrtBCI = { -1, -1, 49, 39, "Psq",
   "/home/tim/github/Summer2014/cooperative estimation/3D/full_w_unknown_features/ukf_update_unknown_state.m",
   0 };
 
-static emlrtECInfo xb_emlrtECI = { -1, 48, 19, "ukf_update_unknown_state",
+static emlrtECInfo ec_emlrtECI = { -1, 48, 19, "ukf_update_unknown_state",
   "/home/tim/github/Summer2014/cooperative estimation/3D/full_w_unknown_features/ukf_update_unknown_state.m"
 };
 
@@ -457,15 +489,15 @@ static emlrtBCInfo u_emlrtBCI = { -1, -1, 48, 37, "Psq",
   "/home/tim/github/Summer2014/cooperative estimation/3D/full_w_unknown_features/ukf_update_unknown_state.m",
   0 };
 
-static emlrtECInfo yb_emlrtECI = { -1, 31, 1, "ukf_update_unknown_state",
+static emlrtECInfo fc_emlrtECI = { -1, 31, 1, "ukf_update_unknown_state",
   "/home/tim/github/Summer2014/cooperative estimation/3D/full_w_unknown_features/ukf_update_unknown_state.m"
 };
 
-static emlrtECInfo ac_emlrtECI = { -1, 30, 1, "ukf_update_unknown_state",
+static emlrtECInfo gc_emlrtECI = { -1, 30, 1, "ukf_update_unknown_state",
   "/home/tim/github/Summer2014/cooperative estimation/3D/full_w_unknown_features/ukf_update_unknown_state.m"
 };
 
-static emlrtECInfo bc_emlrtECI = { -1, 29, 1, "ukf_update_unknown_state",
+static emlrtECInfo hc_emlrtECI = { -1, 29, 1, "ukf_update_unknown_state",
   "/home/tim/github/Summer2014/cooperative estimation/3D/full_w_unknown_features/ukf_update_unknown_state.m"
 };
 
@@ -787,32 +819,86 @@ static emlrtDCInfo cb_emlrtDCI = { 115, 82, "ukf_update_unknown_state",
   "/home/tim/github/Summer2014/cooperative estimation/3D/full_w_unknown_features/ukf_update_unknown_state.m",
   1 };
 
-static emlrtBCInfo nc_emlrtBCI = { -1, -1, 119, 12, "xn",
+static emlrtBCInfo nc_emlrtBCI = { -1, -1, 116, 1, "yhat",
   "ukf_update_unknown_state",
   "/home/tim/github/Summer2014/cooperative estimation/3D/full_w_unknown_features/ukf_update_unknown_state.m",
   0 };
 
-static emlrtBCInfo oc_emlrtBCI = { -1, -1, 119, 26, "xn",
+static emlrtDCInfo db_emlrtDCI = { 116, 1, "ukf_update_unknown_state",
+  "/home/tim/github/Summer2014/cooperative estimation/3D/full_w_unknown_features/ukf_update_unknown_state.m",
+  1 };
+
+static emlrtBCInfo oc_emlrtBCI = { -1, -1, 116, 50, "yhat",
   "ukf_update_unknown_state",
   "/home/tim/github/Summer2014/cooperative estimation/3D/full_w_unknown_features/ukf_update_unknown_state.m",
   0 };
 
-static emlrtBCInfo pc_emlrtBCI = { -1, -1, 119, 1, "xn",
+static emlrtDCInfo eb_emlrtDCI = { 116, 50, "ukf_update_unknown_state",
+  "/home/tim/github/Summer2014/cooperative estimation/3D/full_w_unknown_features/ukf_update_unknown_state.m",
+  1 };
+
+static emlrtBCInfo pc_emlrtBCI = { -1, -1, 116, 88, "ytilde",
   "ukf_update_unknown_state",
   "/home/tim/github/Summer2014/cooperative estimation/3D/full_w_unknown_features/ukf_update_unknown_state.m",
   0 };
 
-static emlrtBCInfo qc_emlrtBCI = { -1, -1, 120, 13, "xn",
+static emlrtDCInfo fb_emlrtDCI = { 116, 88, "ukf_update_unknown_state",
+  "/home/tim/github/Summer2014/cooperative estimation/3D/full_w_unknown_features/ukf_update_unknown_state.m",
+  1 };
+
+static emlrtBCInfo qc_emlrtBCI = { -1, -1, 117, 1, "yhat",
   "ukf_update_unknown_state",
   "/home/tim/github/Summer2014/cooperative estimation/3D/full_w_unknown_features/ukf_update_unknown_state.m",
   0 };
 
-static emlrtBCInfo rc_emlrtBCI = { -1, -1, 120, 28, "xn",
+static emlrtDCInfo gb_emlrtDCI = { 117, 1, "ukf_update_unknown_state",
+  "/home/tim/github/Summer2014/cooperative estimation/3D/full_w_unknown_features/ukf_update_unknown_state.m",
+  1 };
+
+static emlrtBCInfo rc_emlrtBCI = { -1, -1, 117, 50, "yhat",
   "ukf_update_unknown_state",
   "/home/tim/github/Summer2014/cooperative estimation/3D/full_w_unknown_features/ukf_update_unknown_state.m",
   0 };
 
-static emlrtBCInfo sc_emlrtBCI = { -1, -1, 120, 1, "xn",
+static emlrtDCInfo hb_emlrtDCI = { 117, 50, "ukf_update_unknown_state",
+  "/home/tim/github/Summer2014/cooperative estimation/3D/full_w_unknown_features/ukf_update_unknown_state.m",
+  1 };
+
+static emlrtBCInfo sc_emlrtBCI = { -1, -1, 117, 88, "ytilde",
+  "ukf_update_unknown_state",
+  "/home/tim/github/Summer2014/cooperative estimation/3D/full_w_unknown_features/ukf_update_unknown_state.m",
+  0 };
+
+static emlrtDCInfo ib_emlrtDCI = { 117, 88, "ukf_update_unknown_state",
+  "/home/tim/github/Summer2014/cooperative estimation/3D/full_w_unknown_features/ukf_update_unknown_state.m",
+  1 };
+
+static emlrtBCInfo tc_emlrtBCI = { -1, -1, 121, 12, "xn",
+  "ukf_update_unknown_state",
+  "/home/tim/github/Summer2014/cooperative estimation/3D/full_w_unknown_features/ukf_update_unknown_state.m",
+  0 };
+
+static emlrtBCInfo uc_emlrtBCI = { -1, -1, 121, 26, "xn",
+  "ukf_update_unknown_state",
+  "/home/tim/github/Summer2014/cooperative estimation/3D/full_w_unknown_features/ukf_update_unknown_state.m",
+  0 };
+
+static emlrtBCInfo vc_emlrtBCI = { -1, -1, 121, 1, "xn",
+  "ukf_update_unknown_state",
+  "/home/tim/github/Summer2014/cooperative estimation/3D/full_w_unknown_features/ukf_update_unknown_state.m",
+  0 };
+
+static emlrtBCInfo wc_emlrtBCI = { -1, -1, 122, 13, "xn",
+  "ukf_update_unknown_state",
+  "/home/tim/github/Summer2014/cooperative estimation/3D/full_w_unknown_features/ukf_update_unknown_state.m",
+  0 };
+
+static emlrtBCInfo xc_emlrtBCI = { -1, -1, 122, 28, "xn",
+  "ukf_update_unknown_state",
+  "/home/tim/github/Summer2014/cooperative estimation/3D/full_w_unknown_features/ukf_update_unknown_state.m",
+  0 };
+
+static emlrtBCInfo yc_emlrtBCI = { -1, -1, 122, 1, "xn",
   "ukf_update_unknown_state",
   "/home/tim/github/Summer2014/cooperative estimation/3D/full_w_unknown_features/ukf_update_unknown_state.m",
   0 };
@@ -827,9 +913,11 @@ void ukf_update_unknown_state(const real_T xk_data[200], const int32_T xk_size[1
   emxArray_real_T *Paug;
   int32_T N;
   real_T y;
-  int32_T i0;
   real_T b_y;
+  int32_T i0;
   real_T c_y;
+  real_T d_y;
+  real_T e_y;
   real_T lambda;
   real_T gamm;
   int32_T loop_ub;
@@ -840,7 +928,7 @@ void ukf_update_unknown_state(const real_T xk_data[200], const int32_T xk_size[1
   int32_T apnd;
   int32_T ndbl;
   int32_T absb;
-  emxArray_real_T *d_y;
+  emxArray_real_T *f_y;
   int32_T k;
   int32_T c_tmp_data[100];
   int32_T tmp_size_idx_1;
@@ -854,16 +942,16 @@ void ukf_update_unknown_state(const real_T xk_data[200], const int32_T xk_size[1
   emxArray_creal_T *Psq;
   real_T b_ndbl;
   emxArray_real_T *XAUG;
-  int32_T e_y;
+  int32_T g_y;
   int32_T g_tmp_data[500];
   int32_T iv1[1];
-  emxArray_real_T *f_y;
+  emxArray_real_T *h_y;
   int32_T iv2[1];
   int32_T iv3[1];
   emxArray_real_T *b_XAUG;
   emxArray_real_T *c_XAUG;
   emxArray_real_T *b_XAUGPLUS;
-  real_T g_y;
+  real_T i_y;
   real_T wc_data[1001];
   real_T wm_data[1001];
   real_T b_wm_data[1001];
@@ -892,7 +980,7 @@ void ukf_update_unknown_state(const real_T xk_data[200], const int32_T xk_size[1
   emxArray_boolean_T *r3;
   emxArray_boolean_T *r4;
   boolean_T n_too_large;
-  const mxArray *h_y;
+  const mxArray *j_y;
   static const int32_T iv4[2] = { 1, 31 };
 
   const mxArray *m0;
@@ -902,7 +990,7 @@ void ukf_update_unknown_state(const real_T xk_data[200], const int32_T xk_size[1
     'a', 'r', 'i', 'a', 'n', 'c', 'e' };
 
   emxArray_real_T *b_b;
-  const mxArray *i_y;
+  const mxArray *k_y;
   static const int32_T iv5[2] = { 1, 45 };
 
   char_T cv2[45];
@@ -911,7 +999,7 @@ void ukf_update_unknown_state(const real_T xk_data[200], const int32_T xk_size[1
     'y', 'n', 'a', 'm', 'i', 'c', 'S', 'c', 'a', 'l', 'a', 'r', 'E', 'x', 'p',
     'a', 'n', 's', 'i', 'o', 'n' };
 
-  const mxArray *j_y;
+  const mxArray *l_y;
   static const int32_T iv6[2] = { 1, 21 };
 
   char_T cv4[21];
@@ -941,106 +1029,130 @@ void ukf_update_unknown_state(const real_T xk_data[200], const int32_T xk_size[1
   real_T b_yhat[3];
   real_T c_yhat[3];
   real_T dv0[3];
-  real_T k_y;
-  real_T l_y;
-  const mxArray *m_y;
+  real_T m_y;
+  real_T n_y;
+  const mxArray *o_y;
   static const int32_T iv8[2] = { 1, 21 };
 
   static const char_T cv6[21] = { 'C', 'o', 'd', 'e', 'r', ':', 'M', 'A', 'T',
     'L', 'A', 'B', ':', 'p', 'm', 'a', 'x', 's', 'i', 'z', 'e' };
 
   emxArray_real_T *r6;
-  const mxArray *n_y;
+  const mxArray *p_y;
   static const int32_T iv9[2] = { 1, 21 };
 
   emxArray_real_T *r7;
-  const mxArray *o_y;
+  const mxArray *q_y;
   static const int32_T iv10[2] = { 1, 21 };
 
   emxArray_int32_T *r8;
   emxArray_int32_T *r9;
   emxArray_real_T *b_ytilde;
   emxArray_int32_T *r10;
-  const mxArray *p_y;
+  const mxArray *r_y;
   static const int32_T iv11[2] = { 1, 21 };
 
-  const mxArray *q_y;
+  const mxArray *s_y;
   static const int32_T iv12[2] = { 1, 21 };
 
-  const mxArray *r_y;
+  const mxArray *t_y;
   static const int32_T iv13[2] = { 1, 21 };
 
   emxArray_int32_T *r11;
   emxArray_real_T *c_ytilde;
   emxArray_int32_T *r12;
-  const mxArray *s_y;
+  const mxArray *u_y;
   static const int32_T iv14[2] = { 1, 21 };
 
-  const mxArray *t_y;
+  const mxArray *v_y;
   static const int32_T iv15[2] = { 1, 21 };
 
-  const mxArray *u_y;
+  const mxArray *w_y;
   static const int32_T iv16[2] = { 1, 21 };
 
   emxArray_int32_T *r13;
   emxArray_real_T *d_ytilde;
   emxArray_int32_T *r14;
-  const mxArray *v_y;
+  const mxArray *x_y;
   static const int32_T iv17[2] = { 1, 21 };
 
-  const mxArray *w_y;
+  const mxArray *y_y;
   static const int32_T iv18[2] = { 1, 21 };
 
-  const mxArray *x_y;
+  const mxArray *ab_y;
   static const int32_T iv19[2] = { 1, 21 };
 
   emxArray_int32_T *r15;
   emxArray_real_T *e_ytilde;
   emxArray_int32_T *r16;
-  const mxArray *y_y;
+  const mxArray *bb_y;
   static const int32_T iv20[2] = { 1, 21 };
 
-  const mxArray *ab_y;
+  const mxArray *cb_y;
   static const int32_T iv21[2] = { 1, 21 };
 
-  const mxArray *bb_y;
+  const mxArray *db_y;
   static const int32_T iv22[2] = { 1, 21 };
 
   emxArray_int32_T *r17;
   emxArray_real_T *f_ytilde;
   emxArray_int32_T *r18;
-  const mxArray *cb_y;
+  const mxArray *eb_y;
   static const int32_T iv23[2] = { 1, 21 };
 
-  const mxArray *db_y;
+  const mxArray *fb_y;
   static const int32_T iv24[2] = { 1, 21 };
 
-  const mxArray *eb_y;
+  const mxArray *gb_y;
   static const int32_T iv25[2] = { 1, 21 };
 
   emxArray_int32_T *r19;
   emxArray_real_T *g_ytilde;
   emxArray_int32_T *r20;
-  real_T b_data[200];
-  const mxArray *fb_y;
-  static const int32_T iv26[2] = { 1, 45 };
-
-  const mxArray *gb_y;
-  static const int32_T iv27[2] = { 1, 21 };
-
-  real_T C_data[200];
   const mxArray *hb_y;
-  static const int32_T iv28[2] = { 1, 45 };
+  static const int32_T iv26[2] = { 1, 21 };
 
   const mxArray *ib_y;
+  static const int32_T iv27[2] = { 1, 21 };
+
+  const mxArray *jb_y;
+  static const int32_T iv28[2] = { 1, 21 };
+
+  emxArray_int32_T *r21;
+  emxArray_real_T *h_ytilde;
+  emxArray_int32_T *r22;
+  const mxArray *kb_y;
   static const int32_T iv29[2] = { 1, 21 };
 
-  emxArray_real_T *jb_y;
-  const mxArray *kb_y;
-  static const int32_T iv30[2] = { 1, 45 };
-
   const mxArray *lb_y;
+  static const int32_T iv30[2] = { 1, 21 };
+
+  const mxArray *mb_y;
   static const int32_T iv31[2] = { 1, 21 };
+
+  emxArray_int32_T *r23;
+  emxArray_real_T *i_ytilde;
+  emxArray_int32_T *r24;
+  real_T b_data[200];
+  const mxArray *nb_y;
+  static const int32_T iv32[2] = { 1, 45 };
+
+  const mxArray *ob_y;
+  static const int32_T iv33[2] = { 1, 21 };
+
+  real_T C_data[200];
+  const mxArray *pb_y;
+  static const int32_T iv34[2] = { 1, 45 };
+
+  const mxArray *qb_y;
+  static const int32_T iv35[2] = { 1, 21 };
+
+  emxArray_real_T *rb_y;
+  const mxArray *sb_y;
+  static const int32_T iv36[2] = { 1, 45 };
+
+  const mxArray *tb_y;
+  static const int32_T iv37[2] = { 1, 21 };
 
   emlrtHeapReferenceStackEnterFcnR2012b(emlrtRootTLSGlobal);
   emxInit_real_T(&Paug, 2, &c_emlrtRTEI, TRUE);
@@ -1054,20 +1166,23 @@ void ukf_update_unknown_state(const real_T xk_data[200], const int32_T xk_size[1
   /*  number of known features seen by agents i and j (1 and 2) */
   emlrtDynamicBoundsCheckFastR2012b(10, 1, uk_size[0], &bb_emlrtBCI,
     emlrtRootTLSGlobal);
-  y = 11.0 + 3.0 * uk_data[9];
-  i0 = (int32_T)emlrtIntegerCheckFastR2012b(y, &d_emlrtDCI, emlrtRootTLSGlobal);
+  y = 3.0 * uk_data[9];
+  b_y = 11.0 + 3.0 * uk_data[9];
+  i0 = (int32_T)emlrtIntegerCheckFastR2012b(b_y, &d_emlrtDCI, emlrtRootTLSGlobal);
   emlrtDynamicBoundsCheckFastR2012b(i0, 1, uk_size[0], &ab_emlrtBCI,
     emlrtRootTLSGlobal);
-  b_y = 3.0 * uk_data[9];
-  c_y = 3.0 * uk_data[(int32_T)(11.0 + 3.0 * uk_data[9]) - 1];
-  y = (12.0 + 3.0 * uk_data[9]) + 3.0 * uk_data[(int32_T)(11.0 + 3.0 * uk_data[9])
-    - 1];
-  i0 = (int32_T)emlrtIntegerCheckFastR2012b(y, &c_emlrtDCI, emlrtRootTLSGlobal);
+  c_y = 3.0 * uk_data[9];
+  d_y = 3.0 * uk_data[(int32_T)(11.0 + y) - 1];
+  b_y = (12.0 + 3.0 * uk_data[9]) + 3.0 * uk_data[(int32_T)(11.0 + 3.0 *
+    uk_data[9]) - 1];
+  i0 = (int32_T)emlrtIntegerCheckFastR2012b(b_y, &c_emlrtDCI, emlrtRootTLSGlobal);
   emlrtDynamicBoundsCheckFastR2012b(i0, 1, uk_size[0], &y_emlrtBCI,
     emlrtRootTLSGlobal);
-  y = (((12.0 + 3.0 * uk_data[9]) + 3.0 * uk_data[(int32_T)(11.0 + 3.0 *
-         uk_data[9]) - 1]) + uk_data[(int32_T)((12.0 + b_y) + c_y) - 1]) + 1.0;
-  i0 = (int32_T)emlrtIntegerCheckFastR2012b(y, &b_emlrtDCI, emlrtRootTLSGlobal);
+  e_y = 3.0 * uk_data[9];
+  y = 3.0 * uk_data[(int32_T)(11.0 + y) - 1];
+  b_y = (((12.0 + 3.0 * uk_data[9]) + 3.0 * uk_data[(int32_T)(11.0 + 3.0 *
+           uk_data[9]) - 1]) + uk_data[(int32_T)((12.0 + c_y) + d_y) - 1]) + 1.0;
+  i0 = (int32_T)emlrtIntegerCheckFastR2012b(b_y, &b_emlrtDCI, emlrtRootTLSGlobal);
   emlrtDynamicBoundsCheckFastR2012b(i0, 1, uk_size[0], &x_emlrtBCI,
     emlrtRootTLSGlobal);
 
@@ -1116,7 +1231,7 @@ void ukf_update_unknown_state(const real_T xk_data[200], const int32_T xk_size[1
   iv0[0] = loop_ub;
   iv0[1] = cdiff;
   emlrtSubAssignSizeCheckR2012b(iv0, 2, *(int32_T (*)[2])Pxk->size, 2,
-    &bc_emlrtECI, emlrtRootTLSGlobal);
+    &hc_emlrtECI, emlrtRootTLSGlobal);
   for (i0 = 0; i0 < cdiff; i0++) {
     for (apnd = 0; apnd < loop_ub; apnd++) {
       Paug->data[tmp_data[apnd] + Paug->size[0] * b_tmp_data[i0]] = Pxk->
@@ -1125,8 +1240,8 @@ void ukf_update_unknown_state(const real_T xk_data[200], const int32_T xk_size[1
   }
 
   emlrtPushRtStackR2012b(&c_emlrtRSI, emlrtRootTLSGlobal);
-  emlrtPushRtStackR2012b(&x_emlrtRSI, emlrtRootTLSGlobal);
-  emlrtPushRtStackR2012b(&y_emlrtRSI, emlrtRootTLSGlobal);
+  emlrtPushRtStackR2012b(&ab_emlrtRSI, emlrtRootTLSGlobal);
+  emlrtPushRtStackR2012b(&bb_emlrtRSI, emlrtRootTLSGlobal);
   if (Pvk->size[0] < 1) {
     cdiff = -1;
     apnd = 0;
@@ -1147,18 +1262,18 @@ void ukf_update_unknown_state(const real_T xk_data[200], const int32_T xk_size[1
     cdiff = ndbl - 1;
   }
 
-  emxInit_real_T(&d_y, 2, &emlrtRTEI, TRUE);
-  emlrtPushRtStackR2012b(&ab_emlrtRSI, emlrtRootTLSGlobal);
-  emlrtPopRtStackR2012b(&ab_emlrtRSI, emlrtRootTLSGlobal);
-  i0 = d_y->size[0] * d_y->size[1];
-  d_y->size[0] = 1;
-  d_y->size[1] = cdiff + 1;
-  emxEnsureCapacity((emxArray__common *)d_y, i0, (int32_T)sizeof(real_T),
+  emxInit_real_T(&f_y, 2, &emlrtRTEI, TRUE);
+  emlrtPushRtStackR2012b(&cb_emlrtRSI, emlrtRootTLSGlobal);
+  emlrtPopRtStackR2012b(&cb_emlrtRSI, emlrtRootTLSGlobal);
+  i0 = f_y->size[0] * f_y->size[1];
+  f_y->size[0] = 1;
+  f_y->size[1] = cdiff + 1;
+  emxEnsureCapacity((emxArray__common *)f_y, i0, (int32_T)sizeof(real_T),
                     &b_emlrtRTEI);
   if (cdiff + 1 > 0) {
-    d_y->data[0] = 1.0;
+    f_y->data[0] = 1.0;
     if (cdiff + 1 > 1) {
-      d_y->data[cdiff] = apnd;
+      f_y->data[cdiff] = apnd;
       i0 = cdiff + (cdiff < 0);
       if (i0 >= 0) {
         ndbl = (int32_T)((uint32_T)i0 >> 1);
@@ -1166,30 +1281,30 @@ void ukf_update_unknown_state(const real_T xk_data[200], const int32_T xk_size[1
         ndbl = ~(int32_T)((uint32_T)~i0 >> 1);
       }
 
-      emlrtPushRtStackR2012b(&bb_emlrtRSI, emlrtRootTLSGlobal);
-      emlrtPopRtStackR2012b(&bb_emlrtRSI, emlrtRootTLSGlobal);
+      emlrtPushRtStackR2012b(&db_emlrtRSI, emlrtRootTLSGlobal);
+      emlrtPopRtStackR2012b(&db_emlrtRSI, emlrtRootTLSGlobal);
       for (k = 1; k < ndbl; k++) {
-        d_y->data[k] = 1.0 + (real_T)k;
-        d_y->data[cdiff - k] = apnd - k;
+        f_y->data[k] = 1.0 + (real_T)k;
+        f_y->data[cdiff - k] = apnd - k;
       }
 
       if (ndbl << 1 == cdiff) {
-        d_y->data[ndbl] = (1.0 + (real_T)apnd) / 2.0;
+        f_y->data[ndbl] = (1.0 + (real_T)apnd) / 2.0;
       } else {
-        d_y->data[ndbl] = 1.0 + (real_T)ndbl;
-        d_y->data[ndbl + 1] = apnd - ndbl;
+        f_y->data[ndbl] = 1.0 + (real_T)ndbl;
+        f_y->data[ndbl + 1] = apnd - ndbl;
       }
     }
   }
 
-  emlrtPopRtStackR2012b(&y_emlrtRSI, emlrtRootTLSGlobal);
-  emlrtPopRtStackR2012b(&x_emlrtRSI, emlrtRootTLSGlobal);
-  tmp_size_idx_1 = d_y->size[1];
-  loop_ub = d_y->size[0] * d_y->size[1];
+  emlrtPopRtStackR2012b(&bb_emlrtRSI, emlrtRootTLSGlobal);
+  emlrtPopRtStackR2012b(&ab_emlrtRSI, emlrtRootTLSGlobal);
+  tmp_size_idx_1 = f_y->size[1];
+  loop_ub = f_y->size[0] * f_y->size[1];
   for (i0 = 0; i0 < loop_ub; i0++) {
     apnd = Paug->size[0];
-    y = (real_T)xk_size[0] + d_y->data[i0];
-    absb = (int32_T)emlrtIntegerCheckFastR2012b(y, &e_emlrtDCI,
+    b_y = (real_T)xk_size[0] + f_y->data[i0];
+    absb = (int32_T)emlrtIntegerCheckFastR2012b(b_y, &e_emlrtDCI,
       emlrtRootTLSGlobal);
     c_tmp_data[i0] = emlrtDynamicBoundsCheckFastR2012b(absb, 1, apnd,
       &cb_emlrtBCI, emlrtRootTLSGlobal);
@@ -1201,8 +1316,8 @@ void ukf_update_unknown_state(const real_T xk_data[200], const int32_T xk_size[1
 
   emlrtPopRtStackR2012b(&c_emlrtRSI, emlrtRootTLSGlobal);
   emlrtPushRtStackR2012b(&c_emlrtRSI, emlrtRootTLSGlobal);
-  emlrtPushRtStackR2012b(&x_emlrtRSI, emlrtRootTLSGlobal);
-  emlrtPushRtStackR2012b(&y_emlrtRSI, emlrtRootTLSGlobal);
+  emlrtPushRtStackR2012b(&ab_emlrtRSI, emlrtRootTLSGlobal);
+  emlrtPushRtStackR2012b(&bb_emlrtRSI, emlrtRootTLSGlobal);
   if (Pvk->size[0] < 1) {
     cdiff = -1;
     apnd = 0;
@@ -1223,17 +1338,17 @@ void ukf_update_unknown_state(const real_T xk_data[200], const int32_T xk_size[1
     cdiff = ndbl - 1;
   }
 
-  emlrtPushRtStackR2012b(&ab_emlrtRSI, emlrtRootTLSGlobal);
-  emlrtPopRtStackR2012b(&ab_emlrtRSI, emlrtRootTLSGlobal);
-  i0 = d_y->size[0] * d_y->size[1];
-  d_y->size[0] = 1;
-  d_y->size[1] = cdiff + 1;
-  emxEnsureCapacity((emxArray__common *)d_y, i0, (int32_T)sizeof(real_T),
+  emlrtPushRtStackR2012b(&cb_emlrtRSI, emlrtRootTLSGlobal);
+  emlrtPopRtStackR2012b(&cb_emlrtRSI, emlrtRootTLSGlobal);
+  i0 = f_y->size[0] * f_y->size[1];
+  f_y->size[0] = 1;
+  f_y->size[1] = cdiff + 1;
+  emxEnsureCapacity((emxArray__common *)f_y, i0, (int32_T)sizeof(real_T),
                     &b_emlrtRTEI);
   if (cdiff + 1 > 0) {
-    d_y->data[0] = 1.0;
+    f_y->data[0] = 1.0;
     if (cdiff + 1 > 1) {
-      d_y->data[cdiff] = apnd;
+      f_y->data[cdiff] = apnd;
       i0 = cdiff + (cdiff < 0);
       if (i0 >= 0) {
         ndbl = (int32_T)((uint32_T)i0 >> 1);
@@ -1241,30 +1356,30 @@ void ukf_update_unknown_state(const real_T xk_data[200], const int32_T xk_size[1
         ndbl = ~(int32_T)((uint32_T)~i0 >> 1);
       }
 
-      emlrtPushRtStackR2012b(&bb_emlrtRSI, emlrtRootTLSGlobal);
-      emlrtPopRtStackR2012b(&bb_emlrtRSI, emlrtRootTLSGlobal);
+      emlrtPushRtStackR2012b(&db_emlrtRSI, emlrtRootTLSGlobal);
+      emlrtPopRtStackR2012b(&db_emlrtRSI, emlrtRootTLSGlobal);
       for (k = 1; k < ndbl; k++) {
-        d_y->data[k] = 1.0 + (real_T)k;
-        d_y->data[cdiff - k] = apnd - k;
+        f_y->data[k] = 1.0 + (real_T)k;
+        f_y->data[cdiff - k] = apnd - k;
       }
 
       if (ndbl << 1 == cdiff) {
-        d_y->data[ndbl] = (1.0 + (real_T)apnd) / 2.0;
+        f_y->data[ndbl] = (1.0 + (real_T)apnd) / 2.0;
       } else {
-        d_y->data[ndbl] = 1.0 + (real_T)ndbl;
-        d_y->data[ndbl + 1] = apnd - ndbl;
+        f_y->data[ndbl] = 1.0 + (real_T)ndbl;
+        f_y->data[ndbl + 1] = apnd - ndbl;
       }
     }
   }
 
-  emlrtPopRtStackR2012b(&y_emlrtRSI, emlrtRootTLSGlobal);
-  emlrtPopRtStackR2012b(&x_emlrtRSI, emlrtRootTLSGlobal);
-  ndbl = d_y->size[1];
-  loop_ub = d_y->size[0] * d_y->size[1];
+  emlrtPopRtStackR2012b(&bb_emlrtRSI, emlrtRootTLSGlobal);
+  emlrtPopRtStackR2012b(&ab_emlrtRSI, emlrtRootTLSGlobal);
+  ndbl = f_y->size[1];
+  loop_ub = f_y->size[0] * f_y->size[1];
   for (i0 = 0; i0 < loop_ub; i0++) {
     apnd = Paug->size[1];
-    y = (real_T)xk_size[0] + d_y->data[i0];
-    absb = (int32_T)emlrtIntegerCheckFastR2012b(y, &f_emlrtDCI,
+    b_y = (real_T)xk_size[0] + f_y->data[i0];
+    absb = (int32_T)emlrtIntegerCheckFastR2012b(b_y, &f_emlrtDCI,
       emlrtRootTLSGlobal);
     c_tmp_data[i0] = emlrtDynamicBoundsCheckFastR2012b(absb, 1, apnd,
       &db_emlrtBCI, emlrtRootTLSGlobal);
@@ -1278,7 +1393,7 @@ void ukf_update_unknown_state(const real_T xk_data[200], const int32_T xk_size[1
   XAUGPLUS[0] = tmp_size_idx_1;
   XAUGPLUS[1] = ndbl;
   emlrtSubAssignSizeCheckR2012b(XAUGPLUS, 2, *(int32_T (*)[2])Pvk->size, 2,
-    &ac_emlrtECI, emlrtRootTLSGlobal);
+    &gc_emlrtECI, emlrtRootTLSGlobal);
   for (i0 = 0; i0 < ndbl; i0++) {
     for (apnd = 0; apnd < tmp_size_idx_1; apnd++) {
       Paug->data[d_tmp_data[apnd] + Paug->size[0] * e_tmp_data[i0]] = Pvk->
@@ -1287,8 +1402,8 @@ void ukf_update_unknown_state(const real_T xk_data[200], const int32_T xk_size[1
   }
 
   emlrtPushRtStackR2012b(&d_emlrtRSI, emlrtRootTLSGlobal);
-  emlrtPushRtStackR2012b(&x_emlrtRSI, emlrtRootTLSGlobal);
-  emlrtPushRtStackR2012b(&y_emlrtRSI, emlrtRootTLSGlobal);
+  emlrtPushRtStackR2012b(&ab_emlrtRSI, emlrtRootTLSGlobal);
+  emlrtPushRtStackR2012b(&bb_emlrtRSI, emlrtRootTLSGlobal);
   if (Pnk->size[0] < 1) {
     cdiff = -1;
     apnd = 0;
@@ -1309,17 +1424,17 @@ void ukf_update_unknown_state(const real_T xk_data[200], const int32_T xk_size[1
     cdiff = ndbl - 1;
   }
 
-  emlrtPushRtStackR2012b(&ab_emlrtRSI, emlrtRootTLSGlobal);
-  emlrtPopRtStackR2012b(&ab_emlrtRSI, emlrtRootTLSGlobal);
-  i0 = d_y->size[0] * d_y->size[1];
-  d_y->size[0] = 1;
-  d_y->size[1] = cdiff + 1;
-  emxEnsureCapacity((emxArray__common *)d_y, i0, (int32_T)sizeof(real_T),
+  emlrtPushRtStackR2012b(&cb_emlrtRSI, emlrtRootTLSGlobal);
+  emlrtPopRtStackR2012b(&cb_emlrtRSI, emlrtRootTLSGlobal);
+  i0 = f_y->size[0] * f_y->size[1];
+  f_y->size[0] = 1;
+  f_y->size[1] = cdiff + 1;
+  emxEnsureCapacity((emxArray__common *)f_y, i0, (int32_T)sizeof(real_T),
                     &b_emlrtRTEI);
   if (cdiff + 1 > 0) {
-    d_y->data[0] = 1.0;
+    f_y->data[0] = 1.0;
     if (cdiff + 1 > 1) {
-      d_y->data[cdiff] = apnd;
+      f_y->data[cdiff] = apnd;
       i0 = cdiff + (cdiff < 0);
       if (i0 >= 0) {
         ndbl = (int32_T)((uint32_T)i0 >> 1);
@@ -1327,31 +1442,31 @@ void ukf_update_unknown_state(const real_T xk_data[200], const int32_T xk_size[1
         ndbl = ~(int32_T)((uint32_T)~i0 >> 1);
       }
 
-      emlrtPushRtStackR2012b(&bb_emlrtRSI, emlrtRootTLSGlobal);
-      emlrtPopRtStackR2012b(&bb_emlrtRSI, emlrtRootTLSGlobal);
+      emlrtPushRtStackR2012b(&db_emlrtRSI, emlrtRootTLSGlobal);
+      emlrtPopRtStackR2012b(&db_emlrtRSI, emlrtRootTLSGlobal);
       for (k = 1; k < ndbl; k++) {
-        d_y->data[k] = 1.0 + (real_T)k;
-        d_y->data[cdiff - k] = apnd - k;
+        f_y->data[k] = 1.0 + (real_T)k;
+        f_y->data[cdiff - k] = apnd - k;
       }
 
       if (ndbl << 1 == cdiff) {
-        d_y->data[ndbl] = (1.0 + (real_T)apnd) / 2.0;
+        f_y->data[ndbl] = (1.0 + (real_T)apnd) / 2.0;
       } else {
-        d_y->data[ndbl] = 1.0 + (real_T)ndbl;
-        d_y->data[ndbl + 1] = apnd - ndbl;
+        f_y->data[ndbl] = 1.0 + (real_T)ndbl;
+        f_y->data[ndbl + 1] = apnd - ndbl;
       }
     }
   }
 
-  emlrtPopRtStackR2012b(&y_emlrtRSI, emlrtRootTLSGlobal);
-  emlrtPopRtStackR2012b(&x_emlrtRSI, emlrtRootTLSGlobal);
-  tmp_size_idx_1 = d_y->size[1];
+  emlrtPopRtStackR2012b(&bb_emlrtRSI, emlrtRootTLSGlobal);
+  emlrtPopRtStackR2012b(&ab_emlrtRSI, emlrtRootTLSGlobal);
+  tmp_size_idx_1 = f_y->size[1];
   cdiff = (int16_T)((int16_T)xk_size[0] + (int16_T)Pvk->size[0]);
-  loop_ub = d_y->size[0] * d_y->size[1];
+  loop_ub = f_y->size[0] * f_y->size[1];
   for (i0 = 0; i0 < loop_ub; i0++) {
     apnd = Paug->size[0];
-    y = (real_T)cdiff + d_y->data[i0];
-    absb = (int32_T)emlrtIntegerCheckFastR2012b(y, &g_emlrtDCI,
+    b_y = (real_T)cdiff + f_y->data[i0];
+    absb = (int32_T)emlrtIntegerCheckFastR2012b(b_y, &g_emlrtDCI,
       emlrtRootTLSGlobal);
     f_tmp_data[i0] = emlrtDynamicBoundsCheckFastR2012b(absb, 1, apnd,
       &eb_emlrtBCI, emlrtRootTLSGlobal);
@@ -1363,8 +1478,8 @@ void ukf_update_unknown_state(const real_T xk_data[200], const int32_T xk_size[1
 
   emlrtPopRtStackR2012b(&d_emlrtRSI, emlrtRootTLSGlobal);
   emlrtPushRtStackR2012b(&d_emlrtRSI, emlrtRootTLSGlobal);
-  emlrtPushRtStackR2012b(&x_emlrtRSI, emlrtRootTLSGlobal);
-  emlrtPushRtStackR2012b(&y_emlrtRSI, emlrtRootTLSGlobal);
+  emlrtPushRtStackR2012b(&ab_emlrtRSI, emlrtRootTLSGlobal);
+  emlrtPushRtStackR2012b(&bb_emlrtRSI, emlrtRootTLSGlobal);
   if (Pnk->size[0] < 1) {
     cdiff = -1;
     apnd = 0;
@@ -1385,17 +1500,17 @@ void ukf_update_unknown_state(const real_T xk_data[200], const int32_T xk_size[1
     cdiff = ndbl - 1;
   }
 
-  emlrtPushRtStackR2012b(&ab_emlrtRSI, emlrtRootTLSGlobal);
-  emlrtPopRtStackR2012b(&ab_emlrtRSI, emlrtRootTLSGlobal);
-  i0 = d_y->size[0] * d_y->size[1];
-  d_y->size[0] = 1;
-  d_y->size[1] = cdiff + 1;
-  emxEnsureCapacity((emxArray__common *)d_y, i0, (int32_T)sizeof(real_T),
+  emlrtPushRtStackR2012b(&cb_emlrtRSI, emlrtRootTLSGlobal);
+  emlrtPopRtStackR2012b(&cb_emlrtRSI, emlrtRootTLSGlobal);
+  i0 = f_y->size[0] * f_y->size[1];
+  f_y->size[0] = 1;
+  f_y->size[1] = cdiff + 1;
+  emxEnsureCapacity((emxArray__common *)f_y, i0, (int32_T)sizeof(real_T),
                     &b_emlrtRTEI);
   if (cdiff + 1 > 0) {
-    d_y->data[0] = 1.0;
+    f_y->data[0] = 1.0;
     if (cdiff + 1 > 1) {
-      d_y->data[cdiff] = apnd;
+      f_y->data[cdiff] = apnd;
       i0 = cdiff + (cdiff < 0);
       if (i0 >= 0) {
         ndbl = (int32_T)((uint32_T)i0 >> 1);
@@ -1403,31 +1518,31 @@ void ukf_update_unknown_state(const real_T xk_data[200], const int32_T xk_size[1
         ndbl = ~(int32_T)((uint32_T)~i0 >> 1);
       }
 
-      emlrtPushRtStackR2012b(&bb_emlrtRSI, emlrtRootTLSGlobal);
-      emlrtPopRtStackR2012b(&bb_emlrtRSI, emlrtRootTLSGlobal);
+      emlrtPushRtStackR2012b(&db_emlrtRSI, emlrtRootTLSGlobal);
+      emlrtPopRtStackR2012b(&db_emlrtRSI, emlrtRootTLSGlobal);
       for (k = 1; k < ndbl; k++) {
-        d_y->data[k] = 1.0 + (real_T)k;
-        d_y->data[cdiff - k] = apnd - k;
+        f_y->data[k] = 1.0 + (real_T)k;
+        f_y->data[cdiff - k] = apnd - k;
       }
 
       if (ndbl << 1 == cdiff) {
-        d_y->data[ndbl] = (1.0 + (real_T)apnd) / 2.0;
+        f_y->data[ndbl] = (1.0 + (real_T)apnd) / 2.0;
       } else {
-        d_y->data[ndbl] = 1.0 + (real_T)ndbl;
-        d_y->data[ndbl + 1] = apnd - ndbl;
+        f_y->data[ndbl] = 1.0 + (real_T)ndbl;
+        f_y->data[ndbl + 1] = apnd - ndbl;
       }
     }
   }
 
-  emlrtPopRtStackR2012b(&y_emlrtRSI, emlrtRootTLSGlobal);
-  emlrtPopRtStackR2012b(&x_emlrtRSI, emlrtRootTLSGlobal);
-  ndbl = d_y->size[1];
+  emlrtPopRtStackR2012b(&bb_emlrtRSI, emlrtRootTLSGlobal);
+  emlrtPopRtStackR2012b(&ab_emlrtRSI, emlrtRootTLSGlobal);
+  ndbl = f_y->size[1];
   cdiff = (int16_T)((int16_T)xk_size[0] + (int16_T)Pvk->size[0]);
-  loop_ub = d_y->size[0] * d_y->size[1];
+  loop_ub = f_y->size[0] * f_y->size[1];
   for (i0 = 0; i0 < loop_ub; i0++) {
     apnd = Paug->size[1];
-    y = (real_T)cdiff + d_y->data[i0];
-    absb = (int32_T)emlrtIntegerCheckFastR2012b(y, &h_emlrtDCI,
+    b_y = (real_T)cdiff + f_y->data[i0];
+    absb = (int32_T)emlrtIntegerCheckFastR2012b(b_y, &h_emlrtDCI,
       emlrtRootTLSGlobal);
     f_tmp_data[i0] = emlrtDynamicBoundsCheckFastR2012b(absb, 1, apnd,
       &fb_emlrtBCI, emlrtRootTLSGlobal);
@@ -1441,7 +1556,7 @@ void ukf_update_unknown_state(const real_T xk_data[200], const int32_T xk_size[1
   b_Pnew[0] = tmp_size_idx_1;
   b_Pnew[1] = ndbl;
   emlrtSubAssignSizeCheckR2012b(b_Pnew, 2, *(int32_T (*)[2])Pnk->size, 2,
-    &yb_emlrtECI, emlrtRootTLSGlobal);
+    &fc_emlrtECI, emlrtRootTLSGlobal);
   for (i0 = 0; i0 < ndbl; i0++) {
     for (apnd = 0; apnd < tmp_size_idx_1; apnd++) {
       Paug->data[tmp_data[apnd] + Paug->size[0] * b_tmp_data[i0]] = Pnk->
@@ -1490,13 +1605,13 @@ void ukf_update_unknown_state(const real_T xk_data[200], const int32_T xk_size[1
     emxInit_real_T(&XAUG, 2, &d_emlrtRTEI, TRUE);
 
     /*  compute the sigma points */
-    e_y = (N << 1) + 1;
+    g_y = (N << 1) + 1;
     i0 = XAUG->size[0] * XAUG->size[1];
     XAUG->size[0] = N;
-    XAUG->size[1] = e_y;
+    XAUG->size[1] = g_y;
     emxEnsureCapacity((emxArray__common *)XAUG, i0, (int32_T)sizeof(real_T),
                       &emlrtRTEI);
-    loop_ub = N * e_y;
+    loop_ub = N * g_y;
     for (i0 = 0; i0 < loop_ub; i0++) {
       XAUG->data[i0] = 0.0;
     }
@@ -1506,7 +1621,7 @@ void ukf_update_unknown_state(const real_T xk_data[200], const int32_T xk_size[1
     }
 
     iv1[0] = N;
-    emlrtSubAssignSizeCheckR2012b(iv1, 1, xaug_size, 1, &vb_emlrtECI,
+    emlrtSubAssignSizeCheckR2012b(iv1, 1, xaug_size, 1, &cc_emlrtECI,
       emlrtRootTLSGlobal);
     loop_ub = xaug_size[0];
     for (i0 = 0; i0 < loop_ub; i0++) {
@@ -1514,23 +1629,23 @@ void ukf_update_unknown_state(const real_T xk_data[200], const int32_T xk_size[1
     }
 
     k = 0;
-    b_emxInit_real_T(&f_y, 1, &emlrtRTEI, TRUE);
+    b_emxInit_real_T(&h_y, 1, &emlrtRTEI, TRUE);
     while (k <= N - 1) {
       i0 = Paug->size[1];
       apnd = (int32_T)(1.0 + (real_T)k);
       emlrtDynamicBoundsCheckFastR2012b(apnd, 1, i0, &u_emlrtBCI,
         emlrtRootTLSGlobal);
       loop_ub = Paug->size[0];
-      i0 = f_y->size[0];
-      f_y->size[0] = loop_ub;
-      emxEnsureCapacity((emxArray__common *)f_y, i0, (int32_T)sizeof(real_T),
+      i0 = h_y->size[0];
+      h_y->size[0] = loop_ub;
+      emxEnsureCapacity((emxArray__common *)h_y, i0, (int32_T)sizeof(real_T),
                         &emlrtRTEI);
       for (i0 = 0; i0 < loop_ub; i0++) {
-        f_y->data[i0] = gamm * Paug->data[i0 + Paug->size[0] * k];
+        h_y->data[i0] = gamm * Paug->data[i0 + Paug->size[0] * k];
       }
 
-      i0 = f_y->size[0];
-      emlrtSizeEqCheck1DFastR2012b(xaug_size[0], i0, &xb_emlrtECI,
+      i0 = h_y->size[0];
+      emlrtSizeEqCheck1DFastR2012b(xaug_size[0], i0, &ec_emlrtECI,
         emlrtRootTLSGlobal);
       loop_ub = XAUG->size[0];
       for (i0 = 0; i0 < loop_ub; i0++) {
@@ -1542,12 +1657,12 @@ void ukf_update_unknown_state(const real_T xk_data[200], const int32_T xk_size[1
       emlrtDynamicBoundsCheckFastR2012b(apnd, 1, i0, &s_emlrtBCI,
         emlrtRootTLSGlobal);
       iv2[0] = loop_ub;
-      emlrtSubAssignSizeCheckR2012b(iv2, 1, xaug_size, 1, &ub_emlrtECI,
+      emlrtSubAssignSizeCheckR2012b(iv2, 1, xaug_size, 1, &bc_emlrtECI,
         emlrtRootTLSGlobal);
       loop_ub = xaug_size[0];
       for (i0 = 0; i0 < loop_ub; i0++) {
         XAUG->data[g_tmp_data[i0] + XAUG->size[0] * (k + 1)] = xaug_data[i0] +
-          f_y->data[i0];
+          h_y->data[i0];
       }
 
       i0 = Paug->size[1];
@@ -1555,16 +1670,16 @@ void ukf_update_unknown_state(const real_T xk_data[200], const int32_T xk_size[1
       emlrtDynamicBoundsCheckFastR2012b(apnd, 1, i0, &t_emlrtBCI,
         emlrtRootTLSGlobal);
       loop_ub = Paug->size[0];
-      i0 = f_y->size[0];
-      f_y->size[0] = loop_ub;
-      emxEnsureCapacity((emxArray__common *)f_y, i0, (int32_T)sizeof(real_T),
+      i0 = h_y->size[0];
+      h_y->size[0] = loop_ub;
+      emxEnsureCapacity((emxArray__common *)h_y, i0, (int32_T)sizeof(real_T),
                         &emlrtRTEI);
       for (i0 = 0; i0 < loop_ub; i0++) {
-        f_y->data[i0] = gamm * Paug->data[i0 + Paug->size[0] * k];
+        h_y->data[i0] = gamm * Paug->data[i0 + Paug->size[0] * k];
       }
 
-      i0 = f_y->size[0];
-      emlrtSizeEqCheck1DFastR2012b(xaug_size[0], i0, &wb_emlrtECI,
+      i0 = h_y->size[0];
+      emlrtSizeEqCheck1DFastR2012b(xaug_size[0], i0, &dc_emlrtECI,
         emlrtRootTLSGlobal);
       loop_ub = XAUG->size[0];
       for (i0 = 0; i0 < loop_ub; i0++) {
@@ -1576,12 +1691,12 @@ void ukf_update_unknown_state(const real_T xk_data[200], const int32_T xk_size[1
       i0 = emlrtDynamicBoundsCheckFastR2012b(apnd, 1, i0, &r_emlrtBCI,
         emlrtRootTLSGlobal) - 1;
       iv3[0] = loop_ub;
-      emlrtSubAssignSizeCheckR2012b(iv3, 1, xaug_size, 1, &tb_emlrtECI,
+      emlrtSubAssignSizeCheckR2012b(iv3, 1, xaug_size, 1, &ac_emlrtECI,
         emlrtRootTLSGlobal);
       loop_ub = xaug_size[0];
       for (apnd = 0; apnd < loop_ub; apnd++) {
         XAUG->data[g_tmp_data[apnd] + XAUG->size[0] * i0] = xaug_data[apnd] -
-          f_y->data[apnd];
+          h_y->data[apnd];
       }
 
       k++;
@@ -1601,8 +1716,8 @@ void ukf_update_unknown_state(const real_T xk_data[200], const int32_T xk_size[1
     }
 
     emlrtPushRtStackR2012b(&g_emlrtRSI, emlrtRootTLSGlobal);
-    emlrtPushRtStackR2012b(&x_emlrtRSI, emlrtRootTLSGlobal);
-    emlrtPushRtStackR2012b(&y_emlrtRSI, emlrtRootTLSGlobal);
+    emlrtPushRtStackR2012b(&ab_emlrtRSI, emlrtRootTLSGlobal);
+    emlrtPushRtStackR2012b(&bb_emlrtRSI, emlrtRootTLSGlobal);
     if (Pvk->size[0] < 1) {
       cdiff = -1;
       apnd = 0;
@@ -1623,17 +1738,17 @@ void ukf_update_unknown_state(const real_T xk_data[200], const int32_T xk_size[1
       cdiff = ndbl - 1;
     }
 
-    emlrtPushRtStackR2012b(&ab_emlrtRSI, emlrtRootTLSGlobal);
-    emlrtPopRtStackR2012b(&ab_emlrtRSI, emlrtRootTLSGlobal);
-    i0 = d_y->size[0] * d_y->size[1];
-    d_y->size[0] = 1;
-    d_y->size[1] = cdiff + 1;
-    emxEnsureCapacity((emxArray__common *)d_y, i0, (int32_T)sizeof(real_T),
+    emlrtPushRtStackR2012b(&cb_emlrtRSI, emlrtRootTLSGlobal);
+    emlrtPopRtStackR2012b(&cb_emlrtRSI, emlrtRootTLSGlobal);
+    i0 = f_y->size[0] * f_y->size[1];
+    f_y->size[0] = 1;
+    f_y->size[1] = cdiff + 1;
+    emxEnsureCapacity((emxArray__common *)f_y, i0, (int32_T)sizeof(real_T),
                       &b_emlrtRTEI);
     if (cdiff + 1 > 0) {
-      d_y->data[0] = 1.0;
+      f_y->data[0] = 1.0;
       if (cdiff + 1 > 1) {
-        d_y->data[cdiff] = apnd;
+        f_y->data[cdiff] = apnd;
         i0 = cdiff + (cdiff < 0);
         if (i0 >= 0) {
           ndbl = (int32_T)((uint32_T)i0 >> 1);
@@ -1641,25 +1756,25 @@ void ukf_update_unknown_state(const real_T xk_data[200], const int32_T xk_size[1
           ndbl = ~(int32_T)((uint32_T)~i0 >> 1);
         }
 
-        emlrtPushRtStackR2012b(&bb_emlrtRSI, emlrtRootTLSGlobal);
-        emlrtPopRtStackR2012b(&bb_emlrtRSI, emlrtRootTLSGlobal);
+        emlrtPushRtStackR2012b(&db_emlrtRSI, emlrtRootTLSGlobal);
+        emlrtPopRtStackR2012b(&db_emlrtRSI, emlrtRootTLSGlobal);
         for (k = 1; k < ndbl; k++) {
-          d_y->data[k] = 1.0 + (real_T)k;
-          d_y->data[cdiff - k] = apnd - k;
+          f_y->data[k] = 1.0 + (real_T)k;
+          f_y->data[cdiff - k] = apnd - k;
         }
 
         if (ndbl << 1 == cdiff) {
-          d_y->data[ndbl] = (1.0 + (real_T)apnd) / 2.0;
+          f_y->data[ndbl] = (1.0 + (real_T)apnd) / 2.0;
         } else {
-          d_y->data[ndbl] = 1.0 + (real_T)ndbl;
-          d_y->data[ndbl + 1] = apnd - ndbl;
+          f_y->data[ndbl] = 1.0 + (real_T)ndbl;
+          f_y->data[ndbl + 1] = apnd - ndbl;
         }
       }
     }
 
     emxInit_real_T(&b_XAUG, 2, &emlrtRTEI, TRUE);
-    emlrtPopRtStackR2012b(&y_emlrtRSI, emlrtRootTLSGlobal);
-    emlrtPopRtStackR2012b(&x_emlrtRSI, emlrtRootTLSGlobal);
+    emlrtPopRtStackR2012b(&bb_emlrtRSI, emlrtRootTLSGlobal);
+    emlrtPopRtStackR2012b(&ab_emlrtRSI, emlrtRootTLSGlobal);
     cdiff = XAUG->size[1];
     i0 = b_XAUG->size[0] * b_XAUG->size[1];
     b_XAUG->size[0] = loop_ub;
@@ -1674,12 +1789,12 @@ void ukf_update_unknown_state(const real_T xk_data[200], const int32_T xk_size[1
     }
 
     emxInit_real_T(&c_XAUG, 2, &emlrtRTEI, TRUE);
-    tmp_size_idx_1 = d_y->size[1];
-    loop_ub = d_y->size[0] * d_y->size[1];
+    tmp_size_idx_1 = f_y->size[1];
+    loop_ub = f_y->size[0] * f_y->size[1];
     for (i0 = 0; i0 < loop_ub; i0++) {
       apnd = XAUG->size[0];
-      y = (real_T)xk_size[0] + d_y->data[i0];
-      absb = (int32_T)emlrtIntegerCheckFastR2012b(y, &i_emlrtDCI,
+      b_y = (real_T)xk_size[0] + f_y->data[i0];
+      absb = (int32_T)emlrtIntegerCheckFastR2012b(b_y, &i_emlrtDCI,
         emlrtRootTLSGlobal);
       c_tmp_data[i0] = emlrtDynamicBoundsCheckFastR2012b(absb, 1, apnd,
         &gb_emlrtBCI, emlrtRootTLSGlobal);
@@ -1704,26 +1819,26 @@ void ukf_update_unknown_state(const real_T xk_data[200], const int32_T xk_size[1
 
     /*  weights */
     /*  optimal for Gaussian */
-    g_y = 0.5 / ((real_T)N + lambda);
-    e_y = N << 1;
-    i0 = f_y->size[0];
-    f_y->size[0] = e_y + 1;
-    emxEnsureCapacity((emxArray__common *)f_y, i0, (int32_T)sizeof(real_T),
+    i_y = 0.5 / ((real_T)N + lambda);
+    g_y = N << 1;
+    i0 = h_y->size[0];
+    h_y->size[0] = g_y + 1;
+    emxEnsureCapacity((emxArray__common *)h_y, i0, (int32_T)sizeof(real_T),
                       &emlrtRTEI);
     emxFree_real_T(&c_XAUG);
     emxFree_real_T(&b_XAUG);
-    for (i0 = 0; i0 <= e_y; i0++) {
-      f_y->data[i0] = g_y;
+    for (i0 = 0; i0 <= g_y; i0++) {
+      h_y->data[i0] = i_y;
     }
 
-    for (i0 = 0; i0 <= e_y; i0++) {
-      wc_data[i0] = g_y;
+    for (i0 = 0; i0 <= g_y; i0++) {
+      wc_data[i0] = i_y;
     }
 
-    g_y = 0.5 / ((real_T)N + lambda);
-    e_y = N << 1;
-    for (i0 = 0; i0 <= e_y; i0++) {
-      wm_data[i0] = g_y;
+    i_y = 0.5 / ((real_T)N + lambda);
+    g_y = N << 1;
+    for (i0 = 0; i0 <= g_y; i0++) {
+      wm_data[i0] = i_y;
     }
 
     wm_data[0] = lambda / ((real_T)N + lambda);
@@ -1743,8 +1858,8 @@ void ukf_update_unknown_state(const real_T xk_data[200], const int32_T xk_size[1
 
     emlrtPushRtStackR2012b(&h_emlrtRSI, emlrtRootTLSGlobal);
     wm_size[0] = 1;
-    wm_size[1] = e_y + 1;
-    cdiff = e_y + 1;
+    wm_size[1] = g_y + 1;
+    cdiff = g_y + 1;
     for (i0 = 0; i0 < cdiff; i0++) {
       b_wm_data[i0] = wm_data[i0];
     }
@@ -1787,7 +1902,7 @@ void ukf_update_unknown_state(const real_T xk_data[200], const int32_T xk_size[1
     }
 
     emxInit_real_T(&d_XAUGPLUS, 2, &emlrtRTEI, TRUE);
-    emlrtSizeEqCheck2DFastR2012b(XAUGPLUS, iv0, &sb_emlrtECI, emlrtRootTLSGlobal);
+    emlrtSizeEqCheck2DFastR2012b(XAUGPLUS, iv0, &yb_emlrtECI, emlrtRootTLSGlobal);
     emlrtPushRtStackR2012b(&h_emlrtRSI, emlrtRootTLSGlobal);
     cdiff = b_XAUGPLUS->size[1];
     i0 = d_XAUGPLUS->size[0] * d_XAUGPLUS->size[1];
@@ -1816,9 +1931,9 @@ void ukf_update_unknown_state(const real_T xk_data[200], const int32_T xk_size[1
     emlrtPopRtStackR2012b(&h_emlrtRSI, emlrtRootTLSGlobal);
 
     /*  re-normalize */
-    emlrtVectorVectorIndexCheckR2012b(xnew_size[0], 1, 1, 4, &rb_emlrtECI,
+    emlrtVectorVectorIndexCheckR2012b(xnew_size[0], 1, 1, 4, &xb_emlrtECI,
       emlrtRootTLSGlobal);
-    emlrtVectorVectorIndexCheckR2012b(xnew_size[0], 1, 1, 4, &qb_emlrtECI,
+    emlrtVectorVectorIndexCheckR2012b(xnew_size[0], 1, 1, 4, &wb_emlrtECI,
       emlrtRootTLSGlobal);
     for (i0 = 0; i0 < 4; i0++) {
       apnd = xnew_size[0];
@@ -1846,9 +1961,9 @@ void ukf_update_unknown_state(const real_T xk_data[200], const int32_T xk_size[1
         emlrtRootTLSGlobal) - 1] = xnew[i0];
     }
 
-    emlrtVectorVectorIndexCheckR2012b(xnew_size[0], 1, 1, 4, &pb_emlrtECI,
+    emlrtVectorVectorIndexCheckR2012b(xnew_size[0], 1, 1, 4, &vb_emlrtECI,
       emlrtRootTLSGlobal);
-    emlrtVectorVectorIndexCheckR2012b(xnew_size[0], 1, 1, 4, &ob_emlrtECI,
+    emlrtVectorVectorIndexCheckR2012b(xnew_size[0], 1, 1, 4, &ub_emlrtECI,
       emlrtRootTLSGlobal);
     for (i0 = 0; i0 < 4; i0++) {
       apnd = xnew_size[0];
@@ -1911,7 +2026,7 @@ void ukf_update_unknown_state(const real_T xk_data[200], const int32_T xk_size[1
       emlrtDynamicBoundsCheckFastR2012b(absb, 1, apnd, &m_emlrtBCI,
         emlrtRootTLSGlobal);
       apnd = xnew_size[0];
-      emlrtSizeEqCheck1DFastR2012b(loop_ub, apnd, &nb_emlrtECI,
+      emlrtSizeEqCheck1DFastR2012b(loop_ub, apnd, &tb_emlrtECI,
         emlrtRootTLSGlobal);
       if (1 > xk_size[0]) {
         cdiff = 0;
@@ -1929,8 +2044,8 @@ void ukf_update_unknown_state(const real_T xk_data[200], const int32_T xk_size[1
       emlrtDynamicBoundsCheckFastR2012b(absb, 1, apnd, &k_emlrtBCI,
         emlrtRootTLSGlobal);
       apnd = xnew_size[0];
-      emlrtSizeEqCheck1DFastR2012b(cdiff, apnd, &mb_emlrtECI, emlrtRootTLSGlobal);
-      apnd = f_y->size[0];
+      emlrtSizeEqCheck1DFastR2012b(cdiff, apnd, &sb_emlrtECI, emlrtRootTLSGlobal);
+      apnd = h_y->size[0];
       absb = (int32_T)(1.0 + (real_T)k);
       emlrtDynamicBoundsCheckFastR2012b(absb, 1, apnd, &o_emlrtBCI,
         emlrtRootTLSGlobal);
@@ -1975,7 +2090,7 @@ void ukf_update_unknown_state(const real_T xk_data[200], const int32_T xk_size[1
         wm_size[apnd] = b->size[apnd];
       }
 
-      emlrtSizeEqCheck2DFastR2012b(b_Pnew, wm_size, &lb_emlrtECI,
+      emlrtSizeEqCheck2DFastR2012b(b_Pnew, wm_size, &rb_emlrtECI,
         emlrtRootTLSGlobal);
       apnd = Pnew->size[0] * Pnew->size[1];
       emxEnsureCapacity((emxArray__common *)Pnew, apnd, (int32_T)sizeof(real_T),
@@ -2007,8 +2122,8 @@ void ukf_update_unknown_state(const real_T xk_data[200], const int32_T xk_size[1
     }
 
     emlrtPushRtStackR2012b(&i_emlrtRSI, emlrtRootTLSGlobal);
-    emlrtPushRtStackR2012b(&x_emlrtRSI, emlrtRootTLSGlobal);
-    emlrtPushRtStackR2012b(&y_emlrtRSI, emlrtRootTLSGlobal);
+    emlrtPushRtStackR2012b(&ab_emlrtRSI, emlrtRootTLSGlobal);
+    emlrtPushRtStackR2012b(&bb_emlrtRSI, emlrtRootTLSGlobal);
     if (Pnk->size[0] < 1) {
       cdiff = -1;
       apnd = 0;
@@ -2029,17 +2144,17 @@ void ukf_update_unknown_state(const real_T xk_data[200], const int32_T xk_size[1
       cdiff = ndbl - 1;
     }
 
-    emlrtPushRtStackR2012b(&ab_emlrtRSI, emlrtRootTLSGlobal);
-    emlrtPopRtStackR2012b(&ab_emlrtRSI, emlrtRootTLSGlobal);
-    i0 = d_y->size[0] * d_y->size[1];
-    d_y->size[0] = 1;
-    d_y->size[1] = cdiff + 1;
-    emxEnsureCapacity((emxArray__common *)d_y, i0, (int32_T)sizeof(real_T),
+    emlrtPushRtStackR2012b(&cb_emlrtRSI, emlrtRootTLSGlobal);
+    emlrtPopRtStackR2012b(&cb_emlrtRSI, emlrtRootTLSGlobal);
+    i0 = f_y->size[0] * f_y->size[1];
+    f_y->size[0] = 1;
+    f_y->size[1] = cdiff + 1;
+    emxEnsureCapacity((emxArray__common *)f_y, i0, (int32_T)sizeof(real_T),
                       &b_emlrtRTEI);
     if (cdiff + 1 > 0) {
-      d_y->data[0] = 1.0;
+      f_y->data[0] = 1.0;
       if (cdiff + 1 > 1) {
-        d_y->data[cdiff] = apnd;
+        f_y->data[cdiff] = apnd;
         i0 = cdiff + (cdiff < 0);
         if (i0 >= 0) {
           ndbl = (int32_T)((uint32_T)i0 >> 1);
@@ -2047,25 +2162,25 @@ void ukf_update_unknown_state(const real_T xk_data[200], const int32_T xk_size[1
           ndbl = ~(int32_T)((uint32_T)~i0 >> 1);
         }
 
-        emlrtPushRtStackR2012b(&bb_emlrtRSI, emlrtRootTLSGlobal);
-        emlrtPopRtStackR2012b(&bb_emlrtRSI, emlrtRootTLSGlobal);
+        emlrtPushRtStackR2012b(&db_emlrtRSI, emlrtRootTLSGlobal);
+        emlrtPopRtStackR2012b(&db_emlrtRSI, emlrtRootTLSGlobal);
         for (k = 1; k < ndbl; k++) {
-          d_y->data[k] = 1.0 + (real_T)k;
-          d_y->data[cdiff - k] = apnd - k;
+          f_y->data[k] = 1.0 + (real_T)k;
+          f_y->data[cdiff - k] = apnd - k;
         }
 
         if (ndbl << 1 == cdiff) {
-          d_y->data[ndbl] = (1.0 + (real_T)apnd) / 2.0;
+          f_y->data[ndbl] = (1.0 + (real_T)apnd) / 2.0;
         } else {
-          d_y->data[ndbl] = 1.0 + (real_T)ndbl;
-          d_y->data[ndbl + 1] = apnd - ndbl;
+          f_y->data[ndbl] = 1.0 + (real_T)ndbl;
+          f_y->data[ndbl + 1] = apnd - ndbl;
         }
       }
     }
 
     emxInit_real_T(&f_XAUGPLUS, 2, &emlrtRTEI, TRUE);
-    emlrtPopRtStackR2012b(&y_emlrtRSI, emlrtRootTLSGlobal);
-    emlrtPopRtStackR2012b(&x_emlrtRSI, emlrtRootTLSGlobal);
+    emlrtPopRtStackR2012b(&bb_emlrtRSI, emlrtRootTLSGlobal);
+    emlrtPopRtStackR2012b(&ab_emlrtRSI, emlrtRootTLSGlobal);
     cdiff = b_XAUGPLUS->size[1];
     i0 = f_XAUGPLUS->size[0] * f_XAUGPLUS->size[1];
     f_XAUGPLUS->size[0] = loop_ub;
@@ -2080,13 +2195,13 @@ void ukf_update_unknown_state(const real_T xk_data[200], const int32_T xk_size[1
     }
 
     emxInit_real_T(&d_XAUG, 2, &emlrtRTEI, TRUE);
-    tmp_size_idx_1 = d_y->size[1];
+    tmp_size_idx_1 = f_y->size[1];
     cdiff = (int16_T)((int16_T)xk_size[0] + (int16_T)Pvk->size[0]);
-    loop_ub = d_y->size[0] * d_y->size[1];
+    loop_ub = f_y->size[0] * f_y->size[1];
     for (i0 = 0; i0 < loop_ub; i0++) {
       apnd = XAUG->size[0];
-      y = (real_T)cdiff + d_y->data[i0];
-      absb = (int32_T)emlrtIntegerCheckFastR2012b(y, &j_emlrtDCI,
+      b_y = (real_T)cdiff + f_y->data[i0];
+      absb = (int32_T)emlrtIntegerCheckFastR2012b(b_y, &j_emlrtDCI,
         emlrtRootTLSGlobal);
       f_tmp_data[i0] = emlrtDynamicBoundsCheckFastR2012b(absb, 1, apnd,
         &nb_emlrtBCI, emlrtRootTLSGlobal);
@@ -2111,8 +2226,8 @@ void ukf_update_unknown_state(const real_T xk_data[200], const int32_T xk_size[1
     emlrtPopRtStackR2012b(&i_emlrtRSI, emlrtRootTLSGlobal);
     emlrtPushRtStackR2012b(&j_emlrtRSI, emlrtRootTLSGlobal);
     b_wm_size[0] = 1;
-    b_wm_size[1] = e_y + 1;
-    loop_ub = e_y + 1;
+    b_wm_size[1] = g_y + 1;
+    loop_ub = g_y + 1;
     emxFree_real_T(&d_XAUG);
     emxFree_real_T(&f_XAUGPLUS);
     for (i0 = 0; i0 < loop_ub; i0++) {
@@ -2130,7 +2245,7 @@ void ukf_update_unknown_state(const real_T xk_data[200], const int32_T xk_size[1
     }
 
     emxInit_real_T(&b_YKAUG, 2, &emlrtRTEI, TRUE);
-    emlrtSizeEqCheck2DFastR2012b(XAUGPLUS, iv0, &kb_emlrtECI, emlrtRootTLSGlobal);
+    emlrtSizeEqCheck2DFastR2012b(XAUGPLUS, iv0, &qb_emlrtECI, emlrtRootTLSGlobal);
     emlrtPushRtStackR2012b(&j_emlrtRSI, emlrtRootTLSGlobal);
     i0 = b_YKAUG->size[0] * b_YKAUG->size[1];
     b_YKAUG->size[0] = YKAUG->size[0];
@@ -2196,15 +2311,15 @@ void ukf_update_unknown_state(const real_T xk_data[200], const int32_T xk_size[1
         emlrtRootTLSGlobal);
       apnd = YKAUG->size[0];
       absb = yhat->size[0];
-      emlrtSizeEqCheck1DFastR2012b(apnd, absb, &jb_emlrtECI, emlrtRootTLSGlobal);
+      emlrtSizeEqCheck1DFastR2012b(apnd, absb, &pb_emlrtECI, emlrtRootTLSGlobal);
       apnd = YKAUG->size[1];
       absb = (int32_T)(1.0 + (real_T)k);
       emlrtDynamicBoundsCheckFastR2012b(absb, 1, apnd, &g_emlrtBCI,
         emlrtRootTLSGlobal);
       apnd = YKAUG->size[0];
       absb = yhat->size[0];
-      emlrtSizeEqCheck1DFastR2012b(apnd, absb, &ib_emlrtECI, emlrtRootTLSGlobal);
-      apnd = f_y->size[0];
+      emlrtSizeEqCheck1DFastR2012b(apnd, absb, &ob_emlrtECI, emlrtRootTLSGlobal);
+      apnd = h_y->size[0];
       absb = (int32_T)(1.0 + (real_T)k);
       emlrtDynamicBoundsCheckFastR2012b(absb, 1, apnd, &i_emlrtBCI,
         emlrtRootTLSGlobal);
@@ -2251,7 +2366,7 @@ void ukf_update_unknown_state(const real_T xk_data[200], const int32_T xk_size[1
         wm_size[apnd] = b->size[apnd];
       }
 
-      emlrtSizeEqCheck2DFastR2012b(XAUGPLUS, wm_size, &hb_emlrtECI,
+      emlrtSizeEqCheck2DFastR2012b(XAUGPLUS, wm_size, &nb_emlrtECI,
         emlrtRootTLSGlobal);
       apnd = Pyk->size[0] * Pyk->size[1];
       emxEnsureCapacity((emxArray__common *)Pyk, apnd, (int32_T)sizeof(real_T),
@@ -2279,7 +2394,7 @@ void ukf_update_unknown_state(const real_T xk_data[200], const int32_T xk_size[1
       emlrtDynamicBoundsCheckFastR2012b(absb, 1, apnd, &d_emlrtBCI,
         emlrtRootTLSGlobal);
       apnd = xnew_size[0];
-      emlrtSizeEqCheck1DFastR2012b(loop_ub, apnd, &gb_emlrtECI,
+      emlrtSizeEqCheck1DFastR2012b(loop_ub, apnd, &mb_emlrtECI,
         emlrtRootTLSGlobal);
       apnd = YKAUG->size[1];
       absb = (int32_T)(1.0 + (real_T)k);
@@ -2287,8 +2402,8 @@ void ukf_update_unknown_state(const real_T xk_data[200], const int32_T xk_size[1
         emlrtRootTLSGlobal);
       apnd = YKAUG->size[0];
       absb = yhat->size[0];
-      emlrtSizeEqCheck1DFastR2012b(apnd, absb, &fb_emlrtECI, emlrtRootTLSGlobal);
-      apnd = f_y->size[0];
+      emlrtSizeEqCheck1DFastR2012b(apnd, absb, &lb_emlrtECI, emlrtRootTLSGlobal);
+      apnd = h_y->size[0];
       absb = (int32_T)(1.0 + (real_T)k);
       emlrtDynamicBoundsCheckFastR2012b(absb, 1, apnd, &f_emlrtBCI,
         emlrtRootTLSGlobal);
@@ -2334,7 +2449,7 @@ void ukf_update_unknown_state(const real_T xk_data[200], const int32_T xk_size[1
         wm_size[apnd] = b->size[apnd];
       }
 
-      emlrtSizeEqCheck2DFastR2012b(XAUGPLUS, wm_size, &eb_emlrtECI,
+      emlrtSizeEqCheck2DFastR2012b(XAUGPLUS, wm_size, &kb_emlrtECI,
         emlrtRootTLSGlobal);
       apnd = Pxkyk->size[0] * Pxkyk->size[1];
       emxEnsureCapacity((emxArray__common *)Pxkyk, apnd, (int32_T)sizeof(real_T),
@@ -2354,7 +2469,7 @@ void ukf_update_unknown_state(const real_T xk_data[200], const int32_T xk_size[1
     emxFree_real_T(&c_wc);
     emxFree_real_T(&c_YKAUG);
     emxFree_real_T(&b_wc);
-    emxFree_real_T(&f_y);
+    emxFree_real_T(&h_y);
     emxFree_real_T(&b_XAUGPLUS);
     emxInit_boolean_T(&r3, 2, &emlrtRTEI, TRUE);
 
@@ -2378,15 +2493,15 @@ void ukf_update_unknown_state(const real_T xk_data[200], const int32_T xk_size[1
     emxFree_boolean_T(&r4);
     if (n_too_large) {
       emlrtPushRtStackR2012b(&emlrtRSI, emlrtRootTLSGlobal);
-      h_y = NULL;
+      j_y = NULL;
       m0 = mxCreateCharArray(2, iv4);
       for (ndbl = 0; ndbl < 31; ndbl++) {
         cv0[ndbl] = cv1[ndbl];
       }
 
       emlrtInitCharArrayR2013a(emlrtRootTLSGlobal, 31, m0, cv0);
-      emlrtAssign(&h_y, m0);
-      disp(h_y, &emlrtMCI);
+      emlrtAssign(&j_y, m0);
+      disp(j_y, &emlrtMCI);
       emlrtPopRtStackR2012b(&emlrtRSI, emlrtRootTLSGlobal);
       xnew_size[0] = 1;
       xnew_data[0] = 0.0;
@@ -2411,42 +2526,42 @@ void ukf_update_unknown_state(const real_T xk_data[200], const int32_T xk_size[1
       }
 
       mldivide(Pyk, b_b, b);
-      emlrtPushRtStackR2012b(&ih_emlrtRSI, emlrtRootTLSGlobal);
+      emlrtPushRtStackR2012b(&kh_emlrtRSI, emlrtRootTLSGlobal);
       emxFree_real_T(&b_b);
       if (!(Pxkyk->size[1] == b->size[0])) {
         if (((Pxkyk->size[0] == 1) && (Pxkyk->size[1] == 1)) || ((b->size[0] ==
               1) && (b->size[1] == 1))) {
-          emlrtPushRtStackR2012b(&kh_emlrtRSI, emlrtRootTLSGlobal);
+          emlrtPushRtStackR2012b(&mh_emlrtRSI, emlrtRootTLSGlobal);
           emlrt_synchGlobalsToML();
-          i_y = NULL;
+          k_y = NULL;
           m0 = mxCreateCharArray(2, iv5);
           for (ndbl = 0; ndbl < 45; ndbl++) {
             cv2[ndbl] = cv3[ndbl];
           }
 
           emlrtInitCharArrayR2013a(emlrtRootTLSGlobal, 45, m0, cv2);
-          emlrtAssign(&i_y, m0);
-          error(message(i_y, &l_emlrtMCI), &m_emlrtMCI);
+          emlrtAssign(&k_y, m0);
+          error(message(k_y, &l_emlrtMCI), &m_emlrtMCI);
           emlrt_synchGlobalsFromML();
-          emlrtPopRtStackR2012b(&kh_emlrtRSI, emlrtRootTLSGlobal);
+          emlrtPopRtStackR2012b(&mh_emlrtRSI, emlrtRootTLSGlobal);
         } else {
-          emlrtPushRtStackR2012b(&jh_emlrtRSI, emlrtRootTLSGlobal);
+          emlrtPushRtStackR2012b(&lh_emlrtRSI, emlrtRootTLSGlobal);
           emlrt_synchGlobalsToML();
-          j_y = NULL;
+          l_y = NULL;
           m0 = mxCreateCharArray(2, iv6);
           for (ndbl = 0; ndbl < 21; ndbl++) {
             cv4[ndbl] = cv5[ndbl];
           }
 
           emlrtInitCharArrayR2013a(emlrtRootTLSGlobal, 21, m0, cv4);
-          emlrtAssign(&j_y, m0);
-          error(message(j_y, &n_emlrtMCI), &o_emlrtMCI);
+          emlrtAssign(&l_y, m0);
+          error(message(l_y, &n_emlrtMCI), &o_emlrtMCI);
           emlrt_synchGlobalsFromML();
-          emlrtPopRtStackR2012b(&jh_emlrtRSI, emlrtRootTLSGlobal);
+          emlrtPopRtStackR2012b(&lh_emlrtRSI, emlrtRootTLSGlobal);
         }
       }
 
-      emlrtPopRtStackR2012b(&ih_emlrtRSI, emlrtRootTLSGlobal);
+      emlrtPopRtStackR2012b(&kh_emlrtRSI, emlrtRootTLSGlobal);
       emxInit_real_T(&Kk, 2, &j_emlrtRTEI, TRUE);
       emxInit_real_T(&r5, 2, &emlrtRTEI, TRUE);
       if ((Pxkyk->size[1] == 1) || (b->size[0] == 1)) {
@@ -2483,8 +2598,8 @@ void ukf_update_unknown_state(const real_T xk_data[200], const int32_T xk_size[1
           r5->data[i0] = 0.0;
         }
 
-        emlrtPushRtStackR2012b(&hh_emlrtRSI, emlrtRootTLSGlobal);
-        emlrtPushRtStackR2012b(&lh_emlrtRSI, emlrtRootTLSGlobal);
+        emlrtPushRtStackR2012b(&jh_emlrtRSI, emlrtRootTLSGlobal);
+        emlrtPushRtStackR2012b(&nh_emlrtRSI, emlrtRootTLSGlobal);
         i0 = Kk->size[0] * Kk->size[1];
         Kk->size[0] = (int32_T)kd;
         emxEnsureCapacity((emxArray__common *)Kk, i0, (int32_T)sizeof(real_T),
@@ -2500,77 +2615,77 @@ void ukf_update_unknown_state(const real_T xk_data[200], const int32_T xk_size[1
 
         if ((Pxkyk->size[0] < 1) || (b->size[1] < 1) || (Pxkyk->size[1] < 1)) {
         } else {
-          emlrtPushRtStackR2012b(&nh_emlrtRSI, emlrtRootTLSGlobal);
+          emlrtPushRtStackR2012b(&ph_emlrtRSI, emlrtRootTLSGlobal);
           gamm = 1.0;
           b_ndbl = 0.0;
           TRANSB = 'N';
           TRANSA = 'N';
-          emlrtPushRtStackR2012b(&th_emlrtRSI, emlrtRootTLSGlobal);
-          emlrtPushRtStackR2012b(&pc_emlrtRSI, emlrtRootTLSGlobal);
+          emlrtPushRtStackR2012b(&vh_emlrtRSI, emlrtRootTLSGlobal);
+          emlrtPushRtStackR2012b(&rc_emlrtRSI, emlrtRootTLSGlobal);
           emlrt_checkEscapedGlobals();
           m_t = (ptrdiff_t)(Pxkyk->size[0]);
-          emlrtPopRtStackR2012b(&pc_emlrtRSI, emlrtRootTLSGlobal);
-          emlrtPopRtStackR2012b(&th_emlrtRSI, emlrtRootTLSGlobal);
-          emlrtPushRtStackR2012b(&uh_emlrtRSI, emlrtRootTLSGlobal);
-          emlrtPushRtStackR2012b(&pc_emlrtRSI, emlrtRootTLSGlobal);
-          emlrt_checkEscapedGlobals();
-          n_t = (ptrdiff_t)(b->size[1]);
-          emlrtPopRtStackR2012b(&pc_emlrtRSI, emlrtRootTLSGlobal);
-          emlrtPopRtStackR2012b(&uh_emlrtRSI, emlrtRootTLSGlobal);
-          emlrtPushRtStackR2012b(&vh_emlrtRSI, emlrtRootTLSGlobal);
-          emlrtPushRtStackR2012b(&pc_emlrtRSI, emlrtRootTLSGlobal);
-          emlrt_checkEscapedGlobals();
-          k_t = (ptrdiff_t)(Pxkyk->size[1]);
-          emlrtPopRtStackR2012b(&pc_emlrtRSI, emlrtRootTLSGlobal);
+          emlrtPopRtStackR2012b(&rc_emlrtRSI, emlrtRootTLSGlobal);
           emlrtPopRtStackR2012b(&vh_emlrtRSI, emlrtRootTLSGlobal);
           emlrtPushRtStackR2012b(&wh_emlrtRSI, emlrtRootTLSGlobal);
-          emlrtPushRtStackR2012b(&pc_emlrtRSI, emlrtRootTLSGlobal);
+          emlrtPushRtStackR2012b(&rc_emlrtRSI, emlrtRootTLSGlobal);
           emlrt_checkEscapedGlobals();
-          lda_t = (ptrdiff_t)(Pxkyk->size[0]);
-          emlrtPopRtStackR2012b(&pc_emlrtRSI, emlrtRootTLSGlobal);
+          n_t = (ptrdiff_t)(b->size[1]);
+          emlrtPopRtStackR2012b(&rc_emlrtRSI, emlrtRootTLSGlobal);
           emlrtPopRtStackR2012b(&wh_emlrtRSI, emlrtRootTLSGlobal);
           emlrtPushRtStackR2012b(&xh_emlrtRSI, emlrtRootTLSGlobal);
-          emlrtPushRtStackR2012b(&pc_emlrtRSI, emlrtRootTLSGlobal);
+          emlrtPushRtStackR2012b(&rc_emlrtRSI, emlrtRootTLSGlobal);
           emlrt_checkEscapedGlobals();
-          ldb_t = (ptrdiff_t)(Pxkyk->size[1]);
-          emlrtPopRtStackR2012b(&pc_emlrtRSI, emlrtRootTLSGlobal);
+          k_t = (ptrdiff_t)(Pxkyk->size[1]);
+          emlrtPopRtStackR2012b(&rc_emlrtRSI, emlrtRootTLSGlobal);
           emlrtPopRtStackR2012b(&xh_emlrtRSI, emlrtRootTLSGlobal);
           emlrtPushRtStackR2012b(&yh_emlrtRSI, emlrtRootTLSGlobal);
-          emlrtPushRtStackR2012b(&pc_emlrtRSI, emlrtRootTLSGlobal);
+          emlrtPushRtStackR2012b(&rc_emlrtRSI, emlrtRootTLSGlobal);
           emlrt_checkEscapedGlobals();
-          ldc_t = (ptrdiff_t)(Pxkyk->size[0]);
-          emlrtPopRtStackR2012b(&pc_emlrtRSI, emlrtRootTLSGlobal);
+          lda_t = (ptrdiff_t)(Pxkyk->size[0]);
+          emlrtPopRtStackR2012b(&rc_emlrtRSI, emlrtRootTLSGlobal);
           emlrtPopRtStackR2012b(&yh_emlrtRSI, emlrtRootTLSGlobal);
           emlrtPushRtStackR2012b(&ai_emlrtRSI, emlrtRootTLSGlobal);
+          emlrtPushRtStackR2012b(&rc_emlrtRSI, emlrtRootTLSGlobal);
           emlrt_checkEscapedGlobals();
-          alpha1_t = (double *)(&gamm);
+          ldb_t = (ptrdiff_t)(Pxkyk->size[1]);
+          emlrtPopRtStackR2012b(&rc_emlrtRSI, emlrtRootTLSGlobal);
           emlrtPopRtStackR2012b(&ai_emlrtRSI, emlrtRootTLSGlobal);
           emlrtPushRtStackR2012b(&bi_emlrtRSI, emlrtRootTLSGlobal);
+          emlrtPushRtStackR2012b(&rc_emlrtRSI, emlrtRootTLSGlobal);
           emlrt_checkEscapedGlobals();
-          Aia0_t = (double *)(&Pxkyk->data[0]);
+          ldc_t = (ptrdiff_t)(Pxkyk->size[0]);
+          emlrtPopRtStackR2012b(&rc_emlrtRSI, emlrtRootTLSGlobal);
           emlrtPopRtStackR2012b(&bi_emlrtRSI, emlrtRootTLSGlobal);
           emlrtPushRtStackR2012b(&ci_emlrtRSI, emlrtRootTLSGlobal);
           emlrt_checkEscapedGlobals();
-          Bib0_t = (double *)(&b->data[0]);
+          alpha1_t = (double *)(&gamm);
           emlrtPopRtStackR2012b(&ci_emlrtRSI, emlrtRootTLSGlobal);
           emlrtPushRtStackR2012b(&di_emlrtRSI, emlrtRootTLSGlobal);
           emlrt_checkEscapedGlobals();
-          beta1_t = (double *)(&b_ndbl);
+          Aia0_t = (double *)(&Pxkyk->data[0]);
           emlrtPopRtStackR2012b(&di_emlrtRSI, emlrtRootTLSGlobal);
           emlrtPushRtStackR2012b(&ei_emlrtRSI, emlrtRootTLSGlobal);
           emlrt_checkEscapedGlobals();
-          Cic0_t = (double *)(&Kk->data[0]);
+          Bib0_t = (double *)(&b->data[0]);
           emlrtPopRtStackR2012b(&ei_emlrtRSI, emlrtRootTLSGlobal);
           emlrtPushRtStackR2012b(&fi_emlrtRSI, emlrtRootTLSGlobal);
           emlrt_checkEscapedGlobals();
+          beta1_t = (double *)(&b_ndbl);
+          emlrtPopRtStackR2012b(&fi_emlrtRSI, emlrtRootTLSGlobal);
+          emlrtPushRtStackR2012b(&gi_emlrtRSI, emlrtRootTLSGlobal);
+          emlrt_checkEscapedGlobals();
+          Cic0_t = (double *)(&Kk->data[0]);
+          emlrtPopRtStackR2012b(&gi_emlrtRSI, emlrtRootTLSGlobal);
+          emlrtPushRtStackR2012b(&hi_emlrtRSI, emlrtRootTLSGlobal);
+          emlrt_checkEscapedGlobals();
           dgemm(&TRANSA, &TRANSB, &m_t, &n_t, &k_t, alpha1_t, Aia0_t, &lda_t,
                 Bib0_t, &ldb_t, beta1_t, Cic0_t, &ldc_t);
-          emlrtPopRtStackR2012b(&fi_emlrtRSI, emlrtRootTLSGlobal);
-          emlrtPopRtStackR2012b(&nh_emlrtRSI, emlrtRootTLSGlobal);
+          emlrtPopRtStackR2012b(&hi_emlrtRSI, emlrtRootTLSGlobal);
+          emlrtPopRtStackR2012b(&ph_emlrtRSI, emlrtRootTLSGlobal);
         }
 
-        emlrtPopRtStackR2012b(&lh_emlrtRSI, emlrtRootTLSGlobal);
-        emlrtPopRtStackR2012b(&hh_emlrtRSI, emlrtRootTLSGlobal);
+        emlrtPopRtStackR2012b(&nh_emlrtRSI, emlrtRootTLSGlobal);
+        emlrtPopRtStackR2012b(&jh_emlrtRSI, emlrtRootTLSGlobal);
       }
 
       emlrtPopRtStackR2012b(&l_emlrtRSI, emlrtRootTLSGlobal);
@@ -2578,9 +2693,9 @@ void ukf_update_unknown_state(const real_T xk_data[200], const int32_T xk_size[1
       /*  handle special cases by examining the input function names */
       /*  minimize angle difference */
       /* minimize diff between bearing/declination angles to agents */
-      emlrtVectorVectorIndexCheckR2012b(yhat->size[0], 1, 1, 4, &db_emlrtECI,
+      emlrtVectorVectorIndexCheckR2012b(yhat->size[0], 1, 1, 4, &jb_emlrtECI,
         emlrtRootTLSGlobal);
-      emlrtVectorVectorIndexCheckR2012b(ytilde_size[0], 1, 1, 4, &cb_emlrtECI,
+      emlrtVectorVectorIndexCheckR2012b(ytilde_size[0], 1, 1, 4, &ib_emlrtECI,
         emlrtRootTLSGlobal);
       emlrtPushRtStackR2012b(&m_emlrtRSI, emlrtRootTLSGlobal);
       for (i0 = 0; i0 < 4; i0++) {
@@ -2607,9 +2722,9 @@ void ukf_update_unknown_state(const real_T xk_data[200], const int32_T xk_size[1
       emlrtPopRtStackR2012b(&m_emlrtRSI, emlrtRootTLSGlobal);
 
       /*  normalize magnetometer */
-      emlrtVectorVectorIndexCheckR2012b(yhat->size[0], 1, 1, 3, &bb_emlrtECI,
+      emlrtVectorVectorIndexCheckR2012b(yhat->size[0], 1, 1, 3, &hb_emlrtECI,
         emlrtRootTLSGlobal);
-      emlrtVectorVectorIndexCheckR2012b(yhat->size[0], 1, 1, 3, &ab_emlrtECI,
+      emlrtVectorVectorIndexCheckR2012b(yhat->size[0], 1, 1, 3, &gb_emlrtECI,
         emlrtRootTLSGlobal);
       for (i0 = 0; i0 < 3; i0++) {
         apnd = yhat->size[0];
@@ -2636,38 +2751,39 @@ void ukf_update_unknown_state(const real_T xk_data[200], const int32_T xk_size[1
       /*  minimize diff between bearing/declination to features */
       emlrtDynamicBoundsCheckFastR2012b(10, 1, uk_size[0], &b_emlrtBCI,
         emlrtRootTLSGlobal);
-      g_y = 3.0 * uk_data[9];
-      y = (10.0 + 3.0 * uk_data[9]) + 1.0;
-      i0 = (int32_T)emlrtIntegerCheckFastR2012b(y, &emlrtDCI, emlrtRootTLSGlobal);
+      i_y = 3.0 * uk_data[9];
+      b_y = (10.0 + 3.0 * uk_data[9]) + 1.0;
+      i0 = (int32_T)emlrtIntegerCheckFastR2012b(b_y, &emlrtDCI,
+        emlrtRootTLSGlobal);
       emlrtDynamicBoundsCheckFastR2012b(i0, 1, uk_size[0], &emlrtBCI,
         emlrtRootTLSGlobal);
       emlrtPushRtStackR2012b(&n_emlrtRSI, emlrtRootTLSGlobal);
-      k_y = 3.0 * uk_data[9];
-      emlrtPushRtStackR2012b(&y_emlrtRSI, emlrtRootTLSGlobal);
-      if (muDoubleScalarIsNaN(k_y)) {
+      m_y = 3.0 * uk_data[9];
+      emlrtPushRtStackR2012b(&bb_emlrtRSI, emlrtRootTLSGlobal);
+      if (muDoubleScalarIsNaN(m_y)) {
         cdiff = 0;
         gamm = rtNaN;
         n_too_large = FALSE;
-      } else if (k_y < 2.0) {
+      } else if (m_y < 2.0) {
         cdiff = -1;
         gamm = 2.0;
         n_too_large = FALSE;
-      } else if (muDoubleScalarIsInf(k_y)) {
+      } else if (muDoubleScalarIsInf(m_y)) {
         cdiff = 0;
         gamm = rtNaN;
-        n_too_large = !(2.0 == k_y);
+        n_too_large = !(2.0 == m_y);
       } else {
         gamm = 2.0;
-        b_ndbl = muDoubleScalarFloor((k_y - 2.0) / 3.0 + 0.5);
-        l_y = b_ndbl * 3.0;
-        lambda = (2.0 + l_y) - k_y;
-        if (muDoubleScalarAbs(lambda) < 4.4408920985006262E-16 * k_y) {
+        b_ndbl = muDoubleScalarFloor((m_y - 2.0) / 3.0 + 0.5);
+        n_y = b_ndbl * 3.0;
+        lambda = (2.0 + n_y) - m_y;
+        if (muDoubleScalarAbs(lambda) < 4.4408920985006262E-16 * m_y) {
           b_ndbl++;
         } else if (lambda > 0.0) {
-          k_y = 2.0 + (b_ndbl - 1.0) * 3.0;
+          m_y = 2.0 + (b_ndbl - 1.0) * 3.0;
         } else {
           b_ndbl++;
-          k_y = 2.0 + l_y;
+          m_y = 2.0 + n_y;
         }
 
         n_too_large = (2.147483647E+9 < b_ndbl);
@@ -2678,203 +2794,13 @@ void ukf_update_unknown_state(const real_T xk_data[200], const int32_T xk_size[1
         }
       }
 
-      emlrtPushRtStackR2012b(&ab_emlrtRSI, emlrtRootTLSGlobal);
+      emlrtPushRtStackR2012b(&cb_emlrtRSI, emlrtRootTLSGlobal);
       if (!n_too_large) {
       } else {
-        emlrtPushRtStackR2012b(&cb_emlrtRSI, emlrtRootTLSGlobal);
-        emlrt_synchGlobalsToML();
-        m_y = NULL;
-        m0 = mxCreateCharArray(2, iv8);
-        for (ndbl = 0; ndbl < 21; ndbl++) {
-          cv4[ndbl] = cv6[ndbl];
-        }
-
-        emlrtInitCharArrayR2013a(emlrtRootTLSGlobal, 21, m0, cv4);
-        emlrtAssign(&m_y, m0);
-        error(message(m_y, &b_emlrtMCI), &c_emlrtMCI);
-        emlrt_synchGlobalsFromML();
-        emlrtPopRtStackR2012b(&cb_emlrtRSI, emlrtRootTLSGlobal);
-      }
-
-      emxInit_real_T(&r6, 2, &emlrtRTEI, TRUE);
-      emlrtPopRtStackR2012b(&ab_emlrtRSI, emlrtRootTLSGlobal);
-      i0 = r6->size[0] * r6->size[1];
-      r6->size[0] = 1;
-      r6->size[1] = cdiff + 1;
-      emxEnsureCapacity((emxArray__common *)r6, i0, (int32_T)sizeof(real_T),
-                        &b_emlrtRTEI);
-      if (cdiff + 1 > 0) {
-        r6->data[0] = gamm;
-        if (cdiff + 1 > 1) {
-          r6->data[cdiff] = k_y;
-          i0 = cdiff + (cdiff < 0);
-          if (i0 >= 0) {
-            ndbl = (int32_T)((uint32_T)i0 >> 1);
-          } else {
-            ndbl = ~(int32_T)((uint32_T)~i0 >> 1);
-          }
-
-          emlrtPushRtStackR2012b(&bb_emlrtRSI, emlrtRootTLSGlobal);
-          emlrtPopRtStackR2012b(&bb_emlrtRSI, emlrtRootTLSGlobal);
-          for (k = 1; k < ndbl; k++) {
-            kd = k * 3U;
-            r6->data[k] = gamm + (real_T)kd;
-            r6->data[cdiff - k] = k_y - (real_T)kd;
-          }
-
-          if (ndbl << 1 == cdiff) {
-            r6->data[ndbl] = (gamm + k_y) / 2.0;
-          } else {
-            kd = ndbl * 3U;
-            r6->data[ndbl] = gamm + (real_T)kd;
-            r6->data[ndbl + 1] = k_y - (real_T)kd;
-          }
-        }
-      }
-
-      emlrtPopRtStackR2012b(&y_emlrtRSI, emlrtRootTLSGlobal);
-      emlrtPopRtStackR2012b(&n_emlrtRSI, emlrtRootTLSGlobal);
-      emlrtVectorVectorIndexCheckR2012b(yhat->size[0], 1, 1, r6->size[1],
-        &y_emlrtECI, emlrtRootTLSGlobal);
-      emlrtPushRtStackR2012b(&n_emlrtRSI, emlrtRootTLSGlobal);
-      k_y = 3.0 * uk_data[9];
-      emlrtPushRtStackR2012b(&y_emlrtRSI, emlrtRootTLSGlobal);
-      if (muDoubleScalarIsNaN(k_y)) {
-        cdiff = 0;
-        gamm = rtNaN;
-        n_too_large = FALSE;
-      } else if (k_y < 2.0) {
-        cdiff = -1;
-        gamm = 2.0;
-        n_too_large = FALSE;
-      } else if (muDoubleScalarIsInf(k_y)) {
-        cdiff = 0;
-        gamm = rtNaN;
-        n_too_large = !(2.0 == k_y);
-      } else {
-        gamm = 2.0;
-        b_ndbl = muDoubleScalarFloor((k_y - 2.0) / 3.0 + 0.5);
-        l_y = b_ndbl * 3.0;
-        lambda = (2.0 + l_y) - k_y;
-        if (muDoubleScalarAbs(lambda) < 4.4408920985006262E-16 * k_y) {
-          b_ndbl++;
-        } else if (lambda > 0.0) {
-          k_y = 2.0 + (b_ndbl - 1.0) * 3.0;
-        } else {
-          b_ndbl++;
-          k_y = 2.0 + l_y;
-        }
-
-        n_too_large = (2.147483647E+9 < b_ndbl);
-        if (b_ndbl >= 0.0) {
-          cdiff = (int32_T)b_ndbl - 1;
-        } else {
-          cdiff = -1;
-        }
-      }
-
-      emlrtPushRtStackR2012b(&ab_emlrtRSI, emlrtRootTLSGlobal);
-      if (!n_too_large) {
-      } else {
-        emlrtPushRtStackR2012b(&cb_emlrtRSI, emlrtRootTLSGlobal);
-        emlrt_synchGlobalsToML();
-        n_y = NULL;
-        m0 = mxCreateCharArray(2, iv9);
-        for (ndbl = 0; ndbl < 21; ndbl++) {
-          cv4[ndbl] = cv6[ndbl];
-        }
-
-        emlrtInitCharArrayR2013a(emlrtRootTLSGlobal, 21, m0, cv4);
-        emlrtAssign(&n_y, m0);
-        error(message(n_y, &b_emlrtMCI), &c_emlrtMCI);
-        emlrt_synchGlobalsFromML();
-        emlrtPopRtStackR2012b(&cb_emlrtRSI, emlrtRootTLSGlobal);
-      }
-
-      emxInit_real_T(&r7, 2, &emlrtRTEI, TRUE);
-      emlrtPopRtStackR2012b(&ab_emlrtRSI, emlrtRootTLSGlobal);
-      i0 = r7->size[0] * r7->size[1];
-      r7->size[0] = 1;
-      r7->size[1] = cdiff + 1;
-      emxEnsureCapacity((emxArray__common *)r7, i0, (int32_T)sizeof(real_T),
-                        &b_emlrtRTEI);
-      if (cdiff + 1 > 0) {
-        r7->data[0] = gamm;
-        if (cdiff + 1 > 1) {
-          r7->data[cdiff] = k_y;
-          i0 = cdiff + (cdiff < 0);
-          if (i0 >= 0) {
-            ndbl = (int32_T)((uint32_T)i0 >> 1);
-          } else {
-            ndbl = ~(int32_T)((uint32_T)~i0 >> 1);
-          }
-
-          emlrtPushRtStackR2012b(&bb_emlrtRSI, emlrtRootTLSGlobal);
-          emlrtPopRtStackR2012b(&bb_emlrtRSI, emlrtRootTLSGlobal);
-          for (k = 1; k < ndbl; k++) {
-            kd = k * 3U;
-            r7->data[k] = gamm + (real_T)kd;
-            r7->data[cdiff - k] = k_y - (real_T)kd;
-          }
-
-          if (ndbl << 1 == cdiff) {
-            r7->data[ndbl] = (gamm + k_y) / 2.0;
-          } else {
-            kd = ndbl * 3U;
-            r7->data[ndbl] = gamm + (real_T)kd;
-            r7->data[ndbl + 1] = k_y - (real_T)kd;
-          }
-        }
-      }
-
-      emlrtPopRtStackR2012b(&y_emlrtRSI, emlrtRootTLSGlobal);
-      emlrtPopRtStackR2012b(&n_emlrtRSI, emlrtRootTLSGlobal);
-      emlrtVectorVectorIndexCheckR2012b(ytilde_size[0], 1, 1, r7->size[1],
-        &x_emlrtECI, emlrtRootTLSGlobal);
-      emlrtPushRtStackR2012b(&n_emlrtRSI, emlrtRootTLSGlobal);
-      k_y = 3.0 * uk_data[9];
-      emlrtPushRtStackR2012b(&y_emlrtRSI, emlrtRootTLSGlobal);
-      if (muDoubleScalarIsNaN(k_y)) {
-        cdiff = 0;
-        gamm = rtNaN;
-        n_too_large = FALSE;
-      } else if (k_y < 2.0) {
-        cdiff = -1;
-        gamm = 2.0;
-        n_too_large = FALSE;
-      } else if (muDoubleScalarIsInf(k_y)) {
-        cdiff = 0;
-        gamm = rtNaN;
-        n_too_large = !(2.0 == k_y);
-      } else {
-        gamm = 2.0;
-        b_ndbl = muDoubleScalarFloor((k_y - 2.0) / 3.0 + 0.5);
-        l_y = b_ndbl * 3.0;
-        lambda = (2.0 + l_y) - k_y;
-        if (muDoubleScalarAbs(lambda) < 4.4408920985006262E-16 * k_y) {
-          b_ndbl++;
-        } else if (lambda > 0.0) {
-          k_y = 2.0 + (b_ndbl - 1.0) * 3.0;
-        } else {
-          b_ndbl++;
-          k_y = 2.0 + l_y;
-        }
-
-        n_too_large = (2.147483647E+9 < b_ndbl);
-        if (b_ndbl >= 0.0) {
-          cdiff = (int32_T)b_ndbl - 1;
-        } else {
-          cdiff = -1;
-        }
-      }
-
-      emlrtPushRtStackR2012b(&ab_emlrtRSI, emlrtRootTLSGlobal);
-      if (!n_too_large) {
-      } else {
-        emlrtPushRtStackR2012b(&cb_emlrtRSI, emlrtRootTLSGlobal);
+        emlrtPushRtStackR2012b(&eb_emlrtRSI, emlrtRootTLSGlobal);
         emlrt_synchGlobalsToML();
         o_y = NULL;
-        m0 = mxCreateCharArray(2, iv10);
+        m0 = mxCreateCharArray(2, iv8);
         for (ndbl = 0; ndbl < 21; ndbl++) {
           cv4[ndbl] = cv6[ndbl];
         }
@@ -2883,19 +2809,20 @@ void ukf_update_unknown_state(const real_T xk_data[200], const int32_T xk_size[1
         emlrtAssign(&o_y, m0);
         error(message(o_y, &b_emlrtMCI), &c_emlrtMCI);
         emlrt_synchGlobalsFromML();
-        emlrtPopRtStackR2012b(&cb_emlrtRSI, emlrtRootTLSGlobal);
+        emlrtPopRtStackR2012b(&eb_emlrtRSI, emlrtRootTLSGlobal);
       }
 
-      emlrtPopRtStackR2012b(&ab_emlrtRSI, emlrtRootTLSGlobal);
-      i0 = d_y->size[0] * d_y->size[1];
-      d_y->size[0] = 1;
-      d_y->size[1] = cdiff + 1;
-      emxEnsureCapacity((emxArray__common *)d_y, i0, (int32_T)sizeof(real_T),
+      emxInit_real_T(&r6, 2, &emlrtRTEI, TRUE);
+      emlrtPopRtStackR2012b(&cb_emlrtRSI, emlrtRootTLSGlobal);
+      i0 = r6->size[0] * r6->size[1];
+      r6->size[0] = 1;
+      r6->size[1] = cdiff + 1;
+      emxEnsureCapacity((emxArray__common *)r6, i0, (int32_T)sizeof(real_T),
                         &b_emlrtRTEI);
       if (cdiff + 1 > 0) {
-        d_y->data[0] = gamm;
+        r6->data[0] = gamm;
         if (cdiff + 1 > 1) {
-          d_y->data[cdiff] = k_y;
+          r6->data[cdiff] = m_y;
           i0 = cdiff + (cdiff < 0);
           if (i0 >= 0) {
             ndbl = (int32_T)((uint32_T)i0 >> 1);
@@ -2903,36 +2830,225 @@ void ukf_update_unknown_state(const real_T xk_data[200], const int32_T xk_size[1
             ndbl = ~(int32_T)((uint32_T)~i0 >> 1);
           }
 
-          emlrtPushRtStackR2012b(&bb_emlrtRSI, emlrtRootTLSGlobal);
-          emlrtPopRtStackR2012b(&bb_emlrtRSI, emlrtRootTLSGlobal);
+          emlrtPushRtStackR2012b(&db_emlrtRSI, emlrtRootTLSGlobal);
+          emlrtPopRtStackR2012b(&db_emlrtRSI, emlrtRootTLSGlobal);
           for (k = 1; k < ndbl; k++) {
             kd = k * 3U;
-            d_y->data[k] = gamm + (real_T)kd;
-            d_y->data[cdiff - k] = k_y - (real_T)kd;
+            r6->data[k] = gamm + (real_T)kd;
+            r6->data[cdiff - k] = m_y - (real_T)kd;
           }
 
           if (ndbl << 1 == cdiff) {
-            d_y->data[ndbl] = (gamm + k_y) / 2.0;
+            r6->data[ndbl] = (gamm + m_y) / 2.0;
           } else {
             kd = ndbl * 3U;
-            d_y->data[ndbl] = gamm + (real_T)kd;
-            d_y->data[ndbl + 1] = k_y - (real_T)kd;
+            r6->data[ndbl] = gamm + (real_T)kd;
+            r6->data[ndbl + 1] = m_y - (real_T)kd;
+          }
+        }
+      }
+
+      emlrtPopRtStackR2012b(&bb_emlrtRSI, emlrtRootTLSGlobal);
+      emlrtPopRtStackR2012b(&n_emlrtRSI, emlrtRootTLSGlobal);
+      emlrtVectorVectorIndexCheckR2012b(yhat->size[0], 1, 1, r6->size[1],
+        &fb_emlrtECI, emlrtRootTLSGlobal);
+      emlrtPushRtStackR2012b(&n_emlrtRSI, emlrtRootTLSGlobal);
+      m_y = 3.0 * uk_data[9];
+      emlrtPushRtStackR2012b(&bb_emlrtRSI, emlrtRootTLSGlobal);
+      if (muDoubleScalarIsNaN(m_y)) {
+        cdiff = 0;
+        gamm = rtNaN;
+        n_too_large = FALSE;
+      } else if (m_y < 2.0) {
+        cdiff = -1;
+        gamm = 2.0;
+        n_too_large = FALSE;
+      } else if (muDoubleScalarIsInf(m_y)) {
+        cdiff = 0;
+        gamm = rtNaN;
+        n_too_large = !(2.0 == m_y);
+      } else {
+        gamm = 2.0;
+        b_ndbl = muDoubleScalarFloor((m_y - 2.0) / 3.0 + 0.5);
+        n_y = b_ndbl * 3.0;
+        lambda = (2.0 + n_y) - m_y;
+        if (muDoubleScalarAbs(lambda) < 4.4408920985006262E-16 * m_y) {
+          b_ndbl++;
+        } else if (lambda > 0.0) {
+          m_y = 2.0 + (b_ndbl - 1.0) * 3.0;
+        } else {
+          b_ndbl++;
+          m_y = 2.0 + n_y;
+        }
+
+        n_too_large = (2.147483647E+9 < b_ndbl);
+        if (b_ndbl >= 0.0) {
+          cdiff = (int32_T)b_ndbl - 1;
+        } else {
+          cdiff = -1;
+        }
+      }
+
+      emlrtPushRtStackR2012b(&cb_emlrtRSI, emlrtRootTLSGlobal);
+      if (!n_too_large) {
+      } else {
+        emlrtPushRtStackR2012b(&eb_emlrtRSI, emlrtRootTLSGlobal);
+        emlrt_synchGlobalsToML();
+        p_y = NULL;
+        m0 = mxCreateCharArray(2, iv9);
+        for (ndbl = 0; ndbl < 21; ndbl++) {
+          cv4[ndbl] = cv6[ndbl];
+        }
+
+        emlrtInitCharArrayR2013a(emlrtRootTLSGlobal, 21, m0, cv4);
+        emlrtAssign(&p_y, m0);
+        error(message(p_y, &b_emlrtMCI), &c_emlrtMCI);
+        emlrt_synchGlobalsFromML();
+        emlrtPopRtStackR2012b(&eb_emlrtRSI, emlrtRootTLSGlobal);
+      }
+
+      emxInit_real_T(&r7, 2, &emlrtRTEI, TRUE);
+      emlrtPopRtStackR2012b(&cb_emlrtRSI, emlrtRootTLSGlobal);
+      i0 = r7->size[0] * r7->size[1];
+      r7->size[0] = 1;
+      r7->size[1] = cdiff + 1;
+      emxEnsureCapacity((emxArray__common *)r7, i0, (int32_T)sizeof(real_T),
+                        &b_emlrtRTEI);
+      if (cdiff + 1 > 0) {
+        r7->data[0] = gamm;
+        if (cdiff + 1 > 1) {
+          r7->data[cdiff] = m_y;
+          i0 = cdiff + (cdiff < 0);
+          if (i0 >= 0) {
+            ndbl = (int32_T)((uint32_T)i0 >> 1);
+          } else {
+            ndbl = ~(int32_T)((uint32_T)~i0 >> 1);
+          }
+
+          emlrtPushRtStackR2012b(&db_emlrtRSI, emlrtRootTLSGlobal);
+          emlrtPopRtStackR2012b(&db_emlrtRSI, emlrtRootTLSGlobal);
+          for (k = 1; k < ndbl; k++) {
+            kd = k * 3U;
+            r7->data[k] = gamm + (real_T)kd;
+            r7->data[cdiff - k] = m_y - (real_T)kd;
+          }
+
+          if (ndbl << 1 == cdiff) {
+            r7->data[ndbl] = (gamm + m_y) / 2.0;
+          } else {
+            kd = ndbl * 3U;
+            r7->data[ndbl] = gamm + (real_T)kd;
+            r7->data[ndbl + 1] = m_y - (real_T)kd;
+          }
+        }
+      }
+
+      emlrtPopRtStackR2012b(&bb_emlrtRSI, emlrtRootTLSGlobal);
+      emlrtPopRtStackR2012b(&n_emlrtRSI, emlrtRootTLSGlobal);
+      emlrtVectorVectorIndexCheckR2012b(ytilde_size[0], 1, 1, r7->size[1],
+        &eb_emlrtECI, emlrtRootTLSGlobal);
+      emlrtPushRtStackR2012b(&n_emlrtRSI, emlrtRootTLSGlobal);
+      m_y = 3.0 * uk_data[9];
+      emlrtPushRtStackR2012b(&bb_emlrtRSI, emlrtRootTLSGlobal);
+      if (muDoubleScalarIsNaN(m_y)) {
+        cdiff = 0;
+        gamm = rtNaN;
+        n_too_large = FALSE;
+      } else if (m_y < 2.0) {
+        cdiff = -1;
+        gamm = 2.0;
+        n_too_large = FALSE;
+      } else if (muDoubleScalarIsInf(m_y)) {
+        cdiff = 0;
+        gamm = rtNaN;
+        n_too_large = !(2.0 == m_y);
+      } else {
+        gamm = 2.0;
+        b_ndbl = muDoubleScalarFloor((m_y - 2.0) / 3.0 + 0.5);
+        n_y = b_ndbl * 3.0;
+        lambda = (2.0 + n_y) - m_y;
+        if (muDoubleScalarAbs(lambda) < 4.4408920985006262E-16 * m_y) {
+          b_ndbl++;
+        } else if (lambda > 0.0) {
+          m_y = 2.0 + (b_ndbl - 1.0) * 3.0;
+        } else {
+          b_ndbl++;
+          m_y = 2.0 + n_y;
+        }
+
+        n_too_large = (2.147483647E+9 < b_ndbl);
+        if (b_ndbl >= 0.0) {
+          cdiff = (int32_T)b_ndbl - 1;
+        } else {
+          cdiff = -1;
+        }
+      }
+
+      emlrtPushRtStackR2012b(&cb_emlrtRSI, emlrtRootTLSGlobal);
+      if (!n_too_large) {
+      } else {
+        emlrtPushRtStackR2012b(&eb_emlrtRSI, emlrtRootTLSGlobal);
+        emlrt_synchGlobalsToML();
+        q_y = NULL;
+        m0 = mxCreateCharArray(2, iv10);
+        for (ndbl = 0; ndbl < 21; ndbl++) {
+          cv4[ndbl] = cv6[ndbl];
+        }
+
+        emlrtInitCharArrayR2013a(emlrtRootTLSGlobal, 21, m0, cv4);
+        emlrtAssign(&q_y, m0);
+        error(message(q_y, &b_emlrtMCI), &c_emlrtMCI);
+        emlrt_synchGlobalsFromML();
+        emlrtPopRtStackR2012b(&eb_emlrtRSI, emlrtRootTLSGlobal);
+      }
+
+      emlrtPopRtStackR2012b(&cb_emlrtRSI, emlrtRootTLSGlobal);
+      i0 = f_y->size[0] * f_y->size[1];
+      f_y->size[0] = 1;
+      f_y->size[1] = cdiff + 1;
+      emxEnsureCapacity((emxArray__common *)f_y, i0, (int32_T)sizeof(real_T),
+                        &b_emlrtRTEI);
+      if (cdiff + 1 > 0) {
+        f_y->data[0] = gamm;
+        if (cdiff + 1 > 1) {
+          f_y->data[cdiff] = m_y;
+          i0 = cdiff + (cdiff < 0);
+          if (i0 >= 0) {
+            ndbl = (int32_T)((uint32_T)i0 >> 1);
+          } else {
+            ndbl = ~(int32_T)((uint32_T)~i0 >> 1);
+          }
+
+          emlrtPushRtStackR2012b(&db_emlrtRSI, emlrtRootTLSGlobal);
+          emlrtPopRtStackR2012b(&db_emlrtRSI, emlrtRootTLSGlobal);
+          for (k = 1; k < ndbl; k++) {
+            kd = k * 3U;
+            f_y->data[k] = gamm + (real_T)kd;
+            f_y->data[cdiff - k] = m_y - (real_T)kd;
+          }
+
+          if (ndbl << 1 == cdiff) {
+            f_y->data[ndbl] = (gamm + m_y) / 2.0;
+          } else {
+            kd = ndbl * 3U;
+            f_y->data[ndbl] = gamm + (real_T)kd;
+            f_y->data[ndbl + 1] = m_y - (real_T)kd;
           }
         }
       }
 
       emxInit_int32_T(&r8, 2, &emlrtRTEI, TRUE);
-      emlrtPopRtStackR2012b(&y_emlrtRSI, emlrtRootTLSGlobal);
+      emlrtPopRtStackR2012b(&bb_emlrtRSI, emlrtRootTLSGlobal);
       i0 = r8->size[0] * r8->size[1];
       r8->size[0] = 1;
-      r8->size[1] = d_y->size[1];
+      r8->size[1] = f_y->size[1];
       emxEnsureCapacity((emxArray__common *)r8, i0, (int32_T)sizeof(int32_T),
                         &emlrtRTEI);
-      loop_ub = d_y->size[0] * d_y->size[1];
+      loop_ub = f_y->size[0] * f_y->size[1];
       for (i0 = 0; i0 < loop_ub; i0++) {
         apnd = yhat->size[0];
-        y = d_y->data[i0] + 9.0;
-        absb = (int32_T)emlrtIntegerCheckFastR2012b(y, &k_emlrtDCI,
+        b_y = f_y->data[i0] + 9.0;
+        absb = (int32_T)emlrtIntegerCheckFastR2012b(b_y, &k_emlrtDCI,
           emlrtRootTLSGlobal);
         r8->data[i0] = emlrtDynamicBoundsCheckFastR2012b(absb, 1, apnd,
           &ub_emlrtBCI, emlrtRootTLSGlobal);
@@ -2949,8 +3065,8 @@ void ukf_update_unknown_state(const real_T xk_data[200], const int32_T xk_size[1
       loop_ub = r6->size[0] * r6->size[1];
       for (i0 = 0; i0 < loop_ub; i0++) {
         apnd = yhat->size[0];
-        y = r6->data[i0] + 9.0;
-        absb = (int32_T)emlrtIntegerCheckFastR2012b(y, &l_emlrtDCI,
+        b_y = r6->data[i0] + 9.0;
+        absb = (int32_T)emlrtIntegerCheckFastR2012b(b_y, &l_emlrtDCI,
           emlrtRootTLSGlobal);
         r9->data[i0] = emlrtDynamicBoundsCheckFastR2012b(absb, 1, apnd,
           &vb_emlrtBCI, emlrtRootTLSGlobal);
@@ -2975,8 +3091,8 @@ void ukf_update_unknown_state(const real_T xk_data[200], const int32_T xk_size[1
                         &emlrtRTEI);
       loop_ub = r7->size[0] * r7->size[1];
       for (i0 = 0; i0 < loop_ub; i0++) {
-        y = r7->data[i0] + 9.0;
-        apnd = (int32_T)emlrtIntegerCheckFastR2012b(y, &m_emlrtDCI,
+        b_y = r7->data[i0] + 9.0;
+        apnd = (int32_T)emlrtIntegerCheckFastR2012b(b_y, &m_emlrtDCI,
           emlrtRootTLSGlobal);
         r10->data[i0] = emlrtDynamicBoundsCheckFastR2012b(apnd, 1, ytilde_size[0],
           &wb_emlrtBCI, emlrtRootTLSGlobal);
@@ -2996,7 +3112,7 @@ void ukf_update_unknown_state(const real_T xk_data[200], const int32_T xk_size[1
       emlrtPopRtStackR2012b(&n_emlrtRSI, emlrtRootTLSGlobal);
       i0 = r8->size[1];
       apnd = r2->size[0];
-      emlrtSizeEqCheck1DFastR2012b(i0, apnd, &w_emlrtECI, emlrtRootTLSGlobal);
+      emlrtSizeEqCheck1DFastR2012b(i0, apnd, &db_emlrtECI, emlrtRootTLSGlobal);
       loop_ub = r8->size[0] * r8->size[1];
       emxFree_real_T(&b_ytilde);
       for (i0 = 0; i0 < loop_ub; i0++) {
@@ -3004,32 +3120,32 @@ void ukf_update_unknown_state(const real_T xk_data[200], const int32_T xk_size[1
       }
 
       emlrtPushRtStackR2012b(&o_emlrtRSI, emlrtRootTLSGlobal);
-      k_y = 3.0 * uk_data[9];
-      emlrtPushRtStackR2012b(&y_emlrtRSI, emlrtRootTLSGlobal);
-      if (muDoubleScalarIsNaN(k_y)) {
+      m_y = 3.0 * uk_data[9];
+      emlrtPushRtStackR2012b(&bb_emlrtRSI, emlrtRootTLSGlobal);
+      if (muDoubleScalarIsNaN(m_y)) {
         cdiff = 0;
         gamm = rtNaN;
         n_too_large = FALSE;
-      } else if (k_y < 3.0) {
+      } else if (m_y < 3.0) {
         cdiff = -1;
         gamm = 3.0;
         n_too_large = FALSE;
-      } else if (muDoubleScalarIsInf(k_y)) {
+      } else if (muDoubleScalarIsInf(m_y)) {
         cdiff = 0;
         gamm = rtNaN;
-        n_too_large = !(3.0 == k_y);
+        n_too_large = !(3.0 == m_y);
       } else {
         gamm = 3.0;
-        b_ndbl = muDoubleScalarFloor((k_y - 3.0) / 3.0 + 0.5);
-        l_y = b_ndbl * 3.0;
-        lambda = (3.0 + l_y) - k_y;
-        if (muDoubleScalarAbs(lambda) < 4.4408920985006262E-16 * k_y) {
+        b_ndbl = muDoubleScalarFloor((m_y - 3.0) / 3.0 + 0.5);
+        n_y = b_ndbl * 3.0;
+        lambda = (3.0 + n_y) - m_y;
+        if (muDoubleScalarAbs(lambda) < 4.4408920985006262E-16 * m_y) {
           b_ndbl++;
         } else if (lambda > 0.0) {
-          k_y = 3.0 + (b_ndbl - 1.0) * 3.0;
+          m_y = 3.0 + (b_ndbl - 1.0) * 3.0;
         } else {
           b_ndbl++;
-          k_y = 3.0 + l_y;
+          m_y = 3.0 + n_y;
         }
 
         n_too_large = (2.147483647E+9 < b_ndbl);
@@ -3040,201 +3156,13 @@ void ukf_update_unknown_state(const real_T xk_data[200], const int32_T xk_size[1
         }
       }
 
-      emlrtPushRtStackR2012b(&ab_emlrtRSI, emlrtRootTLSGlobal);
+      emlrtPushRtStackR2012b(&cb_emlrtRSI, emlrtRootTLSGlobal);
       if (!n_too_large) {
       } else {
-        emlrtPushRtStackR2012b(&cb_emlrtRSI, emlrtRootTLSGlobal);
-        emlrt_synchGlobalsToML();
-        p_y = NULL;
-        m0 = mxCreateCharArray(2, iv11);
-        for (ndbl = 0; ndbl < 21; ndbl++) {
-          cv4[ndbl] = cv6[ndbl];
-        }
-
-        emlrtInitCharArrayR2013a(emlrtRootTLSGlobal, 21, m0, cv4);
-        emlrtAssign(&p_y, m0);
-        error(message(p_y, &b_emlrtMCI), &c_emlrtMCI);
-        emlrt_synchGlobalsFromML();
-        emlrtPopRtStackR2012b(&cb_emlrtRSI, emlrtRootTLSGlobal);
-      }
-
-      emlrtPopRtStackR2012b(&ab_emlrtRSI, emlrtRootTLSGlobal);
-      i0 = r6->size[0] * r6->size[1];
-      r6->size[0] = 1;
-      r6->size[1] = cdiff + 1;
-      emxEnsureCapacity((emxArray__common *)r6, i0, (int32_T)sizeof(real_T),
-                        &b_emlrtRTEI);
-      if (cdiff + 1 > 0) {
-        r6->data[0] = gamm;
-        if (cdiff + 1 > 1) {
-          r6->data[cdiff] = k_y;
-          i0 = cdiff + (cdiff < 0);
-          if (i0 >= 0) {
-            ndbl = (int32_T)((uint32_T)i0 >> 1);
-          } else {
-            ndbl = ~(int32_T)((uint32_T)~i0 >> 1);
-          }
-
-          emlrtPushRtStackR2012b(&bb_emlrtRSI, emlrtRootTLSGlobal);
-          emlrtPopRtStackR2012b(&bb_emlrtRSI, emlrtRootTLSGlobal);
-          for (k = 1; k < ndbl; k++) {
-            kd = k * 3U;
-            r6->data[k] = gamm + (real_T)kd;
-            r6->data[cdiff - k] = k_y - (real_T)kd;
-          }
-
-          if (ndbl << 1 == cdiff) {
-            r6->data[ndbl] = (gamm + k_y) / 2.0;
-          } else {
-            kd = ndbl * 3U;
-            r6->data[ndbl] = gamm + (real_T)kd;
-            r6->data[ndbl + 1] = k_y - (real_T)kd;
-          }
-        }
-      }
-
-      emlrtPopRtStackR2012b(&y_emlrtRSI, emlrtRootTLSGlobal);
-      emlrtPopRtStackR2012b(&o_emlrtRSI, emlrtRootTLSGlobal);
-      emlrtVectorVectorIndexCheckR2012b(yhat->size[0], 1, 1, r6->size[1],
-        &v_emlrtECI, emlrtRootTLSGlobal);
-      emlrtPushRtStackR2012b(&o_emlrtRSI, emlrtRootTLSGlobal);
-      k_y = 3.0 * uk_data[9];
-      emlrtPushRtStackR2012b(&y_emlrtRSI, emlrtRootTLSGlobal);
-      if (muDoubleScalarIsNaN(k_y)) {
-        cdiff = 0;
-        gamm = rtNaN;
-        n_too_large = FALSE;
-      } else if (k_y < 3.0) {
-        cdiff = -1;
-        gamm = 3.0;
-        n_too_large = FALSE;
-      } else if (muDoubleScalarIsInf(k_y)) {
-        cdiff = 0;
-        gamm = rtNaN;
-        n_too_large = !(3.0 == k_y);
-      } else {
-        gamm = 3.0;
-        b_ndbl = muDoubleScalarFloor((k_y - 3.0) / 3.0 + 0.5);
-        l_y = b_ndbl * 3.0;
-        lambda = (3.0 + l_y) - k_y;
-        if (muDoubleScalarAbs(lambda) < 4.4408920985006262E-16 * k_y) {
-          b_ndbl++;
-        } else if (lambda > 0.0) {
-          k_y = 3.0 + (b_ndbl - 1.0) * 3.0;
-        } else {
-          b_ndbl++;
-          k_y = 3.0 + l_y;
-        }
-
-        n_too_large = (2.147483647E+9 < b_ndbl);
-        if (b_ndbl >= 0.0) {
-          cdiff = (int32_T)b_ndbl - 1;
-        } else {
-          cdiff = -1;
-        }
-      }
-
-      emlrtPushRtStackR2012b(&ab_emlrtRSI, emlrtRootTLSGlobal);
-      if (!n_too_large) {
-      } else {
-        emlrtPushRtStackR2012b(&cb_emlrtRSI, emlrtRootTLSGlobal);
-        emlrt_synchGlobalsToML();
-        q_y = NULL;
-        m0 = mxCreateCharArray(2, iv12);
-        for (ndbl = 0; ndbl < 21; ndbl++) {
-          cv4[ndbl] = cv6[ndbl];
-        }
-
-        emlrtInitCharArrayR2013a(emlrtRootTLSGlobal, 21, m0, cv4);
-        emlrtAssign(&q_y, m0);
-        error(message(q_y, &b_emlrtMCI), &c_emlrtMCI);
-        emlrt_synchGlobalsFromML();
-        emlrtPopRtStackR2012b(&cb_emlrtRSI, emlrtRootTLSGlobal);
-      }
-
-      emlrtPopRtStackR2012b(&ab_emlrtRSI, emlrtRootTLSGlobal);
-      i0 = r7->size[0] * r7->size[1];
-      r7->size[0] = 1;
-      r7->size[1] = cdiff + 1;
-      emxEnsureCapacity((emxArray__common *)r7, i0, (int32_T)sizeof(real_T),
-                        &b_emlrtRTEI);
-      if (cdiff + 1 > 0) {
-        r7->data[0] = gamm;
-        if (cdiff + 1 > 1) {
-          r7->data[cdiff] = k_y;
-          i0 = cdiff + (cdiff < 0);
-          if (i0 >= 0) {
-            ndbl = (int32_T)((uint32_T)i0 >> 1);
-          } else {
-            ndbl = ~(int32_T)((uint32_T)~i0 >> 1);
-          }
-
-          emlrtPushRtStackR2012b(&bb_emlrtRSI, emlrtRootTLSGlobal);
-          emlrtPopRtStackR2012b(&bb_emlrtRSI, emlrtRootTLSGlobal);
-          for (k = 1; k < ndbl; k++) {
-            kd = k * 3U;
-            r7->data[k] = gamm + (real_T)kd;
-            r7->data[cdiff - k] = k_y - (real_T)kd;
-          }
-
-          if (ndbl << 1 == cdiff) {
-            r7->data[ndbl] = (gamm + k_y) / 2.0;
-          } else {
-            kd = ndbl * 3U;
-            r7->data[ndbl] = gamm + (real_T)kd;
-            r7->data[ndbl + 1] = k_y - (real_T)kd;
-          }
-        }
-      }
-
-      emlrtPopRtStackR2012b(&y_emlrtRSI, emlrtRootTLSGlobal);
-      emlrtPopRtStackR2012b(&o_emlrtRSI, emlrtRootTLSGlobal);
-      emlrtVectorVectorIndexCheckR2012b(ytilde_size[0], 1, 1, r7->size[1],
-        &u_emlrtECI, emlrtRootTLSGlobal);
-      emlrtPushRtStackR2012b(&o_emlrtRSI, emlrtRootTLSGlobal);
-      k_y = 3.0 * uk_data[9];
-      emlrtPushRtStackR2012b(&y_emlrtRSI, emlrtRootTLSGlobal);
-      if (muDoubleScalarIsNaN(k_y)) {
-        cdiff = 0;
-        gamm = rtNaN;
-        n_too_large = FALSE;
-      } else if (k_y < 3.0) {
-        cdiff = -1;
-        gamm = 3.0;
-        n_too_large = FALSE;
-      } else if (muDoubleScalarIsInf(k_y)) {
-        cdiff = 0;
-        gamm = rtNaN;
-        n_too_large = !(3.0 == k_y);
-      } else {
-        gamm = 3.0;
-        b_ndbl = muDoubleScalarFloor((k_y - 3.0) / 3.0 + 0.5);
-        l_y = b_ndbl * 3.0;
-        lambda = (3.0 + l_y) - k_y;
-        if (muDoubleScalarAbs(lambda) < 4.4408920985006262E-16 * k_y) {
-          b_ndbl++;
-        } else if (lambda > 0.0) {
-          k_y = 3.0 + (b_ndbl - 1.0) * 3.0;
-        } else {
-          b_ndbl++;
-          k_y = 3.0 + l_y;
-        }
-
-        n_too_large = (2.147483647E+9 < b_ndbl);
-        if (b_ndbl >= 0.0) {
-          cdiff = (int32_T)b_ndbl - 1;
-        } else {
-          cdiff = -1;
-        }
-      }
-
-      emlrtPushRtStackR2012b(&ab_emlrtRSI, emlrtRootTLSGlobal);
-      if (!n_too_large) {
-      } else {
-        emlrtPushRtStackR2012b(&cb_emlrtRSI, emlrtRootTLSGlobal);
+        emlrtPushRtStackR2012b(&eb_emlrtRSI, emlrtRootTLSGlobal);
         emlrt_synchGlobalsToML();
         r_y = NULL;
-        m0 = mxCreateCharArray(2, iv13);
+        m0 = mxCreateCharArray(2, iv11);
         for (ndbl = 0; ndbl < 21; ndbl++) {
           cv4[ndbl] = cv6[ndbl];
         }
@@ -3243,19 +3171,19 @@ void ukf_update_unknown_state(const real_T xk_data[200], const int32_T xk_size[1
         emlrtAssign(&r_y, m0);
         error(message(r_y, &b_emlrtMCI), &c_emlrtMCI);
         emlrt_synchGlobalsFromML();
-        emlrtPopRtStackR2012b(&cb_emlrtRSI, emlrtRootTLSGlobal);
+        emlrtPopRtStackR2012b(&eb_emlrtRSI, emlrtRootTLSGlobal);
       }
 
-      emlrtPopRtStackR2012b(&ab_emlrtRSI, emlrtRootTLSGlobal);
-      i0 = d_y->size[0] * d_y->size[1];
-      d_y->size[0] = 1;
-      d_y->size[1] = cdiff + 1;
-      emxEnsureCapacity((emxArray__common *)d_y, i0, (int32_T)sizeof(real_T),
+      emlrtPopRtStackR2012b(&cb_emlrtRSI, emlrtRootTLSGlobal);
+      i0 = r6->size[0] * r6->size[1];
+      r6->size[0] = 1;
+      r6->size[1] = cdiff + 1;
+      emxEnsureCapacity((emxArray__common *)r6, i0, (int32_T)sizeof(real_T),
                         &b_emlrtRTEI);
       if (cdiff + 1 > 0) {
-        d_y->data[0] = gamm;
+        r6->data[0] = gamm;
         if (cdiff + 1 > 1) {
-          d_y->data[cdiff] = k_y;
+          r6->data[cdiff] = m_y;
           i0 = cdiff + (cdiff < 0);
           if (i0 >= 0) {
             ndbl = (int32_T)((uint32_T)i0 >> 1);
@@ -3263,35 +3191,223 @@ void ukf_update_unknown_state(const real_T xk_data[200], const int32_T xk_size[1
             ndbl = ~(int32_T)((uint32_T)~i0 >> 1);
           }
 
-          emlrtPushRtStackR2012b(&bb_emlrtRSI, emlrtRootTLSGlobal);
-          emlrtPopRtStackR2012b(&bb_emlrtRSI, emlrtRootTLSGlobal);
+          emlrtPushRtStackR2012b(&db_emlrtRSI, emlrtRootTLSGlobal);
+          emlrtPopRtStackR2012b(&db_emlrtRSI, emlrtRootTLSGlobal);
           for (k = 1; k < ndbl; k++) {
             kd = k * 3U;
-            d_y->data[k] = gamm + (real_T)kd;
-            d_y->data[cdiff - k] = k_y - (real_T)kd;
+            r6->data[k] = gamm + (real_T)kd;
+            r6->data[cdiff - k] = m_y - (real_T)kd;
           }
 
           if (ndbl << 1 == cdiff) {
-            d_y->data[ndbl] = (gamm + k_y) / 2.0;
+            r6->data[ndbl] = (gamm + m_y) / 2.0;
           } else {
             kd = ndbl * 3U;
-            d_y->data[ndbl] = gamm + (real_T)kd;
-            d_y->data[ndbl + 1] = k_y - (real_T)kd;
+            r6->data[ndbl] = gamm + (real_T)kd;
+            r6->data[ndbl + 1] = m_y - (real_T)kd;
           }
         }
       }
 
-      emlrtPopRtStackR2012b(&y_emlrtRSI, emlrtRootTLSGlobal);
+      emlrtPopRtStackR2012b(&bb_emlrtRSI, emlrtRootTLSGlobal);
+      emlrtPopRtStackR2012b(&o_emlrtRSI, emlrtRootTLSGlobal);
+      emlrtVectorVectorIndexCheckR2012b(yhat->size[0], 1, 1, r6->size[1],
+        &cb_emlrtECI, emlrtRootTLSGlobal);
+      emlrtPushRtStackR2012b(&o_emlrtRSI, emlrtRootTLSGlobal);
+      m_y = 3.0 * uk_data[9];
+      emlrtPushRtStackR2012b(&bb_emlrtRSI, emlrtRootTLSGlobal);
+      if (muDoubleScalarIsNaN(m_y)) {
+        cdiff = 0;
+        gamm = rtNaN;
+        n_too_large = FALSE;
+      } else if (m_y < 3.0) {
+        cdiff = -1;
+        gamm = 3.0;
+        n_too_large = FALSE;
+      } else if (muDoubleScalarIsInf(m_y)) {
+        cdiff = 0;
+        gamm = rtNaN;
+        n_too_large = !(3.0 == m_y);
+      } else {
+        gamm = 3.0;
+        b_ndbl = muDoubleScalarFloor((m_y - 3.0) / 3.0 + 0.5);
+        n_y = b_ndbl * 3.0;
+        lambda = (3.0 + n_y) - m_y;
+        if (muDoubleScalarAbs(lambda) < 4.4408920985006262E-16 * m_y) {
+          b_ndbl++;
+        } else if (lambda > 0.0) {
+          m_y = 3.0 + (b_ndbl - 1.0) * 3.0;
+        } else {
+          b_ndbl++;
+          m_y = 3.0 + n_y;
+        }
+
+        n_too_large = (2.147483647E+9 < b_ndbl);
+        if (b_ndbl >= 0.0) {
+          cdiff = (int32_T)b_ndbl - 1;
+        } else {
+          cdiff = -1;
+        }
+      }
+
+      emlrtPushRtStackR2012b(&cb_emlrtRSI, emlrtRootTLSGlobal);
+      if (!n_too_large) {
+      } else {
+        emlrtPushRtStackR2012b(&eb_emlrtRSI, emlrtRootTLSGlobal);
+        emlrt_synchGlobalsToML();
+        s_y = NULL;
+        m0 = mxCreateCharArray(2, iv12);
+        for (ndbl = 0; ndbl < 21; ndbl++) {
+          cv4[ndbl] = cv6[ndbl];
+        }
+
+        emlrtInitCharArrayR2013a(emlrtRootTLSGlobal, 21, m0, cv4);
+        emlrtAssign(&s_y, m0);
+        error(message(s_y, &b_emlrtMCI), &c_emlrtMCI);
+        emlrt_synchGlobalsFromML();
+        emlrtPopRtStackR2012b(&eb_emlrtRSI, emlrtRootTLSGlobal);
+      }
+
+      emlrtPopRtStackR2012b(&cb_emlrtRSI, emlrtRootTLSGlobal);
+      i0 = r7->size[0] * r7->size[1];
+      r7->size[0] = 1;
+      r7->size[1] = cdiff + 1;
+      emxEnsureCapacity((emxArray__common *)r7, i0, (int32_T)sizeof(real_T),
+                        &b_emlrtRTEI);
+      if (cdiff + 1 > 0) {
+        r7->data[0] = gamm;
+        if (cdiff + 1 > 1) {
+          r7->data[cdiff] = m_y;
+          i0 = cdiff + (cdiff < 0);
+          if (i0 >= 0) {
+            ndbl = (int32_T)((uint32_T)i0 >> 1);
+          } else {
+            ndbl = ~(int32_T)((uint32_T)~i0 >> 1);
+          }
+
+          emlrtPushRtStackR2012b(&db_emlrtRSI, emlrtRootTLSGlobal);
+          emlrtPopRtStackR2012b(&db_emlrtRSI, emlrtRootTLSGlobal);
+          for (k = 1; k < ndbl; k++) {
+            kd = k * 3U;
+            r7->data[k] = gamm + (real_T)kd;
+            r7->data[cdiff - k] = m_y - (real_T)kd;
+          }
+
+          if (ndbl << 1 == cdiff) {
+            r7->data[ndbl] = (gamm + m_y) / 2.0;
+          } else {
+            kd = ndbl * 3U;
+            r7->data[ndbl] = gamm + (real_T)kd;
+            r7->data[ndbl + 1] = m_y - (real_T)kd;
+          }
+        }
+      }
+
+      emlrtPopRtStackR2012b(&bb_emlrtRSI, emlrtRootTLSGlobal);
+      emlrtPopRtStackR2012b(&o_emlrtRSI, emlrtRootTLSGlobal);
+      emlrtVectorVectorIndexCheckR2012b(ytilde_size[0], 1, 1, r7->size[1],
+        &bb_emlrtECI, emlrtRootTLSGlobal);
+      emlrtPushRtStackR2012b(&o_emlrtRSI, emlrtRootTLSGlobal);
+      m_y = 3.0 * uk_data[9];
+      emlrtPushRtStackR2012b(&bb_emlrtRSI, emlrtRootTLSGlobal);
+      if (muDoubleScalarIsNaN(m_y)) {
+        cdiff = 0;
+        gamm = rtNaN;
+        n_too_large = FALSE;
+      } else if (m_y < 3.0) {
+        cdiff = -1;
+        gamm = 3.0;
+        n_too_large = FALSE;
+      } else if (muDoubleScalarIsInf(m_y)) {
+        cdiff = 0;
+        gamm = rtNaN;
+        n_too_large = !(3.0 == m_y);
+      } else {
+        gamm = 3.0;
+        b_ndbl = muDoubleScalarFloor((m_y - 3.0) / 3.0 + 0.5);
+        n_y = b_ndbl * 3.0;
+        lambda = (3.0 + n_y) - m_y;
+        if (muDoubleScalarAbs(lambda) < 4.4408920985006262E-16 * m_y) {
+          b_ndbl++;
+        } else if (lambda > 0.0) {
+          m_y = 3.0 + (b_ndbl - 1.0) * 3.0;
+        } else {
+          b_ndbl++;
+          m_y = 3.0 + n_y;
+        }
+
+        n_too_large = (2.147483647E+9 < b_ndbl);
+        if (b_ndbl >= 0.0) {
+          cdiff = (int32_T)b_ndbl - 1;
+        } else {
+          cdiff = -1;
+        }
+      }
+
+      emlrtPushRtStackR2012b(&cb_emlrtRSI, emlrtRootTLSGlobal);
+      if (!n_too_large) {
+      } else {
+        emlrtPushRtStackR2012b(&eb_emlrtRSI, emlrtRootTLSGlobal);
+        emlrt_synchGlobalsToML();
+        t_y = NULL;
+        m0 = mxCreateCharArray(2, iv13);
+        for (ndbl = 0; ndbl < 21; ndbl++) {
+          cv4[ndbl] = cv6[ndbl];
+        }
+
+        emlrtInitCharArrayR2013a(emlrtRootTLSGlobal, 21, m0, cv4);
+        emlrtAssign(&t_y, m0);
+        error(message(t_y, &b_emlrtMCI), &c_emlrtMCI);
+        emlrt_synchGlobalsFromML();
+        emlrtPopRtStackR2012b(&eb_emlrtRSI, emlrtRootTLSGlobal);
+      }
+
+      emlrtPopRtStackR2012b(&cb_emlrtRSI, emlrtRootTLSGlobal);
+      i0 = f_y->size[0] * f_y->size[1];
+      f_y->size[0] = 1;
+      f_y->size[1] = cdiff + 1;
+      emxEnsureCapacity((emxArray__common *)f_y, i0, (int32_T)sizeof(real_T),
+                        &b_emlrtRTEI);
+      if (cdiff + 1 > 0) {
+        f_y->data[0] = gamm;
+        if (cdiff + 1 > 1) {
+          f_y->data[cdiff] = m_y;
+          i0 = cdiff + (cdiff < 0);
+          if (i0 >= 0) {
+            ndbl = (int32_T)((uint32_T)i0 >> 1);
+          } else {
+            ndbl = ~(int32_T)((uint32_T)~i0 >> 1);
+          }
+
+          emlrtPushRtStackR2012b(&db_emlrtRSI, emlrtRootTLSGlobal);
+          emlrtPopRtStackR2012b(&db_emlrtRSI, emlrtRootTLSGlobal);
+          for (k = 1; k < ndbl; k++) {
+            kd = k * 3U;
+            f_y->data[k] = gamm + (real_T)kd;
+            f_y->data[cdiff - k] = m_y - (real_T)kd;
+          }
+
+          if (ndbl << 1 == cdiff) {
+            f_y->data[ndbl] = (gamm + m_y) / 2.0;
+          } else {
+            kd = ndbl * 3U;
+            f_y->data[ndbl] = gamm + (real_T)kd;
+            f_y->data[ndbl + 1] = m_y - (real_T)kd;
+          }
+        }
+      }
+
+      emlrtPopRtStackR2012b(&bb_emlrtRSI, emlrtRootTLSGlobal);
       i0 = r8->size[0] * r8->size[1];
       r8->size[0] = 1;
-      r8->size[1] = d_y->size[1];
+      r8->size[1] = f_y->size[1];
       emxEnsureCapacity((emxArray__common *)r8, i0, (int32_T)sizeof(int32_T),
                         &emlrtRTEI);
-      loop_ub = d_y->size[0] * d_y->size[1];
+      loop_ub = f_y->size[0] * f_y->size[1];
       for (i0 = 0; i0 < loop_ub; i0++) {
         apnd = yhat->size[0];
-        y = d_y->data[i0] + 9.0;
-        absb = (int32_T)emlrtIntegerCheckFastR2012b(y, &n_emlrtDCI,
+        b_y = f_y->data[i0] + 9.0;
+        absb = (int32_T)emlrtIntegerCheckFastR2012b(b_y, &n_emlrtDCI,
           emlrtRootTLSGlobal);
         r8->data[i0] = emlrtDynamicBoundsCheckFastR2012b(absb, 1, apnd,
           &xb_emlrtBCI, emlrtRootTLSGlobal);
@@ -3308,8 +3424,8 @@ void ukf_update_unknown_state(const real_T xk_data[200], const int32_T xk_size[1
       loop_ub = r6->size[0] * r6->size[1];
       for (i0 = 0; i0 < loop_ub; i0++) {
         apnd = yhat->size[0];
-        y = r6->data[i0] + 9.0;
-        absb = (int32_T)emlrtIntegerCheckFastR2012b(y, &o_emlrtDCI,
+        b_y = r6->data[i0] + 9.0;
+        absb = (int32_T)emlrtIntegerCheckFastR2012b(b_y, &o_emlrtDCI,
           emlrtRootTLSGlobal);
         r11->data[i0] = emlrtDynamicBoundsCheckFastR2012b(absb, 1, apnd,
           &yb_emlrtBCI, emlrtRootTLSGlobal);
@@ -3334,8 +3450,8 @@ void ukf_update_unknown_state(const real_T xk_data[200], const int32_T xk_size[1
                         &emlrtRTEI);
       loop_ub = r7->size[0] * r7->size[1];
       for (i0 = 0; i0 < loop_ub; i0++) {
-        y = r7->data[i0] + 9.0;
-        apnd = (int32_T)emlrtIntegerCheckFastR2012b(y, &p_emlrtDCI,
+        b_y = r7->data[i0] + 9.0;
+        apnd = (int32_T)emlrtIntegerCheckFastR2012b(b_y, &p_emlrtDCI,
           emlrtRootTLSGlobal);
         r12->data[i0] = emlrtDynamicBoundsCheckFastR2012b(apnd, 1, ytilde_size[0],
           &ac_emlrtBCI, emlrtRootTLSGlobal);
@@ -3355,7 +3471,7 @@ void ukf_update_unknown_state(const real_T xk_data[200], const int32_T xk_size[1
       emlrtPopRtStackR2012b(&o_emlrtRSI, emlrtRootTLSGlobal);
       i0 = r8->size[1];
       apnd = r2->size[0];
-      emlrtSizeEqCheck1DFastR2012b(i0, apnd, &t_emlrtECI, emlrtRootTLSGlobal);
+      emlrtSizeEqCheck1DFastR2012b(i0, apnd, &ab_emlrtECI, emlrtRootTLSGlobal);
       loop_ub = r8->size[0] * r8->size[1];
       emxFree_real_T(&c_ytilde);
       for (i0 = 0; i0 < loop_ub; i0++) {
@@ -3363,32 +3479,32 @@ void ukf_update_unknown_state(const real_T xk_data[200], const int32_T xk_size[1
       }
 
       emlrtPushRtStackR2012b(&p_emlrtRSI, emlrtRootTLSGlobal);
-      k_y = 3.0 * uk_data[(int32_T)((10.0 + g_y) + 1.0) - 1];
-      emlrtPushRtStackR2012b(&y_emlrtRSI, emlrtRootTLSGlobal);
-      if (muDoubleScalarIsNaN(k_y)) {
+      m_y = 3.0 * uk_data[(int32_T)((10.0 + i_y) + 1.0) - 1];
+      emlrtPushRtStackR2012b(&bb_emlrtRSI, emlrtRootTLSGlobal);
+      if (muDoubleScalarIsNaN(m_y)) {
         cdiff = 0;
         gamm = rtNaN;
         n_too_large = FALSE;
-      } else if (k_y < 2.0) {
+      } else if (m_y < 2.0) {
         cdiff = -1;
         gamm = 2.0;
         n_too_large = FALSE;
-      } else if (muDoubleScalarIsInf(k_y)) {
+      } else if (muDoubleScalarIsInf(m_y)) {
         cdiff = 0;
         gamm = rtNaN;
-        n_too_large = !(2.0 == k_y);
+        n_too_large = !(2.0 == m_y);
       } else {
         gamm = 2.0;
-        b_ndbl = muDoubleScalarFloor((k_y - 2.0) / 3.0 + 0.5);
-        l_y = b_ndbl * 3.0;
-        lambda = (2.0 + l_y) - k_y;
-        if (muDoubleScalarAbs(lambda) < 4.4408920985006262E-16 * k_y) {
+        b_ndbl = muDoubleScalarFloor((m_y - 2.0) / 3.0 + 0.5);
+        n_y = b_ndbl * 3.0;
+        lambda = (2.0 + n_y) - m_y;
+        if (muDoubleScalarAbs(lambda) < 4.4408920985006262E-16 * m_y) {
           b_ndbl++;
         } else if (lambda > 0.0) {
-          k_y = 2.0 + (b_ndbl - 1.0) * 3.0;
+          m_y = 2.0 + (b_ndbl - 1.0) * 3.0;
         } else {
           b_ndbl++;
-          k_y = 2.0 + l_y;
+          m_y = 2.0 + n_y;
         }
 
         n_too_large = (2.147483647E+9 < b_ndbl);
@@ -3399,202 +3515,13 @@ void ukf_update_unknown_state(const real_T xk_data[200], const int32_T xk_size[1
         }
       }
 
-      emlrtPushRtStackR2012b(&ab_emlrtRSI, emlrtRootTLSGlobal);
+      emlrtPushRtStackR2012b(&cb_emlrtRSI, emlrtRootTLSGlobal);
       if (!n_too_large) {
       } else {
-        emlrtPushRtStackR2012b(&cb_emlrtRSI, emlrtRootTLSGlobal);
-        emlrt_synchGlobalsToML();
-        s_y = NULL;
-        m0 = mxCreateCharArray(2, iv14);
-        for (ndbl = 0; ndbl < 21; ndbl++) {
-          cv4[ndbl] = cv6[ndbl];
-        }
-
-        emlrtInitCharArrayR2013a(emlrtRootTLSGlobal, 21, m0, cv4);
-        emlrtAssign(&s_y, m0);
-        error(message(s_y, &b_emlrtMCI), &c_emlrtMCI);
-        emlrt_synchGlobalsFromML();
-        emlrtPopRtStackR2012b(&cb_emlrtRSI, emlrtRootTLSGlobal);
-      }
-
-      emlrtPopRtStackR2012b(&ab_emlrtRSI, emlrtRootTLSGlobal);
-      i0 = r6->size[0] * r6->size[1];
-      r6->size[0] = 1;
-      r6->size[1] = cdiff + 1;
-      emxEnsureCapacity((emxArray__common *)r6, i0, (int32_T)sizeof(real_T),
-                        &b_emlrtRTEI);
-      if (cdiff + 1 > 0) {
-        r6->data[0] = gamm;
-        if (cdiff + 1 > 1) {
-          r6->data[cdiff] = k_y;
-          i0 = cdiff + (cdiff < 0);
-          if (i0 >= 0) {
-            ndbl = (int32_T)((uint32_T)i0 >> 1);
-          } else {
-            ndbl = ~(int32_T)((uint32_T)~i0 >> 1);
-          }
-
-          emlrtPushRtStackR2012b(&bb_emlrtRSI, emlrtRootTLSGlobal);
-          emlrtPopRtStackR2012b(&bb_emlrtRSI, emlrtRootTLSGlobal);
-          for (k = 1; k < ndbl; k++) {
-            kd = k * 3U;
-            r6->data[k] = gamm + (real_T)kd;
-            r6->data[cdiff - k] = k_y - (real_T)kd;
-          }
-
-          if (ndbl << 1 == cdiff) {
-            r6->data[ndbl] = (gamm + k_y) / 2.0;
-          } else {
-            kd = ndbl * 3U;
-            r6->data[ndbl] = gamm + (real_T)kd;
-            r6->data[ndbl + 1] = k_y - (real_T)kd;
-          }
-        }
-      }
-
-      emlrtPopRtStackR2012b(&y_emlrtRSI, emlrtRootTLSGlobal);
-      emlrtPopRtStackR2012b(&p_emlrtRSI, emlrtRootTLSGlobal);
-      emlrtVectorVectorIndexCheckR2012b(yhat->size[0], 1, 1, r6->size[1],
-        &s_emlrtECI, emlrtRootTLSGlobal);
-      emlrtPushRtStackR2012b(&p_emlrtRSI, emlrtRootTLSGlobal);
-      k_y = 3.0 * uk_data[(int32_T)((10.0 + g_y) + 1.0) - 1];
-      emlrtPushRtStackR2012b(&y_emlrtRSI, emlrtRootTLSGlobal);
-      if (muDoubleScalarIsNaN(k_y)) {
-        cdiff = 0;
-        gamm = rtNaN;
-        n_too_large = FALSE;
-      } else if (k_y < 2.0) {
-        cdiff = -1;
-        gamm = 2.0;
-        n_too_large = FALSE;
-      } else if (muDoubleScalarIsInf(k_y)) {
-        cdiff = 0;
-        gamm = rtNaN;
-        n_too_large = !(2.0 == k_y);
-      } else {
-        gamm = 2.0;
-        b_ndbl = muDoubleScalarFloor((k_y - 2.0) / 3.0 + 0.5);
-        l_y = b_ndbl * 3.0;
-        lambda = (2.0 + l_y) - k_y;
-        if (muDoubleScalarAbs(lambda) < 4.4408920985006262E-16 * k_y) {
-          b_ndbl++;
-        } else if (lambda > 0.0) {
-          k_y = 2.0 + (b_ndbl - 1.0) * 3.0;
-        } else {
-          b_ndbl++;
-          k_y = 2.0 + l_y;
-        }
-
-        n_too_large = (2.147483647E+9 < b_ndbl);
-        if (b_ndbl >= 0.0) {
-          cdiff = (int32_T)b_ndbl - 1;
-        } else {
-          cdiff = -1;
-        }
-      }
-
-      emlrtPushRtStackR2012b(&ab_emlrtRSI, emlrtRootTLSGlobal);
-      if (!n_too_large) {
-      } else {
-        emlrtPushRtStackR2012b(&cb_emlrtRSI, emlrtRootTLSGlobal);
-        emlrt_synchGlobalsToML();
-        t_y = NULL;
-        m0 = mxCreateCharArray(2, iv15);
-        for (ndbl = 0; ndbl < 21; ndbl++) {
-          cv4[ndbl] = cv6[ndbl];
-        }
-
-        emlrtInitCharArrayR2013a(emlrtRootTLSGlobal, 21, m0, cv4);
-        emlrtAssign(&t_y, m0);
-        error(message(t_y, &b_emlrtMCI), &c_emlrtMCI);
-        emlrt_synchGlobalsFromML();
-        emlrtPopRtStackR2012b(&cb_emlrtRSI, emlrtRootTLSGlobal);
-      }
-
-      emlrtPopRtStackR2012b(&ab_emlrtRSI, emlrtRootTLSGlobal);
-      i0 = r7->size[0] * r7->size[1];
-      r7->size[0] = 1;
-      r7->size[1] = cdiff + 1;
-      emxEnsureCapacity((emxArray__common *)r7, i0, (int32_T)sizeof(real_T),
-                        &b_emlrtRTEI);
-      if (cdiff + 1 > 0) {
-        r7->data[0] = gamm;
-        if (cdiff + 1 > 1) {
-          r7->data[cdiff] = k_y;
-          i0 = cdiff + (cdiff < 0);
-          if (i0 >= 0) {
-            ndbl = (int32_T)((uint32_T)i0 >> 1);
-          } else {
-            ndbl = ~(int32_T)((uint32_T)~i0 >> 1);
-          }
-
-          emlrtPushRtStackR2012b(&bb_emlrtRSI, emlrtRootTLSGlobal);
-          emlrtPopRtStackR2012b(&bb_emlrtRSI, emlrtRootTLSGlobal);
-          for (k = 1; k < ndbl; k++) {
-            kd = k * 3U;
-            r7->data[k] = gamm + (real_T)kd;
-            r7->data[cdiff - k] = k_y - (real_T)kd;
-          }
-
-          if (ndbl << 1 == cdiff) {
-            r7->data[ndbl] = (gamm + k_y) / 2.0;
-          } else {
-            kd = ndbl * 3U;
-            r7->data[ndbl] = gamm + (real_T)kd;
-            r7->data[ndbl + 1] = k_y - (real_T)kd;
-          }
-        }
-      }
-
-      emlrtPopRtStackR2012b(&y_emlrtRSI, emlrtRootTLSGlobal);
-      emlrtPopRtStackR2012b(&p_emlrtRSI, emlrtRootTLSGlobal);
-      emlrtVectorVectorIndexCheckR2012b(ytilde_size[0], 1, 1, r7->size[1],
-        &r_emlrtECI, emlrtRootTLSGlobal);
-      emlrtPushRtStackR2012b(&p_emlrtRSI, emlrtRootTLSGlobal);
-      k_y = 3.0 * uk_data[9];
-      l_y = 3.0 * uk_data[(int32_T)((10.0 + g_y) + 1.0) - 1];
-      emlrtPushRtStackR2012b(&y_emlrtRSI, emlrtRootTLSGlobal);
-      if (muDoubleScalarIsNaN(l_y)) {
-        cdiff = 0;
-        gamm = rtNaN;
-        n_too_large = FALSE;
-      } else if (l_y < 2.0) {
-        cdiff = -1;
-        gamm = 2.0;
-        n_too_large = FALSE;
-      } else if (muDoubleScalarIsInf(l_y)) {
-        cdiff = 0;
-        gamm = rtNaN;
-        n_too_large = !(2.0 == l_y);
-      } else {
-        gamm = 2.0;
-        b_ndbl = muDoubleScalarFloor((l_y - 2.0) / 3.0 + 0.5);
-        y = b_ndbl * 3.0;
-        lambda = (2.0 + y) - l_y;
-        if (muDoubleScalarAbs(lambda) < 4.4408920985006262E-16 * l_y) {
-          b_ndbl++;
-        } else if (lambda > 0.0) {
-          l_y = 2.0 + (b_ndbl - 1.0) * 3.0;
-        } else {
-          b_ndbl++;
-          l_y = 2.0 + y;
-        }
-
-        n_too_large = (2.147483647E+9 < b_ndbl);
-        if (b_ndbl >= 0.0) {
-          cdiff = (int32_T)b_ndbl - 1;
-        } else {
-          cdiff = -1;
-        }
-      }
-
-      emlrtPushRtStackR2012b(&ab_emlrtRSI, emlrtRootTLSGlobal);
-      if (!n_too_large) {
-      } else {
-        emlrtPushRtStackR2012b(&cb_emlrtRSI, emlrtRootTLSGlobal);
+        emlrtPushRtStackR2012b(&eb_emlrtRSI, emlrtRootTLSGlobal);
         emlrt_synchGlobalsToML();
         u_y = NULL;
-        m0 = mxCreateCharArray(2, iv16);
+        m0 = mxCreateCharArray(2, iv14);
         for (ndbl = 0; ndbl < 21; ndbl++) {
           cv4[ndbl] = cv6[ndbl];
         }
@@ -3603,19 +3530,19 @@ void ukf_update_unknown_state(const real_T xk_data[200], const int32_T xk_size[1
         emlrtAssign(&u_y, m0);
         error(message(u_y, &b_emlrtMCI), &c_emlrtMCI);
         emlrt_synchGlobalsFromML();
-        emlrtPopRtStackR2012b(&cb_emlrtRSI, emlrtRootTLSGlobal);
+        emlrtPopRtStackR2012b(&eb_emlrtRSI, emlrtRootTLSGlobal);
       }
 
-      emlrtPopRtStackR2012b(&ab_emlrtRSI, emlrtRootTLSGlobal);
-      i0 = d_y->size[0] * d_y->size[1];
-      d_y->size[0] = 1;
-      d_y->size[1] = cdiff + 1;
-      emxEnsureCapacity((emxArray__common *)d_y, i0, (int32_T)sizeof(real_T),
+      emlrtPopRtStackR2012b(&cb_emlrtRSI, emlrtRootTLSGlobal);
+      i0 = r6->size[0] * r6->size[1];
+      r6->size[0] = 1;
+      r6->size[1] = cdiff + 1;
+      emxEnsureCapacity((emxArray__common *)r6, i0, (int32_T)sizeof(real_T),
                         &b_emlrtRTEI);
       if (cdiff + 1 > 0) {
-        d_y->data[0] = gamm;
+        r6->data[0] = gamm;
         if (cdiff + 1 > 1) {
-          d_y->data[cdiff] = l_y;
+          r6->data[cdiff] = m_y;
           i0 = cdiff + (cdiff < 0);
           if (i0 >= 0) {
             ndbl = (int32_T)((uint32_T)i0 >> 1);
@@ -3623,35 +3550,224 @@ void ukf_update_unknown_state(const real_T xk_data[200], const int32_T xk_size[1
             ndbl = ~(int32_T)((uint32_T)~i0 >> 1);
           }
 
-          emlrtPushRtStackR2012b(&bb_emlrtRSI, emlrtRootTLSGlobal);
-          emlrtPopRtStackR2012b(&bb_emlrtRSI, emlrtRootTLSGlobal);
+          emlrtPushRtStackR2012b(&db_emlrtRSI, emlrtRootTLSGlobal);
+          emlrtPopRtStackR2012b(&db_emlrtRSI, emlrtRootTLSGlobal);
           for (k = 1; k < ndbl; k++) {
             kd = k * 3U;
-            d_y->data[k] = gamm + (real_T)kd;
-            d_y->data[cdiff - k] = l_y - (real_T)kd;
+            r6->data[k] = gamm + (real_T)kd;
+            r6->data[cdiff - k] = m_y - (real_T)kd;
           }
 
           if (ndbl << 1 == cdiff) {
-            d_y->data[ndbl] = (gamm + l_y) / 2.0;
+            r6->data[ndbl] = (gamm + m_y) / 2.0;
           } else {
             kd = ndbl * 3U;
-            d_y->data[ndbl] = gamm + (real_T)kd;
-            d_y->data[ndbl + 1] = l_y - (real_T)kd;
+            r6->data[ndbl] = gamm + (real_T)kd;
+            r6->data[ndbl + 1] = m_y - (real_T)kd;
           }
         }
       }
 
-      emlrtPopRtStackR2012b(&y_emlrtRSI, emlrtRootTLSGlobal);
+      emlrtPopRtStackR2012b(&bb_emlrtRSI, emlrtRootTLSGlobal);
+      emlrtPopRtStackR2012b(&p_emlrtRSI, emlrtRootTLSGlobal);
+      emlrtVectorVectorIndexCheckR2012b(yhat->size[0], 1, 1, r6->size[1],
+        &y_emlrtECI, emlrtRootTLSGlobal);
+      emlrtPushRtStackR2012b(&p_emlrtRSI, emlrtRootTLSGlobal);
+      m_y = 3.0 * uk_data[(int32_T)((10.0 + i_y) + 1.0) - 1];
+      emlrtPushRtStackR2012b(&bb_emlrtRSI, emlrtRootTLSGlobal);
+      if (muDoubleScalarIsNaN(m_y)) {
+        cdiff = 0;
+        gamm = rtNaN;
+        n_too_large = FALSE;
+      } else if (m_y < 2.0) {
+        cdiff = -1;
+        gamm = 2.0;
+        n_too_large = FALSE;
+      } else if (muDoubleScalarIsInf(m_y)) {
+        cdiff = 0;
+        gamm = rtNaN;
+        n_too_large = !(2.0 == m_y);
+      } else {
+        gamm = 2.0;
+        b_ndbl = muDoubleScalarFloor((m_y - 2.0) / 3.0 + 0.5);
+        n_y = b_ndbl * 3.0;
+        lambda = (2.0 + n_y) - m_y;
+        if (muDoubleScalarAbs(lambda) < 4.4408920985006262E-16 * m_y) {
+          b_ndbl++;
+        } else if (lambda > 0.0) {
+          m_y = 2.0 + (b_ndbl - 1.0) * 3.0;
+        } else {
+          b_ndbl++;
+          m_y = 2.0 + n_y;
+        }
+
+        n_too_large = (2.147483647E+9 < b_ndbl);
+        if (b_ndbl >= 0.0) {
+          cdiff = (int32_T)b_ndbl - 1;
+        } else {
+          cdiff = -1;
+        }
+      }
+
+      emlrtPushRtStackR2012b(&cb_emlrtRSI, emlrtRootTLSGlobal);
+      if (!n_too_large) {
+      } else {
+        emlrtPushRtStackR2012b(&eb_emlrtRSI, emlrtRootTLSGlobal);
+        emlrt_synchGlobalsToML();
+        v_y = NULL;
+        m0 = mxCreateCharArray(2, iv15);
+        for (ndbl = 0; ndbl < 21; ndbl++) {
+          cv4[ndbl] = cv6[ndbl];
+        }
+
+        emlrtInitCharArrayR2013a(emlrtRootTLSGlobal, 21, m0, cv4);
+        emlrtAssign(&v_y, m0);
+        error(message(v_y, &b_emlrtMCI), &c_emlrtMCI);
+        emlrt_synchGlobalsFromML();
+        emlrtPopRtStackR2012b(&eb_emlrtRSI, emlrtRootTLSGlobal);
+      }
+
+      emlrtPopRtStackR2012b(&cb_emlrtRSI, emlrtRootTLSGlobal);
+      i0 = r7->size[0] * r7->size[1];
+      r7->size[0] = 1;
+      r7->size[1] = cdiff + 1;
+      emxEnsureCapacity((emxArray__common *)r7, i0, (int32_T)sizeof(real_T),
+                        &b_emlrtRTEI);
+      if (cdiff + 1 > 0) {
+        r7->data[0] = gamm;
+        if (cdiff + 1 > 1) {
+          r7->data[cdiff] = m_y;
+          i0 = cdiff + (cdiff < 0);
+          if (i0 >= 0) {
+            ndbl = (int32_T)((uint32_T)i0 >> 1);
+          } else {
+            ndbl = ~(int32_T)((uint32_T)~i0 >> 1);
+          }
+
+          emlrtPushRtStackR2012b(&db_emlrtRSI, emlrtRootTLSGlobal);
+          emlrtPopRtStackR2012b(&db_emlrtRSI, emlrtRootTLSGlobal);
+          for (k = 1; k < ndbl; k++) {
+            kd = k * 3U;
+            r7->data[k] = gamm + (real_T)kd;
+            r7->data[cdiff - k] = m_y - (real_T)kd;
+          }
+
+          if (ndbl << 1 == cdiff) {
+            r7->data[ndbl] = (gamm + m_y) / 2.0;
+          } else {
+            kd = ndbl * 3U;
+            r7->data[ndbl] = gamm + (real_T)kd;
+            r7->data[ndbl + 1] = m_y - (real_T)kd;
+          }
+        }
+      }
+
+      emlrtPopRtStackR2012b(&bb_emlrtRSI, emlrtRootTLSGlobal);
+      emlrtPopRtStackR2012b(&p_emlrtRSI, emlrtRootTLSGlobal);
+      emlrtVectorVectorIndexCheckR2012b(ytilde_size[0], 1, 1, r7->size[1],
+        &x_emlrtECI, emlrtRootTLSGlobal);
+      emlrtPushRtStackR2012b(&p_emlrtRSI, emlrtRootTLSGlobal);
+      m_y = 3.0 * uk_data[9];
+      n_y = 3.0 * uk_data[(int32_T)((10.0 + i_y) + 1.0) - 1];
+      emlrtPushRtStackR2012b(&bb_emlrtRSI, emlrtRootTLSGlobal);
+      if (muDoubleScalarIsNaN(n_y)) {
+        cdiff = 0;
+        gamm = rtNaN;
+        n_too_large = FALSE;
+      } else if (n_y < 2.0) {
+        cdiff = -1;
+        gamm = 2.0;
+        n_too_large = FALSE;
+      } else if (muDoubleScalarIsInf(n_y)) {
+        cdiff = 0;
+        gamm = rtNaN;
+        n_too_large = !(2.0 == n_y);
+      } else {
+        gamm = 2.0;
+        b_ndbl = muDoubleScalarFloor((n_y - 2.0) / 3.0 + 0.5);
+        b_y = b_ndbl * 3.0;
+        lambda = (2.0 + b_y) - n_y;
+        if (muDoubleScalarAbs(lambda) < 4.4408920985006262E-16 * n_y) {
+          b_ndbl++;
+        } else if (lambda > 0.0) {
+          n_y = 2.0 + (b_ndbl - 1.0) * 3.0;
+        } else {
+          b_ndbl++;
+          n_y = 2.0 + b_y;
+        }
+
+        n_too_large = (2.147483647E+9 < b_ndbl);
+        if (b_ndbl >= 0.0) {
+          cdiff = (int32_T)b_ndbl - 1;
+        } else {
+          cdiff = -1;
+        }
+      }
+
+      emlrtPushRtStackR2012b(&cb_emlrtRSI, emlrtRootTLSGlobal);
+      if (!n_too_large) {
+      } else {
+        emlrtPushRtStackR2012b(&eb_emlrtRSI, emlrtRootTLSGlobal);
+        emlrt_synchGlobalsToML();
+        w_y = NULL;
+        m0 = mxCreateCharArray(2, iv16);
+        for (ndbl = 0; ndbl < 21; ndbl++) {
+          cv4[ndbl] = cv6[ndbl];
+        }
+
+        emlrtInitCharArrayR2013a(emlrtRootTLSGlobal, 21, m0, cv4);
+        emlrtAssign(&w_y, m0);
+        error(message(w_y, &b_emlrtMCI), &c_emlrtMCI);
+        emlrt_synchGlobalsFromML();
+        emlrtPopRtStackR2012b(&eb_emlrtRSI, emlrtRootTLSGlobal);
+      }
+
+      emlrtPopRtStackR2012b(&cb_emlrtRSI, emlrtRootTLSGlobal);
+      i0 = f_y->size[0] * f_y->size[1];
+      f_y->size[0] = 1;
+      f_y->size[1] = cdiff + 1;
+      emxEnsureCapacity((emxArray__common *)f_y, i0, (int32_T)sizeof(real_T),
+                        &b_emlrtRTEI);
+      if (cdiff + 1 > 0) {
+        f_y->data[0] = gamm;
+        if (cdiff + 1 > 1) {
+          f_y->data[cdiff] = n_y;
+          i0 = cdiff + (cdiff < 0);
+          if (i0 >= 0) {
+            ndbl = (int32_T)((uint32_T)i0 >> 1);
+          } else {
+            ndbl = ~(int32_T)((uint32_T)~i0 >> 1);
+          }
+
+          emlrtPushRtStackR2012b(&db_emlrtRSI, emlrtRootTLSGlobal);
+          emlrtPopRtStackR2012b(&db_emlrtRSI, emlrtRootTLSGlobal);
+          for (k = 1; k < ndbl; k++) {
+            kd = k * 3U;
+            f_y->data[k] = gamm + (real_T)kd;
+            f_y->data[cdiff - k] = n_y - (real_T)kd;
+          }
+
+          if (ndbl << 1 == cdiff) {
+            f_y->data[ndbl] = (gamm + n_y) / 2.0;
+          } else {
+            kd = ndbl * 3U;
+            f_y->data[ndbl] = gamm + (real_T)kd;
+            f_y->data[ndbl + 1] = n_y - (real_T)kd;
+          }
+        }
+      }
+
+      emlrtPopRtStackR2012b(&bb_emlrtRSI, emlrtRootTLSGlobal);
       i0 = r8->size[0] * r8->size[1];
       r8->size[0] = 1;
-      r8->size[1] = d_y->size[1];
+      r8->size[1] = f_y->size[1];
       emxEnsureCapacity((emxArray__common *)r8, i0, (int32_T)sizeof(int32_T),
                         &emlrtRTEI);
-      loop_ub = d_y->size[0] * d_y->size[1];
+      loop_ub = f_y->size[0] * f_y->size[1];
       for (i0 = 0; i0 < loop_ub; i0++) {
         apnd = yhat->size[0];
-        y = (9.0 + k_y) + d_y->data[i0];
-        absb = (int32_T)emlrtIntegerCheckFastR2012b(y, &q_emlrtDCI,
+        b_y = (9.0 + m_y) + f_y->data[i0];
+        absb = (int32_T)emlrtIntegerCheckFastR2012b(b_y, &q_emlrtDCI,
           emlrtRootTLSGlobal);
         r8->data[i0] = emlrtDynamicBoundsCheckFastR2012b(absb, 1, apnd,
           &bc_emlrtBCI, emlrtRootTLSGlobal);
@@ -3660,8 +3776,8 @@ void ukf_update_unknown_state(const real_T xk_data[200], const int32_T xk_size[1
       emxInit_int32_T(&r13, 2, &emlrtRTEI, TRUE);
       emlrtPopRtStackR2012b(&p_emlrtRSI, emlrtRootTLSGlobal);
       emlrtPushRtStackR2012b(&p_emlrtRSI, emlrtRootTLSGlobal);
-      k_y = 3.0 * uk_data[9];
-      l_y = 3.0 * uk_data[9];
+      m_y = 3.0 * uk_data[9];
+      n_y = 3.0 * uk_data[9];
       i0 = r13->size[0] * r13->size[1];
       r13->size[0] = 1;
       r13->size[1] = r6->size[1];
@@ -3670,8 +3786,8 @@ void ukf_update_unknown_state(const real_T xk_data[200], const int32_T xk_size[1
       loop_ub = r6->size[0] * r6->size[1];
       for (i0 = 0; i0 < loop_ub; i0++) {
         apnd = yhat->size[0];
-        y = (9.0 + k_y) + r6->data[i0];
-        absb = (int32_T)emlrtIntegerCheckFastR2012b(y, &r_emlrtDCI,
+        b_y = (9.0 + m_y) + r6->data[i0];
+        absb = (int32_T)emlrtIntegerCheckFastR2012b(b_y, &r_emlrtDCI,
           emlrtRootTLSGlobal);
         r13->data[i0] = emlrtDynamicBoundsCheckFastR2012b(absb, 1, apnd,
           &cc_emlrtBCI, emlrtRootTLSGlobal);
@@ -3696,8 +3812,8 @@ void ukf_update_unknown_state(const real_T xk_data[200], const int32_T xk_size[1
                         &emlrtRTEI);
       loop_ub = r7->size[0] * r7->size[1];
       for (i0 = 0; i0 < loop_ub; i0++) {
-        y = (9.0 + l_y) + r7->data[i0];
-        apnd = (int32_T)emlrtIntegerCheckFastR2012b(y, &s_emlrtDCI,
+        b_y = (9.0 + n_y) + r7->data[i0];
+        apnd = (int32_T)emlrtIntegerCheckFastR2012b(b_y, &s_emlrtDCI,
           emlrtRootTLSGlobal);
         r14->data[i0] = emlrtDynamicBoundsCheckFastR2012b(apnd, 1, ytilde_size[0],
           &dc_emlrtBCI, emlrtRootTLSGlobal);
@@ -3717,7 +3833,7 @@ void ukf_update_unknown_state(const real_T xk_data[200], const int32_T xk_size[1
       emlrtPopRtStackR2012b(&p_emlrtRSI, emlrtRootTLSGlobal);
       i0 = r8->size[1];
       apnd = r2->size[0];
-      emlrtSizeEqCheck1DFastR2012b(i0, apnd, &q_emlrtECI, emlrtRootTLSGlobal);
+      emlrtSizeEqCheck1DFastR2012b(i0, apnd, &w_emlrtECI, emlrtRootTLSGlobal);
       loop_ub = r8->size[0] * r8->size[1];
       emxFree_real_T(&d_ytilde);
       for (i0 = 0; i0 < loop_ub; i0++) {
@@ -3725,32 +3841,32 @@ void ukf_update_unknown_state(const real_T xk_data[200], const int32_T xk_size[1
       }
 
       emlrtPushRtStackR2012b(&q_emlrtRSI, emlrtRootTLSGlobal);
-      k_y = 3.0 * uk_data[(int32_T)((10.0 + g_y) + 1.0) - 1];
-      emlrtPushRtStackR2012b(&y_emlrtRSI, emlrtRootTLSGlobal);
-      if (muDoubleScalarIsNaN(k_y)) {
+      m_y = 3.0 * uk_data[(int32_T)((10.0 + i_y) + 1.0) - 1];
+      emlrtPushRtStackR2012b(&bb_emlrtRSI, emlrtRootTLSGlobal);
+      if (muDoubleScalarIsNaN(m_y)) {
         cdiff = 0;
         gamm = rtNaN;
         n_too_large = FALSE;
-      } else if (k_y < 3.0) {
+      } else if (m_y < 3.0) {
         cdiff = -1;
         gamm = 3.0;
         n_too_large = FALSE;
-      } else if (muDoubleScalarIsInf(k_y)) {
+      } else if (muDoubleScalarIsInf(m_y)) {
         cdiff = 0;
         gamm = rtNaN;
-        n_too_large = !(3.0 == k_y);
+        n_too_large = !(3.0 == m_y);
       } else {
         gamm = 3.0;
-        b_ndbl = muDoubleScalarFloor((k_y - 3.0) / 3.0 + 0.5);
-        l_y = b_ndbl * 3.0;
-        lambda = (3.0 + l_y) - k_y;
-        if (muDoubleScalarAbs(lambda) < 4.4408920985006262E-16 * k_y) {
+        b_ndbl = muDoubleScalarFloor((m_y - 3.0) / 3.0 + 0.5);
+        n_y = b_ndbl * 3.0;
+        lambda = (3.0 + n_y) - m_y;
+        if (muDoubleScalarAbs(lambda) < 4.4408920985006262E-16 * m_y) {
           b_ndbl++;
         } else if (lambda > 0.0) {
-          k_y = 3.0 + (b_ndbl - 1.0) * 3.0;
+          m_y = 3.0 + (b_ndbl - 1.0) * 3.0;
         } else {
           b_ndbl++;
-          k_y = 3.0 + l_y;
+          m_y = 3.0 + n_y;
         }
 
         n_too_large = (2.147483647E+9 < b_ndbl);
@@ -3761,202 +3877,13 @@ void ukf_update_unknown_state(const real_T xk_data[200], const int32_T xk_size[1
         }
       }
 
-      emlrtPushRtStackR2012b(&ab_emlrtRSI, emlrtRootTLSGlobal);
+      emlrtPushRtStackR2012b(&cb_emlrtRSI, emlrtRootTLSGlobal);
       if (!n_too_large) {
       } else {
-        emlrtPushRtStackR2012b(&cb_emlrtRSI, emlrtRootTLSGlobal);
-        emlrt_synchGlobalsToML();
-        v_y = NULL;
-        m0 = mxCreateCharArray(2, iv17);
-        for (ndbl = 0; ndbl < 21; ndbl++) {
-          cv4[ndbl] = cv6[ndbl];
-        }
-
-        emlrtInitCharArrayR2013a(emlrtRootTLSGlobal, 21, m0, cv4);
-        emlrtAssign(&v_y, m0);
-        error(message(v_y, &b_emlrtMCI), &c_emlrtMCI);
-        emlrt_synchGlobalsFromML();
-        emlrtPopRtStackR2012b(&cb_emlrtRSI, emlrtRootTLSGlobal);
-      }
-
-      emlrtPopRtStackR2012b(&ab_emlrtRSI, emlrtRootTLSGlobal);
-      i0 = r6->size[0] * r6->size[1];
-      r6->size[0] = 1;
-      r6->size[1] = cdiff + 1;
-      emxEnsureCapacity((emxArray__common *)r6, i0, (int32_T)sizeof(real_T),
-                        &b_emlrtRTEI);
-      if (cdiff + 1 > 0) {
-        r6->data[0] = gamm;
-        if (cdiff + 1 > 1) {
-          r6->data[cdiff] = k_y;
-          i0 = cdiff + (cdiff < 0);
-          if (i0 >= 0) {
-            ndbl = (int32_T)((uint32_T)i0 >> 1);
-          } else {
-            ndbl = ~(int32_T)((uint32_T)~i0 >> 1);
-          }
-
-          emlrtPushRtStackR2012b(&bb_emlrtRSI, emlrtRootTLSGlobal);
-          emlrtPopRtStackR2012b(&bb_emlrtRSI, emlrtRootTLSGlobal);
-          for (k = 1; k < ndbl; k++) {
-            kd = k * 3U;
-            r6->data[k] = gamm + (real_T)kd;
-            r6->data[cdiff - k] = k_y - (real_T)kd;
-          }
-
-          if (ndbl << 1 == cdiff) {
-            r6->data[ndbl] = (gamm + k_y) / 2.0;
-          } else {
-            kd = ndbl * 3U;
-            r6->data[ndbl] = gamm + (real_T)kd;
-            r6->data[ndbl + 1] = k_y - (real_T)kd;
-          }
-        }
-      }
-
-      emlrtPopRtStackR2012b(&y_emlrtRSI, emlrtRootTLSGlobal);
-      emlrtPopRtStackR2012b(&q_emlrtRSI, emlrtRootTLSGlobal);
-      emlrtVectorVectorIndexCheckR2012b(yhat->size[0], 1, 1, r6->size[1],
-        &p_emlrtECI, emlrtRootTLSGlobal);
-      emlrtPushRtStackR2012b(&q_emlrtRSI, emlrtRootTLSGlobal);
-      k_y = 3.0 * uk_data[(int32_T)((10.0 + g_y) + 1.0) - 1];
-      emlrtPushRtStackR2012b(&y_emlrtRSI, emlrtRootTLSGlobal);
-      if (muDoubleScalarIsNaN(k_y)) {
-        cdiff = 0;
-        gamm = rtNaN;
-        n_too_large = FALSE;
-      } else if (k_y < 3.0) {
-        cdiff = -1;
-        gamm = 3.0;
-        n_too_large = FALSE;
-      } else if (muDoubleScalarIsInf(k_y)) {
-        cdiff = 0;
-        gamm = rtNaN;
-        n_too_large = !(3.0 == k_y);
-      } else {
-        gamm = 3.0;
-        b_ndbl = muDoubleScalarFloor((k_y - 3.0) / 3.0 + 0.5);
-        l_y = b_ndbl * 3.0;
-        lambda = (3.0 + l_y) - k_y;
-        if (muDoubleScalarAbs(lambda) < 4.4408920985006262E-16 * k_y) {
-          b_ndbl++;
-        } else if (lambda > 0.0) {
-          k_y = 3.0 + (b_ndbl - 1.0) * 3.0;
-        } else {
-          b_ndbl++;
-          k_y = 3.0 + l_y;
-        }
-
-        n_too_large = (2.147483647E+9 < b_ndbl);
-        if (b_ndbl >= 0.0) {
-          cdiff = (int32_T)b_ndbl - 1;
-        } else {
-          cdiff = -1;
-        }
-      }
-
-      emlrtPushRtStackR2012b(&ab_emlrtRSI, emlrtRootTLSGlobal);
-      if (!n_too_large) {
-      } else {
-        emlrtPushRtStackR2012b(&cb_emlrtRSI, emlrtRootTLSGlobal);
-        emlrt_synchGlobalsToML();
-        w_y = NULL;
-        m0 = mxCreateCharArray(2, iv18);
-        for (ndbl = 0; ndbl < 21; ndbl++) {
-          cv4[ndbl] = cv6[ndbl];
-        }
-
-        emlrtInitCharArrayR2013a(emlrtRootTLSGlobal, 21, m0, cv4);
-        emlrtAssign(&w_y, m0);
-        error(message(w_y, &b_emlrtMCI), &c_emlrtMCI);
-        emlrt_synchGlobalsFromML();
-        emlrtPopRtStackR2012b(&cb_emlrtRSI, emlrtRootTLSGlobal);
-      }
-
-      emlrtPopRtStackR2012b(&ab_emlrtRSI, emlrtRootTLSGlobal);
-      i0 = r7->size[0] * r7->size[1];
-      r7->size[0] = 1;
-      r7->size[1] = cdiff + 1;
-      emxEnsureCapacity((emxArray__common *)r7, i0, (int32_T)sizeof(real_T),
-                        &b_emlrtRTEI);
-      if (cdiff + 1 > 0) {
-        r7->data[0] = gamm;
-        if (cdiff + 1 > 1) {
-          r7->data[cdiff] = k_y;
-          i0 = cdiff + (cdiff < 0);
-          if (i0 >= 0) {
-            ndbl = (int32_T)((uint32_T)i0 >> 1);
-          } else {
-            ndbl = ~(int32_T)((uint32_T)~i0 >> 1);
-          }
-
-          emlrtPushRtStackR2012b(&bb_emlrtRSI, emlrtRootTLSGlobal);
-          emlrtPopRtStackR2012b(&bb_emlrtRSI, emlrtRootTLSGlobal);
-          for (k = 1; k < ndbl; k++) {
-            kd = k * 3U;
-            r7->data[k] = gamm + (real_T)kd;
-            r7->data[cdiff - k] = k_y - (real_T)kd;
-          }
-
-          if (ndbl << 1 == cdiff) {
-            r7->data[ndbl] = (gamm + k_y) / 2.0;
-          } else {
-            kd = ndbl * 3U;
-            r7->data[ndbl] = gamm + (real_T)kd;
-            r7->data[ndbl + 1] = k_y - (real_T)kd;
-          }
-        }
-      }
-
-      emlrtPopRtStackR2012b(&y_emlrtRSI, emlrtRootTLSGlobal);
-      emlrtPopRtStackR2012b(&q_emlrtRSI, emlrtRootTLSGlobal);
-      emlrtVectorVectorIndexCheckR2012b(ytilde_size[0], 1, 1, r7->size[1],
-        &o_emlrtECI, emlrtRootTLSGlobal);
-      emlrtPushRtStackR2012b(&q_emlrtRSI, emlrtRootTLSGlobal);
-      k_y = 3.0 * uk_data[9];
-      g_y = 3.0 * uk_data[(int32_T)((10.0 + g_y) + 1.0) - 1];
-      emlrtPushRtStackR2012b(&y_emlrtRSI, emlrtRootTLSGlobal);
-      if (muDoubleScalarIsNaN(g_y)) {
-        cdiff = 0;
-        gamm = rtNaN;
-        n_too_large = FALSE;
-      } else if (g_y < 3.0) {
-        cdiff = -1;
-        gamm = 3.0;
-        n_too_large = FALSE;
-      } else if (muDoubleScalarIsInf(g_y)) {
-        cdiff = 0;
-        gamm = rtNaN;
-        n_too_large = !(3.0 == g_y);
-      } else {
-        gamm = 3.0;
-        b_ndbl = muDoubleScalarFloor((g_y - 3.0) / 3.0 + 0.5);
-        l_y = b_ndbl * 3.0;
-        lambda = (3.0 + l_y) - g_y;
-        if (muDoubleScalarAbs(lambda) < 4.4408920985006262E-16 * g_y) {
-          b_ndbl++;
-        } else if (lambda > 0.0) {
-          g_y = 3.0 + (b_ndbl - 1.0) * 3.0;
-        } else {
-          b_ndbl++;
-          g_y = 3.0 + l_y;
-        }
-
-        n_too_large = (2.147483647E+9 < b_ndbl);
-        if (b_ndbl >= 0.0) {
-          cdiff = (int32_T)b_ndbl - 1;
-        } else {
-          cdiff = -1;
-        }
-      }
-
-      emlrtPushRtStackR2012b(&ab_emlrtRSI, emlrtRootTLSGlobal);
-      if (!n_too_large) {
-      } else {
-        emlrtPushRtStackR2012b(&cb_emlrtRSI, emlrtRootTLSGlobal);
+        emlrtPushRtStackR2012b(&eb_emlrtRSI, emlrtRootTLSGlobal);
         emlrt_synchGlobalsToML();
         x_y = NULL;
-        m0 = mxCreateCharArray(2, iv19);
+        m0 = mxCreateCharArray(2, iv17);
         for (ndbl = 0; ndbl < 21; ndbl++) {
           cv4[ndbl] = cv6[ndbl];
         }
@@ -3965,19 +3892,19 @@ void ukf_update_unknown_state(const real_T xk_data[200], const int32_T xk_size[1
         emlrtAssign(&x_y, m0);
         error(message(x_y, &b_emlrtMCI), &c_emlrtMCI);
         emlrt_synchGlobalsFromML();
-        emlrtPopRtStackR2012b(&cb_emlrtRSI, emlrtRootTLSGlobal);
+        emlrtPopRtStackR2012b(&eb_emlrtRSI, emlrtRootTLSGlobal);
       }
 
-      emlrtPopRtStackR2012b(&ab_emlrtRSI, emlrtRootTLSGlobal);
-      i0 = d_y->size[0] * d_y->size[1];
-      d_y->size[0] = 1;
-      d_y->size[1] = cdiff + 1;
-      emxEnsureCapacity((emxArray__common *)d_y, i0, (int32_T)sizeof(real_T),
+      emlrtPopRtStackR2012b(&cb_emlrtRSI, emlrtRootTLSGlobal);
+      i0 = r6->size[0] * r6->size[1];
+      r6->size[0] = 1;
+      r6->size[1] = cdiff + 1;
+      emxEnsureCapacity((emxArray__common *)r6, i0, (int32_T)sizeof(real_T),
                         &b_emlrtRTEI);
       if (cdiff + 1 > 0) {
-        d_y->data[0] = gamm;
+        r6->data[0] = gamm;
         if (cdiff + 1 > 1) {
-          d_y->data[cdiff] = g_y;
+          r6->data[cdiff] = m_y;
           i0 = cdiff + (cdiff < 0);
           if (i0 >= 0) {
             ndbl = (int32_T)((uint32_T)i0 >> 1);
@@ -3985,35 +3912,224 @@ void ukf_update_unknown_state(const real_T xk_data[200], const int32_T xk_size[1
             ndbl = ~(int32_T)((uint32_T)~i0 >> 1);
           }
 
-          emlrtPushRtStackR2012b(&bb_emlrtRSI, emlrtRootTLSGlobal);
-          emlrtPopRtStackR2012b(&bb_emlrtRSI, emlrtRootTLSGlobal);
+          emlrtPushRtStackR2012b(&db_emlrtRSI, emlrtRootTLSGlobal);
+          emlrtPopRtStackR2012b(&db_emlrtRSI, emlrtRootTLSGlobal);
           for (k = 1; k < ndbl; k++) {
             kd = k * 3U;
-            d_y->data[k] = gamm + (real_T)kd;
-            d_y->data[cdiff - k] = g_y - (real_T)kd;
+            r6->data[k] = gamm + (real_T)kd;
+            r6->data[cdiff - k] = m_y - (real_T)kd;
           }
 
           if (ndbl << 1 == cdiff) {
-            d_y->data[ndbl] = (gamm + g_y) / 2.0;
+            r6->data[ndbl] = (gamm + m_y) / 2.0;
           } else {
             kd = ndbl * 3U;
-            d_y->data[ndbl] = gamm + (real_T)kd;
-            d_y->data[ndbl + 1] = g_y - (real_T)kd;
+            r6->data[ndbl] = gamm + (real_T)kd;
+            r6->data[ndbl + 1] = m_y - (real_T)kd;
           }
         }
       }
 
-      emlrtPopRtStackR2012b(&y_emlrtRSI, emlrtRootTLSGlobal);
+      emlrtPopRtStackR2012b(&bb_emlrtRSI, emlrtRootTLSGlobal);
+      emlrtPopRtStackR2012b(&q_emlrtRSI, emlrtRootTLSGlobal);
+      emlrtVectorVectorIndexCheckR2012b(yhat->size[0], 1, 1, r6->size[1],
+        &v_emlrtECI, emlrtRootTLSGlobal);
+      emlrtPushRtStackR2012b(&q_emlrtRSI, emlrtRootTLSGlobal);
+      m_y = 3.0 * uk_data[(int32_T)((10.0 + i_y) + 1.0) - 1];
+      emlrtPushRtStackR2012b(&bb_emlrtRSI, emlrtRootTLSGlobal);
+      if (muDoubleScalarIsNaN(m_y)) {
+        cdiff = 0;
+        gamm = rtNaN;
+        n_too_large = FALSE;
+      } else if (m_y < 3.0) {
+        cdiff = -1;
+        gamm = 3.0;
+        n_too_large = FALSE;
+      } else if (muDoubleScalarIsInf(m_y)) {
+        cdiff = 0;
+        gamm = rtNaN;
+        n_too_large = !(3.0 == m_y);
+      } else {
+        gamm = 3.0;
+        b_ndbl = muDoubleScalarFloor((m_y - 3.0) / 3.0 + 0.5);
+        n_y = b_ndbl * 3.0;
+        lambda = (3.0 + n_y) - m_y;
+        if (muDoubleScalarAbs(lambda) < 4.4408920985006262E-16 * m_y) {
+          b_ndbl++;
+        } else if (lambda > 0.0) {
+          m_y = 3.0 + (b_ndbl - 1.0) * 3.0;
+        } else {
+          b_ndbl++;
+          m_y = 3.0 + n_y;
+        }
+
+        n_too_large = (2.147483647E+9 < b_ndbl);
+        if (b_ndbl >= 0.0) {
+          cdiff = (int32_T)b_ndbl - 1;
+        } else {
+          cdiff = -1;
+        }
+      }
+
+      emlrtPushRtStackR2012b(&cb_emlrtRSI, emlrtRootTLSGlobal);
+      if (!n_too_large) {
+      } else {
+        emlrtPushRtStackR2012b(&eb_emlrtRSI, emlrtRootTLSGlobal);
+        emlrt_synchGlobalsToML();
+        y_y = NULL;
+        m0 = mxCreateCharArray(2, iv18);
+        for (ndbl = 0; ndbl < 21; ndbl++) {
+          cv4[ndbl] = cv6[ndbl];
+        }
+
+        emlrtInitCharArrayR2013a(emlrtRootTLSGlobal, 21, m0, cv4);
+        emlrtAssign(&y_y, m0);
+        error(message(y_y, &b_emlrtMCI), &c_emlrtMCI);
+        emlrt_synchGlobalsFromML();
+        emlrtPopRtStackR2012b(&eb_emlrtRSI, emlrtRootTLSGlobal);
+      }
+
+      emlrtPopRtStackR2012b(&cb_emlrtRSI, emlrtRootTLSGlobal);
+      i0 = r7->size[0] * r7->size[1];
+      r7->size[0] = 1;
+      r7->size[1] = cdiff + 1;
+      emxEnsureCapacity((emxArray__common *)r7, i0, (int32_T)sizeof(real_T),
+                        &b_emlrtRTEI);
+      if (cdiff + 1 > 0) {
+        r7->data[0] = gamm;
+        if (cdiff + 1 > 1) {
+          r7->data[cdiff] = m_y;
+          i0 = cdiff + (cdiff < 0);
+          if (i0 >= 0) {
+            ndbl = (int32_T)((uint32_T)i0 >> 1);
+          } else {
+            ndbl = ~(int32_T)((uint32_T)~i0 >> 1);
+          }
+
+          emlrtPushRtStackR2012b(&db_emlrtRSI, emlrtRootTLSGlobal);
+          emlrtPopRtStackR2012b(&db_emlrtRSI, emlrtRootTLSGlobal);
+          for (k = 1; k < ndbl; k++) {
+            kd = k * 3U;
+            r7->data[k] = gamm + (real_T)kd;
+            r7->data[cdiff - k] = m_y - (real_T)kd;
+          }
+
+          if (ndbl << 1 == cdiff) {
+            r7->data[ndbl] = (gamm + m_y) / 2.0;
+          } else {
+            kd = ndbl * 3U;
+            r7->data[ndbl] = gamm + (real_T)kd;
+            r7->data[ndbl + 1] = m_y - (real_T)kd;
+          }
+        }
+      }
+
+      emlrtPopRtStackR2012b(&bb_emlrtRSI, emlrtRootTLSGlobal);
+      emlrtPopRtStackR2012b(&q_emlrtRSI, emlrtRootTLSGlobal);
+      emlrtVectorVectorIndexCheckR2012b(ytilde_size[0], 1, 1, r7->size[1],
+        &u_emlrtECI, emlrtRootTLSGlobal);
+      emlrtPushRtStackR2012b(&q_emlrtRSI, emlrtRootTLSGlobal);
+      m_y = 3.0 * uk_data[9];
+      i_y = 3.0 * uk_data[(int32_T)((10.0 + i_y) + 1.0) - 1];
+      emlrtPushRtStackR2012b(&bb_emlrtRSI, emlrtRootTLSGlobal);
+      if (muDoubleScalarIsNaN(i_y)) {
+        cdiff = 0;
+        gamm = rtNaN;
+        n_too_large = FALSE;
+      } else if (i_y < 3.0) {
+        cdiff = -1;
+        gamm = 3.0;
+        n_too_large = FALSE;
+      } else if (muDoubleScalarIsInf(i_y)) {
+        cdiff = 0;
+        gamm = rtNaN;
+        n_too_large = !(3.0 == i_y);
+      } else {
+        gamm = 3.0;
+        b_ndbl = muDoubleScalarFloor((i_y - 3.0) / 3.0 + 0.5);
+        n_y = b_ndbl * 3.0;
+        lambda = (3.0 + n_y) - i_y;
+        if (muDoubleScalarAbs(lambda) < 4.4408920985006262E-16 * i_y) {
+          b_ndbl++;
+        } else if (lambda > 0.0) {
+          i_y = 3.0 + (b_ndbl - 1.0) * 3.0;
+        } else {
+          b_ndbl++;
+          i_y = 3.0 + n_y;
+        }
+
+        n_too_large = (2.147483647E+9 < b_ndbl);
+        if (b_ndbl >= 0.0) {
+          cdiff = (int32_T)b_ndbl - 1;
+        } else {
+          cdiff = -1;
+        }
+      }
+
+      emlrtPushRtStackR2012b(&cb_emlrtRSI, emlrtRootTLSGlobal);
+      if (!n_too_large) {
+      } else {
+        emlrtPushRtStackR2012b(&eb_emlrtRSI, emlrtRootTLSGlobal);
+        emlrt_synchGlobalsToML();
+        ab_y = NULL;
+        m0 = mxCreateCharArray(2, iv19);
+        for (ndbl = 0; ndbl < 21; ndbl++) {
+          cv4[ndbl] = cv6[ndbl];
+        }
+
+        emlrtInitCharArrayR2013a(emlrtRootTLSGlobal, 21, m0, cv4);
+        emlrtAssign(&ab_y, m0);
+        error(message(ab_y, &b_emlrtMCI), &c_emlrtMCI);
+        emlrt_synchGlobalsFromML();
+        emlrtPopRtStackR2012b(&eb_emlrtRSI, emlrtRootTLSGlobal);
+      }
+
+      emlrtPopRtStackR2012b(&cb_emlrtRSI, emlrtRootTLSGlobal);
+      i0 = f_y->size[0] * f_y->size[1];
+      f_y->size[0] = 1;
+      f_y->size[1] = cdiff + 1;
+      emxEnsureCapacity((emxArray__common *)f_y, i0, (int32_T)sizeof(real_T),
+                        &b_emlrtRTEI);
+      if (cdiff + 1 > 0) {
+        f_y->data[0] = gamm;
+        if (cdiff + 1 > 1) {
+          f_y->data[cdiff] = i_y;
+          i0 = cdiff + (cdiff < 0);
+          if (i0 >= 0) {
+            ndbl = (int32_T)((uint32_T)i0 >> 1);
+          } else {
+            ndbl = ~(int32_T)((uint32_T)~i0 >> 1);
+          }
+
+          emlrtPushRtStackR2012b(&db_emlrtRSI, emlrtRootTLSGlobal);
+          emlrtPopRtStackR2012b(&db_emlrtRSI, emlrtRootTLSGlobal);
+          for (k = 1; k < ndbl; k++) {
+            kd = k * 3U;
+            f_y->data[k] = gamm + (real_T)kd;
+            f_y->data[cdiff - k] = i_y - (real_T)kd;
+          }
+
+          if (ndbl << 1 == cdiff) {
+            f_y->data[ndbl] = (gamm + i_y) / 2.0;
+          } else {
+            kd = ndbl * 3U;
+            f_y->data[ndbl] = gamm + (real_T)kd;
+            f_y->data[ndbl + 1] = i_y - (real_T)kd;
+          }
+        }
+      }
+
+      emlrtPopRtStackR2012b(&bb_emlrtRSI, emlrtRootTLSGlobal);
       i0 = r8->size[0] * r8->size[1];
       r8->size[0] = 1;
-      r8->size[1] = d_y->size[1];
+      r8->size[1] = f_y->size[1];
       emxEnsureCapacity((emxArray__common *)r8, i0, (int32_T)sizeof(int32_T),
                         &emlrtRTEI);
-      loop_ub = d_y->size[0] * d_y->size[1];
+      loop_ub = f_y->size[0] * f_y->size[1];
       for (i0 = 0; i0 < loop_ub; i0++) {
         apnd = yhat->size[0];
-        y = (9.0 + k_y) + d_y->data[i0];
-        absb = (int32_T)emlrtIntegerCheckFastR2012b(y, &t_emlrtDCI,
+        b_y = (9.0 + m_y) + f_y->data[i0];
+        absb = (int32_T)emlrtIntegerCheckFastR2012b(b_y, &t_emlrtDCI,
           emlrtRootTLSGlobal);
         r8->data[i0] = emlrtDynamicBoundsCheckFastR2012b(absb, 1, apnd,
           &ec_emlrtBCI, emlrtRootTLSGlobal);
@@ -4022,8 +4138,8 @@ void ukf_update_unknown_state(const real_T xk_data[200], const int32_T xk_size[1
       emxInit_int32_T(&r15, 2, &emlrtRTEI, TRUE);
       emlrtPopRtStackR2012b(&q_emlrtRSI, emlrtRootTLSGlobal);
       emlrtPushRtStackR2012b(&q_emlrtRSI, emlrtRootTLSGlobal);
-      g_y = 3.0 * uk_data[9];
-      k_y = 3.0 * uk_data[9];
+      i_y = 3.0 * uk_data[9];
+      m_y = 3.0 * uk_data[9];
       i0 = r15->size[0] * r15->size[1];
       r15->size[0] = 1;
       r15->size[1] = r6->size[1];
@@ -4032,8 +4148,8 @@ void ukf_update_unknown_state(const real_T xk_data[200], const int32_T xk_size[1
       loop_ub = r6->size[0] * r6->size[1];
       for (i0 = 0; i0 < loop_ub; i0++) {
         apnd = yhat->size[0];
-        y = (9.0 + g_y) + r6->data[i0];
-        absb = (int32_T)emlrtIntegerCheckFastR2012b(y, &u_emlrtDCI,
+        b_y = (9.0 + i_y) + r6->data[i0];
+        absb = (int32_T)emlrtIntegerCheckFastR2012b(b_y, &u_emlrtDCI,
           emlrtRootTLSGlobal);
         r15->data[i0] = emlrtDynamicBoundsCheckFastR2012b(absb, 1, apnd,
           &fc_emlrtBCI, emlrtRootTLSGlobal);
@@ -4058,8 +4174,8 @@ void ukf_update_unknown_state(const real_T xk_data[200], const int32_T xk_size[1
                         &emlrtRTEI);
       loop_ub = r7->size[0] * r7->size[1];
       for (i0 = 0; i0 < loop_ub; i0++) {
-        y = (9.0 + k_y) + r7->data[i0];
-        apnd = (int32_T)emlrtIntegerCheckFastR2012b(y, &v_emlrtDCI,
+        b_y = (9.0 + m_y) + r7->data[i0];
+        apnd = (int32_T)emlrtIntegerCheckFastR2012b(b_y, &v_emlrtDCI,
           emlrtRootTLSGlobal);
         r16->data[i0] = emlrtDynamicBoundsCheckFastR2012b(apnd, 1, ytilde_size[0],
           &gc_emlrtBCI, emlrtRootTLSGlobal);
@@ -4079,7 +4195,7 @@ void ukf_update_unknown_state(const real_T xk_data[200], const int32_T xk_size[1
       emlrtPopRtStackR2012b(&q_emlrtRSI, emlrtRootTLSGlobal);
       i0 = r8->size[1];
       apnd = r2->size[0];
-      emlrtSizeEqCheck1DFastR2012b(i0, apnd, &n_emlrtECI, emlrtRootTLSGlobal);
+      emlrtSizeEqCheck1DFastR2012b(i0, apnd, &t_emlrtECI, emlrtRootTLSGlobal);
       loop_ub = r8->size[0] * r8->size[1];
       emxFree_real_T(&e_ytilde);
       for (i0 = 0; i0 < loop_ub; i0++) {
@@ -4087,32 +4203,32 @@ void ukf_update_unknown_state(const real_T xk_data[200], const int32_T xk_size[1
       }
 
       emlrtPushRtStackR2012b(&r_emlrtRSI, emlrtRootTLSGlobal);
-      g_y = 3.0 * uk_data[(int32_T)((12.0 + b_y) + c_y) - 1];
-      emlrtPushRtStackR2012b(&y_emlrtRSI, emlrtRootTLSGlobal);
-      if (muDoubleScalarIsNaN(g_y)) {
+      i_y = 3.0 * uk_data[(int32_T)((12.0 + c_y) + d_y) - 1];
+      emlrtPushRtStackR2012b(&bb_emlrtRSI, emlrtRootTLSGlobal);
+      if (muDoubleScalarIsNaN(i_y)) {
         cdiff = 0;
         gamm = rtNaN;
         n_too_large = FALSE;
-      } else if (g_y < 2.0) {
+      } else if (i_y < 2.0) {
         cdiff = -1;
         gamm = 2.0;
         n_too_large = FALSE;
-      } else if (muDoubleScalarIsInf(g_y)) {
+      } else if (muDoubleScalarIsInf(i_y)) {
         cdiff = 0;
         gamm = rtNaN;
-        n_too_large = !(2.0 == g_y);
+        n_too_large = !(2.0 == i_y);
       } else {
         gamm = 2.0;
-        b_ndbl = muDoubleScalarFloor((g_y - 2.0) / 3.0 + 0.5);
-        k_y = b_ndbl * 3.0;
-        lambda = (2.0 + k_y) - g_y;
-        if (muDoubleScalarAbs(lambda) < 4.4408920985006262E-16 * g_y) {
+        b_ndbl = muDoubleScalarFloor((i_y - 2.0) / 3.0 + 0.5);
+        m_y = b_ndbl * 3.0;
+        lambda = (2.0 + m_y) - i_y;
+        if (muDoubleScalarAbs(lambda) < 4.4408920985006262E-16 * i_y) {
           b_ndbl++;
         } else if (lambda > 0.0) {
-          g_y = 2.0 + (b_ndbl - 1.0) * 3.0;
+          i_y = 2.0 + (b_ndbl - 1.0) * 3.0;
         } else {
           b_ndbl++;
-          g_y = 2.0 + k_y;
+          i_y = 2.0 + m_y;
         }
 
         n_too_large = (2.147483647E+9 < b_ndbl);
@@ -4123,203 +4239,13 @@ void ukf_update_unknown_state(const real_T xk_data[200], const int32_T xk_size[1
         }
       }
 
-      emlrtPushRtStackR2012b(&ab_emlrtRSI, emlrtRootTLSGlobal);
+      emlrtPushRtStackR2012b(&cb_emlrtRSI, emlrtRootTLSGlobal);
       if (!n_too_large) {
       } else {
-        emlrtPushRtStackR2012b(&cb_emlrtRSI, emlrtRootTLSGlobal);
-        emlrt_synchGlobalsToML();
-        y_y = NULL;
-        m0 = mxCreateCharArray(2, iv20);
-        for (ndbl = 0; ndbl < 21; ndbl++) {
-          cv4[ndbl] = cv6[ndbl];
-        }
-
-        emlrtInitCharArrayR2013a(emlrtRootTLSGlobal, 21, m0, cv4);
-        emlrtAssign(&y_y, m0);
-        error(message(y_y, &b_emlrtMCI), &c_emlrtMCI);
-        emlrt_synchGlobalsFromML();
-        emlrtPopRtStackR2012b(&cb_emlrtRSI, emlrtRootTLSGlobal);
-      }
-
-      emlrtPopRtStackR2012b(&ab_emlrtRSI, emlrtRootTLSGlobal);
-      i0 = r6->size[0] * r6->size[1];
-      r6->size[0] = 1;
-      r6->size[1] = cdiff + 1;
-      emxEnsureCapacity((emxArray__common *)r6, i0, (int32_T)sizeof(real_T),
-                        &b_emlrtRTEI);
-      if (cdiff + 1 > 0) {
-        r6->data[0] = gamm;
-        if (cdiff + 1 > 1) {
-          r6->data[cdiff] = g_y;
-          i0 = cdiff + (cdiff < 0);
-          if (i0 >= 0) {
-            ndbl = (int32_T)((uint32_T)i0 >> 1);
-          } else {
-            ndbl = ~(int32_T)((uint32_T)~i0 >> 1);
-          }
-
-          emlrtPushRtStackR2012b(&bb_emlrtRSI, emlrtRootTLSGlobal);
-          emlrtPopRtStackR2012b(&bb_emlrtRSI, emlrtRootTLSGlobal);
-          for (k = 1; k < ndbl; k++) {
-            kd = k * 3U;
-            r6->data[k] = gamm + (real_T)kd;
-            r6->data[cdiff - k] = g_y - (real_T)kd;
-          }
-
-          if (ndbl << 1 == cdiff) {
-            r6->data[ndbl] = (gamm + g_y) / 2.0;
-          } else {
-            kd = ndbl * 3U;
-            r6->data[ndbl] = gamm + (real_T)kd;
-            r6->data[ndbl + 1] = g_y - (real_T)kd;
-          }
-        }
-      }
-
-      emlrtPopRtStackR2012b(&y_emlrtRSI, emlrtRootTLSGlobal);
-      emlrtPopRtStackR2012b(&r_emlrtRSI, emlrtRootTLSGlobal);
-      emlrtVectorVectorIndexCheckR2012b(yhat->size[0], 1, 1, r6->size[1],
-        &m_emlrtECI, emlrtRootTLSGlobal);
-      emlrtPushRtStackR2012b(&r_emlrtRSI, emlrtRootTLSGlobal);
-      g_y = 3.0 * uk_data[(int32_T)((12.0 + b_y) + c_y) - 1];
-      emlrtPushRtStackR2012b(&y_emlrtRSI, emlrtRootTLSGlobal);
-      if (muDoubleScalarIsNaN(g_y)) {
-        cdiff = 0;
-        gamm = rtNaN;
-        n_too_large = FALSE;
-      } else if (g_y < 2.0) {
-        cdiff = -1;
-        gamm = 2.0;
-        n_too_large = FALSE;
-      } else if (muDoubleScalarIsInf(g_y)) {
-        cdiff = 0;
-        gamm = rtNaN;
-        n_too_large = !(2.0 == g_y);
-      } else {
-        gamm = 2.0;
-        b_ndbl = muDoubleScalarFloor((g_y - 2.0) / 3.0 + 0.5);
-        k_y = b_ndbl * 3.0;
-        lambda = (2.0 + k_y) - g_y;
-        if (muDoubleScalarAbs(lambda) < 4.4408920985006262E-16 * g_y) {
-          b_ndbl++;
-        } else if (lambda > 0.0) {
-          g_y = 2.0 + (b_ndbl - 1.0) * 3.0;
-        } else {
-          b_ndbl++;
-          g_y = 2.0 + k_y;
-        }
-
-        n_too_large = (2.147483647E+9 < b_ndbl);
-        if (b_ndbl >= 0.0) {
-          cdiff = (int32_T)b_ndbl - 1;
-        } else {
-          cdiff = -1;
-        }
-      }
-
-      emlrtPushRtStackR2012b(&ab_emlrtRSI, emlrtRootTLSGlobal);
-      if (!n_too_large) {
-      } else {
-        emlrtPushRtStackR2012b(&cb_emlrtRSI, emlrtRootTLSGlobal);
-        emlrt_synchGlobalsToML();
-        ab_y = NULL;
-        m0 = mxCreateCharArray(2, iv21);
-        for (ndbl = 0; ndbl < 21; ndbl++) {
-          cv4[ndbl] = cv6[ndbl];
-        }
-
-        emlrtInitCharArrayR2013a(emlrtRootTLSGlobal, 21, m0, cv4);
-        emlrtAssign(&ab_y, m0);
-        error(message(ab_y, &b_emlrtMCI), &c_emlrtMCI);
-        emlrt_synchGlobalsFromML();
-        emlrtPopRtStackR2012b(&cb_emlrtRSI, emlrtRootTLSGlobal);
-      }
-
-      emlrtPopRtStackR2012b(&ab_emlrtRSI, emlrtRootTLSGlobal);
-      i0 = r7->size[0] * r7->size[1];
-      r7->size[0] = 1;
-      r7->size[1] = cdiff + 1;
-      emxEnsureCapacity((emxArray__common *)r7, i0, (int32_T)sizeof(real_T),
-                        &b_emlrtRTEI);
-      if (cdiff + 1 > 0) {
-        r7->data[0] = gamm;
-        if (cdiff + 1 > 1) {
-          r7->data[cdiff] = g_y;
-          i0 = cdiff + (cdiff < 0);
-          if (i0 >= 0) {
-            ndbl = (int32_T)((uint32_T)i0 >> 1);
-          } else {
-            ndbl = ~(int32_T)((uint32_T)~i0 >> 1);
-          }
-
-          emlrtPushRtStackR2012b(&bb_emlrtRSI, emlrtRootTLSGlobal);
-          emlrtPopRtStackR2012b(&bb_emlrtRSI, emlrtRootTLSGlobal);
-          for (k = 1; k < ndbl; k++) {
-            kd = k * 3U;
-            r7->data[k] = gamm + (real_T)kd;
-            r7->data[cdiff - k] = g_y - (real_T)kd;
-          }
-
-          if (ndbl << 1 == cdiff) {
-            r7->data[ndbl] = (gamm + g_y) / 2.0;
-          } else {
-            kd = ndbl * 3U;
-            r7->data[ndbl] = gamm + (real_T)kd;
-            r7->data[ndbl + 1] = g_y - (real_T)kd;
-          }
-        }
-      }
-
-      emlrtPopRtStackR2012b(&y_emlrtRSI, emlrtRootTLSGlobal);
-      emlrtPopRtStackR2012b(&r_emlrtRSI, emlrtRootTLSGlobal);
-      emlrtVectorVectorIndexCheckR2012b(ytilde_size[0], 1, 1, r7->size[1],
-        &l_emlrtECI, emlrtRootTLSGlobal);
-      emlrtPushRtStackR2012b(&r_emlrtRSI, emlrtRootTLSGlobal);
-      g_y = 3.0 * (uk_data[9] + uk_data[(int32_T)((10.0 + 3.0 * uk_data[9]) +
-        1.0) - 1]);
-      k_y = 3.0 * uk_data[(int32_T)((12.0 + b_y) + c_y) - 1];
-      emlrtPushRtStackR2012b(&y_emlrtRSI, emlrtRootTLSGlobal);
-      if (muDoubleScalarIsNaN(k_y)) {
-        cdiff = 0;
-        gamm = rtNaN;
-        n_too_large = FALSE;
-      } else if (k_y < 2.0) {
-        cdiff = -1;
-        gamm = 2.0;
-        n_too_large = FALSE;
-      } else if (muDoubleScalarIsInf(k_y)) {
-        cdiff = 0;
-        gamm = rtNaN;
-        n_too_large = !(2.0 == k_y);
-      } else {
-        gamm = 2.0;
-        b_ndbl = muDoubleScalarFloor((k_y - 2.0) / 3.0 + 0.5);
-        l_y = b_ndbl * 3.0;
-        lambda = (2.0 + l_y) - k_y;
-        if (muDoubleScalarAbs(lambda) < 4.4408920985006262E-16 * k_y) {
-          b_ndbl++;
-        } else if (lambda > 0.0) {
-          k_y = 2.0 + (b_ndbl - 1.0) * 3.0;
-        } else {
-          b_ndbl++;
-          k_y = 2.0 + l_y;
-        }
-
-        n_too_large = (2.147483647E+9 < b_ndbl);
-        if (b_ndbl >= 0.0) {
-          cdiff = (int32_T)b_ndbl - 1;
-        } else {
-          cdiff = -1;
-        }
-      }
-
-      emlrtPushRtStackR2012b(&ab_emlrtRSI, emlrtRootTLSGlobal);
-      if (!n_too_large) {
-      } else {
-        emlrtPushRtStackR2012b(&cb_emlrtRSI, emlrtRootTLSGlobal);
+        emlrtPushRtStackR2012b(&eb_emlrtRSI, emlrtRootTLSGlobal);
         emlrt_synchGlobalsToML();
         bb_y = NULL;
-        m0 = mxCreateCharArray(2, iv22);
+        m0 = mxCreateCharArray(2, iv20);
         for (ndbl = 0; ndbl < 21; ndbl++) {
           cv4[ndbl] = cv6[ndbl];
         }
@@ -4328,19 +4254,19 @@ void ukf_update_unknown_state(const real_T xk_data[200], const int32_T xk_size[1
         emlrtAssign(&bb_y, m0);
         error(message(bb_y, &b_emlrtMCI), &c_emlrtMCI);
         emlrt_synchGlobalsFromML();
-        emlrtPopRtStackR2012b(&cb_emlrtRSI, emlrtRootTLSGlobal);
+        emlrtPopRtStackR2012b(&eb_emlrtRSI, emlrtRootTLSGlobal);
       }
 
-      emlrtPopRtStackR2012b(&ab_emlrtRSI, emlrtRootTLSGlobal);
-      i0 = d_y->size[0] * d_y->size[1];
-      d_y->size[0] = 1;
-      d_y->size[1] = cdiff + 1;
-      emxEnsureCapacity((emxArray__common *)d_y, i0, (int32_T)sizeof(real_T),
+      emlrtPopRtStackR2012b(&cb_emlrtRSI, emlrtRootTLSGlobal);
+      i0 = r6->size[0] * r6->size[1];
+      r6->size[0] = 1;
+      r6->size[1] = cdiff + 1;
+      emxEnsureCapacity((emxArray__common *)r6, i0, (int32_T)sizeof(real_T),
                         &b_emlrtRTEI);
       if (cdiff + 1 > 0) {
-        d_y->data[0] = gamm;
+        r6->data[0] = gamm;
         if (cdiff + 1 > 1) {
-          d_y->data[cdiff] = k_y;
+          r6->data[cdiff] = i_y;
           i0 = cdiff + (cdiff < 0);
           if (i0 >= 0) {
             ndbl = (int32_T)((uint32_T)i0 >> 1);
@@ -4348,35 +4274,225 @@ void ukf_update_unknown_state(const real_T xk_data[200], const int32_T xk_size[1
             ndbl = ~(int32_T)((uint32_T)~i0 >> 1);
           }
 
-          emlrtPushRtStackR2012b(&bb_emlrtRSI, emlrtRootTLSGlobal);
-          emlrtPopRtStackR2012b(&bb_emlrtRSI, emlrtRootTLSGlobal);
+          emlrtPushRtStackR2012b(&db_emlrtRSI, emlrtRootTLSGlobal);
+          emlrtPopRtStackR2012b(&db_emlrtRSI, emlrtRootTLSGlobal);
           for (k = 1; k < ndbl; k++) {
             kd = k * 3U;
-            d_y->data[k] = gamm + (real_T)kd;
-            d_y->data[cdiff - k] = k_y - (real_T)kd;
+            r6->data[k] = gamm + (real_T)kd;
+            r6->data[cdiff - k] = i_y - (real_T)kd;
           }
 
           if (ndbl << 1 == cdiff) {
-            d_y->data[ndbl] = (gamm + k_y) / 2.0;
+            r6->data[ndbl] = (gamm + i_y) / 2.0;
           } else {
             kd = ndbl * 3U;
-            d_y->data[ndbl] = gamm + (real_T)kd;
-            d_y->data[ndbl + 1] = k_y - (real_T)kd;
+            r6->data[ndbl] = gamm + (real_T)kd;
+            r6->data[ndbl + 1] = i_y - (real_T)kd;
           }
         }
       }
 
-      emlrtPopRtStackR2012b(&y_emlrtRSI, emlrtRootTLSGlobal);
+      emlrtPopRtStackR2012b(&bb_emlrtRSI, emlrtRootTLSGlobal);
+      emlrtPopRtStackR2012b(&r_emlrtRSI, emlrtRootTLSGlobal);
+      emlrtVectorVectorIndexCheckR2012b(yhat->size[0], 1, 1, r6->size[1],
+        &s_emlrtECI, emlrtRootTLSGlobal);
+      emlrtPushRtStackR2012b(&r_emlrtRSI, emlrtRootTLSGlobal);
+      i_y = 3.0 * uk_data[(int32_T)((12.0 + c_y) + d_y) - 1];
+      emlrtPushRtStackR2012b(&bb_emlrtRSI, emlrtRootTLSGlobal);
+      if (muDoubleScalarIsNaN(i_y)) {
+        cdiff = 0;
+        gamm = rtNaN;
+        n_too_large = FALSE;
+      } else if (i_y < 2.0) {
+        cdiff = -1;
+        gamm = 2.0;
+        n_too_large = FALSE;
+      } else if (muDoubleScalarIsInf(i_y)) {
+        cdiff = 0;
+        gamm = rtNaN;
+        n_too_large = !(2.0 == i_y);
+      } else {
+        gamm = 2.0;
+        b_ndbl = muDoubleScalarFloor((i_y - 2.0) / 3.0 + 0.5);
+        m_y = b_ndbl * 3.0;
+        lambda = (2.0 + m_y) - i_y;
+        if (muDoubleScalarAbs(lambda) < 4.4408920985006262E-16 * i_y) {
+          b_ndbl++;
+        } else if (lambda > 0.0) {
+          i_y = 2.0 + (b_ndbl - 1.0) * 3.0;
+        } else {
+          b_ndbl++;
+          i_y = 2.0 + m_y;
+        }
+
+        n_too_large = (2.147483647E+9 < b_ndbl);
+        if (b_ndbl >= 0.0) {
+          cdiff = (int32_T)b_ndbl - 1;
+        } else {
+          cdiff = -1;
+        }
+      }
+
+      emlrtPushRtStackR2012b(&cb_emlrtRSI, emlrtRootTLSGlobal);
+      if (!n_too_large) {
+      } else {
+        emlrtPushRtStackR2012b(&eb_emlrtRSI, emlrtRootTLSGlobal);
+        emlrt_synchGlobalsToML();
+        cb_y = NULL;
+        m0 = mxCreateCharArray(2, iv21);
+        for (ndbl = 0; ndbl < 21; ndbl++) {
+          cv4[ndbl] = cv6[ndbl];
+        }
+
+        emlrtInitCharArrayR2013a(emlrtRootTLSGlobal, 21, m0, cv4);
+        emlrtAssign(&cb_y, m0);
+        error(message(cb_y, &b_emlrtMCI), &c_emlrtMCI);
+        emlrt_synchGlobalsFromML();
+        emlrtPopRtStackR2012b(&eb_emlrtRSI, emlrtRootTLSGlobal);
+      }
+
+      emlrtPopRtStackR2012b(&cb_emlrtRSI, emlrtRootTLSGlobal);
+      i0 = r7->size[0] * r7->size[1];
+      r7->size[0] = 1;
+      r7->size[1] = cdiff + 1;
+      emxEnsureCapacity((emxArray__common *)r7, i0, (int32_T)sizeof(real_T),
+                        &b_emlrtRTEI);
+      if (cdiff + 1 > 0) {
+        r7->data[0] = gamm;
+        if (cdiff + 1 > 1) {
+          r7->data[cdiff] = i_y;
+          i0 = cdiff + (cdiff < 0);
+          if (i0 >= 0) {
+            ndbl = (int32_T)((uint32_T)i0 >> 1);
+          } else {
+            ndbl = ~(int32_T)((uint32_T)~i0 >> 1);
+          }
+
+          emlrtPushRtStackR2012b(&db_emlrtRSI, emlrtRootTLSGlobal);
+          emlrtPopRtStackR2012b(&db_emlrtRSI, emlrtRootTLSGlobal);
+          for (k = 1; k < ndbl; k++) {
+            kd = k * 3U;
+            r7->data[k] = gamm + (real_T)kd;
+            r7->data[cdiff - k] = i_y - (real_T)kd;
+          }
+
+          if (ndbl << 1 == cdiff) {
+            r7->data[ndbl] = (gamm + i_y) / 2.0;
+          } else {
+            kd = ndbl * 3U;
+            r7->data[ndbl] = gamm + (real_T)kd;
+            r7->data[ndbl + 1] = i_y - (real_T)kd;
+          }
+        }
+      }
+
+      emlrtPopRtStackR2012b(&bb_emlrtRSI, emlrtRootTLSGlobal);
+      emlrtPopRtStackR2012b(&r_emlrtRSI, emlrtRootTLSGlobal);
+      emlrtVectorVectorIndexCheckR2012b(ytilde_size[0], 1, 1, r7->size[1],
+        &r_emlrtECI, emlrtRootTLSGlobal);
+      emlrtPushRtStackR2012b(&r_emlrtRSI, emlrtRootTLSGlobal);
+      i_y = 3.0 * (uk_data[9] + uk_data[(int32_T)((10.0 + 3.0 * uk_data[9]) +
+        1.0) - 1]);
+      m_y = 3.0 * uk_data[(int32_T)((12.0 + c_y) + d_y) - 1];
+      emlrtPushRtStackR2012b(&bb_emlrtRSI, emlrtRootTLSGlobal);
+      if (muDoubleScalarIsNaN(m_y)) {
+        cdiff = 0;
+        gamm = rtNaN;
+        n_too_large = FALSE;
+      } else if (m_y < 2.0) {
+        cdiff = -1;
+        gamm = 2.0;
+        n_too_large = FALSE;
+      } else if (muDoubleScalarIsInf(m_y)) {
+        cdiff = 0;
+        gamm = rtNaN;
+        n_too_large = !(2.0 == m_y);
+      } else {
+        gamm = 2.0;
+        b_ndbl = muDoubleScalarFloor((m_y - 2.0) / 3.0 + 0.5);
+        n_y = b_ndbl * 3.0;
+        lambda = (2.0 + n_y) - m_y;
+        if (muDoubleScalarAbs(lambda) < 4.4408920985006262E-16 * m_y) {
+          b_ndbl++;
+        } else if (lambda > 0.0) {
+          m_y = 2.0 + (b_ndbl - 1.0) * 3.0;
+        } else {
+          b_ndbl++;
+          m_y = 2.0 + n_y;
+        }
+
+        n_too_large = (2.147483647E+9 < b_ndbl);
+        if (b_ndbl >= 0.0) {
+          cdiff = (int32_T)b_ndbl - 1;
+        } else {
+          cdiff = -1;
+        }
+      }
+
+      emlrtPushRtStackR2012b(&cb_emlrtRSI, emlrtRootTLSGlobal);
+      if (!n_too_large) {
+      } else {
+        emlrtPushRtStackR2012b(&eb_emlrtRSI, emlrtRootTLSGlobal);
+        emlrt_synchGlobalsToML();
+        db_y = NULL;
+        m0 = mxCreateCharArray(2, iv22);
+        for (ndbl = 0; ndbl < 21; ndbl++) {
+          cv4[ndbl] = cv6[ndbl];
+        }
+
+        emlrtInitCharArrayR2013a(emlrtRootTLSGlobal, 21, m0, cv4);
+        emlrtAssign(&db_y, m0);
+        error(message(db_y, &b_emlrtMCI), &c_emlrtMCI);
+        emlrt_synchGlobalsFromML();
+        emlrtPopRtStackR2012b(&eb_emlrtRSI, emlrtRootTLSGlobal);
+      }
+
+      emlrtPopRtStackR2012b(&cb_emlrtRSI, emlrtRootTLSGlobal);
+      i0 = f_y->size[0] * f_y->size[1];
+      f_y->size[0] = 1;
+      f_y->size[1] = cdiff + 1;
+      emxEnsureCapacity((emxArray__common *)f_y, i0, (int32_T)sizeof(real_T),
+                        &b_emlrtRTEI);
+      if (cdiff + 1 > 0) {
+        f_y->data[0] = gamm;
+        if (cdiff + 1 > 1) {
+          f_y->data[cdiff] = m_y;
+          i0 = cdiff + (cdiff < 0);
+          if (i0 >= 0) {
+            ndbl = (int32_T)((uint32_T)i0 >> 1);
+          } else {
+            ndbl = ~(int32_T)((uint32_T)~i0 >> 1);
+          }
+
+          emlrtPushRtStackR2012b(&db_emlrtRSI, emlrtRootTLSGlobal);
+          emlrtPopRtStackR2012b(&db_emlrtRSI, emlrtRootTLSGlobal);
+          for (k = 1; k < ndbl; k++) {
+            kd = k * 3U;
+            f_y->data[k] = gamm + (real_T)kd;
+            f_y->data[cdiff - k] = m_y - (real_T)kd;
+          }
+
+          if (ndbl << 1 == cdiff) {
+            f_y->data[ndbl] = (gamm + m_y) / 2.0;
+          } else {
+            kd = ndbl * 3U;
+            f_y->data[ndbl] = gamm + (real_T)kd;
+            f_y->data[ndbl + 1] = m_y - (real_T)kd;
+          }
+        }
+      }
+
+      emlrtPopRtStackR2012b(&bb_emlrtRSI, emlrtRootTLSGlobal);
       i0 = r8->size[0] * r8->size[1];
       r8->size[0] = 1;
-      r8->size[1] = d_y->size[1];
+      r8->size[1] = f_y->size[1];
       emxEnsureCapacity((emxArray__common *)r8, i0, (int32_T)sizeof(int32_T),
                         &emlrtRTEI);
-      loop_ub = d_y->size[0] * d_y->size[1];
+      loop_ub = f_y->size[0] * f_y->size[1];
       for (i0 = 0; i0 < loop_ub; i0++) {
         apnd = yhat->size[0];
-        y = (9.0 + g_y) + d_y->data[i0];
-        absb = (int32_T)emlrtIntegerCheckFastR2012b(y, &w_emlrtDCI,
+        b_y = (9.0 + i_y) + f_y->data[i0];
+        absb = (int32_T)emlrtIntegerCheckFastR2012b(b_y, &w_emlrtDCI,
           emlrtRootTLSGlobal);
         r8->data[i0] = emlrtDynamicBoundsCheckFastR2012b(absb, 1, apnd,
           &hc_emlrtBCI, emlrtRootTLSGlobal);
@@ -4385,9 +4501,9 @@ void ukf_update_unknown_state(const real_T xk_data[200], const int32_T xk_size[1
       emxInit_int32_T(&r17, 2, &emlrtRTEI, TRUE);
       emlrtPopRtStackR2012b(&r_emlrtRSI, emlrtRootTLSGlobal);
       emlrtPushRtStackR2012b(&r_emlrtRSI, emlrtRootTLSGlobal);
-      g_y = 3.0 * (uk_data[9] + uk_data[(int32_T)((10.0 + 3.0 * uk_data[9]) +
+      i_y = 3.0 * (uk_data[9] + uk_data[(int32_T)((10.0 + 3.0 * uk_data[9]) +
         1.0) - 1]);
-      k_y = 3.0 * (uk_data[9] + uk_data[(int32_T)((10.0 + 3.0 * uk_data[9]) +
+      m_y = 3.0 * (uk_data[9] + uk_data[(int32_T)((10.0 + 3.0 * uk_data[9]) +
         1.0) - 1]);
       i0 = r17->size[0] * r17->size[1];
       r17->size[0] = 1;
@@ -4397,8 +4513,8 @@ void ukf_update_unknown_state(const real_T xk_data[200], const int32_T xk_size[1
       loop_ub = r6->size[0] * r6->size[1];
       for (i0 = 0; i0 < loop_ub; i0++) {
         apnd = yhat->size[0];
-        y = (9.0 + g_y) + r6->data[i0];
-        absb = (int32_T)emlrtIntegerCheckFastR2012b(y, &x_emlrtDCI,
+        b_y = (9.0 + i_y) + r6->data[i0];
+        absb = (int32_T)emlrtIntegerCheckFastR2012b(b_y, &x_emlrtDCI,
           emlrtRootTLSGlobal);
         r17->data[i0] = emlrtDynamicBoundsCheckFastR2012b(absb, 1, apnd,
           &ic_emlrtBCI, emlrtRootTLSGlobal);
@@ -4423,8 +4539,8 @@ void ukf_update_unknown_state(const real_T xk_data[200], const int32_T xk_size[1
                         &emlrtRTEI);
       loop_ub = r7->size[0] * r7->size[1];
       for (i0 = 0; i0 < loop_ub; i0++) {
-        y = (9.0 + k_y) + r7->data[i0];
-        apnd = (int32_T)emlrtIntegerCheckFastR2012b(y, &y_emlrtDCI,
+        b_y = (9.0 + m_y) + r7->data[i0];
+        apnd = (int32_T)emlrtIntegerCheckFastR2012b(b_y, &y_emlrtDCI,
           emlrtRootTLSGlobal);
         r18->data[i0] = emlrtDynamicBoundsCheckFastR2012b(apnd, 1, ytilde_size[0],
           &jc_emlrtBCI, emlrtRootTLSGlobal);
@@ -4444,7 +4560,7 @@ void ukf_update_unknown_state(const real_T xk_data[200], const int32_T xk_size[1
       emlrtPopRtStackR2012b(&r_emlrtRSI, emlrtRootTLSGlobal);
       i0 = r8->size[1];
       apnd = r2->size[0];
-      emlrtSizeEqCheck1DFastR2012b(i0, apnd, &k_emlrtECI, emlrtRootTLSGlobal);
+      emlrtSizeEqCheck1DFastR2012b(i0, apnd, &q_emlrtECI, emlrtRootTLSGlobal);
       loop_ub = r8->size[0] * r8->size[1];
       emxFree_real_T(&f_ytilde);
       for (i0 = 0; i0 < loop_ub; i0++) {
@@ -4452,32 +4568,32 @@ void ukf_update_unknown_state(const real_T xk_data[200], const int32_T xk_size[1
       }
 
       emlrtPushRtStackR2012b(&s_emlrtRSI, emlrtRootTLSGlobal);
-      g_y = 3.0 * uk_data[(int32_T)((12.0 + b_y) + c_y) - 1];
-      emlrtPushRtStackR2012b(&y_emlrtRSI, emlrtRootTLSGlobal);
-      if (muDoubleScalarIsNaN(g_y)) {
+      i_y = 3.0 * uk_data[(int32_T)((12.0 + c_y) + d_y) - 1];
+      emlrtPushRtStackR2012b(&bb_emlrtRSI, emlrtRootTLSGlobal);
+      if (muDoubleScalarIsNaN(i_y)) {
         cdiff = 0;
         gamm = rtNaN;
         n_too_large = FALSE;
-      } else if (g_y < 3.0) {
+      } else if (i_y < 3.0) {
         cdiff = -1;
         gamm = 3.0;
         n_too_large = FALSE;
-      } else if (muDoubleScalarIsInf(g_y)) {
+      } else if (muDoubleScalarIsInf(i_y)) {
         cdiff = 0;
         gamm = rtNaN;
-        n_too_large = !(3.0 == g_y);
+        n_too_large = !(3.0 == i_y);
       } else {
         gamm = 3.0;
-        b_ndbl = muDoubleScalarFloor((g_y - 3.0) / 3.0 + 0.5);
-        k_y = b_ndbl * 3.0;
-        lambda = (3.0 + k_y) - g_y;
-        if (muDoubleScalarAbs(lambda) < 4.4408920985006262E-16 * g_y) {
+        b_ndbl = muDoubleScalarFloor((i_y - 3.0) / 3.0 + 0.5);
+        m_y = b_ndbl * 3.0;
+        lambda = (3.0 + m_y) - i_y;
+        if (muDoubleScalarAbs(lambda) < 4.4408920985006262E-16 * i_y) {
           b_ndbl++;
         } else if (lambda > 0.0) {
-          g_y = 3.0 + (b_ndbl - 1.0) * 3.0;
+          i_y = 3.0 + (b_ndbl - 1.0) * 3.0;
         } else {
           b_ndbl++;
-          g_y = 3.0 + k_y;
+          i_y = 3.0 + m_y;
         }
 
         n_too_large = (2.147483647E+9 < b_ndbl);
@@ -4488,203 +4604,13 @@ void ukf_update_unknown_state(const real_T xk_data[200], const int32_T xk_size[1
         }
       }
 
-      emlrtPushRtStackR2012b(&ab_emlrtRSI, emlrtRootTLSGlobal);
+      emlrtPushRtStackR2012b(&cb_emlrtRSI, emlrtRootTLSGlobal);
       if (!n_too_large) {
       } else {
-        emlrtPushRtStackR2012b(&cb_emlrtRSI, emlrtRootTLSGlobal);
-        emlrt_synchGlobalsToML();
-        cb_y = NULL;
-        m0 = mxCreateCharArray(2, iv23);
-        for (ndbl = 0; ndbl < 21; ndbl++) {
-          cv4[ndbl] = cv6[ndbl];
-        }
-
-        emlrtInitCharArrayR2013a(emlrtRootTLSGlobal, 21, m0, cv4);
-        emlrtAssign(&cb_y, m0);
-        error(message(cb_y, &b_emlrtMCI), &c_emlrtMCI);
-        emlrt_synchGlobalsFromML();
-        emlrtPopRtStackR2012b(&cb_emlrtRSI, emlrtRootTLSGlobal);
-      }
-
-      emlrtPopRtStackR2012b(&ab_emlrtRSI, emlrtRootTLSGlobal);
-      i0 = r6->size[0] * r6->size[1];
-      r6->size[0] = 1;
-      r6->size[1] = cdiff + 1;
-      emxEnsureCapacity((emxArray__common *)r6, i0, (int32_T)sizeof(real_T),
-                        &b_emlrtRTEI);
-      if (cdiff + 1 > 0) {
-        r6->data[0] = gamm;
-        if (cdiff + 1 > 1) {
-          r6->data[cdiff] = g_y;
-          i0 = cdiff + (cdiff < 0);
-          if (i0 >= 0) {
-            ndbl = (int32_T)((uint32_T)i0 >> 1);
-          } else {
-            ndbl = ~(int32_T)((uint32_T)~i0 >> 1);
-          }
-
-          emlrtPushRtStackR2012b(&bb_emlrtRSI, emlrtRootTLSGlobal);
-          emlrtPopRtStackR2012b(&bb_emlrtRSI, emlrtRootTLSGlobal);
-          for (k = 1; k < ndbl; k++) {
-            kd = k * 3U;
-            r6->data[k] = gamm + (real_T)kd;
-            r6->data[cdiff - k] = g_y - (real_T)kd;
-          }
-
-          if (ndbl << 1 == cdiff) {
-            r6->data[ndbl] = (gamm + g_y) / 2.0;
-          } else {
-            kd = ndbl * 3U;
-            r6->data[ndbl] = gamm + (real_T)kd;
-            r6->data[ndbl + 1] = g_y - (real_T)kd;
-          }
-        }
-      }
-
-      emlrtPopRtStackR2012b(&y_emlrtRSI, emlrtRootTLSGlobal);
-      emlrtPopRtStackR2012b(&s_emlrtRSI, emlrtRootTLSGlobal);
-      emlrtVectorVectorIndexCheckR2012b(yhat->size[0], 1, 1, r6->size[1],
-        &j_emlrtECI, emlrtRootTLSGlobal);
-      emlrtPushRtStackR2012b(&s_emlrtRSI, emlrtRootTLSGlobal);
-      g_y = 3.0 * uk_data[(int32_T)((12.0 + b_y) + c_y) - 1];
-      emlrtPushRtStackR2012b(&y_emlrtRSI, emlrtRootTLSGlobal);
-      if (muDoubleScalarIsNaN(g_y)) {
-        cdiff = 0;
-        gamm = rtNaN;
-        n_too_large = FALSE;
-      } else if (g_y < 3.0) {
-        cdiff = -1;
-        gamm = 3.0;
-        n_too_large = FALSE;
-      } else if (muDoubleScalarIsInf(g_y)) {
-        cdiff = 0;
-        gamm = rtNaN;
-        n_too_large = !(3.0 == g_y);
-      } else {
-        gamm = 3.0;
-        b_ndbl = muDoubleScalarFloor((g_y - 3.0) / 3.0 + 0.5);
-        k_y = b_ndbl * 3.0;
-        lambda = (3.0 + k_y) - g_y;
-        if (muDoubleScalarAbs(lambda) < 4.4408920985006262E-16 * g_y) {
-          b_ndbl++;
-        } else if (lambda > 0.0) {
-          g_y = 3.0 + (b_ndbl - 1.0) * 3.0;
-        } else {
-          b_ndbl++;
-          g_y = 3.0 + k_y;
-        }
-
-        n_too_large = (2.147483647E+9 < b_ndbl);
-        if (b_ndbl >= 0.0) {
-          cdiff = (int32_T)b_ndbl - 1;
-        } else {
-          cdiff = -1;
-        }
-      }
-
-      emlrtPushRtStackR2012b(&ab_emlrtRSI, emlrtRootTLSGlobal);
-      if (!n_too_large) {
-      } else {
-        emlrtPushRtStackR2012b(&cb_emlrtRSI, emlrtRootTLSGlobal);
-        emlrt_synchGlobalsToML();
-        db_y = NULL;
-        m0 = mxCreateCharArray(2, iv24);
-        for (ndbl = 0; ndbl < 21; ndbl++) {
-          cv4[ndbl] = cv6[ndbl];
-        }
-
-        emlrtInitCharArrayR2013a(emlrtRootTLSGlobal, 21, m0, cv4);
-        emlrtAssign(&db_y, m0);
-        error(message(db_y, &b_emlrtMCI), &c_emlrtMCI);
-        emlrt_synchGlobalsFromML();
-        emlrtPopRtStackR2012b(&cb_emlrtRSI, emlrtRootTLSGlobal);
-      }
-
-      emlrtPopRtStackR2012b(&ab_emlrtRSI, emlrtRootTLSGlobal);
-      i0 = r7->size[0] * r7->size[1];
-      r7->size[0] = 1;
-      r7->size[1] = cdiff + 1;
-      emxEnsureCapacity((emxArray__common *)r7, i0, (int32_T)sizeof(real_T),
-                        &b_emlrtRTEI);
-      if (cdiff + 1 > 0) {
-        r7->data[0] = gamm;
-        if (cdiff + 1 > 1) {
-          r7->data[cdiff] = g_y;
-          i0 = cdiff + (cdiff < 0);
-          if (i0 >= 0) {
-            ndbl = (int32_T)((uint32_T)i0 >> 1);
-          } else {
-            ndbl = ~(int32_T)((uint32_T)~i0 >> 1);
-          }
-
-          emlrtPushRtStackR2012b(&bb_emlrtRSI, emlrtRootTLSGlobal);
-          emlrtPopRtStackR2012b(&bb_emlrtRSI, emlrtRootTLSGlobal);
-          for (k = 1; k < ndbl; k++) {
-            kd = k * 3U;
-            r7->data[k] = gamm + (real_T)kd;
-            r7->data[cdiff - k] = g_y - (real_T)kd;
-          }
-
-          if (ndbl << 1 == cdiff) {
-            r7->data[ndbl] = (gamm + g_y) / 2.0;
-          } else {
-            kd = ndbl * 3U;
-            r7->data[ndbl] = gamm + (real_T)kd;
-            r7->data[ndbl + 1] = g_y - (real_T)kd;
-          }
-        }
-      }
-
-      emlrtPopRtStackR2012b(&y_emlrtRSI, emlrtRootTLSGlobal);
-      emlrtPopRtStackR2012b(&s_emlrtRSI, emlrtRootTLSGlobal);
-      emlrtVectorVectorIndexCheckR2012b(ytilde_size[0], 1, 1, r7->size[1],
-        &i_emlrtECI, emlrtRootTLSGlobal);
-      emlrtPushRtStackR2012b(&s_emlrtRSI, emlrtRootTLSGlobal);
-      g_y = 3.0 * (uk_data[9] + uk_data[(int32_T)((10.0 + 3.0 * uk_data[9]) +
-        1.0) - 1]);
-      b_y = 3.0 * uk_data[(int32_T)((12.0 + b_y) + c_y) - 1];
-      emlrtPushRtStackR2012b(&y_emlrtRSI, emlrtRootTLSGlobal);
-      if (muDoubleScalarIsNaN(b_y)) {
-        cdiff = 0;
-        gamm = rtNaN;
-        n_too_large = FALSE;
-      } else if (b_y < 3.0) {
-        cdiff = -1;
-        gamm = 3.0;
-        n_too_large = FALSE;
-      } else if (muDoubleScalarIsInf(b_y)) {
-        cdiff = 0;
-        gamm = rtNaN;
-        n_too_large = !(3.0 == b_y);
-      } else {
-        gamm = 3.0;
-        b_ndbl = muDoubleScalarFloor((b_y - 3.0) / 3.0 + 0.5);
-        c_y = b_ndbl * 3.0;
-        lambda = (3.0 + c_y) - b_y;
-        if (muDoubleScalarAbs(lambda) < 4.4408920985006262E-16 * b_y) {
-          b_ndbl++;
-        } else if (lambda > 0.0) {
-          b_y = 3.0 + (b_ndbl - 1.0) * 3.0;
-        } else {
-          b_ndbl++;
-          b_y = 3.0 + c_y;
-        }
-
-        n_too_large = (2.147483647E+9 < b_ndbl);
-        if (b_ndbl >= 0.0) {
-          cdiff = (int32_T)b_ndbl - 1;
-        } else {
-          cdiff = -1;
-        }
-      }
-
-      emlrtPushRtStackR2012b(&ab_emlrtRSI, emlrtRootTLSGlobal);
-      if (!n_too_large) {
-      } else {
-        emlrtPushRtStackR2012b(&cb_emlrtRSI, emlrtRootTLSGlobal);
+        emlrtPushRtStackR2012b(&eb_emlrtRSI, emlrtRootTLSGlobal);
         emlrt_synchGlobalsToML();
         eb_y = NULL;
-        m0 = mxCreateCharArray(2, iv25);
+        m0 = mxCreateCharArray(2, iv23);
         for (ndbl = 0; ndbl < 21; ndbl++) {
           cv4[ndbl] = cv6[ndbl];
         }
@@ -4693,19 +4619,19 @@ void ukf_update_unknown_state(const real_T xk_data[200], const int32_T xk_size[1
         emlrtAssign(&eb_y, m0);
         error(message(eb_y, &b_emlrtMCI), &c_emlrtMCI);
         emlrt_synchGlobalsFromML();
-        emlrtPopRtStackR2012b(&cb_emlrtRSI, emlrtRootTLSGlobal);
+        emlrtPopRtStackR2012b(&eb_emlrtRSI, emlrtRootTLSGlobal);
       }
 
-      emlrtPopRtStackR2012b(&ab_emlrtRSI, emlrtRootTLSGlobal);
-      i0 = d_y->size[0] * d_y->size[1];
-      d_y->size[0] = 1;
-      d_y->size[1] = cdiff + 1;
-      emxEnsureCapacity((emxArray__common *)d_y, i0, (int32_T)sizeof(real_T),
+      emlrtPopRtStackR2012b(&cb_emlrtRSI, emlrtRootTLSGlobal);
+      i0 = r6->size[0] * r6->size[1];
+      r6->size[0] = 1;
+      r6->size[1] = cdiff + 1;
+      emxEnsureCapacity((emxArray__common *)r6, i0, (int32_T)sizeof(real_T),
                         &b_emlrtRTEI);
       if (cdiff + 1 > 0) {
-        d_y->data[0] = gamm;
+        r6->data[0] = gamm;
         if (cdiff + 1 > 1) {
-          d_y->data[cdiff] = b_y;
+          r6->data[cdiff] = i_y;
           i0 = cdiff + (cdiff < 0);
           if (i0 >= 0) {
             ndbl = (int32_T)((uint32_T)i0 >> 1);
@@ -4713,35 +4639,225 @@ void ukf_update_unknown_state(const real_T xk_data[200], const int32_T xk_size[1
             ndbl = ~(int32_T)((uint32_T)~i0 >> 1);
           }
 
-          emlrtPushRtStackR2012b(&bb_emlrtRSI, emlrtRootTLSGlobal);
-          emlrtPopRtStackR2012b(&bb_emlrtRSI, emlrtRootTLSGlobal);
+          emlrtPushRtStackR2012b(&db_emlrtRSI, emlrtRootTLSGlobal);
+          emlrtPopRtStackR2012b(&db_emlrtRSI, emlrtRootTLSGlobal);
           for (k = 1; k < ndbl; k++) {
             kd = k * 3U;
-            d_y->data[k] = gamm + (real_T)kd;
-            d_y->data[cdiff - k] = b_y - (real_T)kd;
+            r6->data[k] = gamm + (real_T)kd;
+            r6->data[cdiff - k] = i_y - (real_T)kd;
           }
 
           if (ndbl << 1 == cdiff) {
-            d_y->data[ndbl] = (gamm + b_y) / 2.0;
+            r6->data[ndbl] = (gamm + i_y) / 2.0;
           } else {
             kd = ndbl * 3U;
-            d_y->data[ndbl] = gamm + (real_T)kd;
-            d_y->data[ndbl + 1] = b_y - (real_T)kd;
+            r6->data[ndbl] = gamm + (real_T)kd;
+            r6->data[ndbl + 1] = i_y - (real_T)kd;
           }
         }
       }
 
-      emlrtPopRtStackR2012b(&y_emlrtRSI, emlrtRootTLSGlobal);
+      emlrtPopRtStackR2012b(&bb_emlrtRSI, emlrtRootTLSGlobal);
+      emlrtPopRtStackR2012b(&s_emlrtRSI, emlrtRootTLSGlobal);
+      emlrtVectorVectorIndexCheckR2012b(yhat->size[0], 1, 1, r6->size[1],
+        &p_emlrtECI, emlrtRootTLSGlobal);
+      emlrtPushRtStackR2012b(&s_emlrtRSI, emlrtRootTLSGlobal);
+      i_y = 3.0 * uk_data[(int32_T)((12.0 + c_y) + d_y) - 1];
+      emlrtPushRtStackR2012b(&bb_emlrtRSI, emlrtRootTLSGlobal);
+      if (muDoubleScalarIsNaN(i_y)) {
+        cdiff = 0;
+        gamm = rtNaN;
+        n_too_large = FALSE;
+      } else if (i_y < 3.0) {
+        cdiff = -1;
+        gamm = 3.0;
+        n_too_large = FALSE;
+      } else if (muDoubleScalarIsInf(i_y)) {
+        cdiff = 0;
+        gamm = rtNaN;
+        n_too_large = !(3.0 == i_y);
+      } else {
+        gamm = 3.0;
+        b_ndbl = muDoubleScalarFloor((i_y - 3.0) / 3.0 + 0.5);
+        m_y = b_ndbl * 3.0;
+        lambda = (3.0 + m_y) - i_y;
+        if (muDoubleScalarAbs(lambda) < 4.4408920985006262E-16 * i_y) {
+          b_ndbl++;
+        } else if (lambda > 0.0) {
+          i_y = 3.0 + (b_ndbl - 1.0) * 3.0;
+        } else {
+          b_ndbl++;
+          i_y = 3.0 + m_y;
+        }
+
+        n_too_large = (2.147483647E+9 < b_ndbl);
+        if (b_ndbl >= 0.0) {
+          cdiff = (int32_T)b_ndbl - 1;
+        } else {
+          cdiff = -1;
+        }
+      }
+
+      emlrtPushRtStackR2012b(&cb_emlrtRSI, emlrtRootTLSGlobal);
+      if (!n_too_large) {
+      } else {
+        emlrtPushRtStackR2012b(&eb_emlrtRSI, emlrtRootTLSGlobal);
+        emlrt_synchGlobalsToML();
+        fb_y = NULL;
+        m0 = mxCreateCharArray(2, iv24);
+        for (ndbl = 0; ndbl < 21; ndbl++) {
+          cv4[ndbl] = cv6[ndbl];
+        }
+
+        emlrtInitCharArrayR2013a(emlrtRootTLSGlobal, 21, m0, cv4);
+        emlrtAssign(&fb_y, m0);
+        error(message(fb_y, &b_emlrtMCI), &c_emlrtMCI);
+        emlrt_synchGlobalsFromML();
+        emlrtPopRtStackR2012b(&eb_emlrtRSI, emlrtRootTLSGlobal);
+      }
+
+      emlrtPopRtStackR2012b(&cb_emlrtRSI, emlrtRootTLSGlobal);
+      i0 = r7->size[0] * r7->size[1];
+      r7->size[0] = 1;
+      r7->size[1] = cdiff + 1;
+      emxEnsureCapacity((emxArray__common *)r7, i0, (int32_T)sizeof(real_T),
+                        &b_emlrtRTEI);
+      if (cdiff + 1 > 0) {
+        r7->data[0] = gamm;
+        if (cdiff + 1 > 1) {
+          r7->data[cdiff] = i_y;
+          i0 = cdiff + (cdiff < 0);
+          if (i0 >= 0) {
+            ndbl = (int32_T)((uint32_T)i0 >> 1);
+          } else {
+            ndbl = ~(int32_T)((uint32_T)~i0 >> 1);
+          }
+
+          emlrtPushRtStackR2012b(&db_emlrtRSI, emlrtRootTLSGlobal);
+          emlrtPopRtStackR2012b(&db_emlrtRSI, emlrtRootTLSGlobal);
+          for (k = 1; k < ndbl; k++) {
+            kd = k * 3U;
+            r7->data[k] = gamm + (real_T)kd;
+            r7->data[cdiff - k] = i_y - (real_T)kd;
+          }
+
+          if (ndbl << 1 == cdiff) {
+            r7->data[ndbl] = (gamm + i_y) / 2.0;
+          } else {
+            kd = ndbl * 3U;
+            r7->data[ndbl] = gamm + (real_T)kd;
+            r7->data[ndbl + 1] = i_y - (real_T)kd;
+          }
+        }
+      }
+
+      emlrtPopRtStackR2012b(&bb_emlrtRSI, emlrtRootTLSGlobal);
+      emlrtPopRtStackR2012b(&s_emlrtRSI, emlrtRootTLSGlobal);
+      emlrtVectorVectorIndexCheckR2012b(ytilde_size[0], 1, 1, r7->size[1],
+        &o_emlrtECI, emlrtRootTLSGlobal);
+      emlrtPushRtStackR2012b(&s_emlrtRSI, emlrtRootTLSGlobal);
+      i_y = 3.0 * (uk_data[9] + uk_data[(int32_T)((10.0 + 3.0 * uk_data[9]) +
+        1.0) - 1]);
+      c_y = 3.0 * uk_data[(int32_T)((12.0 + c_y) + d_y) - 1];
+      emlrtPushRtStackR2012b(&bb_emlrtRSI, emlrtRootTLSGlobal);
+      if (muDoubleScalarIsNaN(c_y)) {
+        cdiff = 0;
+        gamm = rtNaN;
+        n_too_large = FALSE;
+      } else if (c_y < 3.0) {
+        cdiff = -1;
+        gamm = 3.0;
+        n_too_large = FALSE;
+      } else if (muDoubleScalarIsInf(c_y)) {
+        cdiff = 0;
+        gamm = rtNaN;
+        n_too_large = !(3.0 == c_y);
+      } else {
+        gamm = 3.0;
+        b_ndbl = muDoubleScalarFloor((c_y - 3.0) / 3.0 + 0.5);
+        d_y = b_ndbl * 3.0;
+        lambda = (3.0 + d_y) - c_y;
+        if (muDoubleScalarAbs(lambda) < 4.4408920985006262E-16 * c_y) {
+          b_ndbl++;
+        } else if (lambda > 0.0) {
+          c_y = 3.0 + (b_ndbl - 1.0) * 3.0;
+        } else {
+          b_ndbl++;
+          c_y = 3.0 + d_y;
+        }
+
+        n_too_large = (2.147483647E+9 < b_ndbl);
+        if (b_ndbl >= 0.0) {
+          cdiff = (int32_T)b_ndbl - 1;
+        } else {
+          cdiff = -1;
+        }
+      }
+
+      emlrtPushRtStackR2012b(&cb_emlrtRSI, emlrtRootTLSGlobal);
+      if (!n_too_large) {
+      } else {
+        emlrtPushRtStackR2012b(&eb_emlrtRSI, emlrtRootTLSGlobal);
+        emlrt_synchGlobalsToML();
+        gb_y = NULL;
+        m0 = mxCreateCharArray(2, iv25);
+        for (ndbl = 0; ndbl < 21; ndbl++) {
+          cv4[ndbl] = cv6[ndbl];
+        }
+
+        emlrtInitCharArrayR2013a(emlrtRootTLSGlobal, 21, m0, cv4);
+        emlrtAssign(&gb_y, m0);
+        error(message(gb_y, &b_emlrtMCI), &c_emlrtMCI);
+        emlrt_synchGlobalsFromML();
+        emlrtPopRtStackR2012b(&eb_emlrtRSI, emlrtRootTLSGlobal);
+      }
+
+      emlrtPopRtStackR2012b(&cb_emlrtRSI, emlrtRootTLSGlobal);
+      i0 = f_y->size[0] * f_y->size[1];
+      f_y->size[0] = 1;
+      f_y->size[1] = cdiff + 1;
+      emxEnsureCapacity((emxArray__common *)f_y, i0, (int32_T)sizeof(real_T),
+                        &b_emlrtRTEI);
+      if (cdiff + 1 > 0) {
+        f_y->data[0] = gamm;
+        if (cdiff + 1 > 1) {
+          f_y->data[cdiff] = c_y;
+          i0 = cdiff + (cdiff < 0);
+          if (i0 >= 0) {
+            ndbl = (int32_T)((uint32_T)i0 >> 1);
+          } else {
+            ndbl = ~(int32_T)((uint32_T)~i0 >> 1);
+          }
+
+          emlrtPushRtStackR2012b(&db_emlrtRSI, emlrtRootTLSGlobal);
+          emlrtPopRtStackR2012b(&db_emlrtRSI, emlrtRootTLSGlobal);
+          for (k = 1; k < ndbl; k++) {
+            kd = k * 3U;
+            f_y->data[k] = gamm + (real_T)kd;
+            f_y->data[cdiff - k] = c_y - (real_T)kd;
+          }
+
+          if (ndbl << 1 == cdiff) {
+            f_y->data[ndbl] = (gamm + c_y) / 2.0;
+          } else {
+            kd = ndbl * 3U;
+            f_y->data[ndbl] = gamm + (real_T)kd;
+            f_y->data[ndbl + 1] = c_y - (real_T)kd;
+          }
+        }
+      }
+
+      emlrtPopRtStackR2012b(&bb_emlrtRSI, emlrtRootTLSGlobal);
       i0 = r8->size[0] * r8->size[1];
       r8->size[0] = 1;
-      r8->size[1] = d_y->size[1];
+      r8->size[1] = f_y->size[1];
       emxEnsureCapacity((emxArray__common *)r8, i0, (int32_T)sizeof(int32_T),
                         &emlrtRTEI);
-      loop_ub = d_y->size[0] * d_y->size[1];
+      loop_ub = f_y->size[0] * f_y->size[1];
       for (i0 = 0; i0 < loop_ub; i0++) {
         apnd = yhat->size[0];
-        y = (9.0 + g_y) + d_y->data[i0];
-        absb = (int32_T)emlrtIntegerCheckFastR2012b(y, &ab_emlrtDCI,
+        b_y = (9.0 + i_y) + f_y->data[i0];
+        absb = (int32_T)emlrtIntegerCheckFastR2012b(b_y, &ab_emlrtDCI,
           emlrtRootTLSGlobal);
         r8->data[i0] = emlrtDynamicBoundsCheckFastR2012b(absb, 1, apnd,
           &kc_emlrtBCI, emlrtRootTLSGlobal);
@@ -4750,9 +4866,9 @@ void ukf_update_unknown_state(const real_T xk_data[200], const int32_T xk_size[1
       emxInit_int32_T(&r19, 2, &emlrtRTEI, TRUE);
       emlrtPopRtStackR2012b(&s_emlrtRSI, emlrtRootTLSGlobal);
       emlrtPushRtStackR2012b(&s_emlrtRSI, emlrtRootTLSGlobal);
-      b_y = 3.0 * (uk_data[9] + uk_data[(int32_T)((10.0 + 3.0 * uk_data[9]) +
-        1.0) - 1]);
       c_y = 3.0 * (uk_data[9] + uk_data[(int32_T)((10.0 + 3.0 * uk_data[9]) +
+        1.0) - 1]);
+      d_y = 3.0 * (uk_data[9] + uk_data[(int32_T)((10.0 + 3.0 * uk_data[9]) +
         1.0) - 1]);
       i0 = r19->size[0] * r19->size[1];
       r19->size[0] = 1;
@@ -4762,14 +4878,13 @@ void ukf_update_unknown_state(const real_T xk_data[200], const int32_T xk_size[1
       loop_ub = r6->size[0] * r6->size[1];
       for (i0 = 0; i0 < loop_ub; i0++) {
         apnd = yhat->size[0];
-        y = (9.0 + b_y) + r6->data[i0];
-        absb = (int32_T)emlrtIntegerCheckFastR2012b(y, &bb_emlrtDCI,
+        b_y = (9.0 + c_y) + r6->data[i0];
+        absb = (int32_T)emlrtIntegerCheckFastR2012b(b_y, &bb_emlrtDCI,
           emlrtRootTLSGlobal);
         r19->data[i0] = emlrtDynamicBoundsCheckFastR2012b(absb, 1, apnd,
           &lc_emlrtBCI, emlrtRootTLSGlobal);
       }
 
-      emxFree_real_T(&r6);
       i0 = r2->size[0];
       r2->size[0] = r19->size[1];
       emxEnsureCapacity((emxArray__common *)r2, i0, (int32_T)sizeof(real_T),
@@ -4789,14 +4904,13 @@ void ukf_update_unknown_state(const real_T xk_data[200], const int32_T xk_size[1
                         &emlrtRTEI);
       loop_ub = r7->size[0] * r7->size[1];
       for (i0 = 0; i0 < loop_ub; i0++) {
-        y = (9.0 + c_y) + r7->data[i0];
-        apnd = (int32_T)emlrtIntegerCheckFastR2012b(y, &cb_emlrtDCI,
+        b_y = (9.0 + d_y) + r7->data[i0];
+        apnd = (int32_T)emlrtIntegerCheckFastR2012b(b_y, &cb_emlrtDCI,
           emlrtRootTLSGlobal);
         r20->data[i0] = emlrtDynamicBoundsCheckFastR2012b(apnd, 1, ytilde_size[0],
           &mc_emlrtBCI, emlrtRootTLSGlobal);
       }
 
-      emxFree_real_T(&r7);
       i0 = g_ytilde->size[0];
       g_ytilde->size[0] = r20->size[1];
       emxEnsureCapacity((emxArray__common *)g_ytilde, i0, (int32_T)sizeof(real_T),
@@ -4811,9 +4925,759 @@ void ukf_update_unknown_state(const real_T xk_data[200], const int32_T xk_size[1
       emlrtPopRtStackR2012b(&s_emlrtRSI, emlrtRootTLSGlobal);
       i0 = r8->size[1];
       apnd = r2->size[0];
-      emlrtSizeEqCheck1DFastR2012b(i0, apnd, &h_emlrtECI, emlrtRootTLSGlobal);
+      emlrtSizeEqCheck1DFastR2012b(i0, apnd, &n_emlrtECI, emlrtRootTLSGlobal);
       loop_ub = r8->size[0] * r8->size[1];
       emxFree_real_T(&g_ytilde);
+      for (i0 = 0; i0 < loop_ub; i0++) {
+        yhat->data[r8->data[i0] - 1] = r2->data[i0];
+      }
+
+      emlrtPushRtStackR2012b(&t_emlrtRSI, emlrtRootTLSGlobal);
+      c_y = 3.0 * uk_data[(int32_T)((((12.0 + e_y) + y) + uk_data[(int32_T)
+        ((12.0 + 3.0 * uk_data[9]) + 3.0 * uk_data[(int32_T)(11.0 + 3.0 *
+        uk_data[9]) - 1]) - 1]) + 1.0) - 1];
+      emlrtPushRtStackR2012b(&bb_emlrtRSI, emlrtRootTLSGlobal);
+      if (muDoubleScalarIsNaN(c_y)) {
+        cdiff = 0;
+        gamm = rtNaN;
+        n_too_large = FALSE;
+      } else if (c_y < 2.0) {
+        cdiff = -1;
+        gamm = 2.0;
+        n_too_large = FALSE;
+      } else if (muDoubleScalarIsInf(c_y)) {
+        cdiff = 0;
+        gamm = rtNaN;
+        n_too_large = !(2.0 == c_y);
+      } else {
+        gamm = 2.0;
+        b_ndbl = muDoubleScalarFloor((c_y - 2.0) / 3.0 + 0.5);
+        d_y = b_ndbl * 3.0;
+        lambda = (2.0 + d_y) - c_y;
+        if (muDoubleScalarAbs(lambda) < 4.4408920985006262E-16 * c_y) {
+          b_ndbl++;
+        } else if (lambda > 0.0) {
+          c_y = 2.0 + (b_ndbl - 1.0) * 3.0;
+        } else {
+          b_ndbl++;
+          c_y = 2.0 + d_y;
+        }
+
+        n_too_large = (2.147483647E+9 < b_ndbl);
+        if (b_ndbl >= 0.0) {
+          cdiff = (int32_T)b_ndbl - 1;
+        } else {
+          cdiff = -1;
+        }
+      }
+
+      emlrtPushRtStackR2012b(&cb_emlrtRSI, emlrtRootTLSGlobal);
+      if (!n_too_large) {
+      } else {
+        emlrtPushRtStackR2012b(&eb_emlrtRSI, emlrtRootTLSGlobal);
+        emlrt_synchGlobalsToML();
+        hb_y = NULL;
+        m0 = mxCreateCharArray(2, iv26);
+        for (ndbl = 0; ndbl < 21; ndbl++) {
+          cv4[ndbl] = cv6[ndbl];
+        }
+
+        emlrtInitCharArrayR2013a(emlrtRootTLSGlobal, 21, m0, cv4);
+        emlrtAssign(&hb_y, m0);
+        error(message(hb_y, &b_emlrtMCI), &c_emlrtMCI);
+        emlrt_synchGlobalsFromML();
+        emlrtPopRtStackR2012b(&eb_emlrtRSI, emlrtRootTLSGlobal);
+      }
+
+      emlrtPopRtStackR2012b(&cb_emlrtRSI, emlrtRootTLSGlobal);
+      i0 = r6->size[0] * r6->size[1];
+      r6->size[0] = 1;
+      r6->size[1] = cdiff + 1;
+      emxEnsureCapacity((emxArray__common *)r6, i0, (int32_T)sizeof(real_T),
+                        &b_emlrtRTEI);
+      if (cdiff + 1 > 0) {
+        r6->data[0] = gamm;
+        if (cdiff + 1 > 1) {
+          r6->data[cdiff] = c_y;
+          i0 = cdiff + (cdiff < 0);
+          if (i0 >= 0) {
+            ndbl = (int32_T)((uint32_T)i0 >> 1);
+          } else {
+            ndbl = ~(int32_T)((uint32_T)~i0 >> 1);
+          }
+
+          emlrtPushRtStackR2012b(&db_emlrtRSI, emlrtRootTLSGlobal);
+          emlrtPopRtStackR2012b(&db_emlrtRSI, emlrtRootTLSGlobal);
+          for (k = 1; k < ndbl; k++) {
+            kd = k * 3U;
+            r6->data[k] = gamm + (real_T)kd;
+            r6->data[cdiff - k] = c_y - (real_T)kd;
+          }
+
+          if (ndbl << 1 == cdiff) {
+            r6->data[ndbl] = (gamm + c_y) / 2.0;
+          } else {
+            kd = ndbl * 3U;
+            r6->data[ndbl] = gamm + (real_T)kd;
+            r6->data[ndbl + 1] = c_y - (real_T)kd;
+          }
+        }
+      }
+
+      emlrtPopRtStackR2012b(&bb_emlrtRSI, emlrtRootTLSGlobal);
+      emlrtPopRtStackR2012b(&t_emlrtRSI, emlrtRootTLSGlobal);
+      emlrtVectorVectorIndexCheckR2012b(yhat->size[0], 1, 1, r6->size[1],
+        &m_emlrtECI, emlrtRootTLSGlobal);
+      emlrtPushRtStackR2012b(&t_emlrtRSI, emlrtRootTLSGlobal);
+      c_y = 3.0 * uk_data[(int32_T)((((12.0 + e_y) + y) + uk_data[(int32_T)
+        ((12.0 + 3.0 * uk_data[9]) + 3.0 * uk_data[(int32_T)(11.0 + 3.0 *
+        uk_data[9]) - 1]) - 1]) + 1.0) - 1];
+      emlrtPushRtStackR2012b(&bb_emlrtRSI, emlrtRootTLSGlobal);
+      if (muDoubleScalarIsNaN(c_y)) {
+        cdiff = 0;
+        gamm = rtNaN;
+        n_too_large = FALSE;
+      } else if (c_y < 2.0) {
+        cdiff = -1;
+        gamm = 2.0;
+        n_too_large = FALSE;
+      } else if (muDoubleScalarIsInf(c_y)) {
+        cdiff = 0;
+        gamm = rtNaN;
+        n_too_large = !(2.0 == c_y);
+      } else {
+        gamm = 2.0;
+        b_ndbl = muDoubleScalarFloor((c_y - 2.0) / 3.0 + 0.5);
+        d_y = b_ndbl * 3.0;
+        lambda = (2.0 + d_y) - c_y;
+        if (muDoubleScalarAbs(lambda) < 4.4408920985006262E-16 * c_y) {
+          b_ndbl++;
+        } else if (lambda > 0.0) {
+          c_y = 2.0 + (b_ndbl - 1.0) * 3.0;
+        } else {
+          b_ndbl++;
+          c_y = 2.0 + d_y;
+        }
+
+        n_too_large = (2.147483647E+9 < b_ndbl);
+        if (b_ndbl >= 0.0) {
+          cdiff = (int32_T)b_ndbl - 1;
+        } else {
+          cdiff = -1;
+        }
+      }
+
+      emlrtPushRtStackR2012b(&cb_emlrtRSI, emlrtRootTLSGlobal);
+      if (!n_too_large) {
+      } else {
+        emlrtPushRtStackR2012b(&eb_emlrtRSI, emlrtRootTLSGlobal);
+        emlrt_synchGlobalsToML();
+        ib_y = NULL;
+        m0 = mxCreateCharArray(2, iv27);
+        for (ndbl = 0; ndbl < 21; ndbl++) {
+          cv4[ndbl] = cv6[ndbl];
+        }
+
+        emlrtInitCharArrayR2013a(emlrtRootTLSGlobal, 21, m0, cv4);
+        emlrtAssign(&ib_y, m0);
+        error(message(ib_y, &b_emlrtMCI), &c_emlrtMCI);
+        emlrt_synchGlobalsFromML();
+        emlrtPopRtStackR2012b(&eb_emlrtRSI, emlrtRootTLSGlobal);
+      }
+
+      emlrtPopRtStackR2012b(&cb_emlrtRSI, emlrtRootTLSGlobal);
+      i0 = r7->size[0] * r7->size[1];
+      r7->size[0] = 1;
+      r7->size[1] = cdiff + 1;
+      emxEnsureCapacity((emxArray__common *)r7, i0, (int32_T)sizeof(real_T),
+                        &b_emlrtRTEI);
+      if (cdiff + 1 > 0) {
+        r7->data[0] = gamm;
+        if (cdiff + 1 > 1) {
+          r7->data[cdiff] = c_y;
+          i0 = cdiff + (cdiff < 0);
+          if (i0 >= 0) {
+            ndbl = (int32_T)((uint32_T)i0 >> 1);
+          } else {
+            ndbl = ~(int32_T)((uint32_T)~i0 >> 1);
+          }
+
+          emlrtPushRtStackR2012b(&db_emlrtRSI, emlrtRootTLSGlobal);
+          emlrtPopRtStackR2012b(&db_emlrtRSI, emlrtRootTLSGlobal);
+          for (k = 1; k < ndbl; k++) {
+            kd = k * 3U;
+            r7->data[k] = gamm + (real_T)kd;
+            r7->data[cdiff - k] = c_y - (real_T)kd;
+          }
+
+          if (ndbl << 1 == cdiff) {
+            r7->data[ndbl] = (gamm + c_y) / 2.0;
+          } else {
+            kd = ndbl * 3U;
+            r7->data[ndbl] = gamm + (real_T)kd;
+            r7->data[ndbl + 1] = c_y - (real_T)kd;
+          }
+        }
+      }
+
+      emlrtPopRtStackR2012b(&bb_emlrtRSI, emlrtRootTLSGlobal);
+      emlrtPopRtStackR2012b(&t_emlrtRSI, emlrtRootTLSGlobal);
+      emlrtVectorVectorIndexCheckR2012b(ytilde_size[0], 1, 1, r7->size[1],
+        &l_emlrtECI, emlrtRootTLSGlobal);
+      emlrtPushRtStackR2012b(&t_emlrtRSI, emlrtRootTLSGlobal);
+      c_y = 3.0 * ((uk_data[9] + uk_data[(int32_T)((10.0 + 3.0 * uk_data[9]) +
+        1.0) - 1]) + uk_data[(int32_T)((12.0 + 3.0 * uk_data[9]) + 3.0 *
+        uk_data[(int32_T)(11.0 + 3.0 * uk_data[9]) - 1]) - 1]);
+      d_y = 3.0 * uk_data[(int32_T)((((12.0 + e_y) + y) + uk_data[(int32_T)
+        ((12.0 + 3.0 * uk_data[9]) + 3.0 * uk_data[(int32_T)(11.0 + 3.0 *
+        uk_data[9]) - 1]) - 1]) + 1.0) - 1];
+      emlrtPushRtStackR2012b(&bb_emlrtRSI, emlrtRootTLSGlobal);
+      if (muDoubleScalarIsNaN(d_y)) {
+        cdiff = 0;
+        gamm = rtNaN;
+        n_too_large = FALSE;
+      } else if (d_y < 2.0) {
+        cdiff = -1;
+        gamm = 2.0;
+        n_too_large = FALSE;
+      } else if (muDoubleScalarIsInf(d_y)) {
+        cdiff = 0;
+        gamm = rtNaN;
+        n_too_large = !(2.0 == d_y);
+      } else {
+        gamm = 2.0;
+        b_ndbl = muDoubleScalarFloor((d_y - 2.0) / 3.0 + 0.5);
+        i_y = b_ndbl * 3.0;
+        lambda = (2.0 + i_y) - d_y;
+        if (muDoubleScalarAbs(lambda) < 4.4408920985006262E-16 * d_y) {
+          b_ndbl++;
+        } else if (lambda > 0.0) {
+          d_y = 2.0 + (b_ndbl - 1.0) * 3.0;
+        } else {
+          b_ndbl++;
+          d_y = 2.0 + i_y;
+        }
+
+        n_too_large = (2.147483647E+9 < b_ndbl);
+        if (b_ndbl >= 0.0) {
+          cdiff = (int32_T)b_ndbl - 1;
+        } else {
+          cdiff = -1;
+        }
+      }
+
+      emlrtPushRtStackR2012b(&cb_emlrtRSI, emlrtRootTLSGlobal);
+      if (!n_too_large) {
+      } else {
+        emlrtPushRtStackR2012b(&eb_emlrtRSI, emlrtRootTLSGlobal);
+        emlrt_synchGlobalsToML();
+        jb_y = NULL;
+        m0 = mxCreateCharArray(2, iv28);
+        for (ndbl = 0; ndbl < 21; ndbl++) {
+          cv4[ndbl] = cv6[ndbl];
+        }
+
+        emlrtInitCharArrayR2013a(emlrtRootTLSGlobal, 21, m0, cv4);
+        emlrtAssign(&jb_y, m0);
+        error(message(jb_y, &b_emlrtMCI), &c_emlrtMCI);
+        emlrt_synchGlobalsFromML();
+        emlrtPopRtStackR2012b(&eb_emlrtRSI, emlrtRootTLSGlobal);
+      }
+
+      emlrtPopRtStackR2012b(&cb_emlrtRSI, emlrtRootTLSGlobal);
+      i0 = f_y->size[0] * f_y->size[1];
+      f_y->size[0] = 1;
+      f_y->size[1] = cdiff + 1;
+      emxEnsureCapacity((emxArray__common *)f_y, i0, (int32_T)sizeof(real_T),
+                        &b_emlrtRTEI);
+      if (cdiff + 1 > 0) {
+        f_y->data[0] = gamm;
+        if (cdiff + 1 > 1) {
+          f_y->data[cdiff] = d_y;
+          i0 = cdiff + (cdiff < 0);
+          if (i0 >= 0) {
+            ndbl = (int32_T)((uint32_T)i0 >> 1);
+          } else {
+            ndbl = ~(int32_T)((uint32_T)~i0 >> 1);
+          }
+
+          emlrtPushRtStackR2012b(&db_emlrtRSI, emlrtRootTLSGlobal);
+          emlrtPopRtStackR2012b(&db_emlrtRSI, emlrtRootTLSGlobal);
+          for (k = 1; k < ndbl; k++) {
+            kd = k * 3U;
+            f_y->data[k] = gamm + (real_T)kd;
+            f_y->data[cdiff - k] = d_y - (real_T)kd;
+          }
+
+          if (ndbl << 1 == cdiff) {
+            f_y->data[ndbl] = (gamm + d_y) / 2.0;
+          } else {
+            kd = ndbl * 3U;
+            f_y->data[ndbl] = gamm + (real_T)kd;
+            f_y->data[ndbl + 1] = d_y - (real_T)kd;
+          }
+        }
+      }
+
+      emlrtPopRtStackR2012b(&bb_emlrtRSI, emlrtRootTLSGlobal);
+      i0 = r8->size[0] * r8->size[1];
+      r8->size[0] = 1;
+      r8->size[1] = f_y->size[1];
+      emxEnsureCapacity((emxArray__common *)r8, i0, (int32_T)sizeof(int32_T),
+                        &emlrtRTEI);
+      loop_ub = f_y->size[0] * f_y->size[1];
+      for (i0 = 0; i0 < loop_ub; i0++) {
+        apnd = yhat->size[0];
+        b_y = (9.0 + c_y) + f_y->data[i0];
+        absb = (int32_T)emlrtIntegerCheckFastR2012b(b_y, &db_emlrtDCI,
+          emlrtRootTLSGlobal);
+        r8->data[i0] = emlrtDynamicBoundsCheckFastR2012b(absb, 1, apnd,
+          &nc_emlrtBCI, emlrtRootTLSGlobal);
+      }
+
+      emxInit_int32_T(&r21, 2, &emlrtRTEI, TRUE);
+      emlrtPopRtStackR2012b(&t_emlrtRSI, emlrtRootTLSGlobal);
+      emlrtPushRtStackR2012b(&t_emlrtRSI, emlrtRootTLSGlobal);
+      c_y = 3.0 * ((uk_data[9] + uk_data[(int32_T)((10.0 + 3.0 * uk_data[9]) +
+        1.0) - 1]) + uk_data[(int32_T)((12.0 + 3.0 * uk_data[9]) + 3.0 *
+        uk_data[(int32_T)(11.0 + 3.0 * uk_data[9]) - 1]) - 1]);
+      d_y = 3.0 * ((uk_data[9] + uk_data[(int32_T)((10.0 + 3.0 * uk_data[9]) +
+        1.0) - 1]) + uk_data[(int32_T)((12.0 + 3.0 * uk_data[9]) + 3.0 *
+        uk_data[(int32_T)(11.0 + 3.0 * uk_data[9]) - 1]) - 1]);
+      i0 = r21->size[0] * r21->size[1];
+      r21->size[0] = 1;
+      r21->size[1] = r6->size[1];
+      emxEnsureCapacity((emxArray__common *)r21, i0, (int32_T)sizeof(int32_T),
+                        &emlrtRTEI);
+      loop_ub = r6->size[0] * r6->size[1];
+      for (i0 = 0; i0 < loop_ub; i0++) {
+        apnd = yhat->size[0];
+        b_y = (9.0 + c_y) + r6->data[i0];
+        absb = (int32_T)emlrtIntegerCheckFastR2012b(b_y, &eb_emlrtDCI,
+          emlrtRootTLSGlobal);
+        r21->data[i0] = emlrtDynamicBoundsCheckFastR2012b(absb, 1, apnd,
+          &oc_emlrtBCI, emlrtRootTLSGlobal);
+      }
+
+      i0 = r2->size[0];
+      r2->size[0] = r21->size[1];
+      emxEnsureCapacity((emxArray__common *)r2, i0, (int32_T)sizeof(real_T),
+                        &emlrtRTEI);
+      loop_ub = r21->size[1];
+      for (i0 = 0; i0 < loop_ub; i0++) {
+        r2->data[i0] = yhat->data[r21->data[i0] - 1];
+      }
+
+      emxFree_int32_T(&r21);
+      b_emxInit_real_T(&h_ytilde, 1, &emlrtRTEI, TRUE);
+      emxInit_int32_T(&r22, 2, &emlrtRTEI, TRUE);
+      i0 = r22->size[0] * r22->size[1];
+      r22->size[0] = 1;
+      r22->size[1] = r7->size[1];
+      emxEnsureCapacity((emxArray__common *)r22, i0, (int32_T)sizeof(int32_T),
+                        &emlrtRTEI);
+      loop_ub = r7->size[0] * r7->size[1];
+      for (i0 = 0; i0 < loop_ub; i0++) {
+        b_y = (9.0 + d_y) + r7->data[i0];
+        apnd = (int32_T)emlrtIntegerCheckFastR2012b(b_y, &fb_emlrtDCI,
+          emlrtRootTLSGlobal);
+        r22->data[i0] = emlrtDynamicBoundsCheckFastR2012b(apnd, 1, ytilde_size[0],
+          &pc_emlrtBCI, emlrtRootTLSGlobal);
+      }
+
+      i0 = h_ytilde->size[0];
+      h_ytilde->size[0] = r22->size[1];
+      emxEnsureCapacity((emxArray__common *)h_ytilde, i0, (int32_T)sizeof(real_T),
+                        &emlrtRTEI);
+      loop_ub = r22->size[1];
+      for (i0 = 0; i0 < loop_ub; i0++) {
+        h_ytilde->data[i0] = ytilde_data[r22->data[i0] - 1];
+      }
+
+      emxFree_int32_T(&r22);
+      c_minangle(r2, h_ytilde);
+      emlrtPopRtStackR2012b(&t_emlrtRSI, emlrtRootTLSGlobal);
+      i0 = r8->size[1];
+      apnd = r2->size[0];
+      emlrtSizeEqCheck1DFastR2012b(i0, apnd, &k_emlrtECI, emlrtRootTLSGlobal);
+      loop_ub = r8->size[0] * r8->size[1];
+      emxFree_real_T(&h_ytilde);
+      for (i0 = 0; i0 < loop_ub; i0++) {
+        yhat->data[r8->data[i0] - 1] = r2->data[i0];
+      }
+
+      emlrtPushRtStackR2012b(&u_emlrtRSI, emlrtRootTLSGlobal);
+      c_y = 3.0 * uk_data[(int32_T)((((12.0 + e_y) + y) + uk_data[(int32_T)
+        ((12.0 + 3.0 * uk_data[9]) + 3.0 * uk_data[(int32_T)(11.0 + 3.0 *
+        uk_data[9]) - 1]) - 1]) + 1.0) - 1];
+      emlrtPushRtStackR2012b(&bb_emlrtRSI, emlrtRootTLSGlobal);
+      if (muDoubleScalarIsNaN(c_y)) {
+        cdiff = 0;
+        gamm = rtNaN;
+        n_too_large = FALSE;
+      } else if (c_y < 3.0) {
+        cdiff = -1;
+        gamm = 3.0;
+        n_too_large = FALSE;
+      } else if (muDoubleScalarIsInf(c_y)) {
+        cdiff = 0;
+        gamm = rtNaN;
+        n_too_large = !(3.0 == c_y);
+      } else {
+        gamm = 3.0;
+        b_ndbl = muDoubleScalarFloor((c_y - 3.0) / 3.0 + 0.5);
+        d_y = b_ndbl * 3.0;
+        lambda = (3.0 + d_y) - c_y;
+        if (muDoubleScalarAbs(lambda) < 4.4408920985006262E-16 * c_y) {
+          b_ndbl++;
+        } else if (lambda > 0.0) {
+          c_y = 3.0 + (b_ndbl - 1.0) * 3.0;
+        } else {
+          b_ndbl++;
+          c_y = 3.0 + d_y;
+        }
+
+        n_too_large = (2.147483647E+9 < b_ndbl);
+        if (b_ndbl >= 0.0) {
+          cdiff = (int32_T)b_ndbl - 1;
+        } else {
+          cdiff = -1;
+        }
+      }
+
+      emlrtPushRtStackR2012b(&cb_emlrtRSI, emlrtRootTLSGlobal);
+      if (!n_too_large) {
+      } else {
+        emlrtPushRtStackR2012b(&eb_emlrtRSI, emlrtRootTLSGlobal);
+        emlrt_synchGlobalsToML();
+        kb_y = NULL;
+        m0 = mxCreateCharArray(2, iv29);
+        for (ndbl = 0; ndbl < 21; ndbl++) {
+          cv4[ndbl] = cv6[ndbl];
+        }
+
+        emlrtInitCharArrayR2013a(emlrtRootTLSGlobal, 21, m0, cv4);
+        emlrtAssign(&kb_y, m0);
+        error(message(kb_y, &b_emlrtMCI), &c_emlrtMCI);
+        emlrt_synchGlobalsFromML();
+        emlrtPopRtStackR2012b(&eb_emlrtRSI, emlrtRootTLSGlobal);
+      }
+
+      emlrtPopRtStackR2012b(&cb_emlrtRSI, emlrtRootTLSGlobal);
+      i0 = r6->size[0] * r6->size[1];
+      r6->size[0] = 1;
+      r6->size[1] = cdiff + 1;
+      emxEnsureCapacity((emxArray__common *)r6, i0, (int32_T)sizeof(real_T),
+                        &b_emlrtRTEI);
+      if (cdiff + 1 > 0) {
+        r6->data[0] = gamm;
+        if (cdiff + 1 > 1) {
+          r6->data[cdiff] = c_y;
+          i0 = cdiff + (cdiff < 0);
+          if (i0 >= 0) {
+            ndbl = (int32_T)((uint32_T)i0 >> 1);
+          } else {
+            ndbl = ~(int32_T)((uint32_T)~i0 >> 1);
+          }
+
+          emlrtPushRtStackR2012b(&db_emlrtRSI, emlrtRootTLSGlobal);
+          emlrtPopRtStackR2012b(&db_emlrtRSI, emlrtRootTLSGlobal);
+          for (k = 1; k < ndbl; k++) {
+            kd = k * 3U;
+            r6->data[k] = gamm + (real_T)kd;
+            r6->data[cdiff - k] = c_y - (real_T)kd;
+          }
+
+          if (ndbl << 1 == cdiff) {
+            r6->data[ndbl] = (gamm + c_y) / 2.0;
+          } else {
+            kd = ndbl * 3U;
+            r6->data[ndbl] = gamm + (real_T)kd;
+            r6->data[ndbl + 1] = c_y - (real_T)kd;
+          }
+        }
+      }
+
+      emlrtPopRtStackR2012b(&bb_emlrtRSI, emlrtRootTLSGlobal);
+      emlrtPopRtStackR2012b(&u_emlrtRSI, emlrtRootTLSGlobal);
+      emlrtVectorVectorIndexCheckR2012b(yhat->size[0], 1, 1, r6->size[1],
+        &j_emlrtECI, emlrtRootTLSGlobal);
+      emlrtPushRtStackR2012b(&u_emlrtRSI, emlrtRootTLSGlobal);
+      c_y = 3.0 * uk_data[(int32_T)((((12.0 + e_y) + y) + uk_data[(int32_T)
+        ((12.0 + 3.0 * uk_data[9]) + 3.0 * uk_data[(int32_T)(11.0 + 3.0 *
+        uk_data[9]) - 1]) - 1]) + 1.0) - 1];
+      emlrtPushRtStackR2012b(&bb_emlrtRSI, emlrtRootTLSGlobal);
+      if (muDoubleScalarIsNaN(c_y)) {
+        cdiff = 0;
+        gamm = rtNaN;
+        n_too_large = FALSE;
+      } else if (c_y < 3.0) {
+        cdiff = -1;
+        gamm = 3.0;
+        n_too_large = FALSE;
+      } else if (muDoubleScalarIsInf(c_y)) {
+        cdiff = 0;
+        gamm = rtNaN;
+        n_too_large = !(3.0 == c_y);
+      } else {
+        gamm = 3.0;
+        b_ndbl = muDoubleScalarFloor((c_y - 3.0) / 3.0 + 0.5);
+        d_y = b_ndbl * 3.0;
+        lambda = (3.0 + d_y) - c_y;
+        if (muDoubleScalarAbs(lambda) < 4.4408920985006262E-16 * c_y) {
+          b_ndbl++;
+        } else if (lambda > 0.0) {
+          c_y = 3.0 + (b_ndbl - 1.0) * 3.0;
+        } else {
+          b_ndbl++;
+          c_y = 3.0 + d_y;
+        }
+
+        n_too_large = (2.147483647E+9 < b_ndbl);
+        if (b_ndbl >= 0.0) {
+          cdiff = (int32_T)b_ndbl - 1;
+        } else {
+          cdiff = -1;
+        }
+      }
+
+      emlrtPushRtStackR2012b(&cb_emlrtRSI, emlrtRootTLSGlobal);
+      if (!n_too_large) {
+      } else {
+        emlrtPushRtStackR2012b(&eb_emlrtRSI, emlrtRootTLSGlobal);
+        emlrt_synchGlobalsToML();
+        lb_y = NULL;
+        m0 = mxCreateCharArray(2, iv30);
+        for (ndbl = 0; ndbl < 21; ndbl++) {
+          cv4[ndbl] = cv6[ndbl];
+        }
+
+        emlrtInitCharArrayR2013a(emlrtRootTLSGlobal, 21, m0, cv4);
+        emlrtAssign(&lb_y, m0);
+        error(message(lb_y, &b_emlrtMCI), &c_emlrtMCI);
+        emlrt_synchGlobalsFromML();
+        emlrtPopRtStackR2012b(&eb_emlrtRSI, emlrtRootTLSGlobal);
+      }
+
+      emlrtPopRtStackR2012b(&cb_emlrtRSI, emlrtRootTLSGlobal);
+      i0 = r7->size[0] * r7->size[1];
+      r7->size[0] = 1;
+      r7->size[1] = cdiff + 1;
+      emxEnsureCapacity((emxArray__common *)r7, i0, (int32_T)sizeof(real_T),
+                        &b_emlrtRTEI);
+      if (cdiff + 1 > 0) {
+        r7->data[0] = gamm;
+        if (cdiff + 1 > 1) {
+          r7->data[cdiff] = c_y;
+          i0 = cdiff + (cdiff < 0);
+          if (i0 >= 0) {
+            ndbl = (int32_T)((uint32_T)i0 >> 1);
+          } else {
+            ndbl = ~(int32_T)((uint32_T)~i0 >> 1);
+          }
+
+          emlrtPushRtStackR2012b(&db_emlrtRSI, emlrtRootTLSGlobal);
+          emlrtPopRtStackR2012b(&db_emlrtRSI, emlrtRootTLSGlobal);
+          for (k = 1; k < ndbl; k++) {
+            kd = k * 3U;
+            r7->data[k] = gamm + (real_T)kd;
+            r7->data[cdiff - k] = c_y - (real_T)kd;
+          }
+
+          if (ndbl << 1 == cdiff) {
+            r7->data[ndbl] = (gamm + c_y) / 2.0;
+          } else {
+            kd = ndbl * 3U;
+            r7->data[ndbl] = gamm + (real_T)kd;
+            r7->data[ndbl + 1] = c_y - (real_T)kd;
+          }
+        }
+      }
+
+      emlrtPopRtStackR2012b(&bb_emlrtRSI, emlrtRootTLSGlobal);
+      emlrtPopRtStackR2012b(&u_emlrtRSI, emlrtRootTLSGlobal);
+      emlrtVectorVectorIndexCheckR2012b(ytilde_size[0], 1, 1, r7->size[1],
+        &i_emlrtECI, emlrtRootTLSGlobal);
+      emlrtPushRtStackR2012b(&u_emlrtRSI, emlrtRootTLSGlobal);
+      c_y = 3.0 * ((uk_data[9] + uk_data[(int32_T)((10.0 + 3.0 * uk_data[9]) +
+        1.0) - 1]) + uk_data[(int32_T)((12.0 + 3.0 * uk_data[9]) + 3.0 *
+        uk_data[(int32_T)(11.0 + 3.0 * uk_data[9]) - 1]) - 1]);
+      y = 3.0 * uk_data[(int32_T)((((12.0 + e_y) + y) + uk_data[(int32_T)((12.0
+        + 3.0 * uk_data[9]) + 3.0 * uk_data[(int32_T)(11.0 + 3.0 * uk_data[9]) -
+        1]) - 1]) + 1.0) - 1];
+      emlrtPushRtStackR2012b(&bb_emlrtRSI, emlrtRootTLSGlobal);
+      if (muDoubleScalarIsNaN(y)) {
+        cdiff = 0;
+        gamm = rtNaN;
+        n_too_large = FALSE;
+      } else if (y < 3.0) {
+        cdiff = -1;
+        gamm = 3.0;
+        n_too_large = FALSE;
+      } else if (muDoubleScalarIsInf(y)) {
+        cdiff = 0;
+        gamm = rtNaN;
+        n_too_large = !(3.0 == y);
+      } else {
+        gamm = 3.0;
+        b_ndbl = muDoubleScalarFloor((y - 3.0) / 3.0 + 0.5);
+        d_y = b_ndbl * 3.0;
+        lambda = (3.0 + d_y) - y;
+        if (muDoubleScalarAbs(lambda) < 4.4408920985006262E-16 * y) {
+          b_ndbl++;
+        } else if (lambda > 0.0) {
+          y = 3.0 + (b_ndbl - 1.0) * 3.0;
+        } else {
+          b_ndbl++;
+          y = 3.0 + d_y;
+        }
+
+        n_too_large = (2.147483647E+9 < b_ndbl);
+        if (b_ndbl >= 0.0) {
+          cdiff = (int32_T)b_ndbl - 1;
+        } else {
+          cdiff = -1;
+        }
+      }
+
+      emlrtPushRtStackR2012b(&cb_emlrtRSI, emlrtRootTLSGlobal);
+      if (!n_too_large) {
+      } else {
+        emlrtPushRtStackR2012b(&eb_emlrtRSI, emlrtRootTLSGlobal);
+        emlrt_synchGlobalsToML();
+        mb_y = NULL;
+        m0 = mxCreateCharArray(2, iv31);
+        for (ndbl = 0; ndbl < 21; ndbl++) {
+          cv4[ndbl] = cv6[ndbl];
+        }
+
+        emlrtInitCharArrayR2013a(emlrtRootTLSGlobal, 21, m0, cv4);
+        emlrtAssign(&mb_y, m0);
+        error(message(mb_y, &b_emlrtMCI), &c_emlrtMCI);
+        emlrt_synchGlobalsFromML();
+        emlrtPopRtStackR2012b(&eb_emlrtRSI, emlrtRootTLSGlobal);
+      }
+
+      emlrtPopRtStackR2012b(&cb_emlrtRSI, emlrtRootTLSGlobal);
+      i0 = f_y->size[0] * f_y->size[1];
+      f_y->size[0] = 1;
+      f_y->size[1] = cdiff + 1;
+      emxEnsureCapacity((emxArray__common *)f_y, i0, (int32_T)sizeof(real_T),
+                        &b_emlrtRTEI);
+      if (cdiff + 1 > 0) {
+        f_y->data[0] = gamm;
+        if (cdiff + 1 > 1) {
+          f_y->data[cdiff] = y;
+          i0 = cdiff + (cdiff < 0);
+          if (i0 >= 0) {
+            ndbl = (int32_T)((uint32_T)i0 >> 1);
+          } else {
+            ndbl = ~(int32_T)((uint32_T)~i0 >> 1);
+          }
+
+          emlrtPushRtStackR2012b(&db_emlrtRSI, emlrtRootTLSGlobal);
+          emlrtPopRtStackR2012b(&db_emlrtRSI, emlrtRootTLSGlobal);
+          for (k = 1; k < ndbl; k++) {
+            kd = k * 3U;
+            f_y->data[k] = gamm + (real_T)kd;
+            f_y->data[cdiff - k] = y - (real_T)kd;
+          }
+
+          if (ndbl << 1 == cdiff) {
+            f_y->data[ndbl] = (gamm + y) / 2.0;
+          } else {
+            kd = ndbl * 3U;
+            f_y->data[ndbl] = gamm + (real_T)kd;
+            f_y->data[ndbl + 1] = y - (real_T)kd;
+          }
+        }
+      }
+
+      emlrtPopRtStackR2012b(&bb_emlrtRSI, emlrtRootTLSGlobal);
+      i0 = r8->size[0] * r8->size[1];
+      r8->size[0] = 1;
+      r8->size[1] = f_y->size[1];
+      emxEnsureCapacity((emxArray__common *)r8, i0, (int32_T)sizeof(int32_T),
+                        &emlrtRTEI);
+      loop_ub = f_y->size[0] * f_y->size[1];
+      for (i0 = 0; i0 < loop_ub; i0++) {
+        apnd = yhat->size[0];
+        b_y = (9.0 + c_y) + f_y->data[i0];
+        absb = (int32_T)emlrtIntegerCheckFastR2012b(b_y, &gb_emlrtDCI,
+          emlrtRootTLSGlobal);
+        r8->data[i0] = emlrtDynamicBoundsCheckFastR2012b(absb, 1, apnd,
+          &qc_emlrtBCI, emlrtRootTLSGlobal);
+      }
+
+      emxInit_int32_T(&r23, 2, &emlrtRTEI, TRUE);
+      emlrtPopRtStackR2012b(&u_emlrtRSI, emlrtRootTLSGlobal);
+      emlrtPushRtStackR2012b(&u_emlrtRSI, emlrtRootTLSGlobal);
+      y = 3.0 * ((uk_data[9] + uk_data[(int32_T)((10.0 + 3.0 * uk_data[9]) + 1.0)
+                  - 1]) + uk_data[(int32_T)((12.0 + 3.0 * uk_data[9]) + 3.0 *
+                  uk_data[(int32_T)(11.0 + 3.0 * uk_data[9]) - 1]) - 1]);
+      c_y = 3.0 * ((uk_data[9] + uk_data[(int32_T)((10.0 + 3.0 * uk_data[9]) +
+        1.0) - 1]) + uk_data[(int32_T)((12.0 + 3.0 * uk_data[9]) + 3.0 *
+        uk_data[(int32_T)(11.0 + 3.0 * uk_data[9]) - 1]) - 1]);
+      i0 = r23->size[0] * r23->size[1];
+      r23->size[0] = 1;
+      r23->size[1] = r6->size[1];
+      emxEnsureCapacity((emxArray__common *)r23, i0, (int32_T)sizeof(int32_T),
+                        &emlrtRTEI);
+      loop_ub = r6->size[0] * r6->size[1];
+      for (i0 = 0; i0 < loop_ub; i0++) {
+        apnd = yhat->size[0];
+        b_y = (9.0 + y) + r6->data[i0];
+        absb = (int32_T)emlrtIntegerCheckFastR2012b(b_y, &hb_emlrtDCI,
+          emlrtRootTLSGlobal);
+        r23->data[i0] = emlrtDynamicBoundsCheckFastR2012b(absb, 1, apnd,
+          &rc_emlrtBCI, emlrtRootTLSGlobal);
+      }
+
+      emxFree_real_T(&r6);
+      i0 = r2->size[0];
+      r2->size[0] = r23->size[1];
+      emxEnsureCapacity((emxArray__common *)r2, i0, (int32_T)sizeof(real_T),
+                        &emlrtRTEI);
+      loop_ub = r23->size[1];
+      for (i0 = 0; i0 < loop_ub; i0++) {
+        r2->data[i0] = yhat->data[r23->data[i0] - 1];
+      }
+
+      emxFree_int32_T(&r23);
+      b_emxInit_real_T(&i_ytilde, 1, &emlrtRTEI, TRUE);
+      emxInit_int32_T(&r24, 2, &emlrtRTEI, TRUE);
+      i0 = r24->size[0] * r24->size[1];
+      r24->size[0] = 1;
+      r24->size[1] = r7->size[1];
+      emxEnsureCapacity((emxArray__common *)r24, i0, (int32_T)sizeof(int32_T),
+                        &emlrtRTEI);
+      loop_ub = r7->size[0] * r7->size[1];
+      for (i0 = 0; i0 < loop_ub; i0++) {
+        b_y = (9.0 + c_y) + r7->data[i0];
+        apnd = (int32_T)emlrtIntegerCheckFastR2012b(b_y, &ib_emlrtDCI,
+          emlrtRootTLSGlobal);
+        r24->data[i0] = emlrtDynamicBoundsCheckFastR2012b(apnd, 1, ytilde_size[0],
+          &sc_emlrtBCI, emlrtRootTLSGlobal);
+      }
+
+      emxFree_real_T(&r7);
+      i0 = i_ytilde->size[0];
+      i_ytilde->size[0] = r24->size[1];
+      emxEnsureCapacity((emxArray__common *)i_ytilde, i0, (int32_T)sizeof(real_T),
+                        &emlrtRTEI);
+      loop_ub = r24->size[1];
+      for (i0 = 0; i0 < loop_ub; i0++) {
+        i_ytilde->data[i0] = ytilde_data[r24->data[i0] - 1];
+      }
+
+      emxFree_int32_T(&r24);
+      c_minangle(r2, i_ytilde);
+      emlrtPopRtStackR2012b(&u_emlrtRSI, emlrtRootTLSGlobal);
+      i0 = r8->size[1];
+      apnd = r2->size[0];
+      emlrtSizeEqCheck1DFastR2012b(i0, apnd, &h_emlrtECI, emlrtRootTLSGlobal);
+      loop_ub = r8->size[0] * r8->size[1];
+      emxFree_real_T(&i_ytilde);
       for (i0 = 0; i0 < loop_ub; i0++) {
         yhat->data[r8->data[i0] - 1] = r2->data[i0];
       }
@@ -4822,47 +5686,47 @@ void ukf_update_unknown_state(const real_T xk_data[200], const int32_T xk_size[1
       i0 = yhat->size[0];
       emlrtSizeEqCheck1DFastR2012b(ytilde_size[0], i0, &g_emlrtECI,
         emlrtRootTLSGlobal);
-      emlrtPushRtStackR2012b(&t_emlrtRSI, emlrtRootTLSGlobal);
+      emlrtPushRtStackR2012b(&v_emlrtRSI, emlrtRootTLSGlobal);
       loop_ub = ytilde_size[0];
       for (i0 = 0; i0 < loop_ub; i0++) {
         b_data[i0] = ytilde_data[i0] - yhat->data[i0];
       }
 
-      emlrtPushRtStackR2012b(&ih_emlrtRSI, emlrtRootTLSGlobal);
+      emlrtPushRtStackR2012b(&kh_emlrtRSI, emlrtRootTLSGlobal);
       if (!(Kk->size[1] == ytilde_size[0])) {
         if (((Kk->size[0] == 1) && (Kk->size[1] == 1)) || (ytilde_size[0] == 1))
         {
-          emlrtPushRtStackR2012b(&kh_emlrtRSI, emlrtRootTLSGlobal);
+          emlrtPushRtStackR2012b(&mh_emlrtRSI, emlrtRootTLSGlobal);
           emlrt_synchGlobalsToML();
-          fb_y = NULL;
-          m0 = mxCreateCharArray(2, iv26);
+          nb_y = NULL;
+          m0 = mxCreateCharArray(2, iv32);
           for (ndbl = 0; ndbl < 45; ndbl++) {
             cv2[ndbl] = cv3[ndbl];
           }
 
           emlrtInitCharArrayR2013a(emlrtRootTLSGlobal, 45, m0, cv2);
-          emlrtAssign(&fb_y, m0);
-          error(message(fb_y, &l_emlrtMCI), &m_emlrtMCI);
+          emlrtAssign(&nb_y, m0);
+          error(message(nb_y, &l_emlrtMCI), &m_emlrtMCI);
           emlrt_synchGlobalsFromML();
-          emlrtPopRtStackR2012b(&kh_emlrtRSI, emlrtRootTLSGlobal);
+          emlrtPopRtStackR2012b(&mh_emlrtRSI, emlrtRootTLSGlobal);
         } else {
-          emlrtPushRtStackR2012b(&jh_emlrtRSI, emlrtRootTLSGlobal);
+          emlrtPushRtStackR2012b(&lh_emlrtRSI, emlrtRootTLSGlobal);
           emlrt_synchGlobalsToML();
-          gb_y = NULL;
-          m0 = mxCreateCharArray(2, iv27);
+          ob_y = NULL;
+          m0 = mxCreateCharArray(2, iv33);
           for (ndbl = 0; ndbl < 21; ndbl++) {
             cv4[ndbl] = cv5[ndbl];
           }
 
           emlrtInitCharArrayR2013a(emlrtRootTLSGlobal, 21, m0, cv4);
-          emlrtAssign(&gb_y, m0);
-          error(message(gb_y, &n_emlrtMCI), &o_emlrtMCI);
+          emlrtAssign(&ob_y, m0);
+          error(message(ob_y, &n_emlrtMCI), &o_emlrtMCI);
           emlrt_synchGlobalsFromML();
-          emlrtPopRtStackR2012b(&jh_emlrtRSI, emlrtRootTLSGlobal);
+          emlrtPopRtStackR2012b(&lh_emlrtRSI, emlrtRootTLSGlobal);
         }
       }
 
-      emlrtPopRtStackR2012b(&ih_emlrtRSI, emlrtRootTLSGlobal);
+      emlrtPopRtStackR2012b(&kh_emlrtRSI, emlrtRootTLSGlobal);
       if ((Kk->size[1] == 1) || (ytilde_size[0] == 1)) {
         ndbl = Kk->size[0];
         loop_ub = Kk->size[0];
@@ -4876,8 +5740,8 @@ void ukf_update_unknown_state(const real_T xk_data[200], const int32_T xk_size[1
         }
       } else {
         kd = (uint32_T)Kk->size[0];
-        emlrtPushRtStackR2012b(&hh_emlrtRSI, emlrtRootTLSGlobal);
-        emlrtPushRtStackR2012b(&lh_emlrtRSI, emlrtRootTLSGlobal);
+        emlrtPushRtStackR2012b(&jh_emlrtRSI, emlrtRootTLSGlobal);
+        emlrtPushRtStackR2012b(&nh_emlrtRSI, emlrtRootTLSGlobal);
         ndbl = (int32_T)kd;
         loop_ub = (int32_T)kd;
         for (i0 = 0; i0 < loop_ub; i0++) {
@@ -4886,80 +5750,80 @@ void ukf_update_unknown_state(const real_T xk_data[200], const int32_T xk_size[1
 
         if ((Kk->size[0] < 1) || (Kk->size[1] < 1)) {
         } else {
-          emlrtPushRtStackR2012b(&nh_emlrtRSI, emlrtRootTLSGlobal);
+          emlrtPushRtStackR2012b(&ph_emlrtRSI, emlrtRootTLSGlobal);
           gamm = 1.0;
           b_ndbl = 0.0;
           TRANSB = 'N';
           TRANSA = 'N';
-          emlrtPushRtStackR2012b(&th_emlrtRSI, emlrtRootTLSGlobal);
-          emlrtPushRtStackR2012b(&pc_emlrtRSI, emlrtRootTLSGlobal);
+          emlrtPushRtStackR2012b(&vh_emlrtRSI, emlrtRootTLSGlobal);
+          emlrtPushRtStackR2012b(&rc_emlrtRSI, emlrtRootTLSGlobal);
           emlrt_checkEscapedGlobals();
           m_t = (ptrdiff_t)(Kk->size[0]);
-          emlrtPopRtStackR2012b(&pc_emlrtRSI, emlrtRootTLSGlobal);
-          emlrtPopRtStackR2012b(&th_emlrtRSI, emlrtRootTLSGlobal);
-          emlrtPushRtStackR2012b(&uh_emlrtRSI, emlrtRootTLSGlobal);
-          emlrtPushRtStackR2012b(&pc_emlrtRSI, emlrtRootTLSGlobal);
-          emlrt_checkEscapedGlobals();
-          n_t = (ptrdiff_t)(1);
-          emlrtPopRtStackR2012b(&pc_emlrtRSI, emlrtRootTLSGlobal);
-          emlrtPopRtStackR2012b(&uh_emlrtRSI, emlrtRootTLSGlobal);
-          emlrtPushRtStackR2012b(&vh_emlrtRSI, emlrtRootTLSGlobal);
-          emlrtPushRtStackR2012b(&pc_emlrtRSI, emlrtRootTLSGlobal);
-          emlrt_checkEscapedGlobals();
-          k_t = (ptrdiff_t)(Kk->size[1]);
-          emlrtPopRtStackR2012b(&pc_emlrtRSI, emlrtRootTLSGlobal);
+          emlrtPopRtStackR2012b(&rc_emlrtRSI, emlrtRootTLSGlobal);
           emlrtPopRtStackR2012b(&vh_emlrtRSI, emlrtRootTLSGlobal);
           emlrtPushRtStackR2012b(&wh_emlrtRSI, emlrtRootTLSGlobal);
-          emlrtPushRtStackR2012b(&pc_emlrtRSI, emlrtRootTLSGlobal);
+          emlrtPushRtStackR2012b(&rc_emlrtRSI, emlrtRootTLSGlobal);
           emlrt_checkEscapedGlobals();
-          lda_t = (ptrdiff_t)(Kk->size[0]);
-          emlrtPopRtStackR2012b(&pc_emlrtRSI, emlrtRootTLSGlobal);
+          n_t = (ptrdiff_t)(1);
+          emlrtPopRtStackR2012b(&rc_emlrtRSI, emlrtRootTLSGlobal);
           emlrtPopRtStackR2012b(&wh_emlrtRSI, emlrtRootTLSGlobal);
           emlrtPushRtStackR2012b(&xh_emlrtRSI, emlrtRootTLSGlobal);
-          emlrtPushRtStackR2012b(&pc_emlrtRSI, emlrtRootTLSGlobal);
+          emlrtPushRtStackR2012b(&rc_emlrtRSI, emlrtRootTLSGlobal);
           emlrt_checkEscapedGlobals();
-          ldb_t = (ptrdiff_t)(Kk->size[1]);
-          emlrtPopRtStackR2012b(&pc_emlrtRSI, emlrtRootTLSGlobal);
+          k_t = (ptrdiff_t)(Kk->size[1]);
+          emlrtPopRtStackR2012b(&rc_emlrtRSI, emlrtRootTLSGlobal);
           emlrtPopRtStackR2012b(&xh_emlrtRSI, emlrtRootTLSGlobal);
           emlrtPushRtStackR2012b(&yh_emlrtRSI, emlrtRootTLSGlobal);
-          emlrtPushRtStackR2012b(&pc_emlrtRSI, emlrtRootTLSGlobal);
+          emlrtPushRtStackR2012b(&rc_emlrtRSI, emlrtRootTLSGlobal);
           emlrt_checkEscapedGlobals();
-          ldc_t = (ptrdiff_t)(Kk->size[0]);
-          emlrtPopRtStackR2012b(&pc_emlrtRSI, emlrtRootTLSGlobal);
+          lda_t = (ptrdiff_t)(Kk->size[0]);
+          emlrtPopRtStackR2012b(&rc_emlrtRSI, emlrtRootTLSGlobal);
           emlrtPopRtStackR2012b(&yh_emlrtRSI, emlrtRootTLSGlobal);
           emlrtPushRtStackR2012b(&ai_emlrtRSI, emlrtRootTLSGlobal);
+          emlrtPushRtStackR2012b(&rc_emlrtRSI, emlrtRootTLSGlobal);
           emlrt_checkEscapedGlobals();
-          alpha1_t = (double *)(&gamm);
+          ldb_t = (ptrdiff_t)(Kk->size[1]);
+          emlrtPopRtStackR2012b(&rc_emlrtRSI, emlrtRootTLSGlobal);
           emlrtPopRtStackR2012b(&ai_emlrtRSI, emlrtRootTLSGlobal);
           emlrtPushRtStackR2012b(&bi_emlrtRSI, emlrtRootTLSGlobal);
+          emlrtPushRtStackR2012b(&rc_emlrtRSI, emlrtRootTLSGlobal);
           emlrt_checkEscapedGlobals();
-          Aia0_t = (double *)(&Kk->data[0]);
+          ldc_t = (ptrdiff_t)(Kk->size[0]);
+          emlrtPopRtStackR2012b(&rc_emlrtRSI, emlrtRootTLSGlobal);
           emlrtPopRtStackR2012b(&bi_emlrtRSI, emlrtRootTLSGlobal);
           emlrtPushRtStackR2012b(&ci_emlrtRSI, emlrtRootTLSGlobal);
           emlrt_checkEscapedGlobals();
-          Bib0_t = (double *)(&b_data[0]);
+          alpha1_t = (double *)(&gamm);
           emlrtPopRtStackR2012b(&ci_emlrtRSI, emlrtRootTLSGlobal);
           emlrtPushRtStackR2012b(&di_emlrtRSI, emlrtRootTLSGlobal);
           emlrt_checkEscapedGlobals();
-          beta1_t = (double *)(&b_ndbl);
+          Aia0_t = (double *)(&Kk->data[0]);
           emlrtPopRtStackR2012b(&di_emlrtRSI, emlrtRootTLSGlobal);
           emlrtPushRtStackR2012b(&ei_emlrtRSI, emlrtRootTLSGlobal);
           emlrt_checkEscapedGlobals();
-          Cic0_t = (double *)(&C_data[0]);
+          Bib0_t = (double *)(&b_data[0]);
           emlrtPopRtStackR2012b(&ei_emlrtRSI, emlrtRootTLSGlobal);
           emlrtPushRtStackR2012b(&fi_emlrtRSI, emlrtRootTLSGlobal);
           emlrt_checkEscapedGlobals();
+          beta1_t = (double *)(&b_ndbl);
+          emlrtPopRtStackR2012b(&fi_emlrtRSI, emlrtRootTLSGlobal);
+          emlrtPushRtStackR2012b(&gi_emlrtRSI, emlrtRootTLSGlobal);
+          emlrt_checkEscapedGlobals();
+          Cic0_t = (double *)(&C_data[0]);
+          emlrtPopRtStackR2012b(&gi_emlrtRSI, emlrtRootTLSGlobal);
+          emlrtPushRtStackR2012b(&hi_emlrtRSI, emlrtRootTLSGlobal);
+          emlrt_checkEscapedGlobals();
           dgemm(&TRANSA, &TRANSB, &m_t, &n_t, &k_t, alpha1_t, Aia0_t, &lda_t,
                 Bib0_t, &ldb_t, beta1_t, Cic0_t, &ldc_t);
-          emlrtPopRtStackR2012b(&fi_emlrtRSI, emlrtRootTLSGlobal);
-          emlrtPopRtStackR2012b(&nh_emlrtRSI, emlrtRootTLSGlobal);
+          emlrtPopRtStackR2012b(&hi_emlrtRSI, emlrtRootTLSGlobal);
+          emlrtPopRtStackR2012b(&ph_emlrtRSI, emlrtRootTLSGlobal);
         }
 
-        emlrtPopRtStackR2012b(&lh_emlrtRSI, emlrtRootTLSGlobal);
-        emlrtPopRtStackR2012b(&hh_emlrtRSI, emlrtRootTLSGlobal);
+        emlrtPopRtStackR2012b(&nh_emlrtRSI, emlrtRootTLSGlobal);
+        emlrtPopRtStackR2012b(&jh_emlrtRSI, emlrtRootTLSGlobal);
       }
 
-      emlrtPopRtStackR2012b(&t_emlrtRSI, emlrtRootTLSGlobal);
+      emlrtPopRtStackR2012b(&v_emlrtRSI, emlrtRootTLSGlobal);
       i0 = xnew_size[0];
       emlrtSizeEqCheck1DFastR2012b(i0, ndbl, &f_emlrtECI, emlrtRootTLSGlobal);
       loop_ub = xnew_size[0];
@@ -4975,7 +5839,7 @@ void ukf_update_unknown_state(const real_T xk_data[200], const int32_T xk_size[1
       for (i0 = 0; i0 < 4; i0++) {
         apnd = xnew_size[0];
         absb = 7 + i0;
-        emlrtDynamicBoundsCheckFastR2012b(absb, 1, apnd, &nc_emlrtBCI,
+        emlrtDynamicBoundsCheckFastR2012b(absb, 1, apnd, &tc_emlrtBCI,
           emlrtRootTLSGlobal);
       }
 
@@ -4983,7 +5847,7 @@ void ukf_update_unknown_state(const real_T xk_data[200], const int32_T xk_size[1
         apnd = xnew_size[0];
         absb = 7 + i0;
         xnew[i0] = xnew_data[emlrtDynamicBoundsCheckFastR2012b(absb, 1, apnd,
-          &oc_emlrtBCI, emlrtRootTLSGlobal) - 1];
+          &uc_emlrtBCI, emlrtRootTLSGlobal) - 1];
       }
 
       gamm = e_norm(xnew);
@@ -4994,7 +5858,7 @@ void ukf_update_unknown_state(const real_T xk_data[200], const int32_T xk_size[1
 
       for (i0 = 0; i0 < 4; i0++) {
         apnd = 7 + i0;
-        xnew_data[emlrtDynamicBoundsCheckFastR2012b(apnd, 1, ndbl, &pc_emlrtBCI,
+        xnew_data[emlrtDynamicBoundsCheckFastR2012b(apnd, 1, ndbl, &vc_emlrtBCI,
           emlrtRootTLSGlobal) - 1] = xnew[i0];
       }
 
@@ -5005,7 +5869,7 @@ void ukf_update_unknown_state(const real_T xk_data[200], const int32_T xk_size[1
       for (i0 = 0; i0 < 4; i0++) {
         apnd = xnew_size[0];
         absb = 14 + i0;
-        emlrtDynamicBoundsCheckFastR2012b(absb, 1, apnd, &qc_emlrtBCI,
+        emlrtDynamicBoundsCheckFastR2012b(absb, 1, apnd, &wc_emlrtBCI,
           emlrtRootTLSGlobal);
       }
 
@@ -5013,7 +5877,7 @@ void ukf_update_unknown_state(const real_T xk_data[200], const int32_T xk_size[1
         apnd = xnew_size[0];
         absb = 14 + i0;
         xnew[i0] = xnew_data[emlrtDynamicBoundsCheckFastR2012b(absb, 1, apnd,
-          &rc_emlrtBCI, emlrtRootTLSGlobal) - 1];
+          &xc_emlrtBCI, emlrtRootTLSGlobal) - 1];
       }
 
       gamm = e_norm(xnew);
@@ -5024,61 +5888,61 @@ void ukf_update_unknown_state(const real_T xk_data[200], const int32_T xk_size[1
 
       for (i0 = 0; i0 < 4; i0++) {
         apnd = 14 + i0;
-        xnew_data[emlrtDynamicBoundsCheckFastR2012b(apnd, 1, ndbl, &sc_emlrtBCI,
+        xnew_data[emlrtDynamicBoundsCheckFastR2012b(apnd, 1, ndbl, &yc_emlrtBCI,
           emlrtRootTLSGlobal) - 1] = xnew[i0];
       }
 
-      emlrtPushRtStackR2012b(&u_emlrtRSI, emlrtRootTLSGlobal);
-      emlrtPushRtStackR2012b(&ih_emlrtRSI, emlrtRootTLSGlobal);
+      emlrtPushRtStackR2012b(&w_emlrtRSI, emlrtRootTLSGlobal);
+      emlrtPushRtStackR2012b(&kh_emlrtRSI, emlrtRootTLSGlobal);
       if (!(Kk->size[1] == Pyk->size[0])) {
         if (((Kk->size[0] == 1) && (Kk->size[1] == 1)) || ((Pyk->size[0] == 1) &&
              (Pyk->size[1] == 1))) {
-          emlrtPushRtStackR2012b(&kh_emlrtRSI, emlrtRootTLSGlobal);
+          emlrtPushRtStackR2012b(&mh_emlrtRSI, emlrtRootTLSGlobal);
           emlrt_synchGlobalsToML();
-          hb_y = NULL;
-          m0 = mxCreateCharArray(2, iv28);
+          pb_y = NULL;
+          m0 = mxCreateCharArray(2, iv34);
           for (ndbl = 0; ndbl < 45; ndbl++) {
             cv2[ndbl] = cv3[ndbl];
           }
 
           emlrtInitCharArrayR2013a(emlrtRootTLSGlobal, 45, m0, cv2);
-          emlrtAssign(&hb_y, m0);
-          error(message(hb_y, &l_emlrtMCI), &m_emlrtMCI);
+          emlrtAssign(&pb_y, m0);
+          error(message(pb_y, &l_emlrtMCI), &m_emlrtMCI);
           emlrt_synchGlobalsFromML();
-          emlrtPopRtStackR2012b(&kh_emlrtRSI, emlrtRootTLSGlobal);
+          emlrtPopRtStackR2012b(&mh_emlrtRSI, emlrtRootTLSGlobal);
         } else {
-          emlrtPushRtStackR2012b(&jh_emlrtRSI, emlrtRootTLSGlobal);
+          emlrtPushRtStackR2012b(&lh_emlrtRSI, emlrtRootTLSGlobal);
           emlrt_synchGlobalsToML();
-          ib_y = NULL;
-          m0 = mxCreateCharArray(2, iv29);
+          qb_y = NULL;
+          m0 = mxCreateCharArray(2, iv35);
           for (ndbl = 0; ndbl < 21; ndbl++) {
             cv4[ndbl] = cv5[ndbl];
           }
 
           emlrtInitCharArrayR2013a(emlrtRootTLSGlobal, 21, m0, cv4);
-          emlrtAssign(&ib_y, m0);
-          error(message(ib_y, &n_emlrtMCI), &o_emlrtMCI);
+          emlrtAssign(&qb_y, m0);
+          error(message(qb_y, &n_emlrtMCI), &o_emlrtMCI);
           emlrt_synchGlobalsFromML();
-          emlrtPopRtStackR2012b(&jh_emlrtRSI, emlrtRootTLSGlobal);
+          emlrtPopRtStackR2012b(&lh_emlrtRSI, emlrtRootTLSGlobal);
         }
       }
 
-      emlrtPopRtStackR2012b(&ih_emlrtRSI, emlrtRootTLSGlobal);
-      emxInit_real_T(&jb_y, 2, &emlrtRTEI, TRUE);
+      emlrtPopRtStackR2012b(&kh_emlrtRSI, emlrtRootTLSGlobal);
+      emxInit_real_T(&rb_y, 2, &emlrtRTEI, TRUE);
       if ((Kk->size[1] == 1) || (Pyk->size[0] == 1)) {
-        i0 = jb_y->size[0] * jb_y->size[1];
-        jb_y->size[0] = Kk->size[0];
-        jb_y->size[1] = Pyk->size[1];
-        emxEnsureCapacity((emxArray__common *)jb_y, i0, (int32_T)sizeof(real_T),
+        i0 = rb_y->size[0] * rb_y->size[1];
+        rb_y->size[0] = Kk->size[0];
+        rb_y->size[1] = Pyk->size[1];
+        emxEnsureCapacity((emxArray__common *)rb_y, i0, (int32_T)sizeof(real_T),
                           &emlrtRTEI);
         loop_ub = Kk->size[0];
         for (i0 = 0; i0 < loop_ub; i0++) {
           cdiff = Pyk->size[1];
           for (apnd = 0; apnd < cdiff; apnd++) {
-            jb_y->data[i0 + jb_y->size[0] * apnd] = 0.0;
+            rb_y->data[i0 + rb_y->size[0] * apnd] = 0.0;
             ndbl = Kk->size[1];
             for (absb = 0; absb < ndbl; absb++) {
-              jb_y->data[i0 + jb_y->size[0] * apnd] += Kk->data[i0 + Kk->size[0]
+              rb_y->data[i0 + rb_y->size[0] * apnd] += Kk->data[i0 + Kk->size[0]
                 * absb] * Pyk->data[absb + Pyk->size[0] * apnd];
             }
           }
@@ -5099,94 +5963,94 @@ void ukf_update_unknown_state(const real_T xk_data[200], const int32_T xk_size[1
           r5->data[i0] = 0.0;
         }
 
-        emlrtPushRtStackR2012b(&hh_emlrtRSI, emlrtRootTLSGlobal);
-        emlrtPushRtStackR2012b(&lh_emlrtRSI, emlrtRootTLSGlobal);
-        i0 = jb_y->size[0] * jb_y->size[1];
-        jb_y->size[0] = (int32_T)kd;
-        emxEnsureCapacity((emxArray__common *)jb_y, i0, (int32_T)sizeof(real_T),
+        emlrtPushRtStackR2012b(&jh_emlrtRSI, emlrtRootTLSGlobal);
+        emlrtPushRtStackR2012b(&nh_emlrtRSI, emlrtRootTLSGlobal);
+        i0 = rb_y->size[0] * rb_y->size[1];
+        rb_y->size[0] = (int32_T)kd;
+        emxEnsureCapacity((emxArray__common *)rb_y, i0, (int32_T)sizeof(real_T),
                           &emlrtRTEI);
-        i0 = jb_y->size[0] * jb_y->size[1];
-        jb_y->size[1] = (int32_T)unnamed_idx_1;
-        emxEnsureCapacity((emxArray__common *)jb_y, i0, (int32_T)sizeof(real_T),
+        i0 = rb_y->size[0] * rb_y->size[1];
+        rb_y->size[1] = (int32_T)unnamed_idx_1;
+        emxEnsureCapacity((emxArray__common *)rb_y, i0, (int32_T)sizeof(real_T),
                           &emlrtRTEI);
         loop_ub = (int32_T)kd * (int32_T)unnamed_idx_1;
         for (i0 = 0; i0 < loop_ub; i0++) {
-          jb_y->data[i0] = 0.0;
+          rb_y->data[i0] = 0.0;
         }
 
         if ((Kk->size[0] < 1) || (Pyk->size[1] < 1) || (Kk->size[1] < 1)) {
         } else {
-          emlrtPushRtStackR2012b(&nh_emlrtRSI, emlrtRootTLSGlobal);
+          emlrtPushRtStackR2012b(&ph_emlrtRSI, emlrtRootTLSGlobal);
           gamm = 1.0;
           b_ndbl = 0.0;
           TRANSB = 'N';
           TRANSA = 'N';
-          emlrtPushRtStackR2012b(&th_emlrtRSI, emlrtRootTLSGlobal);
-          emlrtPushRtStackR2012b(&pc_emlrtRSI, emlrtRootTLSGlobal);
+          emlrtPushRtStackR2012b(&vh_emlrtRSI, emlrtRootTLSGlobal);
+          emlrtPushRtStackR2012b(&rc_emlrtRSI, emlrtRootTLSGlobal);
           emlrt_checkEscapedGlobals();
           m_t = (ptrdiff_t)(Kk->size[0]);
-          emlrtPopRtStackR2012b(&pc_emlrtRSI, emlrtRootTLSGlobal);
-          emlrtPopRtStackR2012b(&th_emlrtRSI, emlrtRootTLSGlobal);
-          emlrtPushRtStackR2012b(&uh_emlrtRSI, emlrtRootTLSGlobal);
-          emlrtPushRtStackR2012b(&pc_emlrtRSI, emlrtRootTLSGlobal);
-          emlrt_checkEscapedGlobals();
-          n_t = (ptrdiff_t)(Pyk->size[1]);
-          emlrtPopRtStackR2012b(&pc_emlrtRSI, emlrtRootTLSGlobal);
-          emlrtPopRtStackR2012b(&uh_emlrtRSI, emlrtRootTLSGlobal);
-          emlrtPushRtStackR2012b(&vh_emlrtRSI, emlrtRootTLSGlobal);
-          emlrtPushRtStackR2012b(&pc_emlrtRSI, emlrtRootTLSGlobal);
-          emlrt_checkEscapedGlobals();
-          k_t = (ptrdiff_t)(Kk->size[1]);
-          emlrtPopRtStackR2012b(&pc_emlrtRSI, emlrtRootTLSGlobal);
+          emlrtPopRtStackR2012b(&rc_emlrtRSI, emlrtRootTLSGlobal);
           emlrtPopRtStackR2012b(&vh_emlrtRSI, emlrtRootTLSGlobal);
           emlrtPushRtStackR2012b(&wh_emlrtRSI, emlrtRootTLSGlobal);
-          emlrtPushRtStackR2012b(&pc_emlrtRSI, emlrtRootTLSGlobal);
+          emlrtPushRtStackR2012b(&rc_emlrtRSI, emlrtRootTLSGlobal);
           emlrt_checkEscapedGlobals();
-          lda_t = (ptrdiff_t)(Kk->size[0]);
-          emlrtPopRtStackR2012b(&pc_emlrtRSI, emlrtRootTLSGlobal);
+          n_t = (ptrdiff_t)(Pyk->size[1]);
+          emlrtPopRtStackR2012b(&rc_emlrtRSI, emlrtRootTLSGlobal);
           emlrtPopRtStackR2012b(&wh_emlrtRSI, emlrtRootTLSGlobal);
           emlrtPushRtStackR2012b(&xh_emlrtRSI, emlrtRootTLSGlobal);
-          emlrtPushRtStackR2012b(&pc_emlrtRSI, emlrtRootTLSGlobal);
+          emlrtPushRtStackR2012b(&rc_emlrtRSI, emlrtRootTLSGlobal);
           emlrt_checkEscapedGlobals();
-          ldb_t = (ptrdiff_t)(Kk->size[1]);
-          emlrtPopRtStackR2012b(&pc_emlrtRSI, emlrtRootTLSGlobal);
+          k_t = (ptrdiff_t)(Kk->size[1]);
+          emlrtPopRtStackR2012b(&rc_emlrtRSI, emlrtRootTLSGlobal);
           emlrtPopRtStackR2012b(&xh_emlrtRSI, emlrtRootTLSGlobal);
           emlrtPushRtStackR2012b(&yh_emlrtRSI, emlrtRootTLSGlobal);
-          emlrtPushRtStackR2012b(&pc_emlrtRSI, emlrtRootTLSGlobal);
+          emlrtPushRtStackR2012b(&rc_emlrtRSI, emlrtRootTLSGlobal);
           emlrt_checkEscapedGlobals();
-          ldc_t = (ptrdiff_t)(Kk->size[0]);
-          emlrtPopRtStackR2012b(&pc_emlrtRSI, emlrtRootTLSGlobal);
+          lda_t = (ptrdiff_t)(Kk->size[0]);
+          emlrtPopRtStackR2012b(&rc_emlrtRSI, emlrtRootTLSGlobal);
           emlrtPopRtStackR2012b(&yh_emlrtRSI, emlrtRootTLSGlobal);
           emlrtPushRtStackR2012b(&ai_emlrtRSI, emlrtRootTLSGlobal);
+          emlrtPushRtStackR2012b(&rc_emlrtRSI, emlrtRootTLSGlobal);
           emlrt_checkEscapedGlobals();
-          alpha1_t = (double *)(&gamm);
+          ldb_t = (ptrdiff_t)(Kk->size[1]);
+          emlrtPopRtStackR2012b(&rc_emlrtRSI, emlrtRootTLSGlobal);
           emlrtPopRtStackR2012b(&ai_emlrtRSI, emlrtRootTLSGlobal);
           emlrtPushRtStackR2012b(&bi_emlrtRSI, emlrtRootTLSGlobal);
+          emlrtPushRtStackR2012b(&rc_emlrtRSI, emlrtRootTLSGlobal);
           emlrt_checkEscapedGlobals();
-          Aia0_t = (double *)(&Kk->data[0]);
+          ldc_t = (ptrdiff_t)(Kk->size[0]);
+          emlrtPopRtStackR2012b(&rc_emlrtRSI, emlrtRootTLSGlobal);
           emlrtPopRtStackR2012b(&bi_emlrtRSI, emlrtRootTLSGlobal);
           emlrtPushRtStackR2012b(&ci_emlrtRSI, emlrtRootTLSGlobal);
           emlrt_checkEscapedGlobals();
-          Bib0_t = (double *)(&Pyk->data[0]);
+          alpha1_t = (double *)(&gamm);
           emlrtPopRtStackR2012b(&ci_emlrtRSI, emlrtRootTLSGlobal);
           emlrtPushRtStackR2012b(&di_emlrtRSI, emlrtRootTLSGlobal);
           emlrt_checkEscapedGlobals();
-          beta1_t = (double *)(&b_ndbl);
+          Aia0_t = (double *)(&Kk->data[0]);
           emlrtPopRtStackR2012b(&di_emlrtRSI, emlrtRootTLSGlobal);
           emlrtPushRtStackR2012b(&ei_emlrtRSI, emlrtRootTLSGlobal);
           emlrt_checkEscapedGlobals();
-          Cic0_t = (double *)(&jb_y->data[0]);
+          Bib0_t = (double *)(&Pyk->data[0]);
           emlrtPopRtStackR2012b(&ei_emlrtRSI, emlrtRootTLSGlobal);
           emlrtPushRtStackR2012b(&fi_emlrtRSI, emlrtRootTLSGlobal);
           emlrt_checkEscapedGlobals();
+          beta1_t = (double *)(&b_ndbl);
+          emlrtPopRtStackR2012b(&fi_emlrtRSI, emlrtRootTLSGlobal);
+          emlrtPushRtStackR2012b(&gi_emlrtRSI, emlrtRootTLSGlobal);
+          emlrt_checkEscapedGlobals();
+          Cic0_t = (double *)(&rb_y->data[0]);
+          emlrtPopRtStackR2012b(&gi_emlrtRSI, emlrtRootTLSGlobal);
+          emlrtPushRtStackR2012b(&hi_emlrtRSI, emlrtRootTLSGlobal);
+          emlrt_checkEscapedGlobals();
           dgemm(&TRANSA, &TRANSB, &m_t, &n_t, &k_t, alpha1_t, Aia0_t, &lda_t,
                 Bib0_t, &ldb_t, beta1_t, Cic0_t, &ldc_t);
-          emlrtPopRtStackR2012b(&fi_emlrtRSI, emlrtRootTLSGlobal);
-          emlrtPopRtStackR2012b(&nh_emlrtRSI, emlrtRootTLSGlobal);
+          emlrtPopRtStackR2012b(&hi_emlrtRSI, emlrtRootTLSGlobal);
+          emlrtPopRtStackR2012b(&ph_emlrtRSI, emlrtRootTLSGlobal);
         }
 
-        emlrtPopRtStackR2012b(&lh_emlrtRSI, emlrtRootTLSGlobal);
-        emlrtPopRtStackR2012b(&hh_emlrtRSI, emlrtRootTLSGlobal);
+        emlrtPopRtStackR2012b(&nh_emlrtRSI, emlrtRootTLSGlobal);
+        emlrtPopRtStackR2012b(&jh_emlrtRSI, emlrtRootTLSGlobal);
       }
 
       i0 = b->size[0] * b->size[1];
@@ -5203,61 +6067,61 @@ void ukf_update_unknown_state(const real_T xk_data[200], const int32_T xk_size[1
       }
 
       emxFree_real_T(&Kk);
-      emlrtPushRtStackR2012b(&ih_emlrtRSI, emlrtRootTLSGlobal);
-      if (!(jb_y->size[1] == b->size[0])) {
-        if (((jb_y->size[0] == 1) && (jb_y->size[1] == 1)) || ((b->size[0] == 1)
+      emlrtPushRtStackR2012b(&kh_emlrtRSI, emlrtRootTLSGlobal);
+      if (!(rb_y->size[1] == b->size[0])) {
+        if (((rb_y->size[0] == 1) && (rb_y->size[1] == 1)) || ((b->size[0] == 1)
              && (b->size[1] == 1))) {
-          emlrtPushRtStackR2012b(&kh_emlrtRSI, emlrtRootTLSGlobal);
+          emlrtPushRtStackR2012b(&mh_emlrtRSI, emlrtRootTLSGlobal);
           emlrt_synchGlobalsToML();
-          kb_y = NULL;
-          m0 = mxCreateCharArray(2, iv30);
+          sb_y = NULL;
+          m0 = mxCreateCharArray(2, iv36);
           for (ndbl = 0; ndbl < 45; ndbl++) {
             cv2[ndbl] = cv3[ndbl];
           }
 
           emlrtInitCharArrayR2013a(emlrtRootTLSGlobal, 45, m0, cv2);
-          emlrtAssign(&kb_y, m0);
-          error(message(kb_y, &l_emlrtMCI), &m_emlrtMCI);
+          emlrtAssign(&sb_y, m0);
+          error(message(sb_y, &l_emlrtMCI), &m_emlrtMCI);
           emlrt_synchGlobalsFromML();
-          emlrtPopRtStackR2012b(&kh_emlrtRSI, emlrtRootTLSGlobal);
+          emlrtPopRtStackR2012b(&mh_emlrtRSI, emlrtRootTLSGlobal);
         } else {
-          emlrtPushRtStackR2012b(&jh_emlrtRSI, emlrtRootTLSGlobal);
+          emlrtPushRtStackR2012b(&lh_emlrtRSI, emlrtRootTLSGlobal);
           emlrt_synchGlobalsToML();
-          lb_y = NULL;
-          m0 = mxCreateCharArray(2, iv31);
+          tb_y = NULL;
+          m0 = mxCreateCharArray(2, iv37);
           for (ndbl = 0; ndbl < 21; ndbl++) {
             cv4[ndbl] = cv5[ndbl];
           }
 
           emlrtInitCharArrayR2013a(emlrtRootTLSGlobal, 21, m0, cv4);
-          emlrtAssign(&lb_y, m0);
-          error(message(lb_y, &n_emlrtMCI), &o_emlrtMCI);
+          emlrtAssign(&tb_y, m0);
+          error(message(tb_y, &n_emlrtMCI), &o_emlrtMCI);
           emlrt_synchGlobalsFromML();
-          emlrtPopRtStackR2012b(&jh_emlrtRSI, emlrtRootTLSGlobal);
+          emlrtPopRtStackR2012b(&lh_emlrtRSI, emlrtRootTLSGlobal);
         }
       }
 
-      emlrtPopRtStackR2012b(&ih_emlrtRSI, emlrtRootTLSGlobal);
-      if ((jb_y->size[1] == 1) || (b->size[0] == 1)) {
+      emlrtPopRtStackR2012b(&kh_emlrtRSI, emlrtRootTLSGlobal);
+      if ((rb_y->size[1] == 1) || (b->size[0] == 1)) {
         i0 = Pxkyk->size[0] * Pxkyk->size[1];
-        Pxkyk->size[0] = jb_y->size[0];
+        Pxkyk->size[0] = rb_y->size[0];
         Pxkyk->size[1] = b->size[1];
         emxEnsureCapacity((emxArray__common *)Pxkyk, i0, (int32_T)sizeof(real_T),
                           &emlrtRTEI);
-        loop_ub = jb_y->size[0];
+        loop_ub = rb_y->size[0];
         for (i0 = 0; i0 < loop_ub; i0++) {
           cdiff = b->size[1];
           for (apnd = 0; apnd < cdiff; apnd++) {
             Pxkyk->data[i0 + Pxkyk->size[0] * apnd] = 0.0;
-            ndbl = jb_y->size[1];
+            ndbl = rb_y->size[1];
             for (absb = 0; absb < ndbl; absb++) {
-              Pxkyk->data[i0 + Pxkyk->size[0] * apnd] += jb_y->data[i0 +
-                jb_y->size[0] * absb] * b->data[absb + b->size[0] * apnd];
+              Pxkyk->data[i0 + Pxkyk->size[0] * apnd] += rb_y->data[i0 +
+                rb_y->size[0] * absb] * b->data[absb + b->size[0] * apnd];
             }
           }
         }
       } else {
-        kd = (uint32_T)jb_y->size[0];
+        kd = (uint32_T)rb_y->size[0];
         unnamed_idx_1 = (uint32_T)b->size[1];
         i0 = r5->size[0] * r5->size[1];
         r5->size[0] = (int32_T)kd;
@@ -5272,8 +6136,8 @@ void ukf_update_unknown_state(const real_T xk_data[200], const int32_T xk_size[1
           r5->data[i0] = 0.0;
         }
 
-        emlrtPushRtStackR2012b(&hh_emlrtRSI, emlrtRootTLSGlobal);
-        emlrtPushRtStackR2012b(&lh_emlrtRSI, emlrtRootTLSGlobal);
+        emlrtPushRtStackR2012b(&jh_emlrtRSI, emlrtRootTLSGlobal);
+        emlrtPushRtStackR2012b(&nh_emlrtRSI, emlrtRootTLSGlobal);
         i0 = Pxkyk->size[0] * Pxkyk->size[1];
         Pxkyk->size[0] = (int32_T)kd;
         emxEnsureCapacity((emxArray__common *)Pxkyk, i0, (int32_T)sizeof(real_T),
@@ -5287,84 +6151,84 @@ void ukf_update_unknown_state(const real_T xk_data[200], const int32_T xk_size[1
           Pxkyk->data[i0] = 0.0;
         }
 
-        if ((jb_y->size[0] < 1) || (b->size[1] < 1) || (jb_y->size[1] < 1)) {
+        if ((rb_y->size[0] < 1) || (b->size[1] < 1) || (rb_y->size[1] < 1)) {
         } else {
-          emlrtPushRtStackR2012b(&nh_emlrtRSI, emlrtRootTLSGlobal);
+          emlrtPushRtStackR2012b(&ph_emlrtRSI, emlrtRootTLSGlobal);
           gamm = 1.0;
           b_ndbl = 0.0;
           TRANSB = 'N';
           TRANSA = 'N';
-          emlrtPushRtStackR2012b(&th_emlrtRSI, emlrtRootTLSGlobal);
-          emlrtPushRtStackR2012b(&pc_emlrtRSI, emlrtRootTLSGlobal);
-          emlrt_checkEscapedGlobals();
-          m_t = (ptrdiff_t)(jb_y->size[0]);
-          emlrtPopRtStackR2012b(&pc_emlrtRSI, emlrtRootTLSGlobal);
-          emlrtPopRtStackR2012b(&th_emlrtRSI, emlrtRootTLSGlobal);
-          emlrtPushRtStackR2012b(&uh_emlrtRSI, emlrtRootTLSGlobal);
-          emlrtPushRtStackR2012b(&pc_emlrtRSI, emlrtRootTLSGlobal);
-          emlrt_checkEscapedGlobals();
-          n_t = (ptrdiff_t)(b->size[1]);
-          emlrtPopRtStackR2012b(&pc_emlrtRSI, emlrtRootTLSGlobal);
-          emlrtPopRtStackR2012b(&uh_emlrtRSI, emlrtRootTLSGlobal);
           emlrtPushRtStackR2012b(&vh_emlrtRSI, emlrtRootTLSGlobal);
-          emlrtPushRtStackR2012b(&pc_emlrtRSI, emlrtRootTLSGlobal);
+          emlrtPushRtStackR2012b(&rc_emlrtRSI, emlrtRootTLSGlobal);
           emlrt_checkEscapedGlobals();
-          k_t = (ptrdiff_t)(jb_y->size[1]);
-          emlrtPopRtStackR2012b(&pc_emlrtRSI, emlrtRootTLSGlobal);
+          m_t = (ptrdiff_t)(rb_y->size[0]);
+          emlrtPopRtStackR2012b(&rc_emlrtRSI, emlrtRootTLSGlobal);
           emlrtPopRtStackR2012b(&vh_emlrtRSI, emlrtRootTLSGlobal);
           emlrtPushRtStackR2012b(&wh_emlrtRSI, emlrtRootTLSGlobal);
-          emlrtPushRtStackR2012b(&pc_emlrtRSI, emlrtRootTLSGlobal);
+          emlrtPushRtStackR2012b(&rc_emlrtRSI, emlrtRootTLSGlobal);
           emlrt_checkEscapedGlobals();
-          lda_t = (ptrdiff_t)(jb_y->size[0]);
-          emlrtPopRtStackR2012b(&pc_emlrtRSI, emlrtRootTLSGlobal);
+          n_t = (ptrdiff_t)(b->size[1]);
+          emlrtPopRtStackR2012b(&rc_emlrtRSI, emlrtRootTLSGlobal);
           emlrtPopRtStackR2012b(&wh_emlrtRSI, emlrtRootTLSGlobal);
           emlrtPushRtStackR2012b(&xh_emlrtRSI, emlrtRootTLSGlobal);
-          emlrtPushRtStackR2012b(&pc_emlrtRSI, emlrtRootTLSGlobal);
+          emlrtPushRtStackR2012b(&rc_emlrtRSI, emlrtRootTLSGlobal);
           emlrt_checkEscapedGlobals();
-          ldb_t = (ptrdiff_t)(jb_y->size[1]);
-          emlrtPopRtStackR2012b(&pc_emlrtRSI, emlrtRootTLSGlobal);
+          k_t = (ptrdiff_t)(rb_y->size[1]);
+          emlrtPopRtStackR2012b(&rc_emlrtRSI, emlrtRootTLSGlobal);
           emlrtPopRtStackR2012b(&xh_emlrtRSI, emlrtRootTLSGlobal);
           emlrtPushRtStackR2012b(&yh_emlrtRSI, emlrtRootTLSGlobal);
-          emlrtPushRtStackR2012b(&pc_emlrtRSI, emlrtRootTLSGlobal);
+          emlrtPushRtStackR2012b(&rc_emlrtRSI, emlrtRootTLSGlobal);
           emlrt_checkEscapedGlobals();
-          ldc_t = (ptrdiff_t)(jb_y->size[0]);
-          emlrtPopRtStackR2012b(&pc_emlrtRSI, emlrtRootTLSGlobal);
+          lda_t = (ptrdiff_t)(rb_y->size[0]);
+          emlrtPopRtStackR2012b(&rc_emlrtRSI, emlrtRootTLSGlobal);
           emlrtPopRtStackR2012b(&yh_emlrtRSI, emlrtRootTLSGlobal);
           emlrtPushRtStackR2012b(&ai_emlrtRSI, emlrtRootTLSGlobal);
+          emlrtPushRtStackR2012b(&rc_emlrtRSI, emlrtRootTLSGlobal);
           emlrt_checkEscapedGlobals();
-          alpha1_t = (double *)(&gamm);
+          ldb_t = (ptrdiff_t)(rb_y->size[1]);
+          emlrtPopRtStackR2012b(&rc_emlrtRSI, emlrtRootTLSGlobal);
           emlrtPopRtStackR2012b(&ai_emlrtRSI, emlrtRootTLSGlobal);
           emlrtPushRtStackR2012b(&bi_emlrtRSI, emlrtRootTLSGlobal);
+          emlrtPushRtStackR2012b(&rc_emlrtRSI, emlrtRootTLSGlobal);
           emlrt_checkEscapedGlobals();
-          Aia0_t = (double *)(&jb_y->data[0]);
+          ldc_t = (ptrdiff_t)(rb_y->size[0]);
+          emlrtPopRtStackR2012b(&rc_emlrtRSI, emlrtRootTLSGlobal);
           emlrtPopRtStackR2012b(&bi_emlrtRSI, emlrtRootTLSGlobal);
           emlrtPushRtStackR2012b(&ci_emlrtRSI, emlrtRootTLSGlobal);
           emlrt_checkEscapedGlobals();
-          Bib0_t = (double *)(&b->data[0]);
+          alpha1_t = (double *)(&gamm);
           emlrtPopRtStackR2012b(&ci_emlrtRSI, emlrtRootTLSGlobal);
           emlrtPushRtStackR2012b(&di_emlrtRSI, emlrtRootTLSGlobal);
           emlrt_checkEscapedGlobals();
-          beta1_t = (double *)(&b_ndbl);
+          Aia0_t = (double *)(&rb_y->data[0]);
           emlrtPopRtStackR2012b(&di_emlrtRSI, emlrtRootTLSGlobal);
           emlrtPushRtStackR2012b(&ei_emlrtRSI, emlrtRootTLSGlobal);
           emlrt_checkEscapedGlobals();
-          Cic0_t = (double *)(&Pxkyk->data[0]);
+          Bib0_t = (double *)(&b->data[0]);
           emlrtPopRtStackR2012b(&ei_emlrtRSI, emlrtRootTLSGlobal);
           emlrtPushRtStackR2012b(&fi_emlrtRSI, emlrtRootTLSGlobal);
           emlrt_checkEscapedGlobals();
+          beta1_t = (double *)(&b_ndbl);
+          emlrtPopRtStackR2012b(&fi_emlrtRSI, emlrtRootTLSGlobal);
+          emlrtPushRtStackR2012b(&gi_emlrtRSI, emlrtRootTLSGlobal);
+          emlrt_checkEscapedGlobals();
+          Cic0_t = (double *)(&Pxkyk->data[0]);
+          emlrtPopRtStackR2012b(&gi_emlrtRSI, emlrtRootTLSGlobal);
+          emlrtPushRtStackR2012b(&hi_emlrtRSI, emlrtRootTLSGlobal);
+          emlrt_checkEscapedGlobals();
           dgemm(&TRANSA, &TRANSB, &m_t, &n_t, &k_t, alpha1_t, Aia0_t, &lda_t,
                 Bib0_t, &ldb_t, beta1_t, Cic0_t, &ldc_t);
-          emlrtPopRtStackR2012b(&fi_emlrtRSI, emlrtRootTLSGlobal);
-          emlrtPopRtStackR2012b(&nh_emlrtRSI, emlrtRootTLSGlobal);
+          emlrtPopRtStackR2012b(&hi_emlrtRSI, emlrtRootTLSGlobal);
+          emlrtPopRtStackR2012b(&ph_emlrtRSI, emlrtRootTLSGlobal);
         }
 
-        emlrtPopRtStackR2012b(&lh_emlrtRSI, emlrtRootTLSGlobal);
-        emlrtPopRtStackR2012b(&hh_emlrtRSI, emlrtRootTLSGlobal);
+        emlrtPopRtStackR2012b(&nh_emlrtRSI, emlrtRootTLSGlobal);
+        emlrtPopRtStackR2012b(&jh_emlrtRSI, emlrtRootTLSGlobal);
       }
 
       emxFree_real_T(&r5);
-      emxFree_real_T(&jb_y);
-      emlrtPopRtStackR2012b(&u_emlrtRSI, emlrtRootTLSGlobal);
+      emxFree_real_T(&rb_y);
+      emlrtPopRtStackR2012b(&w_emlrtRSI, emlrtRootTLSGlobal);
       for (i0 = 0; i0 < 2; i0++) {
         b_Pnew[i0] = Pnew->size[i0];
       }
@@ -5394,7 +6258,7 @@ void ukf_update_unknown_state(const real_T xk_data[200], const int32_T xk_size[1
     emxFree_real_T(&YKAUG);
   }
 
-  emxFree_real_T(&d_y);
+  emxFree_real_T(&f_y);
   emxFree_creal_T(&Psq);
   emxFree_real_T(&Paug);
   emlrtHeapReferenceStackLeaveFcnR2012b(emlrtRootTLSGlobal);
