@@ -10,6 +10,11 @@ for j = 1:2
     yest = zeros(length(T),nFeatures);
     zest = zeros(length(T),nFeatures);
     
+    % sqrt(diag(covariance)) associated with x, y, z in body frame
+    sigmax = zeros(length(T),nFeatures);
+    sigmay = zeros(length(T),nFeatures);
+    sigmaz = zeros(length(T),nFeatures);
+    
     xtrue = zeros(length(T),nFeatures);
     ytrue = zeros(length(T),nFeatures);
     ztrue = zeros(length(T),nFeatures);
@@ -19,6 +24,24 @@ for j = 1:2
     else
         notj = 1;
     end
+    
+    Nss = sqrt(size(Ph{j},2));
+        
+    tic;
+    for kk = 1:length(T)
+        [y,Py] = statisticalLinearization(xh{j}(kk,:)', reshape(Ph{j}(kk,:),Nss,Nss), @stateToBodyAxisPosition);
+        xest(kk,:) = y(1:3:3*nFeatures)';
+        yest(kk,:) = y(2:3:3*nFeatures)';
+        zest(kk,:) = y(3:3:3*nFeatures)';
+        sigmas = sqrt(diag(Py));
+        sigmax(kk,:) = sigmas(1:3:3*nFeatures);
+        sigmay(kk,:) = sigmas(2:3:3*nFeatures);
+        sigmaz(kk,:) = sigmas(3:3:3*nFeatures);
+        if ~mod(kk,10)
+            etaCalc(kk,length(T),toc);
+        end
+    end
+    toc;
     
     for k = 1:nFeatures
         index = 17 + (k-1)*6 + (1:6);
@@ -41,17 +64,17 @@ for j = 1:2
         rki_true = repmat(rkn_true,length(T),1) - Yc{j}(:,1:3);
         qin_true = Yc{j}(:,7:10);
         
-        rki_i = zeros(size(rki));
+        %rki_i = zeros(size(rki));
         rki_i_true = zeros(size(rki_true));
         for kk = 1:length(T)
-            Cin = attparsilentmex(qin(kk,:)',[6 1]);
-            rki_i(kk,:) = rki(kk,:)*Cin';
+            %Cin = attparsilentmex(qin(kk,:)',[6 1]);
+            %rki_i(kk,:) = rki(kk,:)*Cin';
             Cin_t = attparsilentmex(qin_true(kk,:)',[6 1]);
             rki_i_true(kk,:) = rki_true(kk,:)*Cin_t';
             
-            xest(kk,k) = rki_i(kk,1);
-            yest(kk,k) = rki_i(kk,2);
-            zest(kk,k) = rki_i(kk,3);
+            %xest(kk,k) = rki_i(kk,1);
+            %yest(kk,k) = rki_i(kk,2);
+            %zest(kk,k) = rki_i(kk,3);
             
             xtrue(kk,k) = rki_i_true(kk,1);
             ytrue(kk,k) = rki_i_true(kk,2);
@@ -68,13 +91,21 @@ for j = 1:2
         ratrue(kk,:) = rji_n*Cin_t';
     end
     
+    %%
     figure;
-    for k = 1:length(T)
+    for k = 1:3:length(T)
         subplot(121);
         set(gca,'NextPlot','replaceChildren');
+        % plot feature estimate and truth with line
         plot([xest(k,:)' xtrue(k,:)']',[yest(k,:)' ytrue(k,:)']','b-d','linewidth',2);
         hold on;
         plot(xtrue(k,:),ytrue(k,:),'rd','linewidth',2);
+        % plot 3sigma bounds
+        %plot([xest(k,:)' xest(k,:)']',[yest(k,:)' yest(k,:)']'+[0*sigmay(k,:)' sigmay(k,:)'*3]','k-d','linewidth',2);
+        %plot([xest(k,:)' xest(k,:)']'+[0*sigmax(k,:)' sigmax(k,:)'*3]',[yest(k,:)' yest(k,:)']','k-d','linewidth',2);
+        %plot([xest(k,:)' xest(k,:)']',[yest(k,:)' yest(k,:)']'-[0*sigmay(k,:)' sigmay(k,:)'*3]','k-d','linewidth',2);
+        %plot([xest(k,:)' xest(k,:)']'-[0*sigmax(k,:)' sigmax(k,:)'*3]',[yest(k,:)' yest(k,:)']','k-d','linewidth',2);
+        
         plot(0,0,'kx','markersize',12,'linewidth',2);
         plot(raest(k,1),raest(k,2),'go','markersize',12,'linewidth',2);
         plot([raest(k,1) ratrue(k,1)],[raest(k,2) ratrue(k,2)],'b-d','linewidth',2);
@@ -82,6 +113,8 @@ for j = 1:2
         title(['Agent ' num2str(j)]);
         xlabel('x');
         ylabel('y');
+        %set(gca,'xlim',[min(min(xtrue)) max(max(xtrue))],'ylim',[min(min(ytrue)) max(max(ytrue))]);
+        set(gca,'xlim',[-30 30],'ylim',[-30 30]);
         
         subplot(122);
         set(gca,'NextPlot','replaceChildren');
@@ -95,6 +128,7 @@ for j = 1:2
         title(['t = ' num2str(T(k))]);
         xlabel('x');
         ylabel('z');
+        set(gca,'xlim',[-30 30],'ylim',[-30 30]);
         
         pause(.0025);
     end

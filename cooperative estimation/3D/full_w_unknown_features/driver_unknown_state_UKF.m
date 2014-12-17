@@ -186,29 +186,29 @@ for j = 1:2
         m2 = 0;
         xyz_known_j = zeros(M,3);
         known_features_used_j = zeros(M,1);
-                for mm = 1:M
-                    % compute the j frame TRUE position vector to feature
-                    rkj = Cjn_true*(XYZ_KNOWN(mm,:)' - rjn_true);
-                    % compute range/bearing/declination
-                    rbd = vector2polar(rkj);
-        
-                    % if this is satisfied, we can see the feature
-                    if rbd(1) < FEATURE_RANGE_MAX(notj) && rbd(1) > FEATURE_RANGE_MIN(notj) && abs(rbd(2)) < d2r*(FEATURE_FOV_BEARING(notj)) && abs(rbd(3)) < d2r*(FEATURE_FOV_DECLIN(notj))
-                        m2 = m2 + 1;
-                        % generate the measurement of this feature
-                        % error angle
-                        err_angle = randn*feature_angle_err;
-                        % error axis of rotation
-                        a_error = randn(3,1);a_error = a_error./norm(a_error);
-                        % range error
-                        range_err = randn*feature_range_err;
-                        Cerr_j = attparsilent([a_error [err_angle;0;0]],[2 1]);
-                        % measurement with angle error and range error
-                        rmeas = (Cerr_j*rkj)*(1+range_err/norm(rkj));
-                        xyz_known_j(m2,:) = vector2polar(rmeas);
-                        known_features_used_j(m2) = mm;
-                    end
-                end
+        for mm = 1:M
+            % compute the j frame TRUE position vector to feature
+            rkj = Cjn_true*(XYZ_KNOWN(mm,:)' - rjn_true);
+            % compute range/bearing/declination
+            rbd = vector2polar(rkj);
+            
+            % if this is satisfied, we can see the feature
+            if rbd(1) < FEATURE_RANGE_MAX(notj) && rbd(1) > FEATURE_RANGE_MIN(notj) && abs(rbd(2)) < d2r*(FEATURE_FOV_BEARING(notj)) && abs(rbd(3)) < d2r*(FEATURE_FOV_DECLIN(notj))
+                m2 = m2 + 1;
+                % generate the measurement of this feature
+                % error angle
+                err_angle = randn*feature_angle_err;
+                % error axis of rotation
+                a_error = randn(3,1);a_error = a_error./norm(a_error);
+                % range error
+                range_err = randn*feature_range_err;
+                Cerr_j = attparsilent([a_error [err_angle;0;0]],[2 1]);
+                % measurement with angle error and range error
+                rmeas = (Cerr_j*rkj)*(1+range_err/norm(rkj));
+                xyz_known_j(m2,:) = vector2polar(rmeas);
+                known_features_used_j(m2) = mm;
+            end
+        end
         xyz_known_j(m2+1:end,:) = [];
         known_features_used_j(m2+1:end) = [];
         
@@ -218,57 +218,57 @@ for j = 1:2
         u1 = 0;
         xyz_unknown_i = zeros(U,3);
         unknown_features_used_i = zeros(U,1);
-        for ww = 1:U
-            % compute the i frame TRUE position vector to feature
-            rki = Cin_true*(XYZ_UNKNOWN(ww,:)' - rin_true);
-            % compute body-axis range/bearing/declination
-            rbd = vector2polar(rki);
-            
-            % if this is satisfied, we can see the feature
-            if rbd(1) < FEATURE_RANGE_MAX(j) && rbd(1) > FEATURE_RANGE_MIN(j) && abs(rbd(2)) < d2r*(FEATURE_FOV_BEARING(j)) && abs(rbd(3)) < d2r*(FEATURE_FOV_DECLIN(j))
-                u1 = u1 + 1;
-                % generate the measurement of this feature
-                % error angle
-                err_angle = randn*feature_angle_err;
-                % error axis of rotation
-                a_error = randn(3,1);a_error = a_error./norm(a_error);
-                % range error
-                range_err = randn*feature_range_err;
-                Cerr_i = attparsilent([a_error [err_angle;0;0]],[2 1]);
-                % measurement with angle error and range error
-                rmeas = (Cerr_i*rki)*(1+range_err/norm(rki));
-                rbd = vector2polar(rmeas);
-                
-                % see if this is a new feature
-                if ~any(ww==features_seen)
-                    features_seen = [features_seen;ww];
-                    % compute covariance for new feature
-                    Pfake = zeros(3);
-                    Pfake(2:3,2:3) = diag([feature_angle_err feature_angle_err].^2);
-                    Pfake(1,1) = feature_range_err^2;
-                    % use statistical linearization here
-                    % add these features to the current state & covariance
-                    % state vector for linearization: current state
-                    % plus feature range/bearing/declination in body frame
-                    %xlin = [xhat;1/RHO0;rbd(2:3)];
-                    xlin = [xhat;rbd(1);rbd(2:3)];
-                    Plin = [Pk zeros(Ns,3);zeros(3,Ns) Pfake];
-                    
-                    [xnew,Pnew] = statisticalLinearization(xlin,Plin,@featureInitialization);
-                    % append new state/covariances
-                    xhat = [xhat;xnew];
-                    Pk = [Pk zeros(Ns,6);zeros(6,Ns) Pnew];
-                    % increment the number of states
-                    Ns = Ns + 6;
-                    Ns2 = Ns^2;
-                end
-                thisFeatureIndex = find(ww==features_seen);
-                xyz_unknown_i(u1,:) = rbd;
-                % store the identifying feature index. This is a label
-                %   specific to this particular agent.
-                unknown_features_used_i(u1) = thisFeatureIndex;
-            end
-        end
+%         for ww = 1:U
+%             % compute the i frame TRUE position vector to feature
+%             rki = Cin_true*(XYZ_UNKNOWN(ww,:)' - rin_true);
+%             % compute body-axis range/bearing/declination
+%             rbd = vector2polar(rki);
+%             
+%             % if this is satisfied, we can see the feature
+%             if rbd(1) < FEATURE_RANGE_MAX(j) && rbd(1) > FEATURE_RANGE_MIN(j) && abs(rbd(2)) < d2r*(FEATURE_FOV_BEARING(j)) && abs(rbd(3)) < d2r*(FEATURE_FOV_DECLIN(j))
+%                 u1 = u1 + 1;
+%                 % generate the measurement of this feature
+%                 % error angle
+%                 err_angle = randn*feature_angle_err;
+%                 % error axis of rotation
+%                 a_error = randn(3,1);a_error = a_error./norm(a_error);
+%                 % range error
+%                 range_err = randn*feature_range_err;
+%                 Cerr_i = attparsilent([a_error [err_angle;0;0]],[2 1]);
+%                 % measurement with angle error and range error
+%                 rmeas = (Cerr_i*rki)*(1+range_err/norm(rki));
+%                 rbd = vector2polar(rmeas);
+%                 
+%                 % see if this is a new feature
+%                 if ~any(ww==features_seen)
+%                     features_seen = [features_seen;ww];
+%                     % compute covariance for new feature
+%                     Pfake = zeros(3);
+%                     Pfake(2:3,2:3) = diag([feature_angle_err feature_angle_err].^2);
+%                     Pfake(1,1) = feature_range_err^2;
+%                     % use statistical linearization here
+%                     % add these features to the current state & covariance
+%                     % state vector for linearization: current state
+%                     % plus feature range/bearing/declination in body frame
+%                     %xlin = [xhat;1/RHO0;rbd(2:3)];
+%                     xlin = [xhat;rbd(1);rbd(2:3)];
+%                     Plin = [Pk zeros(Ns,3);zeros(3,Ns) Pfake];
+%                     
+%                     [xnew,Pnew] = statisticalLinearization(xlin,Plin,@featureInitialization);
+%                     % append new state/covariances
+%                     xhat = [xhat;xnew];
+%                     Pk = [Pk zeros(Ns,6);zeros(6,Ns) Pnew];
+%                     % increment the number of states
+%                     Ns = Ns + 6;
+%                     Ns2 = Ns^2;
+%                 end
+%                 thisFeatureIndex = find(ww==features_seen);
+%                 xyz_unknown_i(u1,:) = rbd;
+%                 % store the identifying feature index. This is a label
+%                 %   specific to this particular agent.
+%                 unknown_features_used_i(u1) = thisFeatureIndex;
+%             end
+%         end
         xyz_unknown_i(u1+1:end,:) = [];
         unknown_features_used_i(u1+1:end) = [];
         
