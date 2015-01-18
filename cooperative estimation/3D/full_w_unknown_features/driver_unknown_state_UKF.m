@@ -2,6 +2,7 @@
 % has magnetometer
 %
 % handles unknown features
+% uses inverse range parameterization
 
 clear variables;
 close all;
