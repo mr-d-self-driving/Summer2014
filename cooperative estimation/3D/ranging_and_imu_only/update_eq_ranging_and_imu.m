@@ -5,15 +5,15 @@ global Ts;
 %xk: 20 x 2N+1, inertial position, inertial velocity, inertial quaternion, relative position, and relative quaternion ... then unknown feature parameters 
 %vk: 12 x 2N+1, noise on wi,wj,ai,aj
 
-%uk[wi;wj;ai;aj] : 12 x 2N+1
+%uk[wi;wj;ai;aj;r(1,2,3)j/j] : 21 x 2N+1
 
 n = size(xk,1);
 v = size(vk,1);
 
 % IMU measurements I made
 wi_m = uk(1:3);
-ai_m = uk(7:9);
 wj_m = uk(4:6);
+ai_m = uk(7:9);
 aj_m = uk(10:12);
 
 xkPlus = zeros(size(xk));
@@ -30,13 +30,14 @@ for k = 1:size(xk,2);
     % his inertial velocity (his body frame)
     vjn = xhat(18:20);
     
+    % process noise
     vn = vk(:,k);
     xdot = zeros(n,1);
         
     wi = wi_m + vn(1:3);
-    ai = ai_m + vn(7:9);
-    
     wj = wj_m + vn(4:6);
+    
+    ai = ai_m + vn(7:9);
     aj = aj_m + vn(10:12);
     
     % cosine matrix
@@ -64,7 +65,7 @@ for k = 1:size(xk,2);
     xdot(11:13) = (Cji'*vjn-vin) - squiggle(wi)*rji;
     
     % time rate of his velocity
-    xdot(18:20) = vjn - squiggle(wj)*vjn;
+    xdot(18:20) = aj - squiggle(wj)*vjn;
     
     xkPlus(:,k) = xhat + Ts*xdot;
     %re-normalize quaternions
