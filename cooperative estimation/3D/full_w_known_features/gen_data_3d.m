@@ -1,4 +1,4 @@
-%% gen_data
+%% gen_data_3d
 
 clear variables;
 close all;
@@ -11,9 +11,9 @@ addpath('../');
 if ~exist('data_3d.mat','file');
     
     % sample time
-    Ts = 0.01;
+    Ts = 0.02;
     % sim time
-    Tmax = 20;
+    Tmax = 300;
     
     % number of known features
     M = 0*5;
@@ -58,7 +58,7 @@ if ~exist('data_3d.mat','file');
             r*sin(phi)];
         v0 = [0;0;0];
         q0 = rand(4,1);q0 = q0./norm(q0);
-        garb = attpar(q0,[6 4],struct('seq',[1; 2; 1]));
+        garb = attparsilent(q0,[6 4],struct('seq',[1; 2; 1]));
         eul0 = garb(:,1);
         eul0dot = [0;0;0];
         
@@ -135,7 +135,7 @@ if ~exist('data_3d.mat','file');
             euldot = [zeros(length(t),1) ones(length(t),1) 2*t' 3*t.^2']*rc;
             for i = 1:length(t)
                 omega(i,:) = ([euldot(i,3);0;0] + DCMConverter(1,eul(i,3))*[0;euldot(i,2);0] + DCMConverter(1,eul(i,3))*DCMConverter(2,eul(i,2))*[euldot(i,1);0;0])';
-                qu(i,:) = attpar([eul(i,:)' [1;2;1]],[4 6])';
+                qu(i,:) = attparsilent([eul(i,:)' [1;2;1]],[4 6])';
             end
             
             % position (inertial frame)

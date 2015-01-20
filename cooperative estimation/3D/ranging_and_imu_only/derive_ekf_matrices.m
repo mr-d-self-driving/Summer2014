@@ -5,44 +5,25 @@ n = 20;
 m = 12;
 
 xdot = 0*sym('n',[n,1]);
-% 
-% % his position relative to mine. My body frame
-% rji = xhat(11:13);
-% % my velocity
-% vin = xhat(4:6);
-% % my attitude
-% qin = xhat(7:10);
-% % his attitude relative to mine. His body frame
-% qji = xhat(14:17);
-% % his inertial velocity (his body frame)
-% vjn = xhat(18:20);
-% 
-% % IMU measurements I made
-% wi = uk(1:3);
-% wj = uk(4:6);
-% ai = uk(7:9);
-% aj = uk(10:12);
-% 
-% Cin = attparsilent(qin,[6 1]);
-% Cji = attparsilent(qji,[6 1]);
 
 syms vin1 vin2 vin3 rji1 rji2 rji3 rin1 rin2 rin3 real;
 syms qin1 qin2 qin3 qin4 qji1 qji2 qji3 qji4 vjn1 vjn2 vjn3 real;
 syms wi1 wi2 wi3 wj1 wj2 wj3 ai1 ai2 ai3 aj1 aj2 aj3 real;
 syms v1 v2 v3 v4 v5 v6 v7 v8 v9 v10 v11 v12 real;
 syms rk11 rk12 rk13 rk21 rk22 rk23 rk31 rk32 rk33 real;
-syms n1 n2 n3 n4 n5 n6 real;
+syms n1 n2 n3 n4 n5 n6 n7 n8 n9 n10 n11 n12 n13 n14 n15 n16 n17 n18 real;
 
 % process noiswe vector
 vk = [v1;v2;v3;v4;v5;v6;v7;v8;v9;v10;v11;v12];
 
 % measurement noise vector
-nk = [n1;n2;n3;n4;n5;n6];
+nk = [n1;n2;n3;n4;n5;n6;n7;n8;n9;n10;n11;n12;n13;n14;n15;n16;n17;n18];
 
 % vectors of localizer positions in body frame
 rk1 = [rk11;rk12;rk13];
 rk2 = [rk21;rk22;rk23];
 rk3 = [rk31;rk32;rk33];
+rkj_j = [rk1 rk2 rk3];
 
 rin = [rin1;rin2;rin3];% inertial frame
 vin = [vin1;vin2;vin3];% my body frame
@@ -102,11 +83,14 @@ end
 %% compute the measurement vector
 yk = sym('yk',[6 1])*0;
 
-yk(1:3) = sqrt(sum((repmat(rji,1,3)-Cji'*[rk1 rk2 rk3]).^2,1))' + nk(1:3);
-yk(4:6) = sqrt(sum ((repmat(-rji,1,3) + [rk1 rk2 rk3]).^2,1) )' + nk(4:6);
+yk(1:9) = sqrt(sum( ...
+    (repmat((repmat(rji,1,3)+Cji'*[rk1 rk2 rk3]),1,3)-rkj_j(:,sort(repmat(1:3,1,3))))...
+    .^2,1))' + nk(1:9);
+%yk(4:6) = sqrt(sum ((repmat(rji,1,3) - [rk1 rk2 rk3]).^2,1) )' + nk(10:18);
+yk(10:18) = yk([1 4 7 2 5 8 3 6 9])-nk([1 4 7 2 5 8 3 6 9]) + nk(10:18);
 
-H = sym('H',[6,n])*0;
-C = sym('C',[6,6])*0;
+H = sym('H',[18,n])*0;
+C = sym('C',[18,18])*0;
 for k = 1:n
     H(:,k) = simplify(diff(yk,xk(k)));
 end

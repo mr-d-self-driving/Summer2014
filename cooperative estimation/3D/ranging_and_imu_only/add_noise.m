@@ -1,7 +1,7 @@
 % generate IMU histories
 W = zeros(length(T),3*N);% ang. vel histories
 A = zeros(length(T),3*N);% linear acc. histories
-RF = zeros(length(T),N,3*(N-1));%decawave thing histories
+RF = zeros(length(T),N,9*(N-1));%decawave thing histories
 
 % generate measurements for each agent    
 meas = cell(N,1);
@@ -16,8 +16,9 @@ for II = 1:N
         rsee = zeros(size(rdiff));
         rmeas = zeros(size(rdiff));
         for i = 1:length(T)
-            quat = Yc{II}(i,7:10)';
-            % this agent's inertial attitude
+            quat = Yc{II}(i,7:10)';% this agent's inertial attitude
+            % vector from this agent to the target in this agent's ref
+            % frame
             Cbn = attparsilent(quat,[6 1]);
             rsee(i,:) = rdiff(i,:)*Cbn';
             % target agent's inertial attitude
@@ -28,8 +29,11 @@ for II = 1:N
             %relative vector b to a in b frame is rsee(i,:)
             % each column of rka_b is the b frame relative position of
             % beacon k of agent a, where k is the beacon ##
-            rka_b = Cab*rkj_j + repmat(rsee(i,:)',1,3);
-            RF(i,II,3*(Jcount-1)+1:3) = sqrt(sum(rka_b.^2,1)) + randn(1,3).*std_dec;
+            rka_b = Cab'*rkj_j + repmat(rsee(i,:)',1,3);
+            % generate measurements from each marker on B to each marker on
+            % A
+            rka_b = repmat(rka_b,1,3) - rkj_j(:,sort(repmat(1:3,1,3)));
+            RF(i,II,3*(Jcount-1)+1:9) = sqrt(sum(rka_b.^2,1)) + randn(1,9).*std_dec;
 
             % generate error angle
             delta = randn*err_dev;

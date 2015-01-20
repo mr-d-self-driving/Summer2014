@@ -3,7 +3,7 @@ close all;
 
 global Ts;
 
-addpath('../../2D');
+%addpath('../../2D');
 addpath('../');
 addpath('../full_w_known_features');
 
@@ -17,11 +17,11 @@ load('data_3d.mat');
 
 % error stdevs
 % DecaWave transceiver errors
-std_dec = 1e-4;%0.1/3;% nominal 10 cm acc.
+std_dec = 0.1/3;% nominal 10 cm acc.
 % gyro stdev
-gyro_noise = 1e-6;%rads
+gyro_noise = 1e-2;%rads
 % accelerometer stdev
-accel_noise = 1e-4;%metres/sec^2
+accel_noise = 1e-1;%metres/sec^2
 %%legacy variables%%
 % error stdev in agent-agent measurement
 err_dev = 0.0001;%rads
@@ -95,18 +95,18 @@ for i = 1:2
     xh{i}(1,1:3) = randn(3,1).*[1;1;1];% inertial position, inertial frame
     xh{i}(1,11:13) = randn(3,1).*[5;5;5];%relative position, body frame
     xh{i}(1,4:6) = [0 0 0];%randn(3,1);% inertial velocity, body frame
-    % initial covariance for the 17 base states
-    Ph{i}(1,:) = reshape( diag([0.1*ones(1,3) 0.1*ones(1,3)  0.1*ones(1,4) 0.1*ones(1,3) 0.1*ones(1,4) 0.1*ones(1,3)]) + 1e-6*ones(Ns), Ns2,1)';
+    % initial covariance for the 20 base states
+    Ph{i}(1,:) = reshape( diag([1.0*ones(1,3) 0.01*ones(1,3)  0.2*ones(1,4) 1*ones(1,3) 0.2*ones(1,4) 0.01*ones(1,3)]) + 1e-6*ones(Ns), Ns2,1)';
 end
 
-xh{1}(1,11:13) = rji_i_tr(1,:);
-xh{2}(1,11:13) = rij_j_tr(1,:);
-xh{1}(1,14:17) = qji(1,:);
-xh{2}(1,14:17) = [-qji(1,1) qji(1,2:4)];
+%xh{1}(1,11:13) = rji_i_tr(1,:);
+%xh{2}(1,11:13) = rij_j_tr(1,:);
+%xh{1}(1,14:17) = qji(1,:);
+%xh{2}(1,14:17) = [-qji(1,1) qji(1,2:4)];
 
 %% run filter
 % modelled measurements error
-Rx = diag(std_dec*ones(1,6)).^2;
+Rx = diag(std_dec*ones(1,18)).^2;
 
 tic;
 for j = 1:2
@@ -114,22 +114,12 @@ for j = 1:2
         %% update
         xhat = xh{j}(k,1:Ns)';
         Pk = reshape(Ph{j}(k,1:Ns2)',Ns,Ns);
-        
-        % own state estimates
-        rin = xhat(1:3);
-        qin = xhat(7:10);
-        Cin = attparsilent(qin,[6 1]);
-        
+                
         % measurements - range to other agent's beacons  
         ytilde = zeros(6,1);
-        ytilde(1:3) = permute( RF(k,j,:),[3 1 2]);
+        ytilde(1:9) = permute( RF(k,j,:),[3 1 2]);
         if j == 1
-            ytilde(4:6) = permute( RF(k,2,:),[3 1 2]);
-        else
-            ytilde(4:6) = permute( RF(k,1,:),[3 1 2]);
-        end
-        
-        if j == 1
+            ytilde(10:18) = permute( RF(k,2,:),[3 1 2]);
             % my measured angular velocity
             wi = W(k,1:3)';
             ai = A(k,1:3)';
@@ -137,6 +127,7 @@ for j = 1:2
             wj = W(k,4:6)';
             aj = A(k,4:6)';
         else
+            ytilde(10:18) = permute( RF(k,1,:),[3 1 2]);
             % my measured angular velocity
             wi = W(k,4:6)';
             ai = A(k,4:6)';
@@ -145,18 +136,14 @@ for j = 1:2
             aj = A(k,1:3)';
         end
         
-        % do we get to use HIS measurements of ME here as well?
-        
         % "inputs" vector
         uk = [wi;wj;ai;aj; reshape(rkj_j,9,1)];
-        yk = ytilde;
         
-        Pvk = Qk;
+        %[xp,Pp] = ukf_update_ranging_and_imu(xhat,Pk,Pvk,Pnk,uk,yk,1e-3);
+        [xp,Pp] = ekf_propagate_ranging_and_imu(xhat,uk,Pk,Qk,Ts);
+        [xp,Pp] = ekf_update_ranging_and_imu(xp,uk,Pp,Rx,ytilde);
         
-        Pnk = Rx;
-        
-        [xp,Pp] = ukf_update_ranging_and_imu(xhat,Pk,Pvk,Pnk,uk,yk,1e-3);
-        
+            
         if any(any(isnan(Pp)))
             disp('Error: NaN in covariance output');
             break;
@@ -179,38 +166,63 @@ Pdiag = 1:(Ns+1):Ns2;
 
 qji_in = interp1(T,qji,tv);
 
-xh{1}(:,14:17) = quatmin(xh{1}(:,14:17),qji_in);
-xh{2}(:,14:17) = quatmin(xh{2}(:,14:17),[-qji_in(:,1) qji_in(:,2:4)]);
+xh{1}(:,14:17) = quatmin(xh{1}(:,14:17),qji);
+xh{2}(:,14:17) = quatmin(xh{2}(:,14:17),[-qji(:,1) qji(:,2:4)]);
 
 xh{1}(:,7:10) = quatmin(xh{1}(:,7:10),Yc{1}(:,7:10));
 xh{2}(:,7:10) = quatmin(xh{2}(:,7:10),Yc{2}(:,7:10));
 
-for k = 1:4
-    subplot(2,2,k);
-    plot(tv,xh{1}(:,13+k),'--x');
-    hold on;
-    plot(tv,xh{1}(:,13+k) + 3*sqrt(Ph{1}(:,Pdiag(13+k))),'r--');
-    plot(tv,xh{1}(:,13+k) - 3*sqrt(Ph{1}(:,Pdiag(13+k))),'r--');
-    plot(T,qji(:,k),'k-','linewidth',2);
-    set(gca,'ylim',[-1 1]);
+% rel;ative attitide errors
+err = zeros(length(T),2);
+for k = 1:length(T)
+    Cji = attparsilent(xh{1}(k,14:17)',[6 1]);
+    Cji_tr = attparsilent(qji(k,:)',[6 1]);
+    gar = attparsilent(Cji*Cji_tr',[1 2]);
+    err(k,1) = gar(1,2);
+    Cij = attparsilent(xh{2}(k,14:17)',[6 1]);
+    Cij_tr = attparsilent([-qji(k,1) qji(k,2:4)]',[6 1]);
+    gar = attparsilent(Cij*Cij_tr',[1 2]);
+    err(k,2) = gar(1,2);
 end
-set(gcf,'position',[200 275 1300 625])
+
+% for k = 1:4
+%     subplot(2,2,k);
+%     plot(tv,xh{1}(:,13+k),'--x');
+%     hold on;
+%     plot(tv,xh{1}(:,13+k) + 3*sqrt(Ph{1}(:,Pdiag(13+k))),'r--');
+%     plot(tv,xh{1}(:,13+k) - 3*sqrt(Ph{1}(:,Pdiag(13+k))),'r--');
+%     plot(T,qji(:,k),'k-','linewidth',2);
+%     set(gca,'ylim',[-1 1]);
+% end
+% set(gcf,'position',[200 275 1300 625])
+% title('Agent 1 relative heading estimate');
+% 
+% figure;
+% for k = 1:4
+%     subplot(2,2,k);
+%     plot(tv,xh{2}(:,13+k),'--x');
+%     hold on;
+%     plot(tv,xh{2}(:,13+k) + 3*sqrt(Ph{2}(:,Pdiag(13+k))),'r--');
+%     plot(tv,xh{2}(:,13+k) - 3*sqrt(Ph{2}(:,Pdiag(13+k))),'r--');
+%     if k == 1
+%         plot(T,-qji(:,k),'k-','linewidth',2);
+%     else
+%         plot(T,qji(:,k),'k-','linewidth',2);
+%     end
+%     set(gca,'ylim',[-1 1]);
+% end
+% set(gcf,'position',[200 275 1300 625])
+% title('Agent 2 relative heading estimate');
 
 figure;
-for k = 1:4
-    subplot(2,2,k);
-    plot(tv,xh{2}(:,13+k),'--x');
-    hold on;
-    plot(tv,xh{2}(:,13+k) + 3*sqrt(Ph{2}(:,Pdiag(13+k))),'r--');
-    plot(tv,xh{2}(:,13+k) - 3*sqrt(Ph{2}(:,Pdiag(13+k))),'r--');
-    if k == 1
-        plot(T,-qji(:,k),'k-','linewidth',2);
-    else
-        plot(T,qji(:,k),'k-','linewidth',2);
-    end
-    set(gca,'ylim',[-1 1]);
-end
-set(gcf,'position',[200 275 1300 625])
+subplot(211);
+plot(tv,err(:,1));
+title('Agent 1 relative heading estimate angle error')
+
+subplot(212);
+plot(tv,err(:,2));
+title('Agent 2 relative heading estimate angle error')
+set(gcf,'position',[200 275 1300 625]);
 
 figure;
 for k = 1:3
@@ -222,6 +234,7 @@ for k = 1:3
     plot(T,rji_i_tr(:,k),'k-','linewidth',2);
 end
 set(gcf,'position',[200 275 1300 625])
+title('Agent 1 estimate of agent 2 position');
 
 figure;
 for k = 1:3
@@ -233,6 +246,7 @@ for k = 1:3
     plot(T,rij_j_tr(:,k),'k-','linewidth',2);
 end
 set(gcf,'position',[200 275 1300 625])
+title('Agent 2 estimate of agent 1 position');
 
 figure;
 for k = 1:3
@@ -241,7 +255,12 @@ for k = 1:3
     hold on;
     plot(tv,xh{1}(:,17+k) + 3*sqrt(Ph{1}(:,Pdiag(17+k))),'r--');
     plot(tv,xh{1}(:,17+k) - 3*sqrt(Ph{1}(:,Pdiag(17+k))),'r--');
+    % plot 2's own velocity estimate
+    plot(tv,xh{2}(:,3+k),'g--x');
+    plot(tv,xh{2}(:,3+k) + 3*sqrt(Ph{2}(:,Pdiag(3+k))),'r--');
+    plot(tv,xh{2}(:,3+k) - 3*sqrt(Ph{2}(:,Pdiag(3+k))),'r--');
     plot(T,v2_2(:,k),'k-','linewidth',2);
+    title('Estimates of agent 2 velocity');
 end
 set(gcf,'position',[200 275 1300 625])
 
@@ -252,6 +271,11 @@ for k = 1:3
     hold on;
     plot(tv,xh{2}(:,17+k) + 3*sqrt(Ph{2}(:,Pdiag(17+k))),'r--');
     plot(tv,xh{2}(:,17+k) - 3*sqrt(Ph{2}(:,Pdiag(17+k))),'r--');
+    % plot 1's own velocity estimate
+    plot(tv,xh{1}(:,3+k),'g--x');
+    plot(tv,xh{1}(:,3+k) + 3*sqrt(Ph{1}(:,Pdiag(3+k))),'r--');
+    plot(tv,xh{1}(:,3+k) - 3*sqrt(Ph{1}(:,Pdiag(3+k))),'r--');
     plot(T,v1_1(:,k),'k-','linewidth',2);
+    title('Estimates of agent 1 velocity');
 end
 set(gcf,'position',[200 275 1300 625])
