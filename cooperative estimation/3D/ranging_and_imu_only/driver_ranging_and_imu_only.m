@@ -96,17 +96,17 @@ for i = 1:2
     xh{i}(1,11:13) = randn(3,1).*[5;5;5];%relative position, body frame
     xh{i}(1,4:6) = [0 0 0];%randn(3,1);% inertial velocity, body frame
     % initial covariance for the 17 base states
-    Ph{i}(1,:) = reshape( diag([0.1*ones(1,3) 0.1*ones(1,3)  0.1*ones(1,4) 0.1*ones(1,3) 0.1*ones(1,4) 0.1*ones(1,3)]) + 1e-6*ones(Ns), Ns2,1)';
+    Ph{i}(1,:) = reshape( diag([1*ones(1,3) 0.01*ones(1,3)  0.2*ones(1,4) 1*ones(1,3) 0.01*ones(1,4) 0.2*ones(1,3)]) + 1e-6*ones(Ns), Ns2,1)';
 end
 
-xh{1}(1,11:13) = rji_i_tr(1,:);
-xh{2}(1,11:13) = rij_j_tr(1,:);
-xh{1}(1,14:17) = qji(1,:);
-xh{2}(1,14:17) = [-qji(1,1) qji(1,2:4)];
+%xh{1}(1,11:13) = rji_i_tr(1,:);
+%xh{2}(1,11:13) = rij_j_tr(1,:);
+%xh{1}(1,14:17) = qji(1,:);
+%xh{2}(1,14:17) = [-qji(1,1) qji(1,2:4)];
 
 %% run filter
 % modelled measurements error
-Rx = diag(std_dec*ones(1,6)).^2;
+Rx = diag(std_dec*ones(1,18)).^2;
 
 tic;
 for j = 1:2
@@ -121,15 +121,10 @@ for j = 1:2
         Cin = attparsilent(qin,[6 1]);
         
         % measurements - range to other agent's beacons  
-        ytilde = zeros(6,1);
-        ytilde(1:3) = permute( RF(k,j,:),[3 1 2]);
+        ytilde = zeros(18,1);
+        ytilde(1:9) = permute( RF(k,j,:),[3 1 2]);
         if j == 1
-            ytilde(4:6) = permute( RF(k,2,:),[3 1 2]);
-        else
-            ytilde(4:6) = permute( RF(k,1,:),[3 1 2]);
-        end
-        
-        if j == 1
+            ytilde(10:18) = permute( RF(k,2,:),[3 1 2]);
             % my measured angular velocity
             wi = W(k,1:3)';
             ai = A(k,1:3)';
@@ -137,6 +132,7 @@ for j = 1:2
             wj = W(k,4:6)';
             aj = A(k,4:6)';
         else
+            ytilde(10:18) = permute( RF(k,1,:),[3 1 2]);
             % my measured angular velocity
             wi = W(k,4:6)';
             ai = A(k,4:6)';

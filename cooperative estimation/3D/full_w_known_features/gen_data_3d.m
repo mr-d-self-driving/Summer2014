@@ -13,7 +13,7 @@ if ~exist('data_3d.mat','file');
     % sample time
     Ts = 0.02;
     % sim time
-    Tmax = 300;
+    Tmax = 40;
     
     % number of known features
     M = 0*5;

@@ -98,6 +98,7 @@ xn = xp + Kk*(ytilde-yhat);
 % renormalize quaternions as necessary
 xn(7:10) = xn(7:10)/norm(xn(7:10));
 xn(14:17) = xn(14:17)/norm(xn(14:17));
+
 xnew = xn;
 Pnew = Pp - Kk*Pyk*Kk';
 end

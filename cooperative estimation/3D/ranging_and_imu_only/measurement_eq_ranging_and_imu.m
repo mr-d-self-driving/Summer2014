@@ -33,10 +33,12 @@ for k = 1:size(xk,2)
     Cji = attparsilentmex(qhat,[6 1]);
     
     % predicted vectors to each of the other agent's localizers
-    rkj_i = repmat(rji_i_hat,1,3) + Cji'*rkj_j;
-    yk(1:3,k) = sqrt(sum(rkj_i.^2,1))' + nv(1:3);
+    rka_b = (repmat(rji_i_hat,1,3)+Cji'*rkj_j);% vector from b origin to each marker on a
+    yk(1:9,k) = sqrt(sum((repmat(rka_b,1,3)-rkj_j(:,sort(repmat(1:3,1,3)))).^2,1))';
     
-    yk(4:6,k) = sqrt(sum ((repmat(rji_i_hat,1,3) - rkj_j).^2,1) )' + nv(4:6);
+    yk(10:18,k) = yk([1 4 7 2 5 8 3 6 9],k);
+    % add measurement noise
+    yk(:,k) = yk(:,k) + nv;
 end
 
 end
