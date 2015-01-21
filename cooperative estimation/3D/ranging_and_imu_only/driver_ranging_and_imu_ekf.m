@@ -279,3 +279,30 @@ for k = 1:3
     title('Estimates of agent 1 velocity');
 end
 set(gcf,'position',[200 275 1300 625])
+
+%% plot estimated relative velocities
+vrel_1 = zeros(length(T),3);
+vrel_2 = zeros(length(T),3);
+vrel_1_tr = zeros(length(T),3);
+vrel_2_tr = zeros(length(T),3);
+for k = 1:length(T)
+    C21 = attparsilent(xh{1}(k,14:17)',[6 1]);
+    vrel_1(k,:) = xh{1}(k,18:20)*C21 - xh{1}(k,4:6);
+    C12 = attparsilent(xh{2}(k,14:17)',[6 1]);
+    vrel_2(k,:) = xh{2}(k,18:20)*C12 - xh{2}(k,4:6);
+    
+    C1n = attparsilent(Yc{1}(k,7:10)',[6 1]);
+    C2n = attparsilent(Yc{2}(k,7:10)',[6 1]);
+    vrel_1_tr(k,:) = (Yc{2}(k,4:6)-Yc{1}(k,4:6))*C1n';
+    vrel_2_tr(k,:) = -(Yc{2}(k,4:6)-Yc{1}(k,4:6))*C2n';
+end
+figure;
+subplot(211);
+plot(T,vrel_1);
+hold on;
+plot(T,vrel_1_tr,'--');
+
+subplot(212);
+plot(T,vrel_2);
+hold on;
+plot(T,vrel_2_tr,'--');
